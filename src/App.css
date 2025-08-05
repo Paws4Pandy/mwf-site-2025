@@ -1,0 +1,6 @@
+/* App.css - Clean styles for mortgage app */
+#root {
+  font-family: 'Open Sauce One', sans-serif;
+}
+
+/* Remove legacy styles - all styling now handled by Tailwind and design system */
