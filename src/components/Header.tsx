@@ -9,7 +9,7 @@ interface HeaderProps {
 const Header: React.FC<HeaderProps> = ({ showDivider = true }) => {
   return (
     <>
-      <header className="py-4 px-4 md:px-8 bg-soft-white">
+      <header className="py-4 px-4 md:px-8 bg-design-cream">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 opacity-0 animate-fade-in">
             
@@ -22,25 +22,26 @@ const Header: React.FC<HeaderProps> = ({ showDivider = true }) => {
                   className="h-10 md:h-12"
                 />
                 <div className="text-left">
-                  <h3 className="font-Arial font-bold text-medium text-black">
+                  <h3 className="font-sans font-bold text-base text-black">
                     #13463
                   </h3>
+                </div>
               </Link>
               
               <div className="hidden md:flex items-center gap-4">
                 <img 
                   src="/src/assets/images/headshots/andreina-ford-white-black2.jpg" 
                   alt="Andreina Ford" 
-                  className="w-14 h-14 rounded-full object-cover border-2 border-brand-#efe0df"
+                  className="w-14 h-14 rounded-full object-cover border-2 border-light-crimson"
                 />
                 <div className="text-left">
-                  <h3 className="font-times-new-roman font-bold text-lg text-charcoal">
+                  <h3 className="font-serif font-bold text-lg text-design-charcoal">
                     Andreina Ford
                   </h3>
-                  <p className="font-times-new-roman font-bold text-lg text-charcoal">
+                  <p className="font-serif font-bold text-lg text-design-charcoal">
                     Mortgage Agent Level 2
                   </p>
-                  <p className="font-times-new-roman font-bold text-lg text-charcoal">
+                  <p className="font-serif font-bold text-lg text-design-charcoal">
                     Prince Edward County & Ontario Wide
                   </p>
                 </div>
@@ -51,7 +52,7 @@ const Header: React.FC<HeaderProps> = ({ showDivider = true }) => {
             <div className="flex-shrink-0">
               <Link 
                 to="/playbooks" 
-                className="inline-flex items-center px-5 py-2.5 bg-brand-burgundy text-soft-white font-opensauce font-medium text-sm rounded-lg hover:bg-charcoal transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
+                className="inline-flex items-center px-5 py-2.5 bg-design-gold text-white font-hk-grotesk-light font-medium text-sm rounded-lg hover:bg-design-charcoal transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
               >
                 📚 Free Mortgage Playbooks
               </Link>
@@ -61,7 +62,7 @@ const Header: React.FC<HeaderProps> = ({ showDivider = true }) => {
       </header>
       
       {showDivider && (
-        <Separator className="bg-brand-burgundy/20 h-px" />
+        <Separator className="bg-design-plum/20 h-px" />
       )}
     </>
   );

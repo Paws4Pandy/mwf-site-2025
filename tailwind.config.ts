@@ -20,12 +20,16 @@ export default {
 		},
 		extend: {
 			fontFamily: {
+				// New Design System Fonts
+				'anton': ['Anton', 'sans-serif'],
+				'tan-ashford': ['TAN ASHFORD', 'serif'],
+				'hk-grotesk-light': ['HK Grotesk', 'sans-serif'],
+				'times': ['Times', '"Times New Roman"', 'serif'],
+				// Legacy fonts (keep for backward compatibility)
 				'league-spartan': ['League Spartan', 'sans-serif'],
 				'times-italic': ['Times', '"Times New Roman"', 'serif'],
 				'hammersmith': ['Hammersmith One', 'sans-serif'],
 				'opensauce': ['Open Sauce One', 'sans-serif'],
-				// Legacy fonts (keep for backward compatibility)
-				'anton': ['Anton', 'sans-serif'],
 				serif: ['Playfair Display', 'serif'],
 				sans: ['Montserrat', 'sans-serif'],
 				roboto: ['Roboto', 'sans-serif'],
@@ -74,34 +78,12 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// New Professional Brand Colors
-				'brand-burgundy': '#962547',    // Primary brand color
-				'warm-cream': '#efe0df',        // Light backgrounds
-				'charcoal': '#1d1b1e',          // Dark text/backgrounds  
-				'soft-white': '#fff3f0',        // Off-white backgrounds
-				'bronze': '#8c5504',            // Accent color
-				'slate-blue': '#35444b',        // Secondary text color
-				// Legacy colors (deprecated)
-				'pure-black': '#000000',
-				'pure-white': '#ffffff', 
-				'muted-red': '#8c3839',
-				'light-azure': '#cedeeb',
-				'light-crimson': '#ffd3db',
-				'brand-red': '#da7073',
-				'hunter-green': '#2b4743',
-				'gray-orange': '#dda83f',
-				// Legacy colors (keep for backward compatibility)
-				brx: {
-					dark: '#2D243B',        // Deep violet
-					green: '#2E5D4B',       // Hunter green
-					'deep-green': '#1A3C2A', // Darker hunter green
-					'emerald': '#2A5541',   // Emerald green (new)
-					black: '#14151A',        // Near black
-					accent: '#8A5BAF',       // Light violet accent
-					cream: '#F7F3E3',        // Cream
-					beige: '#E8E3D0',        // Beige/off-white
-					white: '#FFFFFF',        // Pure white
-				},
+				// Premium Design System Colors (2024-2025)
+				'design-charcoal': '#423E3A',   // Primary text - authoritative
+				'design-plum': '#844E6B',       // Accent text - sophisticated  
+				'design-sage': '#BBCEC9',       // Supporting backgrounds
+				'design-gold': '#DAB453',       // Premium CTAs - attention
+				'design-cream': '#EFE0DF',      // Primary background - warm
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -151,7 +133,15 @@ export default {
 						transform: 'translateY(0)'
 					},
 					'50%': {
-						transform: 'translateY(-10px)'
+						transform: 'translateY(-6px)'
+					}
+				},
+				'premium-glow': {
+					'0%': {
+						boxShadow: '0 4px 14px 0 rgba(218, 180, 83, 0.15), 0 2px 4px 0 rgba(218, 180, 83, 0.1)'
+					},
+					'100%': {
+						boxShadow: '0 8px 32px 0 rgba(218, 180, 83, 0.25), 0 4px 8px 0 rgba(218, 180, 83, 0.15)'
 					}
 				},
 			},
@@ -162,8 +152,12 @@ export default {
 				'fade-in-delay-1': 'fade-in 0.6s ease-out 0.2s forwards',
 				'fade-in-delay-2': 'fade-in 0.6s ease-out 0.4s forwards',
 				'fade-in-delay-3': 'fade-in 0.6s ease-out 0.6s forwards',
+				'fade-in-delay-4': 'fade-in 0.6s ease-out 0.8s forwards',
+				'fade-in-delay-5': 'fade-in 0.6s ease-out 1.0s forwards',
+				'fade-in-delay-6': 'fade-in 0.6s ease-out 1.2s forwards',
 				'glow': 'glow 3s ease-in-out infinite',
-				'float': 'float 6s ease-in-out infinite',
+				'float': 'float 3s ease-in-out infinite',
+				'premium-glow': 'premium-glow 0.3s ease-in-out forwards',
 			},
 			backgroundImage: {
 				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
