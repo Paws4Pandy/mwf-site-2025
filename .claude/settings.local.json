@@ -18,7 +18,9 @@
       "Bash(npm outdated)",
       "Bash(npx update-browserslist-db:*)",
       "Bash(npm update:*)",
-      "WebFetch(domain:www.figma.com)"
+      "WebFetch(domain:www.figma.com)",
+      "Bash(find:*)",
+      "Bash(taskkill:*)"
     ],
     "deny": []
   }

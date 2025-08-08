@@ -24,6 +24,7 @@ export default {
 				'anton': ['Anton', 'sans-serif'],
 				'tan-ashford': ['TAN ASHFORD', 'serif'],
 				'hk-grotesk-light': ['HK Grotesk', 'sans-serif'],
+				'noto-serif-display': ['Noto Serif Display', 'serif'],
 				'times': ['Times', '"Times New Roman"', 'serif'],
 				// Legacy fonts (keep for backward compatibility)
 				'league-spartan': ['League Spartan', 'sans-serif'],

@@ -2,6 +2,7 @@
 /* New Design System Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Anton:wght@400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=HK+Grotesk:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Display:ital,wght@1,400&display=swap');
 /* Legacy fonts */
 @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;400;500;600;700;800;900&family=Hammersmith+One:wght@400&family=Open+Sauce+One:wght@300;400;500;600;700;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Montserrat:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700;900&display=swap');
@@ -397,6 +398,40 @@
 
   .animate-icon-float {
     animation: icon-float 3s ease-in-out infinite;
+  }
+
+  /* Custom Slider Styling */
+  .slider-custom::-webkit-slider-thumb {
+    appearance: none;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background: #844E6B; /* design-plum - light plum color */
+    cursor: pointer;
+    border: 2px solid #DAB453; /* design-gold border */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    transition: all 0.2s ease;
+  }
+
+  .slider-custom::-webkit-slider-thumb:hover {
+    background: #DAB453; /* design-gold on hover */
+    transform: scale(1.1);
+  }
+
+  .slider-custom::-moz-range-thumb {
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background: #844E6B; /* design-plum - light plum color */
+    cursor: pointer;
+    border: 2px solid #DAB453; /* design-gold border */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    transition: all 0.2s ease;
+  }
+
+  .slider-custom::-moz-range-thumb:hover {
+    background: #DAB453; /* design-gold on hover */
+    transform: scale(1.1);
   }
 
   /* Fallback for non-supporting browsers */

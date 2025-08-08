@@ -1,0 +1,5509 @@
+/* Dark mode */
+
+position: relative;
+width: 766px;
+height: 575px;
+
+background: #1A1A1A;
+
+
+/* Wallet */
+
+position: absolute;
+width: 64px;
+height: 64px;
+left: 40px;
+top: 24px;
+
+
+
+/* Bg */
+
+box-sizing: border-box;
+
+position: absolute;
+width: 64px;
+height: 64px;
+left: 40px;
+top: 24px;
+
+background: #1A1A1A;
+/* Drop Shadow */
+box-shadow: 0px 15px 30px -6px rgba(0, 0, 0, 0.55);
+border-radius: 15px;
+
+
+/* Wallet */
+
+position: absolute;
+width: 32px;
+height: 32px;
+left: 56px;
+top: 40px;
+
+
+
+/* Frame 1 */
+
+position: absolute;
+width: 32px;
+height: 27.95px;
+left: 0px;
+top: 2px;
+
+
+
+/* Vector */
+
+position: absolute;
+left: 0%;
+right: 9.38%;
+top: 0%;
+bottom: 17.86%;
+
+/* Yellow-Orange/Color */
+background: linear-gradient(97.91deg, #FFDB94 6.1%, #FE749C 103.66%);
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 17.86%;
+bottom: 0%;
+
+/* Yellow-Orange/Color */
+background: linear-gradient(97.91deg, #FFDB94 6.1%, #FE749C 103.66%);
+box-shadow: inset 0px 1.625px 6.5px rgba(255, 255, 255, 0.4);
+backdrop-filter: blur(4.875px);
+/* Note: backdrop-filter has minimal browser support */
+border-radius: 6.5px;
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 59.38%;
+right: 0%;
+top: 46.43%;
+bottom: 28.57%;
+
+/* Highlight/100 */
+background: linear-gradient(268.13deg, #FFFFFF 7.44%, rgba(255, 255, 255, 0.2) 115.42%);
+box-shadow: 5.82292px 2.32917px 5.82292px rgba(39, 133, 230, 0.4);
+backdrop-filter: blur(8.73438px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 65.62%;
+right: 18.75%;
+top: 50%;
+bottom: 32.14%;
+
+/* Highlight/100 */
+background: linear-gradient(268.13deg, #FFFFFF 7.44%, rgba(255, 255, 255, 0.2) 115.42%);
+box-shadow: 5.90624px 2.36249px 5.90624px rgba(39, 133, 230, 0.4);
+backdrop-filter: blur(8.85935px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Money */
+
+position: absolute;
+width: 64px;
+height: 64px;
+left: 129px;
+top: 24px;
+
+
+
+/* Bg */
+
+box-sizing: border-box;
+
+position: absolute;
+width: 64px;
+height: 64px;
+left: 129px;
+top: 24px;
+
+background: #1A1A1A;
+/* Drop Shadow */
+box-shadow: 0px 15px 30px -6px rgba(0, 0, 0, 0.55);
+border-radius: 15px;
+
+
+/* Money */
+
+position: absolute;
+width: 32px;
+height: 32px;
+left: 145px;
+top: 40px;
+
+
+
+/* Vector */
+
+position: absolute;
+left: 6.25%;
+right: 0%;
+top: 12.5%;
+bottom: 12.5%;
+
+/* Yellow-Orange/Color */
+background: linear-gradient(97.91deg, #FFDB94 6.1%, #FE749C 103.66%);
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 0%;
+right: 9.38%;
+top: 37.5%;
+bottom: 12.5%;
+
+/* Yellow-Orange/Fill */
+background: linear-gradient(117.15deg, rgba(255, 219, 148, 0.1) -0.12%, rgba(254, 116, 156, 0.1) 99.54%), rgba(241, 241, 241, 0.2);
+box-shadow: inset 0px 1.625px 6.5px rgba(255, 255, 255, 0.4);
+backdrop-filter: blur(4.875px);
+/* Note: backdrop-filter has minimal browser support */
+border-radius: 6.5px;
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 31.25%;
+right: 43.75%;
+top: 50%;
+bottom: 25%;
+
+/* Highlight/100 */
+background: linear-gradient(268.13deg, #FFFFFF 7.44%, rgba(255, 255, 255, 0.2) 115.42%);
+box-shadow: 0px 1.5px 5px rgba(39, 133, 230, 0.5);
+backdrop-filter: blur(8.85935px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Rectangle 1 */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 12.5%;
+right: 75%;
+top: 59.38%;
+bottom: 34.38%;
+
+/* Highlight/100 */
+background: linear-gradient(268.13deg, #FFFFFF 7.44%, rgba(255, 255, 255, 0.2) 115.42%);
+box-shadow: 0px 1.5px 5px rgba(39, 133, 230, 0.5);
+backdrop-filter: blur(8.85935px);
+/* Note: backdrop-filter has minimal browser support */
+border-radius: 5px;
+
+
+/* Rectangle 2 */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 62.5%;
+right: 25%;
+top: 59.38%;
+bottom: 34.38%;
+
+/* Highlight/100 */
+background: linear-gradient(268.13deg, #FFFFFF 7.44%, rgba(255, 255, 255, 0.2) 115.42%);
+box-shadow: 0px 1.5px 5px rgba(39, 133, 230, 0.5);
+backdrop-filter: blur(8.85935px);
+/* Note: backdrop-filter has minimal browser support */
+border-radius: 5px;
+
+
+/* Piggy Bank */
+
+position: absolute;
+width: 64px;
+height: 64px;
+left: 218px;
+top: 24px;
+
+
+
+/* Bg */
+
+box-sizing: border-box;
+
+position: absolute;
+width: 64px;
+height: 64px;
+left: 218px;
+top: 24px;
+
+background: #1A1A1A;
+/* Drop Shadow */
+box-shadow: 0px 15px 30px -6px rgba(0, 0, 0, 0.55);
+border-radius: 15px;
+
+
+/* Piggy Bank */
+
+position: absolute;
+left: 30.55%;
+right: 65.27%;
+top: 6.96%;
+bottom: 87.48%;
+
+
+
+/* Vector */
+
+position: absolute;
+left: 60%;
+right: 0%;
+top: 0%;
+bottom: 60%;
+
+/* Yellow-Orange/Color */
+background: linear-gradient(97.91deg, #FFDB94 6.1%, #FE749C 103.66%);
+
+
+/* Vector */
+
+position: absolute;
+left: 12.5%;
+right: 12.5%;
+top: 12.5%;
+bottom: 12.5%;
+
+background: linear-gradient(97.91deg, #FFDB94 6.1%, #FE749C 103.66%);
+opacity: 0.5;
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 0%;
+right: 3.4%;
+top: 3.33%;
+bottom: 2.74%;
+
+/* Yellow-Orange/Fill */
+background: linear-gradient(117.15deg, rgba(255, 219, 148, 0.1) -0.12%, rgba(254, 116, 156, 0.1) 99.54%), rgba(241, 241, 241, 0.2);
+box-shadow: inset 0px 1.625px 6.5px rgba(255, 255, 255, 0.4);
+backdrop-filter: blur(4.875px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 28.85%;
+right: 59.08%;
+top: 30.76%;
+bottom: 57.01%;
+
+/* Highlight/100 */
+background: linear-gradient(268.13deg, #FFFFFF 7.44%, rgba(255, 255, 255, 0.2) 115.42%);
+box-shadow: 0px 1.5px 5px rgba(254, 116, 156, 0.5);
+backdrop-filter: blur(8.85935px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Bank */
+
+position: absolute;
+width: 64px;
+height: 64px;
+left: 307px;
+top: 24px;
+
+
+
+/* Bg */
+
+box-sizing: border-box;
+
+position: absolute;
+width: 64px;
+height: 64px;
+left: 307px;
+top: 24px;
+
+background: #1A1A1A;
+/* Drop Shadow */
+box-shadow: 0px 15px 30px -6px rgba(0, 0, 0, 0.55);
+border-radius: 15px;
+
+
+/* Bank */
+
+position: absolute;
+left: 42.17%;
+right: 53.66%;
+top: 6.96%;
+bottom: 87.48%;
+
+
+
+/* Vector */
+
+position: absolute;
+left: 12.5%;
+right: 26.29%;
+top: 0%;
+bottom: 25.29%;
+
+/* Yellow-Orange/Color */
+background: linear-gradient(97.91deg, #FFDB94 6.1%, #FE749C 103.66%);
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 23.37%;
+right: 9.38%;
+top: 9.31%;
+bottom: 8.77%;
+
+/* Yellow-Orange/Color */
+background: linear-gradient(97.91deg, #FFDB94 6.1%, #FE749C 103.66%);
+box-shadow: inset 0px 1.625px 6.5px rgba(255, 255, 255, 0.4);
+backdrop-filter: blur(4.875px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 23.37%;
+right: 9.38%;
+top: 48.13%;
+bottom: 8.77%;
+
+/* Highlight/100 */
+background: linear-gradient(268.13deg, #FFFFFF 7.44%, rgba(255, 255, 255, 0.2) 115.42%);
+box-shadow: 0px 0px 5px rgba(141, 160, 255, 0.5);
+backdrop-filter: blur(8.85935px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Group */
+
+position: absolute;
+left: 23.37%;
+right: 9.38%;
+top: 9.31%;
+bottom: 59.92%;
+
+filter: drop-shadow(-1.5px 2px 5px rgba(141, 160, 255, 0.5));
+backdrop-filter: blur(8.85935px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 23.37%;
+right: 9.38%;
+top: 9.31%;
+bottom: 59.92%;
+
+/* Highlight/100 */
+background: linear-gradient(268.13deg, #FFFFFF 7.44%, rgba(255, 255, 255, 0.2) 115.42%);
+
+
+/* Credit Card */
+
+position: absolute;
+width: 64px;
+height: 64px;
+left: 396px;
+top: 24px;
+
+
+
+/* Bg */
+
+box-sizing: border-box;
+
+position: absolute;
+width: 64px;
+height: 64px;
+left: 396px;
+top: 24px;
+
+background: #1A1A1A;
+/* Drop Shadow */
+box-shadow: 0px 15px 30px -6px rgba(0, 0, 0, 0.55);
+border-radius: 15px;
+
+
+/* Credit Card */
+
+position: absolute;
+left: 53.79%;
+right: 42.04%;
+top: 6.96%;
+bottom: 87.48%;
+
+
+
+/* Vector */
+
+position: absolute;
+left: 0.16%;
+right: 1.94%;
+top: 9.38%;
+bottom: 12.3%;
+
+/* Pink-Purple/Color */
+background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(97.91deg, #FFC6E8 6.1%, #CA9CFF 103.66%);
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 9.38%;
+right: 0%;
+top: 24.84%;
+bottom: 12.66%;
+
+/* Pink-Purple/Fill */
+background: linear-gradient(117.15deg, rgba(255, 163, 219, 0.1) -0.12%, rgba(191, 130, 238, 0.1) 99.54%), rgba(241, 241, 241, 0.1);
+box-shadow: inset 0px 1.625px 6.5px rgba(255, 255, 255, 0.4);
+backdrop-filter: blur(4.875px);
+/* Note: backdrop-filter has minimal browser support */
+border-radius: 6.5px;
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 17.46%;
+right: 6.88%;
+top: 38.58%;
+bottom: 49.36%;
+
+/* Highlight/100 */
+background: linear-gradient(268.13deg, #FFFFFF 7.44%, rgba(255, 255, 255, 0.2) 115.42%);
+backdrop-filter: blur(8.73438px);
+/* Note: backdrop-filter has minimal browser support */
+border-radius: 1px;
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 75.66%;
+right: 6.88%;
+top: 62.7%;
+bottom: 31.01%;
+
+/* Highlight/100 */
+background: linear-gradient(268.13deg, #FFFFFF 7.44%, rgba(255, 255, 255, 0.2) 115.42%);
+box-shadow: 5.82292px 2.32917px 5.82292px rgba(39, 133, 230, 0.4);
+backdrop-filter: blur(8.73438px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 46.56%;
+right: 29.1%;
+top: 62.7%;
+bottom: 31.01%;
+
+/* Highlight/100 */
+background: linear-gradient(268.13deg, #FFFFFF 7.44%, rgba(255, 255, 255, 0.2) 115.42%);
+box-shadow: 5.82292px 2.32917px 5.82292px rgba(39, 133, 230, 0.4);
+backdrop-filter: blur(8.73438px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Dollar Coin */
+
+position: absolute;
+width: 64px;
+height: 64px;
+left: 485px;
+top: 24px;
+
+
+
+/* Bg */
+
+box-sizing: border-box;
+
+position: absolute;
+width: 64px;
+height: 64px;
+left: 485px;
+top: 24px;
+
+background: #1A1A1A;
+/* Drop Shadow */
+box-shadow: 0px 15px 30px -6px rgba(0, 0, 0, 0.55);
+border-radius: 15px;
+
+
+/* Dollar Coin */
+
+position: absolute;
+left: 65.4%;
+right: 30.42%;
+top: 6.96%;
+bottom: 87.48%;
+
+
+
+/* Vector */
+
+position: absolute;
+left: 26.83%;
+right: 7.97%;
+top: 26.52%;
+bottom: 7.95%;
+
+/* Green-Blue/Color */
+background: linear-gradient(97.91deg, #7FFBE5 6.1%, #84BEFA 103.66%);
+
+
+/* Vector */
+
+position: absolute;
+left: 12.5%;
+right: 50%;
+top: 15.48%;
+bottom: 47.02%;
+
+/* Blue-Violet/Color */
+background: linear-gradient(97.91deg, #A9E0FF 6.1%, #8DA0FF 103.66%);
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 9.38%;
+right: 25.43%;
+top: 9.38%;
+bottom: 25.1%;
+
+/* Green-Blue/Fill */
+background: linear-gradient(117.15deg, rgba(127, 251, 229, 0.1) -0.12%, rgba(132, 190, 250, 0.1) 99.54%), rgba(241, 241, 241, 0.1);
+box-shadow: inset 0px 1.625px 6.5px rgba(255, 255, 255, 0.4);
+backdrop-filter: blur(4.875px);
+/* Note: backdrop-filter has minimal browser support */
+border-radius: 6.5px;
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 9.38%;
+right: 25.43%;
+top: 9.38%;
+bottom: 25.1%;
+
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 28.12%;
+right: 46.88%;
+top: 21.73%;
+bottom: 34.52%;
+
+/* Highlight/100 */
+background: linear-gradient(268.13deg, #FFFFFF 7.44%, rgba(255, 255, 255, 0.2) 115.42%);
+box-shadow: 0px 1.5px 5px rgba(39, 133, 230, 0.5);
+backdrop-filter: blur(8.85935px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Bitcoin */
+
+position: absolute;
+width: 64px;
+height: 64px;
+left: 574px;
+top: 24px;
+
+
+
+/* Bg */
+
+box-sizing: border-box;
+
+position: absolute;
+width: 64px;
+height: 64px;
+left: 574px;
+top: 24px;
+
+background: #1A1A1A;
+/* Drop Shadow */
+box-shadow: 0px 15px 30px -6px rgba(0, 0, 0, 0.55);
+border-radius: 15px;
+
+
+/* Bitcoin */
+
+position: absolute;
+left: 77.02%;
+right: 18.8%;
+top: 6.96%;
+bottom: 87.48%;
+
+
+
+/* Vector */
+
+position: absolute;
+left: 26.83%;
+right: 7.97%;
+top: 26.52%;
+bottom: 7.95%;
+
+/* Yellow-Orange/Color */
+background: linear-gradient(97.91deg, #FFDB94 6.1%, #FE749C 103.66%);
+
+
+/* Vector */
+
+position: absolute;
+left: 15.62%;
+right: 46.88%;
+top: 12.36%;
+bottom: 50.14%;
+
+/* Pink-Purple/Color */
+background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(97.91deg, #FFC6E8 6.1%, #CA9CFF 103.66%);
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 9.38%;
+right: 25.43%;
+top: 9.38%;
+bottom: 25.1%;
+
+/* Yellow-Orange/Fill */
+background: linear-gradient(117.15deg, rgba(255, 219, 148, 0.1) -0.12%, rgba(254, 116, 156, 0.1) 99.54%), rgba(241, 241, 241, 0.2);
+box-shadow: inset 0px 1.625px 6.5px rgba(255, 255, 255, 0.4);
+backdrop-filter: blur(4.875px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 9.38%;
+right: 25.43%;
+top: 9.38%;
+bottom: 25.1%;
+
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 31.25%;
+right: 46.88%;
+top: 21.73%;
+bottom: 34.52%;
+
+/* Highlight/100 */
+background: linear-gradient(268.13deg, #FFFFFF 7.44%, rgba(255, 255, 255, 0.2) 115.42%);
+box-shadow: 0px 1.5px 5px rgba(254, 116, 156, 0.5);
+backdrop-filter: blur(8.85935px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Euro */
+
+position: absolute;
+width: 64px;
+height: 64px;
+left: 663px;
+top: 24px;
+
+
+
+/* Bg */
+
+box-sizing: border-box;
+
+position: absolute;
+width: 64px;
+height: 64px;
+left: 663px;
+top: 24px;
+
+background: #1A1A1A;
+/* Drop Shadow */
+box-shadow: 0px 15px 30px -6px rgba(0, 0, 0, 0.55);
+border-radius: 15px;
+
+
+/* Euro */
+
+position: absolute;
+left: 88.64%;
+right: 7.18%;
+top: 6.96%;
+bottom: 87.48%;
+
+
+
+/* Vector */
+
+position: absolute;
+left: 26.83%;
+right: 7.97%;
+top: 26.52%;
+bottom: 7.95%;
+
+/* Blue-Violet/Color */
+background: linear-gradient(97.91deg, #A9E0FF 6.1%, #8DA0FF 103.66%);
+
+
+/* Vector */
+
+position: absolute;
+left: 15.62%;
+right: 46.88%;
+top: 12.36%;
+bottom: 50.14%;
+
+/* Blue-Violet/Color */
+background: linear-gradient(97.91deg, #A9E0FF 6.1%, #8DA0FF 103.66%);
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 9.38%;
+right: 25.43%;
+top: 9.38%;
+bottom: 25.1%;
+
+/* Blue-Violet/Fill */
+background: linear-gradient(117.15deg, rgba(169, 224, 255, 0.1) -0.12%, rgba(141, 160, 255, 0.1) 99.54%), rgba(241, 241, 241, 0.2);
+box-shadow: inset 0px 1.625px 6.5px rgba(255, 255, 255, 0.4);
+backdrop-filter: blur(4.875px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 9.38%;
+right: 25.43%;
+top: 9.38%;
+bottom: 25.1%;
+
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 25%;
+right: 43.75%;
+top: 28.12%;
+bottom: 43.75%;
+
+/* Highlight/100 */
+background: linear-gradient(268.13deg, #FFFFFF 7.44%, rgba(255, 255, 255, 0.2) 115.42%);
+box-shadow: 0px 2px 5px rgba(141, 160, 255, 0.5);
+backdrop-filter: blur(8.85935px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Money Transfer */
+
+position: absolute;
+width: 64px;
+height: 64px;
+left: 40px;
+top: 113px;
+
+
+
+/* Bg */
+
+box-sizing: border-box;
+
+position: absolute;
+width: 64px;
+height: 64px;
+left: 40px;
+top: 113px;
+
+background: #1A1A1A;
+/* Drop Shadow */
+box-shadow: 0px 15px 30px -6px rgba(0, 0, 0, 0.55);
+border-radius: 15px;
+
+
+/* Money Transfer */
+
+position: absolute;
+width: 32px;
+height: 32px;
+left: 56px;
+top: 129px;
+
+
+
+/* Vector */
+
+position: absolute;
+left: 0%;
+right: 31.37%;
+top: 30.89%;
+bottom: 0%;
+
+/* Blue-Violet/Color */
+background: linear-gradient(97.91deg, #A9E0FF 6.1%, #8DA0FF 103.66%);
+
+
+/* Vector */
+
+position: absolute;
+left: 62.5%;
+right: 9.38%;
+top: 12.5%;
+bottom: 59.38%;
+
+/* Blue-Violet/Color */
+background: linear-gradient(97.91deg, #A9E0FF 6.1%, #8DA0FF 103.66%);
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 10.99%;
+right: -0.06%;
+top: 0%;
+bottom: 10.3%;
+
+/* Blue-Violet/Fill */
+background: linear-gradient(117.15deg, rgba(169, 224, 255, 0.1) -0.12%, rgba(141, 160, 255, 0.1) 99.54%), rgba(241, 241, 241, 0.2);
+box-shadow: inset 0px 1.625px 6.5px rgba(255, 255, 255, 0.4);
+backdrop-filter: blur(4.875px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 33.67%;
+right: 22.59%;
+top: 19.16%;
+bottom: 57.32%;
+
+/* Highlight/100 */
+background: linear-gradient(268.13deg, #FFFFFF 7.44%, rgba(255, 255, 255, 0.2) 115.42%);
+box-shadow: 0px 2px 5px rgba(141, 160, 255, 0.5);
+backdrop-filter: blur(8.85935px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 33.83%;
+right: 22.88%;
+top: 47.29%;
+bottom: 29.28%;
+
+/* Highlight/100 */
+background: linear-gradient(268.13deg, #FFFFFF 7.44%, rgba(255, 255, 255, 0.2) 115.42%);
+box-shadow: 0px 2px 5px rgba(141, 160, 255, 0.5);
+backdrop-filter: blur(8.85935px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Home Loan */
+
+position: absolute;
+width: 64px;
+height: 64px;
+left: 129px;
+top: 113px;
+
+
+
+/* Bg */
+
+box-sizing: border-box;
+
+position: absolute;
+width: 64px;
+height: 64px;
+left: 129px;
+top: 113px;
+
+background: #1A1A1A;
+/* Drop Shadow */
+box-shadow: 0px 15px 30px -6px rgba(0, 0, 0, 0.55);
+border-radius: 15px;
+
+
+/* Home Loan */
+
+position: absolute;
+width: 32px;
+height: 32px;
+left: 145px;
+top: 129px;
+
+
+
+/* Vector */
+
+position: absolute;
+left: 28.2%;
+right: 6.18%;
+top: 13.81%;
+bottom: 1.82%;
+
+/* Yellow-Orange/Color */
+background: linear-gradient(97.91deg, #FFDB94 6.1%, #FE749C 103.66%);
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 12.64%;
+right: 13.72%;
+top: 4.66%;
+bottom: 8.39%;
+
+/* Yellow-Orange/Fill */
+background: linear-gradient(117.15deg, rgba(255, 219, 148, 0.1) -0.12%, rgba(254, 116, 156, 0.1) 99.54%), rgba(241, 241, 241, 0.2);
+box-shadow: inset 0px 1.625px 6.5px rgba(255, 255, 255, 0.4);
+backdrop-filter: blur(4.875px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 34.61%;
+right: 29.49%;
+top: 31.44%;
+bottom: 62.9%;
+
+/* Highlight/100 */
+background: linear-gradient(268.13deg, #FFFFFF 7.44%, rgba(255, 255, 255, 0.2) 115.42%);
+box-shadow: 0px 1.5px 5px rgba(254, 116, 156, 0.5);
+backdrop-filter: blur(8.85935px);
+/* Note: backdrop-filter has minimal browser support */
+transform: matrix(0.7, -0.71, 0.7, 0.71, 0, 0);
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 35.98%;
+right: 55.46%;
+top: 31.84%;
+bottom: 59.46%;
+
+/* Highlight/100 */
+background: linear-gradient(268.13deg, #FFFFFF 7.44%, rgba(255, 255, 255, 0.2) 115.42%);
+box-shadow: 0px 1.5px 5px rgba(254, 116, 156, 0.5);
+backdrop-filter: blur(8.85935px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 54.79%;
+right: 36.65%;
+top: 50.96%;
+bottom: 40.34%;
+
+/* Highlight/100 */
+background: linear-gradient(268.13deg, #FFFFFF 7.44%, rgba(255, 255, 255, 0.2) 115.42%);
+box-shadow: 0px 1.5px 5px rgba(254, 116, 156, 0.5);
+backdrop-filter: blur(8.85935px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 12.38%;
+right: 13.98%;
+top: 76.79%;
+bottom: 8.65%;
+
+/* Highlight/100 */
+background: linear-gradient(268.13deg, #FFFFFF 7.44%, rgba(255, 255, 255, 0.2) 115.42%);
+box-shadow: 0px 1.5px 5px rgba(254, 116, 156, 0.5);
+backdrop-filter: blur(8.85935px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 9.38%;
+right: 10.52%;
+top: 3.12%;
+bottom: 63.77%;
+
+/* Highlight/100 */
+background: linear-gradient(268.13deg, #FFFFFF 7.44%, rgba(255, 255, 255, 0.2) 115.42%);
+box-shadow: 0px 1.5px 3px rgba(254, 116, 156, 0.4);
+backdrop-filter: blur(8.85935px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Cloud Storage */
+
+position: absolute;
+width: 64px;
+height: 64px;
+left: 218px;
+top: 113px;
+
+
+
+/* Bg */
+
+box-sizing: border-box;
+
+position: absolute;
+width: 64px;
+height: 64px;
+left: 218px;
+top: 113px;
+
+background: #1A1A1A;
+/* Drop Shadow */
+box-shadow: 0px 15px 30px -6px rgba(0, 0, 0, 0.55);
+border-radius: 15px;
+
+
+/* Cloud Storage */
+
+position: absolute;
+width: 32px;
+height: 32px;
+left: 234px;
+top: 129px;
+
+
+
+/* Vector */
+
+position: absolute;
+left: 6.25%;
+right: 9.38%;
+top: 15.62%;
+bottom: 34.38%;
+
+/* Green-Blue/Color */
+background: linear-gradient(97.91deg, #7FFBE5 6.1%, #84BEFA 103.66%);
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: -0.12%;
+right: 0.82%;
+top: 2.88%;
+bottom: 32.92%;
+
+/* Green-Blue/Fill */
+background: linear-gradient(117.15deg, rgba(127, 251, 229, 0.1) -0.12%, rgba(132, 190, 250, 0.1) 99.54%), rgba(241, 241, 241, 0.1);
+box-shadow: inset 0px 1.625px 6.5px rgba(255, 255, 255, 0.4);
+backdrop-filter: blur(4.875px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 26.63%;
+right: 24.53%;
+top: 40.62%;
+bottom: 46.19%;
+
+/* Highlight/100 */
+background: linear-gradient(268.13deg, #FFFFFF 7.44%, rgba(255, 255, 255, 0.2) 115.42%);
+box-shadow: 0px 1.5px 5px rgba(39, 133, 230, 0.5);
+backdrop-filter: blur(8.85935px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 26.63%;
+right: 24.53%;
+top: 59.38%;
+bottom: 27.44%;
+
+/* Highlight/100 */
+background: linear-gradient(268.13deg, #FFFFFF 7.44%, rgba(255, 255, 255, 0.2) 115.42%);
+box-shadow: 0px 1.5px 5px rgba(39, 133, 230, 0.5);
+backdrop-filter: blur(8.85935px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 26.63%;
+right: 24.53%;
+top: 77.44%;
+bottom: 9.37%;
+
+/* Highlight/100 */
+background: linear-gradient(268.13deg, #FFFFFF 7.44%, rgba(255, 255, 255, 0.2) 115.42%);
+box-shadow: 0px 1.5px 5px rgba(39, 133, 230, 0.5);
+backdrop-filter: blur(8.85935px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Financial Growth */
+
+position: absolute;
+width: 64px;
+height: 64px;
+left: 307px;
+top: 113px;
+
+
+
+/* Bg */
+
+box-sizing: border-box;
+
+position: absolute;
+width: 64px;
+height: 64px;
+left: 307px;
+top: 113px;
+
+background: #1A1A1A;
+/* Drop Shadow */
+box-shadow: 0px 15px 30px -6px rgba(0, 0, 0, 0.55);
+border-radius: 15px;
+
+
+/* Financial Growth */
+
+position: absolute;
+left: 42.17%;
+right: 53.66%;
+top: 22.43%;
+bottom: 72%;
+
+
+
+/* Vector */
+
+position: absolute;
+left: -3.58%;
+right: 30.51%;
+top: 7.43%;
+bottom: 17.8%;
+
+/* Pink-Purple/Color */
+background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(97.91deg, #FFC6E8 6.1%, #CA9CFF 103.66%);
+transform: matrix(0.96, -0.29, 0.28, 0.96, 0, 0);
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 19.25%;
+right: 0%;
+top: 0%;
+bottom: 17%;
+
+/* Pink-Purple/Fill */
+background: linear-gradient(117.15deg, rgba(255, 163, 219, 0.1) -0.12%, rgba(191, 130, 238, 0.1) 99.54%), rgba(241, 241, 241, 0.1);
+box-shadow: inset 0px 1.625px 6.5px rgba(255, 255, 255, 0.4);
+backdrop-filter: blur(4.875px);
+/* Note: backdrop-filter has minimal browser support */
+border-radius: 6.5px;
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 32.25%;
+right: 57.21%;
+top: 42.39%;
+bottom: 34.45%;
+
+/* Highlight/100 */
+background: linear-gradient(268.13deg, #FFFFFF 7.44%, rgba(255, 255, 255, 0.2) 115.42%);
+backdrop-filter: blur(8.73438px);
+/* Note: backdrop-filter has minimal browser support */
+border-radius: 1px;
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 46.99%;
+right: 42.47%;
+top: 33.1%;
+bottom: 34.4%;
+
+/* Highlight/100 */
+background: linear-gradient(268.13deg, #FFFFFF 7.44%, rgba(255, 255, 255, 0.2) 115.42%);
+backdrop-filter: blur(8.73438px);
+/* Note: backdrop-filter has minimal browser support */
+border-radius: 1px;
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 61.72%;
+right: 27.74%;
+top: 38.03%;
+bottom: 34.4%;
+
+/* Highlight/100 */
+background: linear-gradient(268.13deg, #FFFFFF 7.44%, rgba(255, 255, 255, 0.2) 115.42%);
+backdrop-filter: blur(8.73438px);
+/* Note: backdrop-filter has minimal browser support */
+border-radius: 1px;
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 76.51%;
+right: 12.96%;
+top: 29.31%;
+bottom: 34.4%;
+
+/* Highlight/100 */
+background: linear-gradient(268.13deg, #FFFFFF 7.44%, rgba(255, 255, 255, 0.2) 115.42%);
+backdrop-filter: blur(8.73438px);
+/* Note: backdrop-filter has minimal browser support */
+border-radius: 1px;
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 34.09%;
+right: 14.8%;
+top: 14.09%;
+bottom: 62.53%;
+
+/* Highlight/100 */
+background: linear-gradient(268.13deg, #FFFFFF 7.44%, rgba(255, 255, 255, 0.2) 115.42%);
+backdrop-filter: blur(8.73438px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Secure */
+
+position: absolute;
+width: 64px;
+height: 64px;
+left: 396px;
+top: 113px;
+
+
+
+/* Bg */
+
+box-sizing: border-box;
+
+position: absolute;
+width: 64px;
+height: 64px;
+left: 396px;
+top: 113px;
+
+background: #1A1A1A;
+/* Drop Shadow */
+box-shadow: 0px 15px 30px -6px rgba(0, 0, 0, 0.55);
+border-radius: 15px;
+
+
+/* Secure */
+
+position: absolute;
+left: 53.79%;
+right: 42.04%;
+top: 22.43%;
+bottom: 72%;
+
+
+
+/* Vector */
+
+position: absolute;
+left: 20.59%;
+right: 2.77%;
+top: 14.81%;
+bottom: 5.39%;
+
+/* Blue-Violet/Color */
+background: linear-gradient(97.91deg, #A9E0FF 6.1%, #8DA0FF 103.66%);
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 2.8%;
+right: 14.15%;
+top: 3.12%;
+bottom: 6.07%;
+
+/* Blue-Violet/Fill */
+background: linear-gradient(117.15deg, rgba(169, 224, 255, 0.1) -0.12%, rgba(141, 160, 255, 0.1) 99.54%), rgba(241, 241, 241, 0.2);
+box-shadow: inset 0px 1.625px 6.5px rgba(255, 255, 255, 0.4);
+backdrop-filter: blur(4.875px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 22.45%;
+right: 33.47%;
+top: 35.37%;
+bottom: 37.42%;
+
+/* Highlight/100 */
+background: linear-gradient(268.13deg, #FFFFFF 7.44%, rgba(255, 255, 255, 0.2) 115.42%);
+box-shadow: 0px 2px 5px rgba(141, 160, 255, 0.5);
+backdrop-filter: blur(8.85935px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Bull Market */
+
+position: absolute;
+width: 64px;
+height: 64px;
+left: 485px;
+top: 113px;
+
+
+
+/* Bg */
+
+box-sizing: border-box;
+
+position: absolute;
+width: 64px;
+height: 64px;
+left: 485px;
+top: 113px;
+
+background: #1A1A1A;
+/* Drop Shadow */
+box-shadow: 0px 15px 30px -6px rgba(0, 0, 0, 0.55);
+border-radius: 15px;
+
+
+/* Bull Market */
+
+position: absolute;
+width: 32px;
+height: 32px;
+left: 501px;
+top: 129px;
+
+
+
+/* Vector */
+
+position: absolute;
+left: 3.12%;
+right: 12.5%;
+top: 25%;
+bottom: 0%;
+
+/* Yellow-Orange/Color */
+background: linear-gradient(97.91deg, #FFDB94 6.1%, #FE749C 103.66%);
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 12.5%;
+right: 0%;
+top: 0%;
+bottom: 6.25%;
+
+/* Yellow-Orange/Fill */
+background: linear-gradient(117.15deg, rgba(255, 219, 148, 0.1) -0.12%, rgba(254, 116, 156, 0.1) 99.54%), rgba(241, 241, 241, 0.2);
+box-shadow: inset 0px 1.625px 6.5px rgba(255, 255, 255, 0.4);
+backdrop-filter: blur(4.875px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 34.38%;
+right: 53.12%;
+top: 34.38%;
+bottom: 59.38%;
+
+/* Highlight/100 */
+background: linear-gradient(268.13deg, #FFFFFF 7.44%, rgba(255, 255, 255, 0.2) 115.42%);
+box-shadow: 0px 1.5px 5px rgba(39, 133, 230, 0.5);
+backdrop-filter: blur(8.85935px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 46.88%;
+right: 46.88%;
+top: 75%;
+bottom: 18.75%;
+
+/* Highlight/100 */
+background: linear-gradient(268.13deg, #FFFFFF 7.44%, rgba(255, 255, 255, 0.2) 115.42%);
+box-shadow: 0px 1.5px 5px rgba(39, 133, 230, 0.5);
+backdrop-filter: blur(8.85935px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 62.5%;
+right: 25%;
+top: 34.38%;
+bottom: 59.38%;
+
+/* Highlight/100 */
+background: linear-gradient(268.13deg, #FFFFFF 7.44%, rgba(255, 255, 255, 0.2) 115.42%);
+box-shadow: 0px 1.5px 5px rgba(39, 133, 230, 0.5);
+backdrop-filter: blur(8.85935px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 59.38%;
+right: 34.38%;
+top: 75%;
+bottom: 18.75%;
+
+/* Highlight/100 */
+background: linear-gradient(268.13deg, #FFFFFF 7.44%, rgba(255, 255, 255, 0.2) 115.42%);
+box-shadow: 0px 1.5px 5px rgba(39, 133, 230, 0.5);
+backdrop-filter: blur(8.85935px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Bear Market */
+
+position: absolute;
+width: 64px;
+height: 64px;
+left: 574px;
+top: 113px;
+
+
+
+/* Bg */
+
+box-sizing: border-box;
+
+position: absolute;
+width: 64px;
+height: 64px;
+left: 574px;
+top: 113px;
+
+background: #1A1A1A;
+/* Drop Shadow */
+box-shadow: 0px 15px 30px -6px rgba(0, 0, 0, 0.55);
+border-radius: 15px;
+
+
+/* Bear Market */
+
+position: absolute;
+left: 77.02%;
+right: 18.8%;
+top: 22.43%;
+bottom: 72%;
+
+
+
+/* Vector */
+
+position: absolute;
+left: 3.12%;
+right: 11.49%;
+top: 14.81%;
+bottom: 0%;
+
+/* Yellow-Orange/Color */
+background: linear-gradient(97.91deg, #FFDB94 6.1%, #FE749C 103.66%);
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 14.95%;
+right: 2.91%;
+top: -0.28%;
+bottom: 17.29%;
+
+/* Yellow-Orange/Fill */
+background: linear-gradient(117.15deg, rgba(255, 219, 148, 0.1) -0.12%, rgba(254, 116, 156, 0.1) 99.54%), rgba(241, 241, 241, 0.2);
+box-shadow: inset 0px 1.625px 6.5px rgba(255, 255, 255, 0.4);
+backdrop-filter: blur(4.875px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 36.58%;
+right: 24.54%;
+top: 46.22%;
+bottom: 8.57%;
+
+/* Yellow-Orange/Fill */
+background: linear-gradient(117.15deg, rgba(255, 219, 148, 0.1) -0.12%, rgba(254, 116, 156, 0.1) 99.54%), rgba(241, 241, 241, 0.2);
+box-shadow: inset 0px 1.625px 6.5px rgba(255, 255, 255, 0.4);
+backdrop-filter: blur(4.875px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 45.91%;
+right: 33.7%;
+top: 59.7%;
+bottom: 21.85%;
+
+/* Highlight/100 */
+background: linear-gradient(268.13deg, #FFFFFF 7.44%, rgba(255, 255, 255, 0.2) 115.42%);
+box-shadow: 0px 1.5px 5px rgba(254, 116, 156, 0.5);
+backdrop-filter: blur(8.85935px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 31.95%;
+right: 56.19%;
+top: 33.73%;
+bottom: 56.99%;
+
+/* Highlight/100 */
+background: linear-gradient(268.13deg, #FFFFFF 7.44%, rgba(255, 255, 255, 0.2) 115.42%);
+box-shadow: 0px 1.5px 5px rgba(254, 116, 156, 0.5);
+backdrop-filter: blur(8.85935px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 68.32%;
+right: 19.81%;
+top: 33.73%;
+bottom: 56.99%;
+
+/* Highlight/100 */
+background: linear-gradient(268.13deg, #FFFFFF 7.44%, rgba(255, 255, 255, 0.2) 115.42%);
+box-shadow: 0px 1.5px 5px rgba(254, 116, 156, 0.5);
+backdrop-filter: blur(8.85935px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Candles */
+
+position: absolute;
+width: 64px;
+height: 64px;
+left: 663px;
+top: 113px;
+
+
+
+/* Bg */
+
+box-sizing: border-box;
+
+position: absolute;
+width: 64px;
+height: 64px;
+left: 663px;
+top: 113px;
+
+background: #1A1A1A;
+/* Drop Shadow */
+box-shadow: 0px 15px 30px -6px rgba(0, 0, 0, 0.55);
+border-radius: 15px;
+
+
+/* Candles */
+
+position: absolute;
+left: 88.64%;
+right: 7.18%;
+top: 22.43%;
+bottom: 72%;
+
+
+
+/* Vector */
+
+position: absolute;
+left: 9.75%;
+right: 14.84%;
+top: 9.23%;
+bottom: 14.95%;
+
+/* Pink-Purple/Color */
+background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(97.91deg, #FFC6E8 6.1%, #CA9CFF 103.66%);
+transform: matrix(0.96, -0.29, 0.28, 0.96, 0, 0);
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 0%;
+right: 16.55%;
+top: 0%;
+bottom: 16%;
+
+/* Pink-Purple/Fill */
+background: linear-gradient(117.15deg, rgba(255, 163, 219, 0.1) -0.12%, rgba(191, 130, 238, 0.1) 99.54%), rgba(241, 241, 241, 0.1);
+box-shadow: inset 0px 1.625px 6.5px rgba(255, 255, 255, 0.4);
+backdrop-filter: blur(4.875px);
+/* Note: backdrop-filter has minimal browser support */
+border-radius: 6.5px;
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 11.75%;
+right: 73.14%;
+top: 14.68%;
+bottom: 34.33%;
+
+/* Highlight/100 */
+background: linear-gradient(268.13deg, #FFFFFF 7.44%, rgba(255, 255, 255, 0.2) 115.42%);
+backdrop-filter: blur(8.73438px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 56.59%;
+right: 28.25%;
+top: 10.29%;
+bottom: 38.73%;
+
+/* Highlight/100 */
+background: linear-gradient(268.13deg, #FFFFFF 7.44%, rgba(255, 255, 255, 0.2) 115.42%);
+backdrop-filter: blur(8.73438px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 34.02%;
+right: 50.87%;
+top: 22.99%;
+bottom: 25.98%;
+
+/* Highlight/100 */
+background: linear-gradient(268.13deg, #FFFFFF 7.44%, rgba(255, 255, 255, 0.2) 115.42%);
+backdrop-filter: blur(8.73438px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Money Bag */
+
+position: absolute;
+width: 64px;
+height: 64px;
+left: 40px;
+top: 202px;
+
+
+
+/* Bg */
+
+box-sizing: border-box;
+
+position: absolute;
+width: 64px;
+height: 64px;
+left: 40px;
+top: 202px;
+
+background: #1A1A1A;
+/* Drop Shadow */
+box-shadow: 0px 15px 30px -6px rgba(0, 0, 0, 0.55);
+border-radius: 15px;
+
+
+/* Money Bag */
+
+position: absolute;
+left: 7.31%;
+right: 88.51%;
+top: 37.91%;
+bottom: 56.52%;
+
+
+
+/* Vector */
+
+position: absolute;
+left: 23.11%;
+right: 6.09%;
+top: 8.57%;
+bottom: 0%;
+
+/* Yellow-Orange/Color */
+background: linear-gradient(97.91deg, #FFDB94 6.1%, #FE749C 103.66%);
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 3.12%;
+right: 20.37%;
+top: 0.03%;
+bottom: 0.11%;
+
+/* Yellow-Orange/Fill */
+background: linear-gradient(117.15deg, rgba(255, 219, 148, 0.1) -0.12%, rgba(254, 116, 156, 0.1) 99.54%), rgba(241, 241, 241, 0.2);
+box-shadow: inset 0px 1.625px 6.5px rgba(255, 255, 255, 0.4);
+backdrop-filter: blur(4.875px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 28.99%;
+right: 45.61%;
+top: 32.93%;
+bottom: 17.57%;
+
+/* Highlight/100 */
+background: linear-gradient(268.13deg, #FFFFFF 7.44%, rgba(255, 255, 255, 0.2) 115.42%);
+box-shadow: 0px 1.5px 5px rgba(254, 116, 156, 0.5);
+backdrop-filter: blur(8.85935px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Rectangle 3 */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 20.28%;
+right: 37.24%;
+top: 17.14%;
+bottom: 77.14%;
+
+/* Highlight/100 */
+background: linear-gradient(268.13deg, #FFFFFF 7.44%, rgba(255, 255, 255, 0.2) 115.42%);
+box-shadow: 0px 1.5px 5px rgba(254, 116, 156, 0.5);
+backdrop-filter: blur(8.85935px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Safety Box */
+
+position: absolute;
+width: 64px;
+height: 64px;
+left: 129px;
+top: 202px;
+
+
+
+/* Bg */
+
+box-sizing: border-box;
+
+position: absolute;
+width: 64px;
+height: 64px;
+left: 129px;
+top: 202px;
+
+background: #1A1A1A;
+/* Drop Shadow */
+box-shadow: 0px 15px 30px -6px rgba(0, 0, 0, 0.55);
+border-radius: 15px;
+
+
+/* Safety Box */
+
+position: absolute;
+width: 32px;
+height: 32px;
+left: 145px;
+top: 218px;
+
+
+
+/* Vector */
+
+position: absolute;
+left: 0%;
+right: 26.8%;
+top: -2.63%;
+bottom: 28.24%;
+
+/* Pink-Purple/Color */
+background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(97.91deg, #FFC6E8 6.1%, #CA9CFF 103.66%);
+transform: matrix(0.93, -0.36, 0.35, 0.94, 0, 0);
+
+
+/* Vector */
+
+position: absolute;
+left: 37.74%;
+right: 11.15%;
+top: 26.47%;
+bottom: 21.53%;
+
+/* Pink-Purple/Color */
+background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(97.91deg, #FFC6E8 6.1%, #CA9CFF 103.66%);
+transform: matrix(1, 0, -0.01, 1, 0, 0);
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 23.38%;
+right: 3.55%;
+top: 17.68%;
+bottom: -0.21%;
+
+/* Pink-Purple/Fill */
+background: linear-gradient(117.15deg, rgba(255, 163, 219, 0.1) -0.12%, rgba(191, 130, 238, 0.1) 99.54%), rgba(241, 241, 241, 0.1);
+box-shadow: inset 0px 1.625px 6.5px rgba(255, 255, 255, 0.4);
+backdrop-filter: blur(4.875px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 40.73%;
+right: 21.02%;
+top: 35.41%;
+bottom: 25.5%;
+
+/* Highlight/100 */
+background: linear-gradient(268.13deg, #FFFFFF 7.44%, rgba(255, 255, 255, 0.2) 115.42%);
+backdrop-filter: blur(8.73438px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 55.35%;
+right: 35.69%;
+top: 50.4%;
+bottom: 40.45%;
+
+/* Highlight/100 */
+background: linear-gradient(268.13deg, #FFFFFF 7.44%, rgba(255, 255, 255, 0.2) 115.42%);
+backdrop-filter: blur(8.73438px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Calculator */
+
+position: absolute;
+width: 64px;
+height: 64px;
+left: 218px;
+top: 202px;
+
+
+
+/* Bg */
+
+box-sizing: border-box;
+
+position: absolute;
+width: 64px;
+height: 64px;
+left: 218px;
+top: 202px;
+
+background: #1A1A1A;
+/* Drop Shadow */
+box-shadow: 0px 15px 30px -6px rgba(0, 0, 0, 0.55);
+border-radius: 15px;
+
+
+/* Calculator */
+
+position: absolute;
+width: 32px;
+height: 32px;
+left: 234px;
+top: 218px;
+
+
+
+/* Vector */
+
+position: absolute;
+left: 8.4%;
+right: 17.15%;
+top: 9.39%;
+bottom: 16.69%;
+
+/* Blue-Violet/Color */
+background: linear-gradient(97.91deg, #A9E0FF 6.1%, #8DA0FF 103.66%);
+transform: matrix(0.94, 0.35, -0.35, 0.94, 0, 0);
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 3.12%;
+right: 12.95%;
+top: 0%;
+bottom: 16.86%;
+
+/* Blue-Violet/Fill */
+background: linear-gradient(117.15deg, rgba(169, 224, 255, 0.1) -0.12%, rgba(141, 160, 255, 0.1) 99.54%), rgba(241, 241, 241, 0.2);
+box-shadow: inset 0px 1.625px 6.5px rgba(255, 255, 255, 0.4);
+backdrop-filter: blur(4.875px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Vector 1 */
+
+position: absolute;
+width: 0px;
+height: 23.5px;
+left: 14px;
+top: 1.5px;
+
+
+
+/* Vector 2 */
+
+position: absolute;
+width: 0px;
+height: 23.5px;
+left: 2.25px;
+top: 13.25px;
+
+transform: rotate(90deg);
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 16.4%;
+right: 64.63%;
+top: 10.76%;
+bottom: 70.46%;
+
+/* Highlight/100 */
+background: linear-gradient(268.13deg, #FFFFFF 7.44%, rgba(255, 255, 255, 0.2) 115.42%);
+box-shadow: 0px 2px 5px rgba(141, 160, 255, 0.5);
+backdrop-filter: blur(8.85935px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 18.45%;
+right: 66.64%;
+top: 51.45%;
+bottom: 33.82%;
+
+/* Highlight/100 */
+background: linear-gradient(268.13deg, #FFFFFF 7.44%, rgba(255, 255, 255, 0.2) 115.42%);
+box-shadow: 0px 2px 5px rgba(141, 160, 255, 0.5);
+backdrop-filter: blur(8.85935px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 54.91%;
+right: 26.13%;
+top: 17.8%;
+bottom: 77.5%;
+
+/* Highlight/100 */
+background: linear-gradient(268.13deg, #FFFFFF 7.44%, rgba(255, 255, 255, 0.2) 115.42%);
+box-shadow: 0px 2px 5px rgba(141, 160, 255, 0.5);
+backdrop-filter: blur(8.85935px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Union */
+
+box-sizing: border-box;
+
+position: absolute;
+width: 6.07px;
+height: 5.51px;
+left: 17.57px;
+top: 16px;
+
+/* Highlight/100 */
+background: linear-gradient(268.13deg, #FFFFFF 7.44%, rgba(255, 255, 255, 0.2) 115.42%);
+box-shadow: 0px 2px 5px rgba(141, 160, 255, 0.5);
+backdrop-filter: blur(8.85935px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 54.91%;
+right: 26.13%;
+top: 56.46%;
+bottom: 38.84%;
+
+/* Highlight/100 */
+background: linear-gradient(268.13deg, #FFFFFF 7.44%, rgba(255, 255, 255, 0.2) 115.42%);
+box-shadow: 0px 2px 5px rgba(141, 160, 255, 0.5);
+backdrop-filter: blur(8.85935px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Vector */
+
+position: absolute;
+left: 62.5%;
+right: 32.81%;
+top: 50%;
+bottom: 45.28%;
+
+background: #FFFFFF;
+
+
+/* Vector */
+
+position: absolute;
+left: 62.5%;
+right: 32.81%;
+top: 62.5%;
+bottom: 32.78%;
+
+background: #FFFFFF;
+
+
+/* Shopping */
+
+position: absolute;
+width: 64px;
+height: 64px;
+left: 307px;
+top: 202px;
+
+
+
+/* Bg */
+
+box-sizing: border-box;
+
+position: absolute;
+width: 64px;
+height: 64px;
+left: 307px;
+top: 202px;
+
+background: #1A1A1A;
+/* Drop Shadow */
+box-shadow: 0px 15px 30px -6px rgba(0, 0, 0, 0.55);
+border-radius: 15px;
+
+
+/* Shopping */
+
+position: absolute;
+width: 32px;
+height: 32px;
+left: 323px;
+top: 218px;
+
+
+
+/* Vector */
+
+position: absolute;
+left: 3.12%;
+right: 18.75%;
+top: 0%;
+bottom: 9.38%;
+
+/* Green-Blue/Color */
+background: linear-gradient(97.91deg, #7FFBE5 6.1%, #84BEFA 103.66%);
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 25%;
+right: 3.12%;
+top: 40.62%;
+bottom: 0%;
+
+/* Green-Blue/Fill */
+background: linear-gradient(117.15deg, rgba(127, 251, 229, 0.1) -0.12%, rgba(132, 190, 250, 0.1) 99.54%), rgba(241, 241, 241, 0.1);
+box-shadow: inset 0px 1.625px 6.5px rgba(255, 255, 255, 0.4);
+backdrop-filter: blur(4.875px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 40.62%;
+right: 18.75%;
+top: 25%;
+bottom: 53.12%;
+
+/* Highlight/100 */
+background: linear-gradient(268.13deg, #FFFFFF 7.44%, rgba(255, 255, 255, 0.2) 115.42%);
+box-shadow: 0px 1.5px 5px rgba(39, 133, 230, 0.5);
+backdrop-filter: blur(8.85935px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Card Locked */
+
+position: absolute;
+width: 64px;
+height: 64px;
+left: 396px;
+top: 202px;
+
+
+
+/* Bg */
+
+box-sizing: border-box;
+
+position: absolute;
+width: 64px;
+height: 64px;
+left: 396px;
+top: 202px;
+
+background: #1A1A1A;
+/* Drop Shadow */
+box-shadow: 0px 15px 30px -6px rgba(0, 0, 0, 0.55);
+border-radius: 15px;
+
+
+/* Card Locked */
+
+position: absolute;
+left: 53.79%;
+right: 42.04%;
+top: 37.91%;
+bottom: 56.52%;
+
+
+
+/* Vector */
+
+position: absolute;
+left: -2.68%;
+right: 12.91%;
+top: 9.38%;
+bottom: 27.28%;
+
+/* Yellow-Orange/Color */
+background: linear-gradient(97.91deg, #FFDB94 6.1%, #FE749C 103.66%);
+transform: matrix(0.97, -0.24, 0.25, 0.97, 0, 0);
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 7.62%;
+right: 16.56%;
+top: 24.91%;
+bottom: 63.22%;
+
+/* Yellow-Orange/Fill */
+background: linear-gradient(117.15deg, rgba(255, 219, 148, 0.1) -0.12%, rgba(254, 116, 156, 0.1) 99.54%), rgba(241, 241, 241, 0.2);
+box-shadow: inset 0px 1.625px 6.5px rgba(255, 255, 255, 0.4);
+backdrop-filter: blur(4.875px);
+/* Note: backdrop-filter has minimal browser support */
+transform: matrix(0.97, -0.24, 0.25, 0.97, 0, 0);
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 53.12%;
+right: 0%;
+top: 24.62%;
+bottom: 9.76%;
+
+/* Yellow-Orange/Fill */
+background: linear-gradient(117.15deg, rgba(255, 219, 148, 0.1) -0.12%, rgba(254, 116, 156, 0.1) 99.54%), rgba(241, 241, 241, 0.2);
+box-shadow: inset 0px 1.625px 6.5px rgba(255, 255, 255, 0.4);
+backdrop-filter: blur(4.875px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 71.88%;
+right: 18.75%;
+top: 62.12%;
+bottom: 25.38%;
+
+/* Highlight/100 */
+background: linear-gradient(268.13deg, #FFFFFF 7.44%, rgba(255, 255, 255, 0.2) 115.42%);
+box-shadow: 0px 1.5px 5px rgba(254, 116, 156, 0.5);
+backdrop-filter: blur(8.85935px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Pie Chart */
+
+position: absolute;
+width: 64px;
+height: 64px;
+left: 485px;
+top: 202px;
+
+
+
+/* Bg */
+
+box-sizing: border-box;
+
+position: absolute;
+width: 64px;
+height: 64px;
+left: 485px;
+top: 202px;
+
+background: #1A1A1A;
+/* Drop Shadow */
+box-shadow: 0px 15px 30px -6px rgba(0, 0, 0, 0.55);
+border-radius: 15px;
+
+
+/* Pie Chart */
+
+position: absolute;
+width: 32px;
+height: 32px;
+left: 501px;
+top: 218px;
+
+
+
+/* Vector */
+
+position: absolute;
+left: 14.31%;
+right: 0%;
+top: 3.12%;
+bottom: 10.07%;
+
+/* Pink-Purple/Color */
+background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(97.91deg, #FFC6E8 6.1%, #CA9CFF 103.66%);
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 0%;
+right: 22.29%;
+top: 18.2%;
+bottom: 3.07%;
+
+/* Pink-Purple/Fill */
+background: linear-gradient(117.15deg, rgba(255, 163, 219, 0.1) -0.12%, rgba(191, 130, 238, 0.1) 99.54%), rgba(241, 241, 241, 0.1);
+box-shadow: inset 0px 1.625px 6.5px rgba(255, 255, 255, 0.4);
+backdrop-filter: blur(4.875px);
+/* Note: backdrop-filter has minimal browser support */
+border-radius: 6.5px;
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 38.96%;
+right: 22.24%;
+top: 18.2%;
+bottom: 42.49%;
+
+/* Highlight/100 */
+background: linear-gradient(268.13deg, #FFFFFF 7.44%, rgba(255, 255, 255, 0.2) 115.42%);
+backdrop-filter: blur(8.73438px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Write Cheque */
+
+position: absolute;
+width: 64px;
+height: 64px;
+left: 574px;
+top: 202px;
+
+
+
+/* Bg */
+
+box-sizing: border-box;
+
+position: absolute;
+width: 64px;
+height: 64px;
+left: 574px;
+top: 202px;
+
+background: #1A1A1A;
+/* Drop Shadow */
+box-shadow: 0px 15px 30px -6px rgba(0, 0, 0, 0.55);
+border-radius: 15px;
+
+
+/* Write Cheque */
+
+position: absolute;
+width: 32px;
+height: 32px;
+left: 590px;
+top: 218px;
+
+
+
+/* Vector */
+
+position: absolute;
+left: 2.55%;
+right: 7.97%;
+top: 9.38%;
+bottom: 41.95%;
+
+/* Blue-Violet/Color */
+background: linear-gradient(97.91deg, #A9E0FF 6.1%, #8DA0FF 103.66%);
+transform: matrix(0.9, 0.43, -0.42, 0.91, 0, 0);
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 0%;
+right: 10.77%;
+top: 39.38%;
+bottom: 11.81%;
+
+/* Blue-Violet/Fill */
+background: linear-gradient(117.15deg, rgba(169, 224, 255, 0.1) -0.12%, rgba(141, 160, 255, 0.1) 99.54%), rgba(241, 241, 241, 0.2);
+box-shadow: inset 0px 1.625px 6.5px rgba(255, 255, 255, 0.4);
+backdrop-filter: blur(4.875px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 38.67%;
+right: 21.95%;
+top: 26.89%;
+bottom: 33.2%;
+
+/* Highlight/100 */
+background: linear-gradient(268.13deg, #FFFFFF 7.44%, rgba(255, 255, 255, 0.2) 115.42%);
+box-shadow: 0px 2px 5px rgba(141, 160, 255, 0.5);
+backdrop-filter: blur(8.85935px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 61.13%;
+right: 21.9%;
+top: 72.08%;
+bottom: 21.9%;
+
+/* Highlight/100 */
+background: linear-gradient(268.13deg, #FFFFFF 7.44%, rgba(255, 255, 255, 0.2) 115.42%);
+box-shadow: 0px 2px 5px rgba(141, 160, 255, 0.5);
+backdrop-filter: blur(8.85935px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 13.87%;
+right: 46.85%;
+top: 72.08%;
+bottom: 21.9%;
+
+/* Highlight/100 */
+background: linear-gradient(268.13deg, #FFFFFF 7.44%, rgba(255, 255, 255, 0.2) 115.42%);
+box-shadow: 0px 2px 5px rgba(141, 160, 255, 0.5);
+backdrop-filter: blur(8.85935px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 13.98%;
+right: 75.36%;
+top: 46.79%;
+bottom: 32.62%;
+
+/* Highlight/100 */
+background: linear-gradient(268.13deg, #FFFFFF 7.44%, rgba(255, 255, 255, 0.2) 115.42%);
+box-shadow: 0px 2px 5px rgba(141, 160, 255, 0.5);
+backdrop-filter: blur(8.85935px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Projector */
+
+position: absolute;
+width: 64px;
+height: 64px;
+left: 663px;
+top: 202px;
+
+
+
+/* Bg */
+
+box-sizing: border-box;
+
+position: absolute;
+width: 64px;
+height: 64px;
+left: 663px;
+top: 202px;
+
+background: #1A1A1A;
+/* Drop Shadow */
+box-shadow: 0px 15px 30px -6px rgba(0, 0, 0, 0.55);
+border-radius: 15px;
+
+
+/* Projector */
+
+position: absolute;
+width: 32px;
+height: 32px;
+left: 679px;
+top: 218px;
+
+
+
+/* Vector */
+
+position: absolute;
+left: 18.92%;
+right: 0.28%;
+top: 17.15%;
+bottom: 14.42%;
+
+/* Green-Blue/Color */
+background: linear-gradient(97.91deg, #7FFBE5 6.1%, #84BEFA 103.66%);
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 3.12%;
+bottom: 2.89%;
+
+/* Green-Blue/Fill */
+background: linear-gradient(117.15deg, rgba(127, 251, 229, 0.1) -0.12%, rgba(132, 190, 250, 0.1) 99.54%), rgba(241, 241, 241, 0.1);
+box-shadow: inset 0px 1.625px 6.5px rgba(255, 255, 255, 0.4);
+backdrop-filter: blur(4.875px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 22.96%;
+right: 24.05%;
+top: 25.94%;
+bottom: 50.19%;
+
+/* Highlight/100 */
+background: linear-gradient(268.13deg, #FFFFFF 7.44%, rgba(255, 255, 255, 0.2) 115.42%);
+box-shadow: 0px 1.5px 5px rgba(39, 133, 230, 0.5);
+backdrop-filter: blur(8.85935px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Bill */
+
+position: absolute;
+width: 64px;
+height: 64px;
+left: 40px;
+top: 291px;
+
+
+
+/* Bg */
+
+box-sizing: border-box;
+
+position: absolute;
+width: 64px;
+height: 64px;
+left: 40px;
+top: 291px;
+
+background: #1A1A1A;
+/* Drop Shadow */
+box-shadow: 0px 15px 30px -6px rgba(0, 0, 0, 0.55);
+border-radius: 15px;
+
+
+/* Bill */
+
+position: absolute;
+width: 32px;
+height: 32px;
+left: 56px;
+top: 306px;
+
+
+
+/* Vector */
+
+position: absolute;
+left: 34.54%;
+right: 65.35%;
+top: 93.29%;
+bottom: 6.66%;
+
+background: #808080;
+
+
+/* Vector */
+
+position: absolute;
+left: 69.02%;
+right: 30.81%;
+top: 85.17%;
+bottom: 14.77%;
+
+background: #808080;
+
+
+/* Vector */
+
+position: absolute;
+left: 51.78%;
+right: 48.05%;
+top: 89.26%;
+bottom: 10.68%;
+
+background: #808080;
+
+
+/* Vector */
+
+position: absolute;
+left: 0%;
+right: 14.39%;
+top: 0.11%;
+bottom: 2.51%;
+
+/* Blue-Violet/Color */
+background: linear-gradient(97.91deg, #A9E0FF 6.1%, #8DA0FF 103.66%);
+
+
+/* Vector */
+
+position: absolute;
+left: 37.91%;
+right: 61.85%;
+top: 99.88%;
+bottom: 0%;
+
+
+
+/* Vector */
+
+position: absolute;
+left: 79.27%;
+right: 20.56%;
+top: 99.88%;
+bottom: 0%;
+
+
+
+/* Vector */
+
+position: absolute;
+left: 58.59%;
+right: 41.23%;
+top: 99.88%;
+bottom: 0%;
+
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 17.41%;
+right: 0%;
+top: 0.41%;
+bottom: 0.35%;
+
+/* Blue-Violet/Fill */
+background: linear-gradient(117.15deg, rgba(169, 224, 255, 0.1) -0.12%, rgba(141, 160, 255, 0.1) 99.54%), rgba(241, 241, 241, 0.2);
+box-shadow: inset 0px 1.625px 6.5px rgba(255, 255, 255, 0.4);
+backdrop-filter: blur(4.875px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 30.69%;
+right: 28.13%;
+top: 23.53%;
+bottom: 69.88%;
+
+/* Highlight/100 */
+background: linear-gradient(268.13deg, #FFFFFF 7.44%, rgba(255, 255, 255, 0.2) 115.42%);
+box-shadow: 0px 2px 5px rgba(141, 160, 255, 0.5);
+backdrop-filter: blur(8.85935px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 30.69%;
+right: 13.1%;
+top: 43.49%;
+bottom: 49.91%;
+
+/* Highlight/100 */
+background: linear-gradient(268.13deg, #FFFFFF 7.44%, rgba(255, 255, 255, 0.2) 115.42%);
+box-shadow: 0px 2px 5px rgba(141, 160, 255, 0.5);
+backdrop-filter: blur(8.85935px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 30.69%;
+right: 13.1%;
+top: 63.4%;
+bottom: 30.01%;
+
+/* Highlight/100 */
+background: linear-gradient(268.13deg, #FFFFFF 7.44%, rgba(255, 255, 255, 0.2) 115.42%);
+box-shadow: 0px 2px 5px rgba(141, 160, 255, 0.5);
+backdrop-filter: blur(8.85935px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* SMS */
+
+position: absolute;
+width: 64px;
+height: 64px;
+left: 129px;
+top: 291px;
+
+
+
+/* Bg */
+
+box-sizing: border-box;
+
+position: absolute;
+width: 64px;
+height: 64px;
+left: 129px;
+top: 291px;
+
+background: #1A1A1A;
+/* Drop Shadow */
+box-shadow: 0px 15px 30px -6px rgba(0, 0, 0, 0.55);
+border-radius: 15px;
+
+
+/* SMS */
+
+position: absolute;
+width: 32px;
+height: 32px;
+left: 145px;
+top: 307px;
+
+
+
+/* Vector */
+
+position: absolute;
+left: 6.25%;
+right: 47.75%;
+top: 3.12%;
+bottom: 11.88%;
+
+/* Green-Blue/Color */
+background: linear-gradient(97.91deg, #7FFBE5 6.1%, #84BEFA 103.66%);
+transform: matrix(0.97, -0.25, 0.25, 0.97, 0, 0);
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 27.27%;
+right: 22.73%;
+top: 4.96%;
+bottom: 1.29%;
+
+/* Green-Blue/Fill */
+background: linear-gradient(117.15deg, rgba(127, 251, 229, 0.1) -0.12%, rgba(132, 190, 250, 0.1) 99.54%), rgba(241, 241, 241, 0.1);
+box-shadow: inset 0px 1.625px 6.5px rgba(255, 255, 255, 0.4);
+backdrop-filter: blur(4.875px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 33.52%;
+right: -5.4%;
+top: 11.21%;
+bottom: 51.29%;
+
+/* Highlight/100 */
+background: linear-gradient(268.13deg, #FFFFFF 7.44%, rgba(255, 255, 255, 0.2) 115.42%);
+backdrop-filter: blur(8.85935px);
+/* Note: backdrop-filter has minimal browser support */
+transform: rotate(90deg);
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 49.15%;
+right: 41.48%;
+top: 86.21%;
+bottom: 4.42%;
+
+/* Highlight/100 */
+background: linear-gradient(268.13deg, #FFFFFF 7.44%, rgba(255, 255, 255, 0.2) 115.42%);
+box-shadow: 0px 1.5px 5px rgba(39, 133, 230, 0.5);
+backdrop-filter: blur(8.85935px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 53.12%;
+right: 6.25%;
+top: 17.46%;
+bottom: 32.54%;
+
+/* Highlight/100 */
+background: linear-gradient(268.13deg, #FFFFFF 7.44%, rgba(255, 255, 255, 0.2) 115.42%);
+box-shadow: -1.5px 1.5px 5px rgba(39, 133, 230, 0.3);
+backdrop-filter: blur(8.85935px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Market Down */
+
+position: absolute;
+width: 64px;
+height: 64px;
+left: 218px;
+top: 291px;
+
+
+
+/* Bg */
+
+box-sizing: border-box;
+
+position: absolute;
+width: 64px;
+height: 64px;
+left: 218px;
+top: 291px;
+
+background: #1A1A1A;
+/* Drop Shadow */
+box-shadow: 0px 15px 30px -6px rgba(0, 0, 0, 0.55);
+border-radius: 15px;
+
+
+/* Market Down */
+
+position: absolute;
+width: 32px;
+height: 32px;
+left: 234px;
+top: 307px;
+
+
+
+/* Vector */
+
+position: absolute;
+left: -3.49%;
+right: 28.95%;
+top: 8.43%;
+bottom: 17.14%;
+
+/* Yellow-Orange/Color */
+background: linear-gradient(97.91deg, #FFDB94 6.1%, #FE749C 103.66%);
+transform: matrix(0.94, 0.34, -0.34, 0.94, 0, 0);
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 14.87%;
+right: 0%;
+top: 0%;
+bottom: 15.03%;
+
+/* Yellow-Orange/Fill */
+background: linear-gradient(117.15deg, rgba(255, 219, 148, 0.1) -0.12%, rgba(254, 116, 156, 0.1) 99.54%), rgba(241, 241, 241, 0.2);
+box-shadow: inset 0px 1.625px 6.5px rgba(255, 255, 255, 0.4);
+backdrop-filter: blur(4.875px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 28.53%;
+right: 60.36%;
+top: 43.4%;
+bottom: 32.89%;
+
+/* Highlight/100 */
+background: linear-gradient(268.13deg, #FFFFFF 7.44%, rgba(255, 255, 255, 0.2) 115.42%);
+box-shadow: 0px 1.5px 5px rgba(254, 116, 156, 0.5);
+backdrop-filter: blur(8.85935px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 44.06%;
+right: 44.83%;
+top: 33.89%;
+bottom: 32.84%;
+
+/* Highlight/100 */
+background: linear-gradient(268.13deg, #FFFFFF 7.44%, rgba(255, 255, 255, 0.2) 115.42%);
+box-shadow: 0px 1.5px 5px rgba(254, 116, 156, 0.5);
+backdrop-filter: blur(8.85935px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 59.65%;
+right: 29.24%;
+top: 38.93%;
+bottom: 32.84%;
+
+/* Highlight/100 */
+background: linear-gradient(268.13deg, #FFFFFF 7.44%, rgba(255, 255, 255, 0.2) 115.42%);
+box-shadow: 0px 1.5px 5px rgba(254, 116, 156, 0.5);
+backdrop-filter: blur(8.85935px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 75.18%;
+right: 13.71%;
+top: 48.58%;
+bottom: 32.84%;
+
+/* Highlight/100 */
+background: linear-gradient(268.13deg, #FFFFFF 7.44%, rgba(255, 255, 255, 0.2) 115.42%);
+box-shadow: 0px 1.5px 5px rgba(254, 116, 156, 0.5);
+backdrop-filter: blur(8.85935px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 30.51%;
+right: 15.01%;
+top: 12.51%;
+bottom: 62.51%;
+
+/* Highlight/100 */
+background: linear-gradient(268.13deg, #FFFFFF 7.44%, rgba(255, 255, 255, 0.2) 115.42%);
+box-shadow: 0px 1.5px 5px rgba(254, 116, 156, 0.5);
+backdrop-filter: blur(8.85935px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Discount */
+
+position: absolute;
+width: 64px;
+height: 64px;
+left: 307px;
+top: 291px;
+
+
+
+/* Bg */
+
+box-sizing: border-box;
+
+position: absolute;
+width: 64px;
+height: 64px;
+left: 307px;
+top: 291px;
+
+background: #1A1A1A;
+/* Drop Shadow */
+box-shadow: 0px 15px 30px -6px rgba(0, 0, 0, 0.55);
+border-radius: 15px;
+
+
+/* Discount */
+
+position: absolute;
+width: 32px;
+height: 32px;
+left: 323px;
+top: 307px;
+
+
+
+/* Vector */
+
+position: absolute;
+left: 15.62%;
+right: 3.12%;
+top: 18.75%;
+bottom: 0%;
+
+/* Pink-Purple/Color */
+background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(97.91deg, #FFC6E8 6.1%, #CA9CFF 103.66%);
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 2.92%;
+right: 5.54%;
+top: 2.87%;
+bottom: 6.9%;
+
+/* Pink-Purple/Fill */
+background: linear-gradient(117.15deg, rgba(255, 163, 219, 0.1) -0.12%, rgba(191, 130, 238, 0.1) 99.54%), rgba(241, 241, 241, 0.1);
+box-shadow: inset 0px 1.625px 6.5px rgba(255, 255, 255, 0.4);
+backdrop-filter: blur(4.875px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 34.49%;
+right: 31.9%;
+top: 34.7%;
+bottom: 59.99%;
+
+/* Highlight/100 */
+background: linear-gradient(268.13deg, #FFFFFF 7.44%, rgba(255, 255, 255, 0.2) 115.42%);
+backdrop-filter: blur(8.73438px);
+/* Note: backdrop-filter has minimal browser support */
+transform: matrix(0.71, -0.7, 0.71, 0.7, 0, 0);
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 35.76%;
+right: 56.11%;
+top: 35.09%;
+bottom: 56.89%;
+
+/* Highlight/100 */
+background: linear-gradient(268.13deg, #FFFFFF 7.44%, rgba(255, 255, 255, 0.2) 115.42%);
+backdrop-filter: blur(8.73438px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 53.69%;
+right: 38.18%;
+top: 52.77%;
+bottom: 39.21%;
+
+/* Highlight/100 */
+background: linear-gradient(268.13deg, #FFFFFF 7.44%, rgba(255, 255, 255, 0.2) 115.42%);
+backdrop-filter: blur(8.73438px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Gem */
+
+position: absolute;
+width: 64px;
+height: 64px;
+left: 396px;
+top: 291px;
+
+
+
+/* Bg */
+
+box-sizing: border-box;
+
+position: absolute;
+width: 64px;
+height: 64px;
+left: 396px;
+top: 291px;
+
+background: #1A1A1A;
+/* Drop Shadow */
+box-shadow: 0px 15px 30px -6px rgba(0, 0, 0, 0.55);
+border-radius: 15px;
+
+
+/* Gem */
+
+position: absolute;
+width: 32px;
+height: 32px;
+left: 412px;
+top: 307px;
+
+
+
+/* Vector */
+
+position: absolute;
+left: 0%;
+right: 21.88%;
+top: 28.12%;
+bottom: 9.38%;
+
+/* Blue-Violet/Color */
+background: linear-gradient(97.91deg, #A9E0FF 6.1%, #8DA0FF 103.66%);
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 6.25%;
+right: 6.25%;
+top: 28.12%;
+bottom: 9.38%;
+
+/* Blue-Violet/Fill */
+background: linear-gradient(117.15deg, rgba(169, 224, 255, 0.1) -0.12%, rgba(141, 160, 255, 0.1) 99.54%), rgba(241, 241, 241, 0.2);
+box-shadow: inset 0px 1.625px 6.5px rgba(255, 255, 255, 0.4);
+backdrop-filter: blur(4.875px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Vector */
+
+position: absolute;
+left: 84.38%;
+right: 0%;
+top: 9.38%;
+bottom: 75%;
+
+/* Blue-Violet/Color */
+background: linear-gradient(97.91deg, #A9E0FF 6.1%, #8DA0FF 103.66%);
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 12.5%;
+right: 12.5%;
+top: 31.25%;
+bottom: 46.88%;
+
+/* Highlight/100 */
+background: linear-gradient(268.13deg, #FFFFFF 7.44%, rgba(255, 255, 255, 0.2) 115.42%);
+box-shadow: 0px 2px 5px rgba(141, 160, 255, 0.5);
+backdrop-filter: blur(8.85935px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Laptop */
+
+position: absolute;
+width: 64px;
+height: 64px;
+left: 485px;
+top: 291px;
+
+
+
+/* Bg */
+
+box-sizing: border-box;
+
+position: absolute;
+width: 64px;
+height: 64px;
+left: 485px;
+top: 291px;
+
+background: #1A1A1A;
+/* Drop Shadow */
+box-shadow: 0px 15px 30px -6px rgba(0, 0, 0, 0.55);
+border-radius: 15px;
+
+
+/* Laptop */
+
+position: absolute;
+width: 32px;
+height: 32px;
+left: 501px;
+top: 307px;
+
+
+
+/* Vector */
+
+position: absolute;
+left: 15.32%;
+right: 0%;
+top: 9.38%;
+bottom: 30.23%;
+
+/* Green-Blue/Color */
+background: linear-gradient(97.91deg, #7FFBE5 6.1%, #84BEFA 103.66%);
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 4.74%;
+right: 10.57%;
+top: 17.49%;
+bottom: 22.12%;
+
+/* Green-Blue/Fill */
+background: linear-gradient(117.15deg, rgba(127, 251, 229, 0.1) -0.12%, rgba(132, 190, 250, 0.1) 99.54%), rgba(241, 241, 241, 0.1);
+box-shadow: inset 0px 1.625px 6.5px rgba(255, 255, 255, 0.4);
+backdrop-filter: blur(4.875px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 28.62%;
+right: 61.69%;
+top: 44.38%;
+bottom: 34.96%;
+
+/* Highlight/100 */
+background: linear-gradient(268.13deg, #FFFFFF 7.44%, rgba(255, 255, 255, 0.2) 115.42%);
+box-shadow: 0px 1.5px 5px rgba(39, 133, 230, 0.5);
+backdrop-filter: blur(8.85935px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 42.22%;
+right: 48.09%;
+top: 36.1%;
+bottom: 34.92%;
+
+/* Highlight/100 */
+background: linear-gradient(268.13deg, #FFFFFF 7.44%, rgba(255, 255, 255, 0.2) 115.42%);
+box-shadow: 0px 1.5px 5px rgba(39, 133, 230, 0.5);
+backdrop-filter: blur(8.85935px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 55.77%;
+right: 34.54%;
+top: 40.49%;
+bottom: 34.92%;
+
+/* Highlight/100 */
+background: linear-gradient(268.13deg, #FFFFFF 7.44%, rgba(255, 255, 255, 0.2) 115.42%);
+box-shadow: 0px 1.5px 5px rgba(39, 133, 230, 0.5);
+backdrop-filter: blur(8.85935px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Vector */
+
+position: absolute;
+left: 0%;
+right: 5.87%;
+top: 81.81%;
+bottom: 11.91%;
+
+/* Green-Blue/Color */
+background: linear-gradient(97.91deg, #7FFBE5 6.1%, #84BEFA 103.66%);
+
+
+/* Mail */
+
+position: absolute;
+width: 64px;
+height: 64px;
+left: 574px;
+top: 291px;
+
+
+
+/* Bg */
+
+box-sizing: border-box;
+
+position: absolute;
+width: 64px;
+height: 64px;
+left: 574px;
+top: 291px;
+
+background: #1A1A1A;
+/* Drop Shadow */
+box-shadow: 0px 15px 30px -6px rgba(0, 0, 0, 0.55);
+border-radius: 15px;
+
+
+/* Mail */
+
+position: absolute;
+width: 32px;
+height: 32px;
+left: 590px;
+top: 307px;
+
+
+
+/* Vector */
+
+position: absolute;
+left: 11.1%;
+right: 0%;
+top: 23.34%;
+bottom: 12.5%;
+
+/* Yellow-Orange/Color */
+background: linear-gradient(97.91deg, #FFDB94 6.1%, #FE749C 103.66%);
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 0%;
+right: 11.1%;
+top: 12.5%;
+bottom: 23.34%;
+
+/* Yellow-Orange/Fill */
+background: linear-gradient(117.15deg, rgba(255, 219, 148, 0.1) -0.12%, rgba(254, 116, 156, 0.1) 99.54%), rgba(241, 241, 241, 0.2);
+box-shadow: inset 0px 1.625px 6.5px rgba(255, 255, 255, 0.4);
+backdrop-filter: blur(4.875px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 3.39%;
+right: 14.49%;
+top: 12.5%;
+bottom: 57.61%;
+
+/* Highlight/100 */
+background: linear-gradient(268.13deg, #FFFFFF 7.44%, rgba(255, 255, 255, 0.2) 115.42%);
+box-shadow: 0px 2px 5px rgba(254, 116, 156, 0.5);
+backdrop-filter: blur(8.85935px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Research */
+
+position: absolute;
+width: 64px;
+height: 64px;
+left: 663px;
+top: 291px;
+
+
+
+/* Bg */
+
+box-sizing: border-box;
+
+position: absolute;
+width: 64px;
+height: 64px;
+left: 663px;
+top: 291px;
+
+background: #1A1A1A;
+/* Drop Shadow */
+box-shadow: 0px 15px 30px -6px rgba(0, 0, 0, 0.55);
+border-radius: 15px;
+
+
+/* Research */
+
+position: absolute;
+width: 32px;
+height: 32px;
+left: 679px;
+top: 307px;
+
+
+
+/* Vector */
+
+position: absolute;
+left: 40.62%;
+right: 3.12%;
+top: 0%;
+bottom: 43.75%;
+
+/* Pink-Purple/Color */
+background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(97.91deg, #FFC6E8 6.1%, #CA9CFF 103.66%);
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 28.12%;
+right: 21.88%;
+top: 15.62%;
+bottom: 34.38%;
+
+/* Pink-Purple/Fill */
+background: linear-gradient(117.15deg, rgba(255, 163, 219, 0.1) -0.12%, rgba(191, 130, 238, 0.1) 99.54%), rgba(241, 241, 241, 0.1);
+box-shadow: inset 0px 1.625px 6.5px rgba(255, 255, 255, 0.4);
+backdrop-filter: blur(4.875px);
+/* Note: backdrop-filter has minimal browser support */
+border-radius: 6.5px;
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 21.88%;
+right: 15.62%;
+top: 9.38%;
+bottom: 28.12%;
+
+/* Highlight/100 */
+background: linear-gradient(268.13deg, #FFFFFF 7.44%, rgba(255, 255, 255, 0.2) 115.42%);
+backdrop-filter: blur(8.73438px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Vector */
+
+position: absolute;
+left: -2.24%;
+right: 87.14%;
+top: 61.38%;
+bottom: 4.21%;
+
+/* Pink-Purple/Color */
+background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(97.91deg, #FFC6E8 6.1%, #CA9CFF 103.66%);
+transform: matrix(0.7, 0.72, -0.7, 0.72, 0, 0);
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 46.88%;
+right: 40.62%;
+top: 28.12%;
+bottom: 46.88%;
+
+/* Highlight/100 */
+background: linear-gradient(268.13deg, #FFFFFF 7.44%, rgba(255, 255, 255, 0.2) 115.42%);
+backdrop-filter: blur(8.73438px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Target */
+
+position: absolute;
+width: 64px;
+height: 64px;
+left: 40px;
+top: 380px;
+
+
+
+/* Bg */
+
+box-sizing: border-box;
+
+position: absolute;
+width: 64px;
+height: 64px;
+left: 40px;
+top: 380px;
+
+background: #1A1A1A;
+/* Drop Shadow */
+box-shadow: 0px 15px 30px -6px rgba(0, 0, 0, 0.55);
+border-radius: 15px;
+
+
+/* Target */
+
+position: absolute;
+width: 32px;
+height: 32px;
+left: 56px;
+top: 396px;
+
+
+
+/* Vector */
+
+position: absolute;
+left: 15.62%;
+right: 34.38%;
+top: 34.38%;
+bottom: 15.62%;
+
+/* Green-Blue/Color */
+background: linear-gradient(97.91deg, #7FFBE5 6.1%, #84BEFA 103.66%);
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 0%;
+right: 19.82%;
+top: 19.86%;
+bottom: 0%;
+
+/* Green-Blue/Fill */
+background: linear-gradient(117.15deg, rgba(127, 251, 229, 0.1) -0.12%, rgba(132, 190, 250, 0.1) 99.54%), rgba(241, 241, 241, 0.1);
+box-shadow: inset 0px 1.625px 6.5px rgba(255, 255, 255, 0.4);
+backdrop-filter: blur(4.875px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 11.38%;
+right: 31.2%;
+top: 31.23%;
+bottom: 11.37%;
+
+/* Green-Blue/Fill */
+background: linear-gradient(117.15deg, rgba(127, 251, 229, 0.1) -0.12%, rgba(132, 190, 250, 0.1) 99.54%), rgba(241, 241, 241, 0.1);
+box-shadow: inset 0px 1.625px 6.5px rgba(255, 255, 255, 0.4);
+backdrop-filter: blur(4.875px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 39.03%;
+right: 14.92%;
+top: 14.96%;
+bottom: 39.04%;
+
+/* Highlight/100 */
+background: linear-gradient(268.13deg, #FFFFFF 7.44%, rgba(255, 255, 255, 0.2) 115.42%);
+box-shadow: -1.5px 1.5px 5px rgba(39, 133, 230, 0.3);
+backdrop-filter: blur(8.85935px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Vector */
+
+position: absolute;
+left: 75.39%;
+right: 0.13%;
+top: -0.02%;
+bottom: 75.5%;
+
+/* Green-Blue/Color */
+background: linear-gradient(97.91deg, #7FFBE5 6.1%, #84BEFA 103.66%);
+
+
+/* Loan */
+
+position: absolute;
+width: 64px;
+height: 64px;
+left: 129px;
+top: 380px;
+
+
+
+/* Bg */
+
+box-sizing: border-box;
+
+position: absolute;
+width: 64px;
+height: 64px;
+left: 129px;
+top: 380px;
+
+background: #1A1A1A;
+/* Drop Shadow */
+box-shadow: 0px 15px 30px -6px rgba(0, 0, 0, 0.55);
+border-radius: 15px;
+
+
+/* Loan */
+
+position: absolute;
+width: 32px;
+height: 32px;
+left: 145px;
+top: 396px;
+
+
+
+/* Vector */
+
+position: absolute;
+left: 40.62%;
+right: 3.12%;
+top: 15.62%;
+bottom: 28.12%;
+
+/* Yellow-Orange/Color */
+background: linear-gradient(97.91deg, #FFDB94 6.1%, #FE749C 103.66%);
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 46.88%;
+right: 9.38%;
+top: 21.88%;
+bottom: 34.38%;
+
+/* Yellow-Orange/Fill */
+background: linear-gradient(117.15deg, rgba(255, 219, 148, 0.1) -0.12%, rgba(254, 116, 156, 0.1) 99.54%), rgba(241, 241, 241, 0.2);
+box-shadow: inset 0px 1.625px 6.5px rgba(255, 255, 255, 0.4);
+backdrop-filter: blur(4.875px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 59.89%;
+right: 21.62%;
+top: 24.62%;
+bottom: 39.77%;
+
+/* Highlight/100 */
+background: linear-gradient(268.13deg, #FFFFFF 7.44%, rgba(255, 255, 255, 0.2) 115.42%);
+box-shadow: 0px 1.5px 5px rgba(254, 116, 156, 0.5);
+backdrop-filter: blur(8.85935px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Vector */
+
+position: absolute;
+left: 0%;
+right: 73.45%;
+top: 39.66%;
+bottom: 12.5%;
+
+/* Yellow-Orange/Color */
+background: linear-gradient(97.91deg, #FFDB94 6.1%, #FE749C 103.66%);
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 26.55%;
+right: 0%;
+top: 42.6%;
+bottom: 16.28%;
+
+/* Highlight/100 */
+background: linear-gradient(268.13deg, #FFFFFF 7.44%, rgba(255, 255, 255, 0.2) 115.42%);
+box-shadow: -2px 1.5px 5px rgba(254, 116, 156, 0.5);
+backdrop-filter: blur(8.85935px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Insurance */
+
+position: absolute;
+width: 64px;
+height: 64px;
+left: 218px;
+top: 380px;
+
+
+
+/* Bg */
+
+box-sizing: border-box;
+
+position: absolute;
+width: 64px;
+height: 64px;
+left: 218px;
+top: 380px;
+
+background: #1A1A1A;
+/* Drop Shadow */
+box-shadow: 0px 15px 30px -6px rgba(0, 0, 0, 0.55);
+border-radius: 15px;
+
+
+/* Insurance */
+
+position: absolute;
+width: 32px;
+height: 32px;
+left: 234px;
+top: 396px;
+
+
+
+/* Vector */
+
+position: absolute;
+left: 6.28%;
+right: 5.29%;
+top: 9.61%;
+bottom: 47.93%;
+
+/* Pink-Purple/Color */
+background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(97.91deg, #FFC6E8 6.1%, #CA9CFF 103.66%);
+
+
+/* Vector */
+
+position: absolute;
+left: 27.37%;
+right: 47.7%;
+top: 35%;
+bottom: -0.23%;
+
+/* Pink-Purple/Color */
+background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(97.91deg, #FFC6E8 6.1%, #CA9CFF 103.66%);
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 3.12%;
+right: 5.63%;
+top: 0%;
+bottom: 55.86%;
+
+/* Pink-Purple/Fill */
+background: linear-gradient(117.15deg, rgba(255, 163, 219, 0.1) -0.12%, rgba(191, 130, 238, 0.1) 99.54%), rgba(241, 241, 241, 0.1);
+box-shadow: inset 0px 1.625px 6.5px rgba(255, 255, 255, 0.4);
+backdrop-filter: blur(4.875px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 31%;
+right: 33.09%;
+top: 3.67%;
+bottom: 62.94%;
+
+/* Highlight/100 */
+background: linear-gradient(268.13deg, #FFFFFF 7.44%, rgba(255, 255, 255, 0.2) 115.42%);
+backdrop-filter: blur(8.73438px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Currency Exchange */
+
+position: absolute;
+width: 64px;
+height: 64px;
+left: 307px;
+top: 380px;
+
+
+
+/* Bg */
+
+box-sizing: border-box;
+
+position: absolute;
+width: 64px;
+height: 64px;
+left: 307px;
+top: 380px;
+
+background: #1A1A1A;
+/* Drop Shadow */
+box-shadow: 0px 15px 30px -6px rgba(0, 0, 0, 0.55);
+border-radius: 15px;
+
+
+/* Currency Exchange */
+
+position: absolute;
+width: 32px;
+height: 32px;
+left: 323px;
+top: 396px;
+
+
+
+/* Vector */
+
+position: absolute;
+left: 32.78%;
+right: 12.99%;
+top: 35.12%;
+bottom: 11.56%;
+
+/* Blue-Violet/Color */
+background: linear-gradient(97.91deg, #A9E0FF 6.1%, #8DA0FF 103.66%);
+
+
+/* Vector */
+
+position: absolute;
+left: 21.88%;
+right: 40.62%;
+top: 18.75%;
+bottom: 43.75%;
+
+/* Blue-Violet/Color */
+background: linear-gradient(97.91deg, #A9E0FF 6.1%, #8DA0FF 103.66%);
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 8.73%;
+right: 37.04%;
+top: 12.32%;
+bottom: 34.36%;
+
+/* Blue-Violet/Fill */
+background: linear-gradient(117.15deg, rgba(169, 224, 255, 0.1) -0.12%, rgba(141, 160, 255, 0.1) 99.54%), rgba(241, 241, 241, 0.2);
+box-shadow: inset 0px 1.625px 6.5px rgba(255, 255, 255, 0.4);
+backdrop-filter: blur(4.875px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 16.02%;
+right: 44.34%;
+top: 19.49%;
+bottom: 41.53%;
+
+/* Highlight/100 */
+background: linear-gradient(268.13deg, #FFFFFF 7.44%, rgba(255, 255, 255, 0.2) 115.42%);
+box-shadow: 0px 2px 5px rgba(141, 160, 255, 0.5);
+backdrop-filter: blur(8.85935px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Vector */
+
+position: absolute;
+left: 0.02%;
+right: 58.25%;
+top: 60.81%;
+bottom: -0.2%;
+
+/* Blue-Violet/Color */
+background: linear-gradient(97.91deg, #A9E0FF 6.1%, #8DA0FF 103.66%);
+
+
+/* Vector */
+
+position: absolute;
+left: 58.37%;
+right: 0%;
+top: 3.12%;
+bottom: 57.41%;
+
+/* Blue-Violet/Color */
+background: linear-gradient(97.91deg, #A9E0FF 6.1%, #8DA0FF 103.66%);
+
+
+/* Growth */
+
+position: absolute;
+width: 64px;
+height: 64px;
+left: 396px;
+top: 380px;
+
+
+
+/* Bg */
+
+box-sizing: border-box;
+
+position: absolute;
+width: 64px;
+height: 64px;
+left: 396px;
+top: 380px;
+
+background: #1A1A1A;
+/* Drop Shadow */
+box-shadow: 0px 15px 30px -6px rgba(0, 0, 0, 0.55);
+border-radius: 15px;
+
+
+/* Growth */
+
+position: absolute;
+width: 32px;
+height: 32px;
+left: 412px;
+top: 396px;
+
+
+
+/* Vector */
+
+position: absolute;
+left: 9.38%;
+right: 6.65%;
+top: 5.33%;
+bottom: -0.29%;
+
+/* Green-Blue/Color */
+background: linear-gradient(97.91deg, #7FFBE5 6.1%, #84BEFA 103.66%);
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 9.38%;
+right: 6.44%;
+top: 0.01%;
+bottom: 23.26%;
+
+/* Green-Blue/Fill */
+background: linear-gradient(117.15deg, rgba(127, 251, 229, 0.1) -0.12%, rgba(132, 190, 250, 0.1) 99.54%), rgba(241, 241, 241, 0.1);
+box-shadow: inset 0px 1.625px 6.5px rgba(255, 255, 255, 0.4);
+backdrop-filter: blur(4.875px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 22.37%;
+right: 55.14%;
+top: 24.82%;
+bottom: 61.28%;
+
+/* Highlight/100 */
+background: linear-gradient(268.13deg, #FFFFFF 7.44%, rgba(255, 255, 255, 0.2) 115.42%);
+box-shadow: 0px 1.5px 5px rgba(39, 133, 230, 0.5);
+backdrop-filter: blur(8.85935px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 53.72%;
+right: 20.93%;
+top: 8.56%;
+bottom: 76.02%;
+
+/* Highlight/100 */
+background: linear-gradient(268.13deg, #FFFFFF 7.44%, rgba(255, 255, 255, 0.2) 115.42%);
+box-shadow: 0px 1.5px 5px rgba(39, 133, 230, 0.5);
+backdrop-filter: blur(8.85935px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Customer File */
+
+position: absolute;
+width: 64px;
+height: 64px;
+left: 485px;
+top: 380px;
+
+
+
+/* Bg */
+
+box-sizing: border-box;
+
+position: absolute;
+width: 64px;
+height: 64px;
+left: 485px;
+top: 380px;
+
+background: #1A1A1A;
+/* Drop Shadow */
+box-shadow: 0px 15px 30px -6px rgba(0, 0, 0, 0.55);
+border-radius: 15px;
+
+
+/* Customer File */
+
+position: absolute;
+width: 32px;
+height: 32px;
+left: 501px;
+top: 396px;
+
+
+
+/* Vector */
+
+position: absolute;
+left: 12.5%;
+right: 0%;
+top: 9.38%;
+bottom: 18.75%;
+
+/* Yellow-Orange/Color */
+background: linear-gradient(97.91deg, #FFDB94 6.1%, #FE749C 103.66%);
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: -0.05%;
+right: 0%;
+top: 9.38%;
+bottom: 9.42%;
+
+/* Yellow-Orange/Fill */
+background: linear-gradient(117.15deg, rgba(255, 219, 148, 0.1) -0.12%, rgba(254, 116, 156, 0.1) 99.54%), rgba(241, 241, 241, 0.2);
+box-shadow: inset 0px 1.625px 6.5px rgba(255, 255, 255, 0.4);
+backdrop-filter: blur(4.875px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 14.98%;
+right: 54.79%;
+top: 31.84%;
+bottom: 31.89%;
+
+/* Highlight/100 */
+background: linear-gradient(268.13deg, #FFFFFF 7.44%, rgba(255, 255, 255, 0.2) 115.42%);
+box-shadow: 0px 2px 5px rgba(254, 116, 156, 0.5);
+backdrop-filter: blur(8.85935px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Legal */
+
+position: absolute;
+width: 64px;
+height: 64px;
+left: 574px;
+top: 380px;
+
+
+
+/* Bg */
+
+box-sizing: border-box;
+
+position: absolute;
+width: 64px;
+height: 64px;
+left: 574px;
+top: 380px;
+
+background: #1A1A1A;
+/* Drop Shadow */
+box-shadow: 0px 15px 30px -6px rgba(0, 0, 0, 0.55);
+border-radius: 15px;
+
+
+/* Legal */
+
+position: absolute;
+width: 32px;
+height: 32px;
+left: 590px;
+top: 396px;
+
+
+
+/* Vector */
+
+position: absolute;
+left: 1.84%;
+right: 66.84%;
+top: 10%;
+bottom: 41.5%;
+
+/* Pink-Purple/Color */
+background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(97.91deg, #FFC6E8 6.1%, #CA9CFF 103.66%);
+
+
+/* Vector */
+
+position: absolute;
+left: 13.86%;
+right: 14.07%;
+top: 9.36%;
+bottom: 6.25%;
+
+/* Pink-Purple/Color */
+background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(97.91deg, #FFC6E8 6.1%, #CA9CFF 103.66%);
+
+
+/* Vector */
+
+position: absolute;
+left: 67.42%;
+right: 1.26%;
+top: 21.98%;
+bottom: 29.56%;
+
+/* Pink-Purple/Color */
+background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(97.91deg, #FFC6E8 6.1%, #CA9CFF 103.66%);
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 0%;
+right: 65.11%;
+top: 43.47%;
+bottom: 39.75%;
+
+/* Pink-Purple/Fill */
+background: linear-gradient(117.15deg, rgba(255, 163, 219, 0.1) -0.12%, rgba(191, 130, 238, 0.1) 99.54%), rgba(241, 241, 241, 0.1);
+box-shadow: inset 0px 1.625px 6.5px rgba(255, 255, 255, 0.4);
+backdrop-filter: blur(4.875px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 65.11%;
+right: 0%;
+top: 55.31%;
+bottom: 27.91%;
+
+/* Pink-Purple/Fill */
+background: linear-gradient(117.15deg, rgba(255, 163, 219, 0.1) -0.12%, rgba(191, 130, 238, 0.1) 99.54%), rgba(241, 241, 241, 0.1);
+box-shadow: inset 0px 1.625px 6.5px rgba(255, 255, 255, 0.4);
+backdrop-filter: blur(4.875px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 13.86%;
+right: 13.89%;
+top: 9.36%;
+bottom: 71.43%;
+
+/* Pink-Purple/Fill */
+background: linear-gradient(117.15deg, rgba(255, 163, 219, 0.1) -0.12%, rgba(191, 130, 238, 0.1) 99.54%), rgba(241, 241, 241, 0.1);
+box-shadow: inset 0px 1.625px 6.5px rgba(255, 255, 255, 0.4);
+backdrop-filter: blur(4.875px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* ATM */
+
+position: absolute;
+width: 64px;
+height: 64px;
+left: 663px;
+top: 380px;
+
+
+
+/* Bg */
+
+box-sizing: border-box;
+
+position: absolute;
+width: 64px;
+height: 64px;
+left: 663px;
+top: 380px;
+
+background: #1A1A1A;
+/* Drop Shadow */
+box-shadow: 0px 15px 30px -6px rgba(0, 0, 0, 0.55);
+border-radius: 15px;
+
+
+/* ATM */
+
+position: absolute;
+left: 88.64%;
+right: 7.18%;
+top: 68.87%;
+bottom: 25.57%;
+
+
+
+/* Vector */
+
+position: absolute;
+left: 0%;
+right: -0.52%;
+top: 12.5%;
+bottom: 47.67%;
+
+/* Blue-Violet/Color */
+background: linear-gradient(97.91deg, #A9E0FF 6.1%, #8DA0FF 103.66%);
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 15.71%;
+right: 15.71%;
+top: 19.22%;
+bottom: 12.5%;
+
+/* Blue-Violet/Fill */
+background: linear-gradient(117.15deg, rgba(169, 224, 255, 0.1) -0.12%, rgba(141, 160, 255, 0.1) 99.54%), rgba(241, 241, 241, 0.2);
+box-shadow: inset 0px 1.625px 6.5px rgba(255, 255, 255, 0.4);
+backdrop-filter: blur(4.875px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 8.38%;
+right: 8.82%;
+top: 19.22%;
+bottom: 56.47%;
+
+/* Blue-Violet/Fill */
+background: linear-gradient(117.15deg, rgba(169, 224, 255, 0.1) -0.12%, rgba(141, 160, 255, 0.1) 99.54%), rgba(241, 241, 241, 0.2);
+opacity: 0.7;
+box-shadow: inset 0px 1.625px 6.5px rgba(255, 255, 255, 0.4);
+backdrop-filter: blur(4.875px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 27.23%;
+right: 55.5%;
+top: 19.74%;
+bottom: 19.22%;
+
+/* Highlight/100 */
+background: linear-gradient(268.13deg, #FFFFFF 7.44%, rgba(255, 255, 255, 0.2) 115.42%);
+box-shadow: 0px 2px 5px rgba(141, 160, 255, 0.5);
+backdrop-filter: blur(8.85935px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* QR Code */
+
+position: absolute;
+width: 64px;
+height: 64px;
+left: 40px;
+top: 469px;
+
+
+
+/* Bg */
+
+box-sizing: border-box;
+
+position: absolute;
+width: 64px;
+height: 64px;
+left: 40px;
+top: 469px;
+
+background: #1A1A1A;
+/* Drop Shadow */
+box-shadow: 0px 15px 30px -6px rgba(0, 0, 0, 0.55);
+border-radius: 15px;
+
+
+/* QR Code */
+
+position: absolute;
+width: 32px;
+height: 32px;
+left: 56px;
+top: 485px;
+
+
+
+/* Vector */
+
+position: absolute;
+left: -1.04%;
+right: 19.28%;
+top: 0.87%;
+bottom: 18.59%;
+
+/* Pink-Purple/Color */
+background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(97.91deg, #FFC6E8 6.1%, #CA9CFF 103.66%);
+transform: matrix(0.95, 0.33, -0.34, 0.94, 0, 0);
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 0%;
+right: 18.07%;
+top: 0%;
+bottom: 19.64%;
+
+/* Pink-Purple/Fill */
+background: linear-gradient(117.15deg, rgba(255, 163, 219, 0.1) -0.12%, rgba(191, 130, 238, 0.1) 99.54%), rgba(241, 241, 241, 0.1);
+box-shadow: inset 0px 1.625px 6.5px rgba(255, 255, 255, 0.4);
+backdrop-filter: blur(4.875px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 11.53%;
+right: 30.5%;
+top: 11.75%;
+bottom: 31%;
+
+/* Highlight/100 */
+background: linear-gradient(268.13deg, #FFFFFF 7.44%, rgba(255, 255, 255, 0.2) 115.42%);
+backdrop-filter: blur(8.73438px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Sign */
+
+position: absolute;
+width: 64px;
+height: 64px;
+left: 129px;
+top: 469px;
+
+
+
+/* Bg */
+
+box-sizing: border-box;
+
+position: absolute;
+width: 64px;
+height: 64px;
+left: 129px;
+top: 469px;
+
+background: #1A1A1A;
+/* Drop Shadow */
+box-shadow: 0px 15px 30px -6px rgba(0, 0, 0, 0.55);
+border-radius: 15px;
+
+
+/* Sign */
+
+position: absolute;
+width: 32px;
+height: 32px;
+left: 145px;
+top: 485px;
+
+
+
+/* Vector */
+
+position: absolute;
+left: -3.13%;
+right: 33.73%;
+top: 6.25%;
+bottom: 18.79%;
+
+/* Blue-Violet/Color */
+background: linear-gradient(97.91deg, #A9E0FF 6.1%, #8DA0FF 103.66%);
+transform: rotate(22.1deg);
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 0%;
+right: 30.61%;
+top: 15.66%;
+bottom: 9.38%;
+
+/* Blue-Violet/Fill */
+background: linear-gradient(117.15deg, rgba(169, 224, 255, 0.1) -0.12%, rgba(141, 160, 255, 0.1) 99.54%), rgba(241, 241, 241, 0.2);
+box-shadow: inset 0px 1.625px 6.5px rgba(255, 255, 255, 0.4);
+backdrop-filter: blur(4.875px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 48.05%;
+right: 36.17%;
+top: 4.56%;
+bottom: 34.91%;
+
+/* Blue-Violet/Fill */
+background: linear-gradient(117.15deg, rgba(169, 224, 255, 0.1) -0.12%, rgba(141, 160, 255, 0.1) 99.54%), rgba(241, 241, 241, 0.2);
+box-shadow: inset 0px 1.625px 6.5px rgba(255, 255, 255, 0.4);
+backdrop-filter: blur(4.875px);
+/* Note: backdrop-filter has minimal browser support */
+transform: matrix(0.7, 0.71, -0.7, 0.71, 0, 0);
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 9.75%;
+right: 58.79%;
+top: 64.58%;
+bottom: 28.6%;
+
+/* Blue-Violet/Fill */
+background: linear-gradient(117.15deg, rgba(169, 224, 255, 0.1) -0.12%, rgba(141, 160, 255, 0.1) 99.54%), rgba(241, 241, 241, 0.2);
+box-shadow: inset 0px 1.625px 6.5px rgba(255, 255, 255, 0.4);
+backdrop-filter: blur(4.875px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 9.75%;
+right: 58.79%;
+top: 40.62%;
+bottom: 52.56%;
+
+/* Blue-Violet/Fill */
+background: linear-gradient(117.15deg, rgba(169, 224, 255, 0.1) -0.12%, rgba(141, 160, 255, 0.1) 99.54%), rgba(241, 241, 241, 0.2);
+box-shadow: inset 0px 1.625px 6.5px rgba(255, 255, 255, 0.4);
+backdrop-filter: blur(4.875px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 38.07%;
+right: 43.78%;
+top: 50.48%;
+bottom: 30.97%;
+
+/* Highlight/100 */
+background: linear-gradient(268.13deg, #FFFFFF 7.44%, rgba(255, 255, 255, 0.2) 115.42%);
+box-shadow: 0px 2px 5px rgba(141, 160, 255, 0.5);
+backdrop-filter: blur(8.85935px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Suitcase */
+
+position: absolute;
+width: 64px;
+height: 64px;
+left: 218px;
+top: 469px;
+
+
+
+/* Bg */
+
+box-sizing: border-box;
+
+position: absolute;
+width: 64px;
+height: 64px;
+left: 218px;
+top: 469px;
+
+background: #1A1A1A;
+/* Drop Shadow */
+box-shadow: 0px 15px 30px -6px rgba(0, 0, 0, 0.55);
+border-radius: 15px;
+
+
+/* Suitcase */
+
+position: absolute;
+width: 32px;
+height: 32px;
+left: 234px;
+top: 485px;
+
+
+
+/* Vector */
+
+position: absolute;
+left: 11.11%;
+right: 0%;
+top: 25.39%;
+bottom: 6.25%;
+
+/* Green-Blue/Color */
+background: linear-gradient(97.91deg, #7FFBE5 6.1%, #84BEFA 103.66%);
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 0%;
+right: 11.11%;
+top: 24.74%;
+bottom: 6.25%;
+
+/* Green-Blue/Fill */
+background: linear-gradient(117.15deg, rgba(127, 251, 229, 0.1) -0.12%, rgba(132, 190, 250, 0.1) 99.54%), rgba(241, 241, 241, 0.1);
+box-shadow: inset 0px 1.625px 6.5px rgba(255, 255, 255, 0.4);
+backdrop-filter: blur(4.875px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Vector */
+
+position: absolute;
+left: 22.22%;
+right: 23.29%;
+top: 6.1%;
+bottom: 70.59%;
+
+/* Green-Blue/Color */
+background: linear-gradient(97.91deg, #7FFBE5 6.1%, #84BEFA 103.66%);
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 0%;
+right: 11.11%;
+top: 24.74%;
+bottom: 35.83%;
+
+/* Green-Blue/Fill */
+background: linear-gradient(117.15deg, rgba(127, 251, 229, 0.1) -0.12%, rgba(132, 190, 250, 0.1) 99.54%), rgba(241, 241, 241, 0.1);
+box-shadow: inset 0px 1.625px 6.5px rgba(255, 255, 255, 0.4);
+backdrop-filter: blur(4.875px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 0%;
+right: 11.11%;
+top: 24.74%;
+bottom: 35.83%;
+
+/* Green-Blue/Fill */
+background: linear-gradient(117.15deg, rgba(127, 251, 229, 0.1) -0.12%, rgba(132, 190, 250, 0.1) 99.54%), rgba(241, 241, 241, 0.1);
+box-shadow: inset 0px 1.625px 6.5px rgba(255, 255, 255, 0.4);
+backdrop-filter: blur(4.875px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 35.25%;
+right: 46.37%;
+top: 58.24%;
+bottom: 29.84%;
+
+/* Highlight/100 */
+background: linear-gradient(268.13deg, #FFFFFF 7.44%, rgba(255, 255, 255, 0.2) 115.42%);
+box-shadow: -1.5px 1.5px 5px rgba(39, 133, 230, 0.3);
+backdrop-filter: blur(8.85935px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Gold */
+
+position: absolute;
+width: 64px;
+height: 64px;
+left: 307px;
+top: 469px;
+
+
+
+/* Bg */
+
+box-sizing: border-box;
+
+position: absolute;
+width: 64px;
+height: 64px;
+left: 307px;
+top: 469px;
+
+background: #1A1A1A;
+/* Drop Shadow */
+box-shadow: 0px 15px 30px -6px rgba(0, 0, 0, 0.55);
+border-radius: 15px;
+
+
+/* Gold */
+
+position: absolute;
+width: 32px;
+height: 32px;
+left: 323px;
+top: 485px;
+
+
+
+/* Vector */
+
+position: absolute;
+left: 0%;
+right: 55.03%;
+top: 52.71%;
+bottom: 15.46%;
+
+/* Yellow-Orange/Color */
+background: linear-gradient(97.91deg, #FFDB94 6.1%, #FE749C 103.66%);
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 4.29%;
+right: 55.07%;
+top: 52.75%;
+bottom: 17.98%;
+
+/* Yellow-Orange/Fill */
+background: linear-gradient(117.15deg, rgba(255, 219, 148, 0.1) -0.12%, rgba(254, 116, 156, 0.1) 99.54%), rgba(241, 241, 241, 0.2);
+box-shadow: inset 0px 1.625px 6.5px rgba(255, 255, 255, 0.4);
+backdrop-filter: blur(4.875px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Vector */
+
+position: absolute;
+left: 55.03%;
+right: -0.13%;
+top: 52.71%;
+bottom: 15.45%;
+
+/* Yellow-Orange/Color */
+background: linear-gradient(97.91deg, #FFDB94 6.1%, #FE749C 103.66%);
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 59.31%;
+right: 0.04%;
+top: 52.75%;
+bottom: 17.98%;
+
+/* Yellow-Orange/Fill */
+background: linear-gradient(117.15deg, rgba(255, 219, 148, 0.1) -0.12%, rgba(254, 116, 156, 0.1) 99.54%), rgba(241, 241, 241, 0.2);
+box-shadow: inset 0px 1.625px 6.5px rgba(255, 255, 255, 0.4);
+backdrop-filter: blur(4.875px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Vector */
+
+position: absolute;
+left: 26.77%;
+right: 28.3%;
+top: 12.5%;
+bottom: 55.67%;
+
+/* Yellow-Orange/Color */
+background: linear-gradient(97.91deg, #FFDB94 6.1%, #FE749C 103.66%);
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 31.27%;
+right: 28.08%;
+top: 12.67%;
+bottom: 58.03%;
+
+/* Yellow-Orange/Fill */
+background: linear-gradient(117.15deg, rgba(255, 219, 148, 0.1) -0.12%, rgba(254, 116, 156, 0.1) 99.54%), rgba(241, 241, 241, 0.2);
+box-shadow: inset 0px 1.625px 6.5px rgba(255, 255, 255, 0.4);
+backdrop-filter: blur(4.875px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Vector */
+
+position: absolute;
+left: 84.38%;
+right: 0%;
+top: 12.67%;
+bottom: 71.71%;
+
+/* Yellow-Orange/Color */
+background: linear-gradient(97.91deg, #FFDB94 6.1%, #FE749C 103.66%);
+
+
+/* Vector */
+
+position: absolute;
+left: 6.25%;
+right: 81.25%;
+top: 28.29%;
+bottom: 59.21%;
+
+/* Yellow-Orange/Color */
+background: linear-gradient(97.91deg, #FFDB94 6.1%, #FE749C 103.66%);
+
+
+/* Document */
+
+position: absolute;
+width: 64px;
+height: 64px;
+left: 396px;
+top: 469px;
+
+
+
+/* Bg */
+
+box-sizing: border-box;
+
+position: absolute;
+width: 64px;
+height: 64px;
+left: 396px;
+top: 469px;
+
+background: #1A1A1A;
+/* Drop Shadow */
+box-shadow: 0px 15px 30px -6px rgba(0, 0, 0, 0.55);
+border-radius: 15px;
+
+
+/* Document */
+
+position: absolute;
+width: 32px;
+height: 32px;
+left: 412px;
+top: 486px;
+
+
+
+/* Vector */
+
+position: absolute;
+left: 0.02%;
+right: 10.3%;
+top: 0.59%;
+bottom: 0.26%;
+
+/* Pink-Purple/Color */
+background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), linear-gradient(97.91deg, #FFC6E8 6.1%, #CA9CFF 103.66%);
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 15.79%;
+right: 2.88%;
+top: 0%;
+bottom: 10.11%;
+
+/* Pink-Purple/Fill */
+background: linear-gradient(117.15deg, rgba(255, 163, 219, 0.1) -0.12%, rgba(191, 130, 238, 0.1) 99.54%), rgba(241, 241, 241, 0.1);
+box-shadow: inset 0px 1.625px 6.5px rgba(255, 255, 255, 0.4);
+backdrop-filter: blur(4.875px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 70.29%;
+right: 3.12%;
+top: 63.88%;
+bottom: 10.11%;
+
+/* Pink-Purple/Fill */
+background: linear-gradient(117.15deg, rgba(255, 163, 219, 0.1) -0.12%, rgba(191, 130, 238, 0.1) 99.54%), rgba(241, 241, 241, 0.1);
+box-shadow: inset 0px 1.625px 6.5px rgba(255, 255, 255, 0.4);
+backdrop-filter: blur(4.875px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Vector */
+
+position: absolute;
+left: 58.71%;
+right: 31.79%;
+top: 33.22%;
+bottom: 57.5%;
+
+
+
+/* Vector */
+
+position: absolute;
+left: 43.9%;
+right: 31.79%;
+top: 33.22%;
+bottom: 43.03%;
+
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 58.71%;
+right: 24.36%;
+top: 25.97%;
+bottom: 57.5%;
+
+/* Highlight/100 */
+background: linear-gradient(268.13deg, #FFFFFF 7.44%, rgba(255, 255, 255, 0.2) 115.42%);
+backdrop-filter: blur(8.73438px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 36.16%;
+right: 24.36%;
+top: 26.06%;
+bottom: 35.37%;
+
+/* Highlight/100 */
+background: linear-gradient(268.13deg, #FFFFFF 7.44%, rgba(255, 255, 255, 0.2) 115.42%);
+backdrop-filter: blur(8.73438px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Rocket */
+
+position: absolute;
+width: 64px;
+height: 64px;
+left: 485px;
+top: 469px;
+
+
+
+/* Bg */
+
+box-sizing: border-box;
+
+position: absolute;
+width: 64px;
+height: 64px;
+left: 485px;
+top: 469px;
+
+background: #1A1A1A;
+/* Drop Shadow */
+box-shadow: 0px 15px 30px -6px rgba(0, 0, 0, 0.55);
+border-radius: 15px;
+
+
+/* Rocket */
+
+position: absolute;
+width: 32px;
+height: 32px;
+left: 501px;
+top: 486px;
+
+
+
+/* Vector */
+
+position: absolute;
+left: -0.01%;
+right: 66.46%;
+top: 23.21%;
+bottom: 49.24%;
+
+/* Blue-Violet/Color */
+background: linear-gradient(97.91deg, #A9E0FF 6.1%, #8DA0FF 103.66%);
+
+
+/* Vector */
+
+position: absolute;
+left: 15.62%;
+right: 6.25%;
+top: 9.38%;
+bottom: 12.5%;
+
+/* Blue-Violet/Color */
+background: linear-gradient(97.91deg, #A9E0FF 6.1%, #8DA0FF 103.66%);
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 7.78%;
+right: -0.03%;
+top: 0.03%;
+bottom: 7.47%;
+
+/* Blue-Violet/Fill */
+background: linear-gradient(117.15deg, rgba(169, 224, 255, 0.1) -0.12%, rgba(141, 160, 255, 0.1) 99.54%), rgba(241, 241, 241, 0.2);
+box-shadow: inset 0px 1.625px 6.5px rgba(255, 255, 255, 0.4);
+backdrop-filter: blur(4.875px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Vector */
+
+position: absolute;
+left: 49.24%;
+right: 23.19%;
+top: 66.52%;
+bottom: -0.01%;
+
+/* Blue-Violet/Color */
+background: linear-gradient(97.91deg, #A9E0FF 6.1%, #8DA0FF 103.66%);
+
+
+/* Vector */
+
+position: absolute;
+left: 6.29%;
+right: 73.87%;
+top: 73.93%;
+bottom: 6.29%;
+
+/* Blue-Violet/Color */
+background: linear-gradient(97.91deg, #A9E0FF 6.1%, #8DA0FF 103.66%);
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 39.18%;
+right: 30.19%;
+top: 30.19%;
+bottom: 39.18%;
+
+/* Blue-Violet/Fill */
+background: linear-gradient(117.15deg, rgba(169, 224, 255, 0.1) -0.12%, rgba(141, 160, 255, 0.1) 99.54%), rgba(241, 241, 241, 0.2);
+box-shadow: inset 0px 1.625px 6.5px rgba(255, 255, 255, 0.4);
+backdrop-filter: blur(4.875px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 45.63%;
+right: 36.65%;
+top: 36.65%;
+bottom: 45.63%;
+
+/* Highlight/100 */
+background: linear-gradient(268.13deg, #FFFFFF 7.44%, rgba(255, 255, 255, 0.2) 115.42%);
+box-shadow: 0px 2px 5px rgba(141, 160, 255, 0.5);
+backdrop-filter: blur(8.85935px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Global */
+
+position: absolute;
+width: 64px;
+height: 64px;
+left: 574px;
+top: 469px;
+
+
+
+/* Bg */
+
+box-sizing: border-box;
+
+position: absolute;
+width: 64px;
+height: 64px;
+left: 574px;
+top: 469px;
+
+background: #1A1A1A;
+/* Drop Shadow */
+box-shadow: 0px 15px 30px -6px rgba(0, 0, 0, 0.55);
+border-radius: 15px;
+
+
+/* Global */
+
+position: absolute;
+width: 32px;
+height: 32px;
+left: 590px;
+top: 485px;
+
+
+
+/* Vector */
+
+position: absolute;
+left: 15.62%;
+right: 0%;
+top: 15.62%;
+bottom: 0%;
+
+/* Green-Blue/Color */
+background: linear-gradient(97.91deg, #7FFBE5 6.1%, #84BEFA 103.66%);
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 9.38%;
+right: 12.5%;
+top: 9.38%;
+bottom: 12.5%;
+
+/* Green-Blue/Fill */
+background: linear-gradient(117.15deg, rgba(127, 251, 229, 0.1) -0.12%, rgba(132, 190, 250, 0.1) 99.54%), rgba(241, 241, 241, 0.1);
+box-shadow: inset 0px 1.625px 6.5px rgba(255, 255, 255, 0.4);
+backdrop-filter: blur(4.875px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 9.38%;
+right: 12.5%;
+top: 9.38%;
+bottom: 12.5%;
+
+/* Highlight/100 */
+background: linear-gradient(268.13deg, #FFFFFF 7.44%, rgba(255, 255, 255, 0.2) 115.42%);
+box-shadow: 0px 1.5px 5px rgba(39, 133, 230, 0.5);
+backdrop-filter: blur(8.85935px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Risk */
+
+position: absolute;
+width: 64px;
+height: 64px;
+left: 663px;
+top: 469px;
+
+
+
+/* Bg */
+
+box-sizing: border-box;
+
+position: absolute;
+width: 64px;
+height: 64px;
+left: 663px;
+top: 469px;
+
+background: #1A1A1A;
+/* Drop Shadow */
+box-shadow: 0px 15px 30px -6px rgba(0, 0, 0, 0.55);
+border-radius: 15px;
+
+
+/* Risk */
+
+position: absolute;
+width: 32px;
+height: 32px;
+left: 679px;
+top: 485px;
+
+
+
+/* Vector */
+
+position: absolute;
+left: 12.5%;
+right: 3.12%;
+top: 0%;
+bottom: 12.5%;
+
+/* Yellow-Orange/Color */
+background: linear-gradient(97.91deg, #FFDB94 6.1%, #FE749C 103.66%);
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 0.05%;
+right: 15.23%;
+top: -0.01%;
+bottom: 21.35%;
+
+/* Yellow-Orange/Fill */
+background: linear-gradient(117.15deg, rgba(255, 219, 148, 0.1) -0.12%, rgba(254, 116, 156, 0.1) 99.54%), rgba(241, 241, 241, 0.2);
+box-shadow: inset 0px 1.625px 6.5px rgba(255, 255, 255, 0.4);
+backdrop-filter: blur(4.875px);
+/* Note: backdrop-filter has minimal browser support */
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 37.89%;
+right: 29.63%;
+top: 19.42%;
+bottom: 71.65%;
+
+/* Highlight/100 */
+background: linear-gradient(268.13deg, #FFFFFF 7.44%, rgba(255, 255, 255, 0.2) 115.42%);
+box-shadow: 0px 2px 5px rgba(254, 116, 156, 0.5);
+backdrop-filter: blur(8.85935px);
+/* Note: backdrop-filter has minimal browser support */
+transform: rotate(90deg);
+
+
+/* Vector */
+
+box-sizing: border-box;
+
+position: absolute;
+left: 37.89%;
+right: 52.86%;
+top: 56.68%;
+bottom: 34.38%;
+
+/* Highlight/100 */
+background: linear-gradient(268.13deg, #FFFFFF 7.44%, rgba(255, 255, 255, 0.2) 115.42%);
+box-shadow: 0px 2px 5px rgba(254, 116, 156, 0.5);
+backdrop-filter: blur(8.85935px);
+/* Note: backdrop-filter has minimal browser support */
+transform: rotate(90deg);

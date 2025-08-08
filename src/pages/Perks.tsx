@@ -52,7 +52,7 @@ const Perks = () => {
           </h1>
           
           {/* Referral Program Section */}
-          <div className="mb-12 bg-white bg-opacity-70 backdrop-blur-sm border border-brx-dark/30 rounded-lg overflow-hidden">
+          <div className="mb-12 bg-design-cream/20 backdrop-blur-sm border border-design-plum/30 rounded-lg overflow-hidden">
             <div className="grid grid-cols-1 lg:grid-cols-2">
               <div className="p-6">
                 <h2 className="text-2xl font-serif mb-4 text-brx-dark">Referral Program</h2>
@@ -66,7 +66,7 @@ const Perks = () => {
                     Refer Someone Today
                   </Button>
                 ) : (
-                  <div className="bg-white p-4 rounded-md border border-brx-dark/10">
+                  <div className="bg-design-cream/30 p-4 rounded-md border border-design-plum/20">
                     <h3 className="font-medium mb-4 text-brx-dark">Referral Form</h3>
                     <form onSubmit={handleReferralSubmit} className="space-y-4">
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -78,7 +78,7 @@ const Perks = () => {
                             value={referralData.yourName}
                             onChange={handleReferralChange}
                             required
-                            className="w-full px-3 py-2 border border-brx-dark/30 rounded"
+                            className="w-full px-3 py-2 border border-design-plum/30 rounded"
                           />
                         </div>
                         <div>
@@ -89,7 +89,7 @@ const Perks = () => {
                             value={referralData.yourEmail}
                             onChange={handleReferralChange}
                             required
-                            className="w-full px-3 py-2 border border-brx-dark/30 rounded"
+                            className="w-full px-3 py-2 border border-design-plum/30 rounded"
                           />
                         </div>
                       </div>
@@ -103,7 +103,7 @@ const Perks = () => {
                             value={referralData.referralName}
                             onChange={handleReferralChange}
                             required
-                            className="w-full px-3 py-2 border border-brx-dark/30 rounded"
+                            className="w-full px-3 py-2 border border-design-plum/30 rounded"
                           />
                         </div>
                         <div>
@@ -114,7 +114,7 @@ const Perks = () => {
                             value={referralData.referralEmail}
                             onChange={handleReferralChange}
                             required
-                            className="w-full px-3 py-2 border border-brx-dark/30 rounded"
+                            className="w-full px-3 py-2 border border-design-plum/30 rounded"
                           />
                         </div>
                       </div>
@@ -126,7 +126,7 @@ const Perks = () => {
                           value={referralData.message}
                           onChange={handleReferralChange}
                           rows={3}
-                          className="w-full px-3 py-2 border border-brx-dark/30 rounded"
+                          className="w-full px-3 py-2 border border-design-plum/30 rounded"
                         ></textarea>
                       </div>
                       
@@ -138,7 +138,7 @@ const Perks = () => {
                           type="button" 
                           onClick={() => setShowReferralForm(false)}
                           variant="outline"
-                          className="border-brx-dark/30 text-brx-dark hover:bg-brx-dark/10">
+                          className="border-design-plum/30 text-brx-dark hover:bg-brx-dark/10">
                           Cancel
                         </Button>
                       </div>
@@ -157,7 +157,7 @@ const Perks = () => {
           </div>
           
           {/* VIP Club Section */}
-          <div className="mb-12 bg-white bg-opacity-70 backdrop-blur-sm border border-brx-dark/30 rounded-lg overflow-hidden p-6">
+          <div className="mb-12 bg-design-cream/20 backdrop-blur-sm border border-design-plum/30 rounded-lg overflow-hidden p-6">
             <h2 className="text-2xl font-serif mb-4 text-brx-dark">Join my VIP Club monthly giveaway!</h2>
             <p className="text-brx-dark/80 mb-6 text-lg">
               All you have to do is enter your email and name to be notified of the next contest.
@@ -166,12 +166,12 @@ const Perks = () => {
               <input 
                 type="text" 
                 placeholder="Your Name" 
-                className="px-4 py-2 border border-brx-dark/30 rounded"
+                className="px-4 py-2 border border-design-plum/30 rounded"
               />
               <input 
                 type="email" 
                 placeholder="Your Email" 
-                className="px-4 py-2 border border-brx-dark/30 rounded"
+                className="px-4 py-2 border border-design-plum/30 rounded"
               />
               <Button className="bg-brx-dark hover:bg-brx-accent text-white">
                 Join VIP Club
@@ -191,7 +191,7 @@ const Perks = () => {
           </div>
           
           <div className="grid grid-cols-1 lg:grid-cols-1 gap-8 mb-16">
-            <div className="bg-white bg-opacity-70 backdrop-blur-sm border border-brx-dark/30 rounded-lg p-8 mb-10 shadow-sm">
+            <div className="bg-design-cream/20 backdrop-blur-sm border border-design-plum/30 rounded-lg p-8 mb-10 shadow-sm">
               <h2 className="text-2xl font-serif mb-6 text-brx-dark">Exclusive Benefits</h2>
               <p className="text-brx-dark/80 mb-6">
                 Getting a mortgage shouldn't be daunting for my borrowers; that's why I give access to exclusive perks and resources to help you throughout your mortgage journey.
