@@ -5,6 +5,8 @@ import { CircleDollarSign } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import PageBackground from '@/components/PageBackground';
+import RatesTable from '@/components/RatesTable';
+import { mainNavigation } from '@/assets/config/navigation';
 
 
 const Index = () => {
@@ -131,20 +133,37 @@ const Index = () => {
       <div className="bg-black min-h-screen">
         <div className="container mx-auto px-4 py-12 relative z-10">
           
-          
           {/* Navigation Cards */}
           <section className="py-20">
           <h2 className="text-2xl sm:text-3xl md:text-4xl mb-8 sm:mb-12 text-center opacity-0 animate-fade-in-delay-2 text-white font-noto-serif-display italic font-normal premium-text max-w-3xl mx-auto">
           "Planning is important, but the most important part of every plan is to plan on the plan not going according to plan."
           </h2>
           
+          {/* Attribution */}
+          <p className="text-center text-white/60 text-sm mb-12 opacity-0 animate-fade-in-delay-2">
+            — Morgan Housel
+          </p>
+          
+          {/* Current Rates - Compact */}
+          <div className="max-w-4xl mx-auto mb-12 opacity-0 animate-fade-in-delay-2">
+            <RatesTable 
+              title="Current Mortgage Rates" 
+              showRefreshButton={false}
+              compact={true}
+            />
+          </div>
+          
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 mx-auto max-w-3xl">
-            <NavCard title="Meet" description="Learn About My Approach" icon="user" href="/meet" className="animate-fade-in-delay-2" />
-            <NavCard title="Getting Started" description="First Steps" icon="info" href="/getting-started" className="animate-fade-in-delay-2" />
-            <NavCard title="Resources" description="Mortgage Basics 101" icon="document" href="/resources" className="animate-fade-in-delay-3" />
-            <NavCard title="Perks" description="Giveaways & Valuable Tools" icon="gift" href="/perks" className="animate-fade-in-delay-3" />
-            <NavCard title="Calculator" description="Run Some Numbers" icon="calculator" href="/calculator" className="animate-fade-in-delay-3" />
-            <NavCard title="Contact" description="Reach out anytime" icon="message" href="/contact" className="animate-fade-in-delay-3" />
+            {mainNavigation.map((item, index) => (
+              <NavCard 
+                key={item.name}
+                title={item.name} 
+                description={item.description || ''} 
+                icon={item.icon as keyof typeof import('@/assets/config/icons').icons} 
+                href={item.href} 
+                className={`animate-fade-in-delay-${index < 2 ? '2' : '3'}`}
+              />
+            ))}
           </div>
         </section>
 

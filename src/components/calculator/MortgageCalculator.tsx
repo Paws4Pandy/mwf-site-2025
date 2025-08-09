@@ -11,35 +11,30 @@ import {
   formatPercent,
   type MortgageRate 
 } from '@/lib/constants/cmhc';
-
+import { useRates, useBest5YearFixed } from '@/contexts/RatesContext';
 
 interface MortgageCalculatorProps {
   onOpenContactForm?: () => void;
-  currentRates?: MortgageRate[];
 }
 
 const MortgageCalculator: React.FC<MortgageCalculatorProps> = ({ 
-  onOpenContactForm, 
-  currentRates = [] 
+  onOpenContactForm
 }) => {
+  const { rates, loading, error, lastUpdated, refreshRates } = useRates();
+  const best5YearFixed = useBest5YearFixed();
+  
   const [purchasePrice, setPurchasePrice] = useState(1000000);
   const [downPayment, setDownPayment] = useState(200000);
-  const [interestRate, setInterestRate] = useState(4.5);
+  const [interestRate, setInterestRate] = useState(best5YearFixed);
   const [amortizationYears, setAmortizationYears] = useState(25);
   const [isFirstTimeBuyer, setIsFirstTimeBuyer] = useState(false);
   const [isNewBuild, setIsNewBuild] = useState(false);
   const [isTraditionalDownPayment, setIsTraditionalDownPayment] = useState(true);
 
-  // Update interest rate when API rates are loaded
+  // Update interest rate when live rates are loaded
   useEffect(() => {
-    if (currentRates.length > 0) {
-      const fiveYearFixed = currentRates.find(r => r.term === "5 Year" && r.type === "Fixed");
-      if (fiveYearFixed) {
-        const rateNumber = parseFloat(fiveYearFixed.rate.replace('%', ''));
-        setInterestRate(rateNumber);
-      }
-    }
-  }, [currentRates]);
+    setInterestRate(best5YearFixed);
+  }, [best5YearFixed]);
 
   // Auto-adjust down payment when purchase price changes
   useEffect(() => {
@@ -64,18 +59,18 @@ const MortgageCalculator: React.FC<MortgageCalculatorProps> = ({
 
   return (
     <div className="max-w-5xl mx-auto">
-      <div className="grid lg:grid-cols-2 gap-8">
-        {/* Input Controls */}
-        <div className="rounded-2xl shadow-xl backdrop-blur-sm border-2 p-8 hover:shadow-2xl transition-all duration-300 bg-white/10 border-white/20">
+      <div className="grid lg:grid-cols-2 gap-8 items-stretch">
+        {/* Left Column - Input Controls */}
+        <div className="rounded-2xl shadow-xl backdrop-blur-sm border-2 p-8 hover:shadow-2xl transition-all duration-300 bg-white/10 border-white/20 flex flex-col h-full">
           <h3 className="text-2xl font-bold mb-8 text-white">
             Mortgage Details
           </h3>
           
-          <div className="space-y-10">
+          <div className="space-y-10 flex-1">
             {/* Purchase Price Slider */}
             <div>
               <label className="block text-xl font-bold mb-2 text-white font-hk-grotesk-light font-light">
-                Purchase Price: <span className="font-bold text-design-gold">{formatCurrency(purchasePrice)}</span>
+                Purchase Price: <span className="font-bold text-white">{formatCurrency(purchasePrice)}</span>
               </label>
               <input
                 type="range"
@@ -105,7 +100,7 @@ const MortgageCalculator: React.FC<MortgageCalculatorProps> = ({
             {/* Down Payment Slider */}
             <div>
               <label className="block text-xl font-bold mb-2 text-white font-hk-grotesk-light font-light">
-                Down Payment: <span className="font-bold text-design-gold">{formatCurrency(downPayment)} ({formatPercent((downPayment/purchasePrice)*100)})</span>
+                Down Payment: <span className="font-bold text-white">{formatCurrency(downPayment)} ({formatPercent((downPayment/purchasePrice)*100)})</span>
               </label>
               <input
                 type="range"
@@ -144,9 +139,20 @@ const MortgageCalculator: React.FC<MortgageCalculatorProps> = ({
 
             {/* Interest Rate */}
             <div>
-              <label className="block text-xl font-bold mb-2 text-white font-hk-grotesk-light font-light">
-                Interest Rate: <span className="font-bold text-design-gold">{interestRate}%</span>
-              </label>
+              <div className="flex justify-between items-center mb-2">
+                <label className="block text-xl font-bold text-white font-hk-grotesk-light font-light">
+                  Interest Rate: <span className="font-bold text-white">{interestRate}%</span>
+                </label>
+                <div className="flex items-center space-x-2">
+                  <button
+                    onClick={refreshRates}
+                    disabled={loading}
+                    className="px-3 py-1 text-xs bg-design-plum/20 hover:bg-design-plum/40 text-white rounded border border-design-plum/30 transition-colors disabled:opacity-50"
+                  >
+                    {loading ? '⟳' : '↻'} Refresh
+                  </button>
+                </div>
+              </div>
               <input
                 type="range"
                 min="3"
@@ -160,12 +166,17 @@ const MortgageCalculator: React.FC<MortgageCalculatorProps> = ({
                 <span>3%</span>
                 <span>7%</span>
               </div>
+              {error && (
+                <p className="text-red-400 text-xs mt-1">
+                  ⚠️ Using default rates
+                </p>
+              )}
             </div>
             
             {/* Amortization Period */}
             <div>
               <label className="block text-xl font-bold mb-2 text-white font-hk-grotesk-light font-light">
-                Amortization: <span className="font-bold text-design-gold">{amortizationYears} years</span>
+                Amortization: <span className="font-bold text-white">{amortizationYears} years</span>
               </label>
               <input
                 type="range"
@@ -296,7 +307,7 @@ const MortgageCalculator: React.FC<MortgageCalculatorProps> = ({
             <div className="space-y-4">
               <div className="flex justify-between">
                 <span className="text-base font-medium text-white font-hk-grotesk-light font-light">Loan Amount:</span>
-                <span className="font-bold text-base font-hk-grotesk-light font-light">{formatCurrency(loanAmount)}</span>
+                <span className="font-bold text-white text-base font-hk-grotesk-light font-light">{formatCurrency(loanAmount)}</span>
               </div>
               {requiresCMHC && (
                 <>
@@ -320,97 +331,19 @@ const MortgageCalculator: React.FC<MortgageCalculatorProps> = ({
               )}
               <div className="flex justify-between border-t pt-3">
                 <span className="text-base font-medium text-white font-hk-grotesk-light font-light">Total Loan:</span>
-                <span className="font-bold text-base font-hk-grotesk-light font-light">{formatCurrency(totalLoanAmount)}</span>
+                <span className="font-bold text-white text-base font-hk-grotesk-light font-light">{formatCurrency(totalLoanAmount)}</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-base font-medium text-white font-hk-grotesk-light font-light">LTV Ratio:</span>
-                <span className="font-bold text-base font-hk-grotesk-light font-light">{formatPercent(ltvRatio)}</span>
+                <span className="font-bold text-white text-base font-hk-grotesk-light font-light">{formatPercent(ltvRatio)}</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-base font-medium text-white font-hk-grotesk-light font-light">Amortization:</span>
-                <span className="font-bold text-base font-hk-grotesk-light font-light">{amortizationYears} years</span>
+                <span className="font-bold text-white text-base font-hk-grotesk-light font-light">{amortizationYears} years</span>
               </div>
             </div>
           </div>
 
-          {/* CMHC Notice */}
-            
-            <div className="space-y-4">
-              {/* First-Time Buyer Toggle */}
-              <div>
-                <label className="flex items-center space-x-3 cursor-pointer">
-                  <input
-                    type="checkbox"
-                    checked={isFirstTimeBuyer}
-                    onChange={(e) => setIsFirstTimeBuyer(e.target.checked)}
-                    className="w-5 h-5 text-design-plum focus:ring-design-plum border-design-charcoal/30 rounded"
-                  />
-                  <span className="text-lg font-semibold text-white font-hk-grotesk-light font-light">
-                    First-time homebuyer
-                  </span>
-                </label>
-                {isFirstTimeBuyer && (
-                  <p className="text-design-plum text-sm font-medium mt-1 ml-8 font-hk-grotesk-light font-light">
-                    ✓ Eligible for 30-year amortization on new builds & rebates up to $8,475
-                  </p>
-                )}
-              </div>
-
-              {/* New Build Toggle (for First-Time Buyers) */}
-              {isFirstTimeBuyer && (
-                <div>
-                  <label className="flex items-center space-x-3 cursor-pointer">
-                    <input
-                      type="checkbox"
-                      checked={isNewBuild}
-                      onChange={(e) => setIsNewBuild(e.target.checked)}
-                      className="w-5 h-5 text-design-plum focus:ring-design-plum border-design-charcoal/30 rounded"
-                    />
-                    <span className="text-lg font-semibold text-white font-hk-grotesk-light font-light">
-                      New build home (First-time buyer)
-                    </span>
-                  </label>
-                  {isNewBuild && amortizationYears === 30 && (
-                    <p className="text-design-gold text-sm font-medium mt-1 ml-8 font-hk-grotesk-light font-light">
-                      ⚠️ Additional 0.20% CMHC surcharge for 30-year new build
-                    </p>
-                  )}
-                </div>
-              )}
-
-              {/* Down Payment Source Toggle */}
-              <div>
-                <label className="flex items-center space-x-3 cursor-pointer">
-                  <input
-                    type="checkbox"
-                    checked={!isTraditionalDownPayment}
-                    onChange={(e) => setIsTraditionalDownPayment(!e.target.checked)}
-                    className="w-5 h-5 text-design-plum focus:ring-design-plum border-design-charcoal/30 rounded"
-                  />
-                  <span className="text-lg font-semibold text-white font-hk-grotesk-light font-light">
-                    Borrowed down payment
-                  </span>
-                </label>
-                {!isTraditionalDownPayment && ltvRatio > 90 && (
-                  <p className="text-design-charcoal text-sm font-medium mt-1 ml-8 font-hk-grotesk-light font-light">
-                    ⚠️ Higher CMHC premium rate (4.50%) for borrowed down payment
-                  </p>
-                )}
-              </div>
-
-              {/* Conventional Mortgage Notice */}
-              {(downPayment/purchasePrice) >= 0.20 && (
-                <div className="bg-design-plum/10 border border-design-plum/30 rounded-lg p-3 mt-3">
-                  <p className="text-white text-sm font-semibold font-hk-grotesk-light font-light">
-                    ✓ Conventional Mortgage (20%+ down payment)
-                  </p>
-                  <p className="text-white/80 text-sm mt-1 font-hk-grotesk-light font-light">
-                    No CMHC insurance required - save on premium costs
-                  </p>
-                </div>
-              )}
-            </div>
-          </div>
 
           {/* CMHC Notice */}
           {requiresCMHC && isEligibleForCMHC && (
@@ -453,12 +386,21 @@ const MortgageCalculator: React.FC<MortgageCalculatorProps> = ({
             </div>
           )}
 
-          {/* CTA */}
-          <div className="text-center">
+          {/* CTA Buttons */}
+          <div className="grid grid-cols-2 gap-4">
+            {/* View Current Rates Button */}
+            <a 
+              href="/rates" 
+              className="px-6 py-3 text-lg font-semibold inline-block rounded-lg text-white hover:text-black transition-all duration-300 bg-design-plum hover:bg-design-gold text-center"
+            >
+              View Current Rates
+            </a>
+            
+            {/* Start Application Button */}
             {onOpenContactForm ? (
               <button
                 onClick={onOpenContactForm}
-                className="px-8 py-3 text-lg font-semibold inline-block rounded-lg text-black hover:text-white transition-all duration-300 bg-design-gold hover:bg-design-plum"
+                className="px-6 py-3 text-lg font-semibold inline-block rounded-lg text-black hover:text-white transition-all duration-300 bg-design-gold hover:bg-design-plum text-center"
               >
                 Get Pre-Approved
               </button>
@@ -467,7 +409,7 @@ const MortgageCalculator: React.FC<MortgageCalculatorProps> = ({
                 href={CONTACT_CONFIG.applicationUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-8 py-3 text-lg font-semibold inline-block rounded-lg text-black hover:text-white transition-all duration-300 bg-design-gold hover:bg-design-plum"
+                className="px-6 py-3 text-lg font-semibold inline-block rounded-lg text-black hover:text-white transition-all duration-300 bg-design-gold hover:bg-design-plum text-center"
               >
                 {CONTACT_CONFIG.cta.primary}
               </a>

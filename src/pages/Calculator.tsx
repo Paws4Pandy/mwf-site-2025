@@ -19,7 +19,7 @@ const Calculator = () => {
             <span className="text-design-plum">Mortgage</span> <span className="text-design-gold">Calculator</span>
           </h1>
           
-          <div className="mb-12 text-center max-w-3xl mx-auto">
+          <div className="mb-24 text-center max-w-3xl mx-auto">
             <p className="text-white/80 text-lg leading-relaxed">
               Calculate your mortgage payments and understand CMHC insurance requirements.
             </p>
@@ -28,14 +28,6 @@ const Calculator = () => {
           {/* Mortgage Calculator Component */}
           <MortgageCalculator />
           
-          <div className="text-center mb-8">
-            <a 
-              href="/" 
-              className="inline-block px-6 py-3 rounded-xl border-2 border-white text-white bg-transparent hover:bg-white hover:text-black transition-all duration-300 font-medium"
-            >
-              Back to Home
-            </a>
-          </div>
         </section>
         
         {/* Footer */}
