@@ -16,25 +16,27 @@ const Header: React.FC<HeaderProps> = ({ showDivider = true }) => {
         <div className="container mx-auto px-4 sm:px-8">
           <div className="flex items-center justify-between">
             
-            {/* Left Side - Agent Name & Title */}
-            <div className="flex-1">
-              <div className="leading-none">
-                <span className="block sm:inline font-anton text-design-gold text-xl sm:text-2xl font-normal">Andreina Ford</span>
-                <span className="hidden sm:inline text-white/60"> • </span>
-                <span className="block sm:inline font-noto-serif-display italic text-design-plum text-base sm:text-lg font-normal">Mortgage Agent Level 2</span>
-              </div>
-            </div>
-            
-            {/* Right Side - BRX Logo and Hamburger Menu */}
+            {/* Left Side - BRX Logo and Agent Info */}
             <div className="flex items-center space-x-4">
               {/* BRX Logo */}
               <Link to="/">
                 <img 
-                  src="/src/assets/images/logos/BRX_brand_white.png" 
+                  src="/BRX_brand_white.png" 
                   alt="BRX Mortgage Logo" 
                   className="h-6 sm:h-8 md:h-10"
                 />
               </Link>
+              
+              {/* Agent Name & Title */}
+              <div className="leading-none">
+                <div className="font-anton text-design-plum text-lg sm:text-xl font-normal">Andreina Ford</div>
+                <div className="font-anton text-white text-sm sm:text-base font-normal">Mortgage Agent Level 2</div>
+              </div>
+            </div>
+            
+            {/* Right Side - Hamburger Menu */}
+            <div className="flex items-center space-x-4">
+              <div className="flex-1"></div>
               
               {/* Hamburger Menu */}
               <div className="group relative">

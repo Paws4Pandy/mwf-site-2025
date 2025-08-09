@@ -41,7 +41,7 @@ const Footer = () => {
           <div className="pr-2">
             <div className="flex items-center space-x-3 mb-4">
               <img 
-                src="/src/assets/images/logos/BRX_brand_white.png" 
+                src="/BRX_brand_white.png" 
                 alt="BRX Mortgage Logo" 
                 className="h-8"
               />
@@ -154,7 +154,7 @@ const Footer = () => {
                 className="flex items-center space-x-2 hover:opacity-80 transition-opacity"
               >
                 <img 
-                  src="/src/assets/images/logos/BRX_brand_white.png" 
+                  src="/BRX_brand_white.png" 
                   alt="BRX Mortgage" 
                   className="h-6"
                 />
@@ -172,7 +172,7 @@ const Footer = () => {
                 className="flex items-center space-x-2 hover:opacity-80 transition-opacity"
               >
                 <img 
-                  src="/src/assets/images/logos/canada.png" 
+                  src="/canada.png" 
                   alt="Government of Canada" 
                   className="h-6"
                 />
@@ -190,7 +190,7 @@ const Footer = () => {
                 className="flex items-center space-x-2 hover:opacity-80 transition-opacity"
               >
                 <img 
-                  src="/src/assets/images/logos/cmhc.svg" 
+                  src="/cmhc.svg" 
                   alt="CMHC" 
                   className="h-6"
                 />
@@ -208,7 +208,7 @@ const Footer = () => {
                 className="flex items-center space-x-2 hover:opacity-80 transition-opacity"
               >
                 <img 
-                  src="/src/assets/images/logos/fsra.svg" 
+                  src="/fsra.svg" 
                   alt="FSRA" 
                   className="h-6"
                 />
