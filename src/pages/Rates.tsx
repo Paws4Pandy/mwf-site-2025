@@ -7,8 +7,12 @@ import RatesTable from '@/components/RatesTable';
 const Rates = () => {
   return (
     <PageBackground>
-      <div className="container mx-auto px-4 py-12 relative z-10">
+      {/* Header outside container for consistent positioning */}
+      <div className="absolute top-0 left-0 right-0 z-50">
         <Header />
+      </div>
+      
+      <div className="container mx-auto px-4 py-12 relative z-10 pt-24">
         
         <section className="mb-16 opacity-0 animate-fade-in-delay-1 pt-8">
           <h1 className="text-4xl md:text-6xl mb-8 text-center font-noto-serif-display italic font-normal">

@@ -12,7 +12,7 @@ interface HeaderProps {
 const Header: React.FC<HeaderProps> = ({ showDivider = true }) => {
   return (
     <>
-      <header className="py-4 sm:py-6 bg-gradient-to-br from-design-plum/20 via-black/95 to-black relative">
+      <header className="py-4 sm:py-6 bg-transparent relative">
         <div className="container mx-auto px-4 sm:px-8">
           <div className="flex items-center justify-between">
             
@@ -29,7 +29,7 @@ const Header: React.FC<HeaderProps> = ({ showDivider = true }) => {
               
               {/* Agent Name & Title */}
               <div className="leading-none">
-                <div className="font-anton text-design-plum text-lg sm:text-xl font-normal">Andreina Ford</div>
+                <div className="font-anton text-design-gold text-lg sm:text-xl font-normal">Andreina Ford</div>
                 <div className="font-anton text-white text-sm sm:text-base font-normal">Mortgage Agent Level 2</div>
               </div>
             </div>

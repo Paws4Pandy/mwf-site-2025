@@ -8,10 +8,13 @@ import { getH1Classes } from '@/assets/config/typography';
 const Calculator = () => {
   return (
     <PageBackground>
-      {/* Content container */}
-      <div className="container mx-auto px-4 py-12 relative z-10">
-        {/* Header section */}
+      {/* Header outside container for consistent positioning */}
+      <div className="absolute top-0 left-0 right-0 z-50">
         <Header />
+      </div>
+      
+      {/* Content container */}
+      <div className="container mx-auto px-4 py-12 relative z-10 pt-24">
         
         {/* Main content */}
         <section className="mb-16 opacity-0 animate-fade-in-delay-1 pt-8">
