@@ -14,6 +14,7 @@ import Disclaimer from "./pages/Disclaimer";
 import Playbooks from "./pages/Playbooks";
 import PlaybookDetail from "./pages/PlaybookDetail";
 import ClaudeCodeDemo from "./pages/ClaudeCodeDemo";
+import LiquidGlassTest from "./pages/LiquidGlassTest";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -35,6 +36,7 @@ const App = () => (
             <Route path="/playbooks" element={<Playbooks />} />
             <Route path="/playbooks/:playbookId" element={<PlaybookDetail />} />
             <Route path="/claude-code" element={<ClaudeCodeDemo />} />
+            <Route path="/liquid-glass-test" element={<LiquidGlassTest />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

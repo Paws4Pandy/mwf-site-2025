@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liquid Glass Effect - Mortgage Website Test</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            color: white;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .demo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .demo-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 30px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .demo-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .demo-card h3 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            text-align: center;
+        }
+
+        .liquid-glass-container {
+            width: 100%;
+            height: 200px;
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .content {
+            background: linear-gradient(45deg, #f093fb 0%, #f5576c 100%);
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .controls {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .control-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .control-group label {
+            color: white;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        .control-group input, .control-group select {
+            padding: 8px 12px;
+            border: none;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            font-size: 0.9rem;
+        }
+
+        .control-group input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .control-group select option {
+            background: #333;
+            color: white;
+        }
+
+        .info-section {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 30px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            margin-bottom: 30px;
+        }
+
+        .info-section h2 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 2rem;
+            text-align: center;
+        }
+
+        .info-section p {
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.6;
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .feature-list li {
+            color: rgba(255, 255, 255, 0.9);
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 1rem;
+        }
+
+        .feature-list li:before {
+            content: "✨ ";
+            margin-right: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .demo-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>✨ Liquid Glass Effect</h1>
+            <p>Apple's signature liquid glass refraction for your mortgage website</p>
+        </div>
+
+        <div class="info-section">
+            <h2>About Liquid Glass</h2>
+            <p>The Liquid Glass effect creates Apple's signature glass morphism with realistic refraction, distortion, and light interaction. Perfect for creating premium, modern UI elements that stand out.</p>
+            <ul class="feature-list">
+                <li>Multiple refraction modes: standard, polar, prominent, shader</li>
+                <li>Realistic light distortion and glass-like appearance</li>
+                <li>Customizable intensity, scale, and displacement</li>
+                <li>Performance optimized with WebGL shaders</li>
+                <li>Perfect for buttons, cards, and interactive elements</li>
+            </ul>
+        </div>
+
+        <div class="demo-grid">
+            <!-- Standard Mode -->
+            <div class="demo-card">
+                <h3>Standard Mode</h3>
+                <div class="liquid-glass-container" id="standard-demo">
+                    <div class="content">Standard Refraction</div>
+                </div>
+                <div class="controls">
+                    <div class="control-group">
+                        <label for="standard-intensity">Intensity:</label>
+                        <input type="range" id="standard-intensity" min="0" max="100" value="50">
+                    </div>
+                    <div class="control-group">
+                        <label for="standard-scale">Scale:</label>
+                        <input type="range" id="standard-scale" min="0" max="100" value="50">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Polar Mode -->
+            <div class="demo-card">
+                <h3>Polar Mode</h3>
+                <div class="liquid-glass-container" id="polar-demo">
+                    <div class="content">Polar Refraction</div>
+                </div>
+                <div class="controls">
+                    <div class="control-group">
+                        <label for="polar-intensity">Intensity:</label>
+                        <input type="range" id="polar-intensity" min="0" max="100" value="50">
+                    </div>
+                    <div class="control-group">
+                        <label for="polar-scale">Scale:</label>
+                        <input type="range" id="polar-scale" min="0" max="100" value="50">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Prominent Mode -->
+            <div class="demo-card">
+                <h3>Prominent Mode</h3>
+                <div class="liquid-glass-container" id="prominent-demo">
+                    <div class="content">Prominent Refraction</div>
+                </div>
+                <div class="controls">
+                    <div class="control-group">
+                        <label for="prominent-intensity">Intensity:</label>
+                        <input type="range" id="prominent-intensity" min="0" max="100" value="50">
+                    </div>
+                    <div class="control-group">
+                        <label for="prominent-scale">Scale:</label>
+                        <input type="range" id="prominent-scale" min="0" max="100" value="50">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Shader Mode -->
+            <div class="demo-card">
+                <h3>Shader Mode</h3>
+                <div class="liquid-glass-container" id="shader-demo">
+                    <div class="content">Custom Shader</div>
+                </div>
+                <div class="controls">
+                    <div class="control-group">
+                        <label for="shader-intensity">Intensity:</label>
+                        <input type="range" id="shader-intensity" min="0" max="100" value="50">
+                    </div>
+                    <div class="control-group">
+                        <label for="shader-scale">Scale:</label>
+                        <input type="range" id="shader-scale" min="0" max="100" value="50">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-section">
+            <h2>Implementation Guide</h2>
+            <p>To use the Liquid Glass effect in your mortgage website:</p>
+            <ul class="feature-list">
+                <li>Import the LiquidGlass component from the cloned repository</li>
+                <li>Wrap your UI elements with the component</li>
+                <li>Choose the appropriate refraction mode for your design</li>
+                <li>Adjust intensity and scale for the perfect balance</li>
+                <li>Use on buttons, cards, modals, and interactive elements</li>
+            </ul>
+        </div>
+    </div>
+
+    <script type="module">
+        // Import the LiquidGlass component
+        import { LiquidGlass } from './liquid-glass-react/src/index.tsx';
+
+        // Initialize the liquid glass effects
+        document.addEventListener('DOMContentLoaded', function() {
+            // Standard Mode
+            const standardDemo = document.getElementById('standard-demo');
+            const standardIntensity = document.getElementById('standard-intensity');
+            const standardScale = document.getElementById('standard-scale');
+
+            // Polar Mode
+            const polarDemo = document.getElementById('polar-demo');
+            const polarIntensity = document.getElementById('polar-intensity');
+            const polarScale = document.getElementById('polar-scale');
+
+            // Prominent Mode
+            const prominentDemo = document.getElementById('prominent-demo');
+            const prominentIntensity = document.getElementById('prominent-intensity');
+            const prominentScale = document.getElementById('prominent-scale');
+
+            // Shader Mode
+            const shaderDemo = document.getElementById('shader-demo');
+            const shaderIntensity = document.getElementById('shader-intensity');
+            const shaderScale = document.getElementById('shader-scale');
+
+            // Create liquid glass instances
+            let standardLG, polarLG, prominentLG, shaderLG;
+
+            // Initialize with a slight delay to ensure DOM is ready
+            setTimeout(() => {
+                try {
+                    // Standard Mode
+                    standardLG = new LiquidGlass(standardDemo, {
+                        mode: 'standard',
+                        intensity: 0.5,
+                        scale: 0.5
+                    });
+
+                    // Polar Mode
+                    polarLG = new LiquidGlass(polarDemo, {
+                        mode: 'polar',
+                        intensity: 0.5,
+                        scale: 0.5
+                    });
+
+                    // Prominent Mode
+                    prominentLG = new LiquidGlass(prominentDemo, {
+                        mode: 'prominent',
+                        intensity: 0.5,
+                        scale: 0.5
+                    });
+
+                    // Shader Mode
+                    shaderLG = new LiquidGlass(shaderDemo, {
+                        mode: 'shader',
+                        intensity: 0.5,
+                        scale: 0.5
+                    });
+
+                    // Add event listeners for controls
+                    standardIntensity.addEventListener('input', (e) => {
+                        if (standardLG) standardLG.update({ intensity: e.target.value / 100 });
+                    });
+
+                    standardScale.addEventListener('input', (e) => {
+                        if (standardLG) standardLG.update({ scale: e.target.value / 100 });
+                    });
+
+                    polarIntensity.addEventListener('input', (e) => {
+                        if (polarLG) polarLG.update({ intensity: e.target.value / 100 });
+                    });
+
+                    polarScale.addEventListener('input', (e) => {
+                        if (polarLG) polarLG.update({ scale: e.target.value / 100 });
+                    });
+
+                    prominentIntensity.addEventListener('input', (e) => {
+                        if (prominentLG) prominentLG.update({ intensity: e.target.value / 100 });
+                    });
+
+                    prominentScale.addEventListener('input', (e) => {
+                        if (prominentLG) prominentLG.update({ scale: e.target.value / 100 });
+                    });
+
+                    shaderIntensity.addEventListener('input', (e) => {
+                        if (shaderLG) shaderLG.update({ intensity: e.target.value / 100 });
+                    });
+
+                    shaderScale.addEventListener('input', (e) => {
+                        if (shaderLG) shaderLG.update({ scale: e.target.value / 100 });
+                    });
+
+                } catch (error) {
+                    console.log('Liquid Glass component not available yet. This is expected in a static HTML file.');
+                    console.log('To see the full effect, run this in a React/Next.js environment with the component imported.');
+                }
+            }, 100);
+        });
+    </script>
+</body>
+</html>

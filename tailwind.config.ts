@@ -85,6 +85,9 @@ export default {
 				'design-sage': '#BBCEC9',       // Supporting backgrounds
 				'design-gold': '#DAB453',       // Premium CTAs - attention
 				'design-cream': '#EFE0DF',      // Primary background - warm
+				// Brand Colors from CLAUDE.md
+				'hunter-green': '#2b4743',      // Secondary text
+				'gray-orange': '#dda83f',       // Warning/attention
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

@@ -8,24 +8,24 @@ import {
   calculateCMHCPremium, 
   calculatePayment,
   formatCurrency,
-  formatPercent,
-  type MortgageRate 
+  formatPercent
 } from '@/lib/constants/cmhc';
 import { useRates, useBest5YearFixed } from '@/contexts/RatesContext';
 import LiquidGlassWrapper from '@/components/ui/LiquidGlassWrapper';
 import LiquidGlassButton from '@/components/ui/LiquidGlassButton';
 import { TrendingUp, FileText } from 'lucide-react';
 
-interface MortgageCalculatorProps {
+
+
+interface AdvancedMortgageCalculatorProps {
   onOpenContactForm?: () => void;
 }
 
-const MortgageCalculator: React.FC<MortgageCalculatorProps> = ({ 
-  onOpenContactForm
-}) => {
+export const AdvancedMortgageCalculator: React.FC<AdvancedMortgageCalculatorProps> = ({ onOpenContactForm }) => {
   const { rates, loading, error, lastUpdated, refreshRates } = useRates();
   const best5YearFixed = useBest5YearFixed();
   
+  // Mortgage inputs - same as MortgageCalculator
   const [purchasePrice, setPurchasePrice] = useState(1000000);
   const [downPayment, setDownPayment] = useState(200000);
   const [interestRate, setInterestRate] = useState(best5YearFixed);
@@ -33,6 +33,12 @@ const MortgageCalculator: React.FC<MortgageCalculatorProps> = ({
   const [isFirstTimeBuyer, setIsFirstTimeBuyer] = useState(false);
   const [isNewBuild, setIsNewBuild] = useState(false);
   const [isTraditionalDownPayment, setIsTraditionalDownPayment] = useState(true);
+  
+  // Stress test specific inputs
+  const [annualIncome, setAnnualIncome] = useState(90000);
+  const [monthlyDebts, setMonthlyDebts] = useState(300);
+  const [propertyTaxes, setPropertyTaxes] = useState(3600);
+  const [heatingCosts, setHeatingCosts] = useState(1200);
 
   // Update interest rate when live rates are loaded
   useEffect(() => {
@@ -56,14 +62,33 @@ const MortgageCalculator: React.FC<MortgageCalculatorProps> = ({
   const requiresCMHC = ltvRatio > 80 && purchasePrice <= CMHC_RULES.downPaymentRules.maxInsurablePrice;
   const isEligibleForCMHC = purchasePrice <= CMHC_RULES.downPaymentRules.maxInsurablePrice;
 
+  // Stress test calculations
+  const stressTestRate = Math.max(interestRate + 2, 5.25);
+  const stressTestPayment = calculatePayment(totalLoanAmount, stressTestRate, amortizationYears);
+  
+  // Annual housing costs including taxes and heating
+  const annualStressTestPayment = stressTestPayment * 12;
+  const annualHousingCost = annualStressTestPayment + propertyTaxes + heatingCosts;
+  const annualOtherDebts = monthlyDebts * 12;
+  const totalAnnualDebt = annualHousingCost + annualOtherDebts;
+
+  // GDS and TDS ratios for qualification (using stress test payment)
+  const gdsRatio = annualHousingCost / annualIncome;
+  const tdsRatio = totalAnnualDebt / annualIncome;
+
+  // Pass/Fail stress test per CMHC limits
+  const passesGDS = gdsRatio <= 0.39;
+  const passesTDS = tdsRatio <= 0.44;
+  const passStressTest = passesGDS && passesTDS;
+
   return (
     <div className="max-w-6xl mx-auto">
       <div className="grid lg:grid-cols-2 gap-8">
-        {/* Left Column - Input Controls - FIXED HEIGHT */}
+        {/* Left Column - Input Controls - EXPANDED TO FIT CONTENT */}
         <LiquidGlassWrapper mode="standard" intensity={0.4} scale={0.3}>
           <div className="rounded-2xl shadow-xl backdrop-blur-sm border-2 p-6 hover:shadow-2xl transition-all duration-300 bg-white/10 border-white/20 flex flex-col">
           <p className="text-2xl font-bold mb-8 text-hunter-green font-hammersmith">
-            Get instant mortgage payment estimates
+            Verify qualification with stress test
           </p>
           
           <div className="space-y-6">
@@ -115,20 +140,6 @@ const MortgageCalculator: React.FC<MortgageCalculatorProps> = ({
                 <span>Minimum: {formatCurrency(minDownPayment)}</span>
                 <span>50%: {formatCurrency(purchasePrice * 0.50)}</span>
               </div>
-              
-              {/* Down Payment Info */}
-              <div className="mt-3 space-y-2">
-                {(downPayment/purchasePrice) > 0.20 && (
-                  <div className="bg-design-gold/10 border border-design-gold/30 rounded-lg p-4">
-                    <p className="text-white text-base font-semibold">
-                      ℹ️ High Down Payment Notice
-                    </p>
-                    <p className="text-white/80 text-base mt-2">
-                      Consider keeping more cash for closing costs, renovations, or investments
-                    </p>
-                  </div>
-                )}
-              </div>
             </div>
 
             {/* Interest Rate */}
@@ -137,15 +148,6 @@ const MortgageCalculator: React.FC<MortgageCalculatorProps> = ({
                 <label className="block text-lg font-bold text-gray-orange font-hk-grotesk-light">
                   Interest Rate: <span className="font-bold text-gray-orange">{interestRate}%</span>
                 </label>
-                <div className="flex items-center space-x-2">
-                  <button
-                    onClick={refreshRates}
-                    disabled={loading}
-                    className="px-3 py-1 text-xs bg-design-plum/20 hover:bg-design-plum/40 text-white rounded border border-design-plum/30 transition-colors disabled:opacity-50"
-                  >
-                    {loading ? '⟳' : '↻'} Refresh
-                  </button>
-                </div>
               </div>
               <input
                 type="range"
@@ -160,11 +162,6 @@ const MortgageCalculator: React.FC<MortgageCalculatorProps> = ({
                 <span>3%</span>
                 <span>7%</span>
               </div>
-              {error && (
-                <p className="text-red-400 text-xs mt-1">
-                  ⚠️ Using default rates
-                </p>
-              )}
             </div>
             
             {/* Amortization Period */}
@@ -185,19 +182,94 @@ const MortgageCalculator: React.FC<MortgageCalculatorProps> = ({
                 <span>15 years</span>
                 <span>30 years</span>
               </div>
-              {amortizationYears > 25 && (
-                <p className="text-design-gold text-base font-medium mt-2">
-                  ⚠️ CMHC charges 0.25% surcharge for amortization over 25 years
-                </p>
-              )}
+            </div>
+
+            {/* Annual Income Slider */}
+            <div>
+              <label className="block text-lg font-bold mb-2 text-gray-orange font-hk-grotesk-light">
+                Annual Income: <span className="font-bold text-gray-orange">{formatCurrency(annualIncome)}</span>
+              </label>
+              <input
+                type="range"
+                min="30000"
+                max="300000"
+                step="5000"
+                value={annualIncome}
+                onChange={(e) => setAnnualIncome(Number(e.target.value))}
+                className="w-full h-4 bg-gradient-to-r from-design-plum/30 to-design-gold/50 rounded-lg appearance-none cursor-pointer slider-custom"
+              />
+              <div className="flex justify-between text-sm text-white/80 mt-1 font-hk-grotesk-light">
+                <span>$30K</span>
+                <span>$300K</span>
+              </div>
+            </div>
+
+            {/* Monthly Debts Slider */}
+            <div>
+              <label className="block text-lg font-bold mb-2 text-gray-orange font-hk-grotesk-light">
+                Monthly Debts: <span className="font-bold text-gray-orange">{formatCurrency(monthlyDebts)}</span>
+              </label>
+              <input
+                type="range"
+                min="0"
+                max="5000"
+                step="50"
+                value={monthlyDebts}
+                onChange={(e) => setMonthlyDebts(Number(e.target.value))}
+                className="w-full h-4 bg-gradient-to-r from-design-plum/30 to-design-gold/50 rounded-lg appearance-none cursor-pointer slider-custom"
+              />
+              <div className="flex justify-between text-sm text-white/80 mt-1 font-hk-grotesk-light">
+                <span>$0</span>
+                <span>$5K</span>
+              </div>
+            </div>
+
+            {/* Property Taxes Slider */}
+            <div>
+              <label className="block text-lg font-bold mb-2 text-gray-orange font-hk-grotesk-light">
+                Property Taxes (Annual): <span className="font-bold text-gray-orange">{formatCurrency(propertyTaxes)}</span>
+              </label>
+              <input
+                type="range"
+                min="1000"
+                max="15000"
+                step="100"
+                value={propertyTaxes}
+                onChange={(e) => setPropertyTaxes(Number(e.target.value))}
+                className="w-full h-4 bg-gradient-to-r from-design-plum/30 to-design-gold/50 rounded-lg appearance-none cursor-pointer slider-custom"
+              />
+              <div className="flex justify-between text-sm text-white/80 mt-1 font-hk-grotesk-light">
+                <span>$1K</span>
+                <span>$15K</span>
+              </div>
+            </div>
+
+            {/* Heating Costs Slider */}
+            <div>
+              <label className="block text-lg font-bold mb-2 text-gray-orange font-hk-grotesk-light">
+                Heating Costs (Annual): <span className="font-bold text-gray-orange">{formatCurrency(heatingCosts)}</span>
+              </label>
+              <input
+                type="range"
+                min="600"
+                max="4000"
+                step="50"
+                value={heatingCosts}
+                onChange={(e) => setHeatingCosts(Number(e.target.value))}
+                className="w-full h-4 bg-gradient-to-r from-design-plum/30 to-design-gold/50 rounded-lg appearance-none cursor-pointer slider-custom"
+              />
+              <div className="flex justify-between text-sm text-white/80 mt-1 font-hk-grotesk-light">
+                <span>$600</span>
+                <span>$4K</span>
+              </div>
             </div>
           </div>
           </div>
         </LiquidGlassWrapper>
 
-        {/* Results Panel - FIXED HEIGHT */}
+        {/* Results Panel - EXPANDED TO FIT CONTENT */}
         <LiquidGlassWrapper mode="polar" intensity={0.4} scale={0.3}>
-          <div className="h-[800px] flex flex-col">
+          <div className="flex flex-col">
           {/* Main Payment Result */}
           <div className="rounded-2xl shadow-xl p-6 text-center text-white relative overflow-hidden hover:shadow-2xl transition-all duration-300 bg-gradient-to-br from-design-plum via-design-charcoal to-design-gold mb-4">
             <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent"></div>
@@ -212,94 +284,11 @@ const MortgageCalculator: React.FC<MortgageCalculatorProps> = ({
             </div>
           </div>
 
-          {/* Scrollable content area */}
-          <div className="flex-1 overflow-y-auto space-y-4 mb-4">
-            {/* Checkbox Options Card */}
-            <div className="rounded-2xl shadow-xl backdrop-blur-sm border-2 p-4 hover:shadow-2xl transition-all duration-300 bg-white/10 border-white/20">
-              <h3 className="text-lg font-bold mb-3 text-white font-hammersmith">
-                Additional Options
-              </h3>
-              
-              <div className="space-y-4">
-                {/* First-Time Buyer Toggle */}
-                <div>
-                  <label className="flex items-center space-x-3 cursor-pointer">
-                    <input
-                      type="checkbox"
-                      checked={isFirstTimeBuyer}
-                      onChange={(e) => setIsFirstTimeBuyer(e.target.checked)}
-                      className="w-5 h-5 text-design-plum focus:ring-design-plum border-design-charcoal/30 rounded"
-                    />
-                    <span className="text-lg font-semibold text-white font-hk-grotesk-light">
-                      First-time homebuyer
-                    </span>
-                  </label>
-                  {isFirstTimeBuyer && (
-                    <p className="text-design-plum text-sm font-medium mt-1 ml-8 font-hk-grotesk-light">
-                      ✓ Eligible for 30-year amortization on new builds & rebates up to $8,475
-                    </p>
-                  )}
-                </div>
-
-                {/* New Build Toggle (for First-Time Buyers) */}
-                {isFirstTimeBuyer && (
-                  <div>
-                    <label className="flex items-center space-x-3 cursor-pointer">
-                      <input
-                        type="checkbox"
-                        checked={isNewBuild}
-                        onChange={(e) => setIsNewBuild(e.target.checked)}
-                        className="w-5 h-5 text-design-plum focus:ring-design-plum border-design-charcoal/30 rounded"
-                      />
-                      <span className="text-lg font-semibold text-white font-hk-grotesk-light">
-                        New build home (First-time buyer)
-                      </span>
-                    </label>
-                    {isNewBuild && amortizationYears === 30 && (
-                      <p className="text-design-gold text-sm font-medium mt-1 ml-8 font-hk-grotesk-light">
-                        ⚠️ Additional 0.20% CMHC surcharge for 30-year new build
-                      </p>
-                    )}
-                  </div>
-                )}
-
-                {/* Down Payment Source Toggle */}
-                <div>
-                  <label className="flex items-center space-x-3 cursor-pointer">
-                    <input
-                      type="checkbox"
-                      checked={!isTraditionalDownPayment}
-                      onChange={(e) => setIsTraditionalDownPayment(!e.target.checked)}
-                      className="w-5 h-5 text-design-plum focus:ring-design-plum border-design-charcoal/30 rounded"
-                    />
-                    <span className="text-lg font-semibold text-white font-hk-grotesk-light">
-                      Borrowed down payment
-                    </span>
-                  </label>
-                  {!isTraditionalDownPayment && ltvRatio > 90 && (
-                    <p className="text-design-charcoal text-sm font-medium mt-1 ml-8 font-hk-grotesk-light">
-                      ⚠️ Higher CMHC premium rate (4.50%) for borrowed down payment
-                    </p>
-                  )}
-                </div>
-
-                {/* Conventional Mortgage Notice */}
-                {(downPayment/purchasePrice) >= 0.20 && (
-                  <div className="bg-design-plum/10 border border-design-plum/30 rounded-lg p-3 mt-3">
-                    <p className="text-white text-sm font-semibold font-hk-grotesk-light">
-                      ✓ Conventional Mortgage (20%+ down payment)
-                    </p>
-                    <p className="text-white/80 text-sm mt-1 font-hk-grotesk-light">
-                      No CMHC insurance required - save on premium costs
-                    </p>
-                  </div>
-                )}
-              </div>
-            </div>
-
+          {/* Content area - all content visible */}
+          <div className="space-y-4 mb-4">
             {/* Payment Breakdown */}
             <div className="backdrop-blur-sm rounded-2xl shadow-xl p-4 border-2 hover:shadow-2xl transition-all duration-300 bg-white/10 border-white/20">
-              <h4 className="text-lg font-bold mb-3 text-white font-hammersmith">CMHC Calculation Breakdown</h4>
+              <h4 className="text-lg font-bold mb-3 text-white font-hammersmith">Payment Breakdown</h4>
               <div className="space-y-4">
                 <div className="flex justify-between">
                   <span className="text-base font-medium text-white font-hk-grotesk-light">Loan Amount:</span>
@@ -317,12 +306,6 @@ const MortgageCalculator: React.FC<MortgageCalculatorProps> = ({
                       <span className="text-base font-medium text-white font-hk-grotesk-light">CMHC Insurance:</span>
                       <span className="font-bold text-design-gold text-base font-hk-grotesk-light">{formatCurrency(cmhcPremium)}</span>
                     </div>
-                    {amortizationYears > 25 && (
-                      <div className="flex justify-between">
-                        <span className="text-base font-medium text-white font-hk-grotesk-light">Amortization Surcharge:</span>
-                        <span className="font-bold text-design-gold text-base font-hk-grotesk-light">0.25%</span>
-                      </div>
-                    )}
                   </>
                 )}
                 <div className="flex justify-between border-t pt-3">
@@ -340,87 +323,96 @@ const MortgageCalculator: React.FC<MortgageCalculatorProps> = ({
               </div>
             </div>
 
-            {/* CMHC Notice */}
-            {requiresCMHC && isEligibleForCMHC && (
-              <div className="bg-gradient-to-r from-design-gold/10 to-design-gold/20 border border-design-gold/30 rounded-xl p-4 shadow-sm">
-                <div className="flex items-start space-x-3">
-                  <span className="text-design-gold text-xl mt-0.5">ℹ️</span>
-                  <div>
-                    <h4 className="font-semibold text-white">
-                      CMHC Insurance Required (Official 2025 Rates)
-                    </h4>
-                    <p className="text-sm mt-1 text-white/80">
-                      LTV over 80% requires mortgage default insurance per CMHC rules.
-                      <br />Total Premium: {formatCurrency(cmhcPremium)}
-                      <br />Base Rate: {((Object.entries(CMHC_RULES.premiumRates).find(([ltv]) => ltvRatio <= parseFloat(ltv))?.[1] ?? 0) * 100).toFixed(2)}% of loan amount
-                      {amortizationYears > 25 && <><br />+ 0.25% amortization surcharge (26-30 years)</>}
-                      {isFirstTimeBuyer && isNewBuild && amortizationYears === 30 && <><br />+ 0.20% first-time buyer new build surcharge</>}
-                      {purchasePrice >= 1000000 && purchasePrice <= 1500000 && ltvRatio > 80 && <><br />+ 0.25% high-ratio surcharge ($1M-$1.5M)</>}
-                      {!isTraditionalDownPayment && ltvRatio > 90 && <><br />Higher rate (4.50%) for borrowed down payment</>}
-                    </p>
+            {/* Stress Test Explanation Card */}
+            <div className="bg-gradient-to-r from-design-gold/10 to-design-gold/20 border border-design-gold/30 rounded-xl p-4 shadow-sm">
+              <div className="flex items-start space-x-3">
+                <span className="text-design-gold text-xl mt-0.5">📊</span>
+                <div>
+                  <h4 className="font-semibold text-white mb-2 font-hammersmith">
+                    What is the Stress Test?
+                  </h4>
+                  <p className="text-sm text-white/90 leading-relaxed">
+                    The government requires lenders to test if you can afford higher payments. We calculate your payment at a higher rate ({interestRate.toFixed(2)}% vs {stressTestRate.toFixed(2)}%) to make sure you won't struggle if rates go up. This protects you from getting in over your head.
+                  </p>
+                  <div className="mt-3 bg-white/10 rounded-lg p-3">
+                    <div className="flex justify-between text-sm mb-1">
+                      <span className="text-white/80">Your payment @ {interestRate.toFixed(2)}%:</span>
+                      <span className="text-white font-bold">{formatCurrency(monthlyPayment)}</span>
+                    </div>
+                    <div className="flex justify-between text-sm">
+                      <span className="text-white/80">Stress test @ {stressTestRate.toFixed(2)}%:</span>
+                      <span className="text-design-gold font-bold">{formatCurrency(stressTestPayment)}</span>
+                    </div>
                   </div>
                 </div>
               </div>
-            )}
-            
-            {/* CMHC Ineligible Notice */}
-            {!isEligibleForCMHC && (
-              <div className="bg-gradient-to-r from-design-charcoal/10 to-design-charcoal/20 border border-design-charcoal/30 rounded-xl p-4 shadow-sm">
-                <div className="flex items-start space-x-3">
-                  <span className="text-design-plum text-xl mt-0.5">⚠️</span>
-                  <div>
-                    <h4 className="font-semibold text-white">
-                      CMHC Insurance Not Available
-                    </h4>
-                    <p className="text-sm mt-1 text-white/80">
-                      Homes over $1.5M are not eligible for CMHC insurance.
-                      <br />Minimum 20% down payment required for conventional mortgage.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            )}
-          </div>
+            </div>
 
-          {/* CTA Buttons - Fixed at bottom */}
-          <div className="grid grid-cols-2 gap-4 mt-4">
-            {/* View Current Rates Button */}
-            <LiquidGlassButton
-              href="/rates"
-              variant="primary"
-              size="md"
-              icon={<TrendingUp className="w-4 h-4" />}
-              className="w-full"
+            {/* Qualification Status - EXPANDED TO SHOW FULL CONTENT */}
+            <div
+              className={`p-6 rounded-2xl font-bold text-center select-none transform transition-all duration-300 ${
+                passStressTest 
+                  ? "bg-gradient-to-r from-green-500 to-emerald-600 text-white shadow-2xl" 
+                  : "bg-gradient-to-r from-red-500 to-red-600 text-white shadow-2xl"
+              }`}
             >
-              View Current Rates
-            </LiquidGlassButton>
-            
-            {/* Start Application Button */}
-            {onOpenContactForm ? (
-              <button
-                onClick={onOpenContactForm}
-                className="w-full px-4 py-3 text-base font-semibold inline-block rounded-lg text-white transition-all duration-300 text-center font-hammersmith"
-              >
-                Get Pre-Approved
-              </button>
-            ) : (
-              <LiquidGlassButton
-                href={CONTACT_CONFIG.applicationUrl}
-                external
-                variant="accent"
-                size="md"
-                icon={<FileText className="w-4 h-4" />}
-                className="w-full"
-              >
-                {CONTACT_CONFIG.cta.primary}
-              </LiquidGlassButton>
-            )}
+              {passStressTest ? (
+                <div>
+                  <span className="text-3xl">🎉</span>
+                  <h4 className="text-xl mt-3 font-hammersmith">You QUALIFY!</h4>
+                  <p className="text-sm font-normal mt-2 leading-relaxed">You pass the stress test requirements</p>
+                  <div className="mt-3 text-xs font-normal space-y-1">
+                    <div>GDS Ratio: {formatPercent(gdsRatio)} (✓ Under 39%)</div>
+                    <div>TDS Ratio: {formatPercent(tdsRatio)} (✓ Under 44%)</div>
+                  </div>
+                </div>
+              ) : (
+                <div>
+                  <span className="text-3xl">⚠️</span>
+                  <h4 className="text-xl mt-3 font-hammersmith">Qualification Challenge</h4>
+                  <p className="text-sm font-normal mt-2 leading-relaxed">
+                    Your debt-to-income ratios exceed lending guidelines
+                  </p>
+                  <div className="mt-3 text-xs font-normal space-y-1">
+                    <div>GDS Ratio: {formatPercent(gdsRatio)} {!passesGDS ? '(❌ Over 39%)' : '(✓ Under 39%)'}</div>
+                    <div>TDS Ratio: {formatPercent(tdsRatio)} {!passesTDS ? '(❌ Over 44%)' : '(✓ Under 44%)'}</div>
+                  </div>
+                  <p className="text-xs font-normal mt-3 leading-relaxed">
+                    Consider: Higher income, lower debts, larger down payment, or longer amortization
+                  </p>
+                </div>
+              )}
+            </div>
           </div>
           </div>
         </LiquidGlassWrapper>
       </div>
-    </div>  
+      
+      {/* BUTTONS POSITIONED BELOW CARDS AT SAME LEVEL */}
+      <div className="grid lg:grid-cols-2 gap-8 mt-6">
+        {/* Left Button - View Current Rates */}
+        <LiquidGlassButton
+          href="/rates"
+          variant="primary"
+          size="md"
+          icon={<TrendingUp className="w-4 h-4" />}
+          className="w-full"
+        >
+          View Current Rates
+        </LiquidGlassButton>
+        
+        {/* Right Button - Start My Application */}
+        <LiquidGlassButton
+          href={CONTACT_CONFIG.applicationUrl}
+          external
+          variant="accent"
+          size="md"
+          icon={<FileText className="w-4 h-4" />}
+          className="w-full"
+        >
+          Start My Application
+        </LiquidGlassButton>
+      </div>
+    </div>
   );
 };
-
-export default MortgageCalculator;

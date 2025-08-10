@@ -26,7 +26,15 @@ export const mainNavigation: NavItem[] = [
 ];
 
 // Header-specific navigation (subset for hamburger menu)
-export const headerNavigation: NavItem[] = mainNavigation;
+export const headerNavigation: NavItem[] = [
+  ...mainNavigation,
+  { 
+    name: 'Liquid Glass Demo', 
+    href: '/liquid-glass-test', 
+    icon: 'gift',
+    description: 'UI Effect Testing'
+  }
+];
 
 // Footer navigation sections
 export const footerNavigation = {

@@ -1,6 +1,7 @@
 import React from 'react';
 import { useRates } from '@/contexts/RatesContext';
 import { formatPercent } from '@/lib/constants/cmhc';
+import LiquidGlassWrapper from '@/components/ui/LiquidGlassWrapper';
 
 interface RatesTableProps {
   title?: string;

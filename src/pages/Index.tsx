@@ -7,11 +7,19 @@ import Footer from '@/components/Footer';
 import PageBackground from '@/components/PageBackground';
 import RatesTable from '@/components/RatesTable';
 import { mainNavigation } from '@/assets/config/navigation';
+import { GoogleReviews } from '@/components/GoogleReviews';
+import { FAQSection } from '@/components/FAQSection';
+import { InternalLinks } from '@/components/InternalLinks';
+import { SchemaMarkup } from '@/components/SchemaMarkup';
+import LiquidGlassButton from '@/components/ui/LiquidGlassButton';
 
 
 const Index = () => {
   return (
     <div>
+      {/* Schema Markup for SEO */}
+      <SchemaMarkup type="LocalBusiness" />
+      <SchemaMarkup type="Organization" />
       {/* Use centralized header component */}
       <div className="absolute top-0 left-0 right-0 z-50">
         <Header />
@@ -85,31 +93,39 @@ const Index = () => {
               </div>
             </div>
 
-            {/* CTA Section - Centered buttons */}
+            {/* CTA Section - Enhanced Liquid Glass Buttons */}
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 items-center justify-center opacity-0 animate-fade-in-delay-3 w-full max-w-5xl mx-auto mb-16">
-              <a 
+              <LiquidGlassButton
                 href="https://callme.mortgagewithford.ca"
-                className="group inline-flex items-center justify-center px-4 sm:px-6 py-3 sm:py-4 bg-transparent border-2 border-white text-white font-hk-grotesk-light font-medium text-sm sm:text-base lg:text-lg rounded-xl hover:bg-white hover:text-black transition-all duration-500 transform hover:-translate-y-1 w-full sm:w-48 lg:w-52 h-12 sm:h-16"
+                variant="primary"
+                size="md"
+                external={true}
+                className="w-full sm:w-48 lg:w-52"
+                icon="📞"
               >
-                <span className="mr-2 text-lg sm:text-xl group-hover:animate-float">📞</span>
                 Book Call
-              </a>
+              </LiquidGlassButton>
               
-              <a 
+              <LiquidGlassButton
                 href="https://andreina-ford.mtg-app.com/signup?brokerName=andreina.ford&brokerId=7208e0a3-3590-47b7-a99d-4704d9c75268"
-                className="group inline-flex items-center justify-center px-4 sm:px-8 py-3 sm:py-4 bg-transparent border-2 border-white text-white font-hk-grotesk-light font-medium text-sm sm:text-base lg:text-lg rounded-xl hover:bg-white hover:text-black transition-all duration-500 transform hover:-translate-y-1 w-full sm:w-64 lg:w-72 h-12 sm:h-16"
+                variant="accent"
+                size="lg"
+                external={true}
+                className="w-full sm:w-64 lg:w-72"
+                icon={<CircleDollarSign size={20} className="sm:size-6" />}
               >
-                <CircleDollarSign size={20} className="sm:size-6 mr-2 group-hover:animate-float" />
                 Start Application
-              </a>
+              </LiquidGlassButton>
               
-              <a 
-                href="/Free playbooks"
-                className="group inline-flex items-center justify-center px-4 sm:px-6 py-3 sm:py-4 bg-transparent border-2 border-white text-white font-hk-grotesk-light font-medium text-sm sm:text-base lg:text-lg rounded-xl hover:bg-white hover:text-black transition-all duration-500 transform hover:-translate-y-1 w-full sm:w-48 lg:w-52 h-12 sm:h-16"
+              <LiquidGlassButton
+                href="/playbooks"
+                variant="secondary"
+                size="md"
+                className="w-full sm:w-48 lg:w-52"
+                icon="📚"
               >
-                <span className="mr-2 text-lg sm:text-xl group-hover:animate-float">📚</span>
                 Playbooks
-              </a>
+              </LiquidGlassButton>
             </div>
           </section>
           
@@ -147,6 +163,14 @@ const Index = () => {
           </div>
         </section>
 
+        {/* Google Reviews Section */}
+        <GoogleReviews />
+        
+        {/* FAQ Section */}
+        <FAQSection />
+        
+        {/* Internal Links for Better Navigation */}
+        <InternalLinks currentPage="/" />
         
           {/* Transparent fade before footer */}
           <div className="h-32 bg-gradient-to-b from-transparent to-black relative z-10 -mb-8"></div>
