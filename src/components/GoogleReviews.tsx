@@ -68,10 +68,10 @@ export const GoogleReviews: React.FC = () => {
   const averageRating = reviews.reduce((acc, r) => acc + r.rating, 0) / reviews.length;
 
   return (
-    <section className="py-16 px-4 bg-gradient-to-br from-light-azure/30 to-light-crimson/20">
-      <div className="max-w-6xl mx-auto">
+    <section className="py-16 px-4 bg-black">
+      <div className="max-w-4xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="font-abril text-4xl md:text-5xl text-pure-black mb-4">
+          <h2 className="font-abril text-4xl md:text-5xl text-pure-white mb-4">
             Client Success Stories
           </h2>
           <div className="flex items-center justify-center gap-2 mb-2">
@@ -87,10 +87,10 @@ export const GoogleReviews: React.FC = () => {
                 />
               ))}
             </div>
-            <span className="text-xl font-bold text-pure-black">
+            <span className="text-xl font-bold text-light-azure">
               {averageRating.toFixed(1)}
             </span>
-            <span className="text-gray-600">
+            <span className="text-light-azure/70">
               (3 reviews)
             </span>
           </div>
@@ -105,8 +105,8 @@ export const GoogleReviews: React.FC = () => {
         </div>
 
         <div className="relative">
-          <Card className="p-8 md:p-12 bg-white shadow-xl">
-            <Quote className="w-12 h-12 text-muted-red/20 mb-4" />
+          <div className="p-6 md:p-8 bg-light-crimson/50 backdrop-blur-md border border-light-crimson/20 rounded-2xl shadow-xl">
+            <Quote className="w-10 h-10 text-light-crimson/40 mb-3" />
             
             <div className="mb-6">
               <div className="flex gap-1 mb-4">
@@ -122,16 +122,16 @@ export const GoogleReviews: React.FC = () => {
                 ))}
               </div>
               
-              <p className="text-lg text-gray-700 leading-relaxed mb-6">
+              <p className="text-base text-light-azure leading-relaxed mb-6">
                 "{currentReview.text}"
               </p>
               
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="font-semibold text-pure-black">
+                  <p className="font-semibold text-pure-white">
                     {currentReview.author}
                   </p>
-                  <p className="text-sm text-gray-500">
+                  <p className="text-sm text-light-azure/60">
                     {new Date(currentReview.date).toLocaleDateString('en-US', {
                       month: 'long',
                       day: 'numeric',
@@ -139,7 +139,7 @@ export const GoogleReviews: React.FC = () => {
                     })}
                   </p>
                 </div>
-                <div className="flex items-center gap-1 text-sm text-gray-500">
+                <div className="flex items-center gap-1 text-sm text-light-azure/60">
                   <img 
                     src="https://www.google.com/favicon.ico" 
                     alt="Google" 
@@ -188,23 +188,9 @@ export const GoogleReviews: React.FC = () => {
                 </Button>
               </div>
             </div>
-          </Card>
+          </div>
         </div>
 
-        <div className="text-center mt-8">
-          <Button
-            asChild
-            className="bg-muted-red hover:bg-brand-red text-white"
-          >
-            <a
-              href="https://g.page/r/C03g9uljp/review"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Leave a Review
-            </a>
-          </Button>
-        </div>
       </div>
     </section>
   );

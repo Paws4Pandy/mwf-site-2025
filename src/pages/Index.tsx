@@ -166,18 +166,13 @@ const Index = () => {
         {/* Google Reviews Section */}
         <GoogleReviews />
         
-        {/* FAQ Section */}
-        <FAQSection />
-        
-        {/* Internal Links for Better Navigation */}
-        <InternalLinks currentPage="/" />
-        
           {/* Transparent fade before footer */}
           <div className="h-32 bg-gradient-to-b from-transparent to-black relative z-10 -mb-8"></div>
           
           {/* Footer */}
           <Footer />
         </div>
+
       </div>
     </div>
   );
