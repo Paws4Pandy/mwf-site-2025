@@ -86,6 +86,12 @@ export default {
 				'design-gold': '#DAB453',       // Premium CTAs - attention
 				'design-cream': '#EFE0DF',      // Primary background - warm
 				// Brand Colors from CLAUDE.md
+				'pure-black': '#000000',        // Primary text
+				'pure-white': '#ffffff',        // Background
+				'muted-red': '#8c3839',         // Primary accent (CRITICAL FIX)
+				'light-azure': '#cedeeb',       // Light backgrounds
+				'light-crimson': '#ffd3db',     // Soft accents
+				'brand-red': '#da7073',         // CTA/highlights
 				'hunter-green': '#2b4743',      // Secondary text
 				'gray-orange': '#dda83f',       // Warning/attention
 			},

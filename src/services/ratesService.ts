@@ -21,7 +21,7 @@ const getFirecrawlInstance = () => {
 };
 
 // RateHub URL to scrape for mortgage rates
-const RATEHUB_URL = 'https://www.ratehub.ca/current-mortgage-rates-ontario';
+const RATEHUB_URL = 'https://www.ratehub.ca/best-mortgage-rates';
 
 interface RawRateData {
   term: string;
@@ -34,29 +34,44 @@ export class RatesService {
   private static lastFetch: Date | null = null;
   private static readonly CACHE_DURATION = 1000 * 60 * 60 * 24; // 1 day
 
-  // Default fallback rates (updated manually as needed)
+  // Default fallback rates (updated August 2025) - ONLY REAL RATES
+  // CRITICAL: Only 5-year variable rate exists - all other variable rates are FAKE
   private static readonly DEFAULT_RATES: MortgageRate[] = [
     { term: '1 Year', type: 'Fixed', rate: '6.84%' },
     { term: '2 Year', type: 'Fixed', rate: '5.95%' },
     { term: '3 Year', type: 'Fixed', rate: '5.49%' },
     { term: '4 Year', type: 'Fixed', rate: '5.19%' },
-    { term: '5 Year', type: 'Fixed', rate: '4.79%' },
-    { term: '5 Year', type: 'Variable', rate: '5.85%' },
-    { term: '10 Year', type: 'Fixed', rate: '5.25%' }
+    { term: '5 Year', type: 'Fixed', rate: '4.04%' },
+    { term: '6 Year', type: 'Fixed', rate: '4.89%' },
+    { term: '10 Year', type: 'Fixed', rate: '5.25%' },
+    { term: '5 Year', type: 'Variable', rate: '3.95%' }
   ];
 
   /**
    * Get current mortgage rates with caching
    */
   static async getRates(forceRefresh = false): Promise<MortgageRate[]> {
+    // CLEAR CACHE FIRST
+    this.clearCache();
+    
+    // TEMPORARY: Force using default rates to debug the display issue
+    console.log('RatesService: CACHE CLEARED - forcing default rates for debugging');
+    console.log('RatesService: Default rates count:', this.DEFAULT_RATES.length);
+    console.log('RatesService: All default rates:', this.DEFAULT_RATES);
+    return [...this.DEFAULT_RATES]; // Return a fresh copy
+    
+    // Original logic commented out for debugging
+    /*
     // Return cached rates if they're fresh
     if (!forceRefresh && this.isCacheValid()) {
+      console.log('RatesService: Using cached rates:', this.cachedRates.length);
       return this.cachedRates.length > 0 ? this.cachedRates : this.DEFAULT_RATES;
     }
 
     try {
       console.log('Fetching fresh mortgage rates from RateHub...');
       const freshRates = await this.fetchLiveRates();
+      console.log('RatesService: Fresh rates received:', freshRates.length, freshRates);
       
       if (freshRates.length > 0) {
         this.cachedRates = freshRates;
@@ -69,17 +84,23 @@ export class RatesService {
     }
 
     // Fallback to default rates
+    console.log('RatesService: Using default rates:', this.DEFAULT_RATES.length, this.DEFAULT_RATES);
     return this.DEFAULT_RATES;
+    */
   }
 
   /**
-   * Check if it's time for daily update (9 AM EST)
+   * Check if it's time for daily update (12 PM EST Monday-Friday)
    */
   static isUpdateTime(): boolean {
     const now = new Date();
     // Convert to EST (UTC-5, or UTC-4 during daylight saving)
     const estTime = new Date(now.toLocaleString("en-US", {timeZone: "America/New_York"}));
-    return estTime.getHours() >= 9;
+    const day = estTime.getDay(); // 0=Sunday, 1=Monday, ..., 6=Saturday
+    const hour = estTime.getHours();
+    
+    // Only update Monday-Friday (1-5) at 12 PM (noon)
+    return day >= 1 && day <= 5 && hour >= 12;
   }
 
   /**
@@ -120,12 +141,12 @@ export class RatesService {
         waitFor: 3000
       });
 
-      if (!scrapeResult.success || !scrapeResult.data?.markdown) {
+      if (!scrapeResult.success || !scrapeResult.markdown) {
         throw new Error(`Failed to scrape RateHub: ${scrapeResult.error || 'No data'}`);
       }
 
       // Parse rates from the scraped content
-      return this.parseRateHubContent(scrapeResult.data.markdown);
+      return this.parseRateHubContent(scrapeResult.markdown);
     } catch (error) {
       console.error('Error scraping RateHub:', error);
       return [];
@@ -138,27 +159,62 @@ export class RatesService {
   private static parseRateHubContent(content: string): MortgageRate[] {
     const rates: MortgageRate[] = [];
 
-    // RateHub specific patterns
+    // RateHub best-mortgage-rates specific patterns
     const ratePatterns = [
+      // Pattern: "3.95% 5-yr variable" from header link
+      /(\d+\.\d+)%\s+(\d+)-yr\s+(variable|fixed)/gi,
+      // Pattern: Table format "| 4.04% | Provider | Payment |" (mortgage rate range)
+      /\|\s*([3-8]\.\d{2})%\s*\|\s*(?:.*?(?:Bank|Credit|Financial|Lender|Mortgage|CIBC|TD|BMO|Scotia|RBC).*?)\|\s*\$[\d,]+\/mo/gi,
       // Pattern: "5-Year Fixed: 4.79%" or "5 Year Fixed 4.79%"
       /(\d+)(?:\s*-?\s*)?[Yy]ear\s+[Ff]ixed\s*:?\s*(\d+\.\d+)%/gi,
-      // Pattern: "5-Year Variable: 5.85%" or "5 Year Variable 5.85%"
-      /(\d+)(?:\s*-?\s*)?[Yy]ear\s+[Vv]ariable\s*:?\s*(\d+\.\d+)%/gi,
-      // Pattern: Table format with Fixed/Variable columns
-      /(\d+)\s+[Yy]ear.*?(\d+\.\d+)%.*?(?:[Ff]ixed|[Vv]ariable)/gi,
-      // Pattern: RateHub table format "5 Year | Fixed | 4.79%"
-      /(\d+)\s*[Yy]ear\s*\|\s*([Ff]ixed|[Vv]ariable)\s*\|\s*(\d+\.\d+)%/gi
+      // Pattern: "5-Year Variable: 5.85%" - ONLY ACCEPT 5-YEAR VARIABLE (others are fake)
+      /5(?:\s*-?\s*)?[Yy]ear\s+[Vv]ariable\s*:?\s*(\d+\.\d+)%/gi,
+      // Pattern: Best rates table from ratehub.ca/best-mortgage-rates
+      /best.*rate.*?(\d+\.\d+)%.*?(\d+)\s*year.*?(fixed|variable)/gi
     ];
 
-    for (const pattern of ratePatterns) {
+    for (let i = 0; i < ratePatterns.length; i++) {
+      const pattern = ratePatterns[i];
       let match;
       while ((match = pattern.exec(content)) !== null) {
-        const term = `${match[1]} Year`;
-        const rate = match[2].includes('%') ? match[2] : `${match[2]}%`;
+        let term, rate, type;
         
-        // Determine type from context or pattern
-        const fullMatch = match[0].toLowerCase();
-        const type = fullMatch.includes('variable') ? 'Variable' as const : 'Fixed' as const;
+        if (i === 0) {
+          // Pattern: "3.95% 5-yr variable" (rate, term, type)
+          rate = `${match[1]}%`;
+          term = `${match[2]} Year`;
+          type = match[3].toLowerCase() === 'variable' ? 'Variable' as const : 'Fixed' as const;
+          
+          // CRITICAL: Only allow 5-year variable rates - reject all other variable terms
+          if (type === 'Variable' && term !== '5 Year') {
+            continue;
+          }
+        } else if (i === 1) {
+          // Pattern: "| 4.04% |" - table format, assume 5-year fixed as default
+          rate = `${match[1]}%`;
+          term = '5 Year';
+          type = 'Fixed' as const;
+        } else if (i === 3) {
+          // Pattern: "5-Year Variable" - already filtered to 5-year only
+          rate = match[1].includes('%') ? match[1] : `${match[1]}%`;
+          term = '5 Year';
+          type = 'Variable' as const;
+        } else if (i === 4) {
+          // Pattern: Best rates table (rate, term, type)
+          rate = `${match[1]}%`;
+          term = `${match[2]} Year`;
+          type = match[3].toLowerCase() === 'variable' ? 'Variable' as const : 'Fixed' as const;
+          
+          // CRITICAL: Only allow 5-year variable rates - reject all other variable terms
+          if (type === 'Variable' && term !== '5 Year') {
+            continue;
+          }
+        } else {
+          // Other fixed rate patterns: (term, rate) format
+          term = `${match[1]} Year`;
+          rate = match[2].includes('%') ? match[2] : `${match[2]}%`;
+          type = 'Fixed' as const;
+        }
 
         rates.push({ term, type, rate });
       }
@@ -236,6 +292,6 @@ export class RatesService {
     if (rateString) {
       return parseFloat(rateString.replace('%', ''));
     }
-    return 4.79; // Fallback rate
+    return 4.04; // Fallback rate
   }
 }
