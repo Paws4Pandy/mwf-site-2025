@@ -18,7 +18,7 @@ const LiquidGlassWrapper: React.FC<LiquidGlassWrapperProps> = ({
   disabled = false
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const liquidGlassRef = useRef<any>(null);
+  const liquidGlassRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
     if (disabled || !containerRef.current) return;

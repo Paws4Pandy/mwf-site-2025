@@ -81,7 +81,7 @@ export default {
 				},
 				// Premium Design System Colors (2024-2025)
 				'design-charcoal': '#423E3A',   // Primary text - authoritative
-				'design-plum': '#844E6B',       // Accent text - sophisticated  
+				'design-lilac': '#A79FC7',      // Accent text - sophisticated  
 				'design-sage': '#BBCEC9',       // Supporting backgrounds
 				'design-gold': '#DAB453',       // Premium CTAs - attention
 				'design-cream': '#EFE0DF',      // Primary background - warm
@@ -174,5 +174,8 @@ export default {
 			}
 		}
 	},
-	plugins: [require("tailwindcss-animate")],
+	plugins: [
+		// eslint-disable-next-line @typescript-eslint/no-require-imports
+		require("tailwindcss-animate")
+	],
 } satisfies Config;

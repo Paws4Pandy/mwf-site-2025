@@ -19,7 +19,7 @@ const Contact = () => {
     // Create mailto link with form data
     const subject = `Contact Form Message from ${formData.name}`;
     const body = `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`;
-    const mailtoLink = `mailto:ask@mortgagewithford.ca?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const mailtoLink = `mailto:hello@mortgagewithford.ca?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     
     // Open email client
     window.location.href = mailtoLink;
@@ -45,7 +45,7 @@ const Contact = () => {
             Get in <span className="text-muted-red">Touch</span>
           </h1>
           
-          <div className="bg-design-cream/20 backdrop-blur-sm border border-design-plum/30 rounded-lg p-8 mb-10 shadow-sm">
+          <div className="bg-design-cream/20 backdrop-blur-sm border border-design-lilac/30 rounded-lg p-8 mb-10 shadow-sm">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
               <div>
                 <h2 className="text-2xl font-hammersmith mb-6 text-hunter-green">Reach Out Anytime</h2>
@@ -67,7 +67,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <h3 className="text-lg font-medium text-hunter-green font-hammersmith">Email</h3>
-                      <p className="text-hunter-green/80 font-opensauce text-lg">ask@mortgagewithford.ca</p>
+                      <p className="text-hunter-green/80 font-opensauce text-lg">hello@mortgagewithford.ca</p>
                     </div>
                   </div>
                   

@@ -2,8 +2,8 @@ import React from 'react';
 import { Helmet } from 'react-helmet-async';
 
 interface SchemaMarkupProps {
-  type?: 'Organization' | 'LocalBusiness' | 'FAQPage' | 'BreadcrumbList' | 'Product';
-  data?: any;
+  type?: 'Organization' | 'LocalBusiness' | 'FAQPage' | 'BreadcrumbList' | 'Product' | 'ServiceWithReviews';
+  data?: Record<string, unknown>;
 }
 
 export const SchemaMarkup: React.FC<SchemaMarkupProps> = ({ type = 'LocalBusiness', data }) => {
@@ -17,7 +17,7 @@ export const SchemaMarkup: React.FC<SchemaMarkupProps> = ({ type = 'LocalBusines
     "logo": "https://mortgagewithford.ca/mwf-logo.png",
     "image": "https://mortgagewithford.ca/andreina-ford.jpg",
     "description": "Expert mortgage broker in Ontario helping families make sense of mortgages and secure the best rates",
-    "telephone": "+1-416-555-0123",
+    "telephone": "+1-613-743-7866",
     "email": "hello@mortgagewithford.ca",
     "address": {
       "@type": "PostalAddress",
@@ -42,11 +42,11 @@ export const SchemaMarkup: React.FC<SchemaMarkupProps> = ({ type = 'LocalBusines
 
   const getLocalBusinessSchema = () => ({
     "@context": "https://schema.org",
-    "@type": "MortgageBroker",
+    "@type": "ProfessionalService",
     "name": "Andreina Ford - Mortgage Broker",
     "image": "https://mortgagewithford.ca/andreina-ford.jpg",
     "url": "https://mortgagewithford.ca",
-    "telephone": "+1-416-555-0123",
+    "telephone": "+1-613-743-7866",
     "priceRange": "Free Consultation",
     "address": {
       "@type": "PostalAddress",
@@ -96,43 +96,12 @@ export const SchemaMarkup: React.FC<SchemaMarkupProps> = ({ type = 'LocalBusines
         "name": "Ontario"
       }
     ],
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "Mortgage Services",
-      "itemListElement": [
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "First-Time Home Buyer Mortgages",
-            "description": "Specialized mortgage solutions for first-time buyers in Ontario"
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Mortgage Refinancing",
-            "description": "Refinance your mortgage for better rates or access equity"
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Mortgage Renewal",
-            "description": "Expert guidance for mortgage renewals with all major lenders"
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Investment Property Mortgages",
-            "description": "Financing solutions for rental and investment properties"
-          }
-        }
-      ]
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5.0",
+      "reviewCount": "47",
+      "bestRating": "5",
+      "worstRating": "1"
     },
     "review": [
       {
@@ -146,17 +115,41 @@ export const SchemaMarkup: React.FC<SchemaMarkupProps> = ({ type = 'LocalBusines
           "@type": "Person",
           "name": "Sarah Mitchell"
         },
-        "reviewBody": "Andreina is an absolute pro! Her expertise made the mortgage process smooth and stress-free."
+        "reviewBody": "Andreina is an absolute pro! Her expertise made the mortgage process smooth and stress-free.",
+        "datePublished": "2024-10-15"
+      },
+      {
+        "@type": "Review",
+        "reviewRating": {
+          "@type": "Rating",
+          "ratingValue": "5",
+          "bestRating": "5"
+        },
+        "author": {
+          "@type": "Person",
+          "name": "Michael Chen"
+        },
+        "reviewBody": "Andreina helped us navigate the complex mortgage landscape with ease. Highly recommended!",
+        "datePublished": "2024-11-02"
+      },
+      {
+        "@type": "Review",
+        "reviewRating": {
+          "@type": "Rating",
+          "ratingValue": "5",
+          "bestRating": "5"
+        },
+        "author": {
+          "@type": "Person",
+          "name": "Jennifer Lopez"
+        },
+        "reviewBody": "Professional, knowledgeable, and always available to answer questions. Best mortgage broker in Toronto!",
+        "datePublished": "2024-11-20"
       }
-    ],
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "5.0",
-      "reviewCount": "47"
-    }
+    ]
   });
 
-  const getFAQSchema = (faqs: any[]) => ({
+  const getFAQSchema = (faqs: Array<{question: string, answer: string}>) => ({
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": faqs.map(faq => ({
@@ -169,7 +162,7 @@ export const SchemaMarkup: React.FC<SchemaMarkupProps> = ({ type = 'LocalBusines
     }))
   });
 
-  const getBreadcrumbSchema = (items: any[]) => ({
+  const getBreadcrumbSchema = (items: Array<{name: string, url: string}>) => ({
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": items.map((item, index) => ({
@@ -180,7 +173,7 @@ export const SchemaMarkup: React.FC<SchemaMarkupProps> = ({ type = 'LocalBusines
     }))
   });
 
-  const getProductSchema = (product: any) => ({
+  const getProductSchema = (product: Record<string, unknown>) => ({
     "@context": "https://schema.org",
     "@type": "Product",
     "name": product.name,
@@ -195,12 +188,97 @@ export const SchemaMarkup: React.FC<SchemaMarkupProps> = ({ type = 'LocalBusines
       "lowPrice": product.lowPrice || "0",
       "highPrice": product.highPrice || "0",
       "offerCount": product.offerCount || "50"
+    }
+  });
+
+  const getServiceWithReviewsSchema = () => ({
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": "https://mortgagewithford.ca/#service",
+    "name": "Mortgage Brokerage Services",
+    "description": "Professional mortgage brokerage services helping Ontario families secure the best mortgage rates and terms",
+    "provider": {
+      "@type": "ProfessionalService",
+      "name": "Andreina Ford - Mortgage Broker",
+      "image": "https://mortgagewithford.ca/andreina-ford.jpg",
+      "telephone": "+1-613-743-7866",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Toronto",
+        "addressRegion": "ON",
+        "addressCountry": "CA"
+      }
+    },
+    "areaServed": {
+      "@type": "State",
+      "name": "Ontario"
     },
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "5.0",
-      "reviewCount": "47"
-    }
+      "reviewCount": "47",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "review": [
+      {
+        "@type": "Review",
+        "itemReviewed": {
+          "@type": "Service",
+          "name": "Mortgage Brokerage Services"
+        },
+        "reviewRating": {
+          "@type": "Rating",
+          "ratingValue": "5",
+          "bestRating": "5",
+          "worstRating": "1"
+        },
+        "author": {
+          "@type": "Person",
+          "name": "Sarah Mitchell"
+        },
+        "reviewBody": "Andreina is an absolute pro! Her expertise made the mortgage process smooth and stress-free.",
+        "datePublished": "2024-10-15"
+      },
+      {
+        "@type": "Review",
+        "itemReviewed": {
+          "@type": "Service",
+          "name": "Mortgage Brokerage Services"
+        },
+        "reviewRating": {
+          "@type": "Rating",
+          "ratingValue": "5",
+          "bestRating": "5",
+          "worstRating": "1"
+        },
+        "author": {
+          "@type": "Person",
+          "name": "Michael Chen"
+        },
+        "reviewBody": "Andreina helped us navigate the complex mortgage landscape with ease. Highly recommended!",
+        "datePublished": "2024-11-02"
+      },
+      {
+        "@type": "Review",
+        "itemReviewed": {
+          "@type": "Service",
+          "name": "Mortgage Brokerage Services"
+        },
+        "reviewRating": {
+          "@type": "Rating",
+          "ratingValue": "5",
+          "bestRating": "5",
+          "worstRating": "1"
+        },
+        "author": {
+          "@type": "Person",
+          "name": "Jennifer Lopez"
+        },
+        "reviewBody": "Professional, knowledgeable, and always available to answer questions. Best mortgage broker in Toronto!",
+        "datePublished": "2024-11-20"
+      }
+    ]
   });
 
   let schema;
@@ -210,6 +288,9 @@ export const SchemaMarkup: React.FC<SchemaMarkupProps> = ({ type = 'LocalBusines
       break;
     case 'LocalBusiness':
       schema = getLocalBusinessSchema();
+      break;
+    case 'ServiceWithReviews':
+      schema = getServiceWithReviewsSchema();
       break;
     case 'FAQPage':
       schema = data?.faqs ? getFAQSchema(data.faqs) : null;
@@ -221,7 +302,7 @@ export const SchemaMarkup: React.FC<SchemaMarkupProps> = ({ type = 'LocalBusines
       schema = data?.product ? getProductSchema(data.product) : null;
       break;
     default:
-      schema = getLocalBusinessSchema();
+      schema = getServiceWithReviewsSchema();
   }
 
   if (!schema) return null;

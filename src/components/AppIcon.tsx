@@ -35,6 +35,12 @@ const AppIcon: React.FC<AppIconProps> = ({
     );
   }
 
+  // Handle missing/undefined icons
+  if (!IconComponent) {
+    console.warn(`Icon '${name}' not found`);
+    return <div className={`${className} w-${iconSize} h-${iconSize} bg-gray-400 rounded`} />;
+  }
+
   // Handle custom TikTok icon component
   if (name === 'tiktok') {
     return (

@@ -20,7 +20,7 @@ const getFirecrawlInstance = () => {
   return new FirecrawlApp({ apiKey });
 };
 
-// RateHub URL to scrape for mortgage rates
+// RateHub URL to scrape for mortgage rates (best rates page)
 const RATEHUB_URL = 'https://www.ratehub.ca/best-mortgage-rates';
 
 interface RawRateData {
@@ -34,37 +34,32 @@ export class RatesService {
   private static lastFetch: Date | null = null;
   private static readonly CACHE_DURATION = 1000 * 60 * 60 * 24; // 1 day
 
-  // Default fallback rates (updated August 2025) - ONLY REAL RATES
-  // CRITICAL: Only 5-year variable rate exists - all other variable rates are FAKE
+  // Default fallback rates (updated from RateHub best-mortgage-rates Dec 2024)
+  // Shows 1-5 year fixed rates and 3,5-year variable rates
   private static readonly DEFAULT_RATES: MortgageRate[] = [
-    { term: '1 Year', type: 'Fixed', rate: '6.84%' },
-    { term: '2 Year', type: 'Fixed', rate: '5.95%' },
-    { term: '3 Year', type: 'Fixed', rate: '5.49%' },
-    { term: '4 Year', type: 'Fixed', rate: '5.19%' },
+    { term: '1 Year', type: 'Fixed', rate: '4.79%' },
+    { term: '2 Year', type: 'Fixed', rate: '4.29%' },
+    { term: '3 Year', type: 'Fixed', rate: '3.69%' },
+    { term: '3 Year', type: 'Variable', rate: '4.15%' },
+    { term: '4 Year', type: 'Fixed', rate: '4.29%' },
     { term: '5 Year', type: 'Fixed', rate: '4.04%' },
-    { term: '6 Year', type: 'Fixed', rate: '4.89%' },
-    { term: '10 Year', type: 'Fixed', rate: '5.25%' },
     { term: '5 Year', type: 'Variable', rate: '3.95%' }
   ];
 
   /**
-   * Get current mortgage rates with caching
+   * Get current mortgage rates - only updates when API succeeds
    */
   static async getRates(forceRefresh = false): Promise<MortgageRate[]> {
-    // CLEAR CACHE FIRST
-    this.clearCache();
-    
-    // TEMPORARY: Force using default rates to debug the display issue
-    console.log('RatesService: CACHE CLEARED - forcing default rates for debugging');
-    console.log('RatesService: Default rates count:', this.DEFAULT_RATES.length);
-    console.log('RatesService: All default rates:', this.DEFAULT_RATES);
-    return [...this.DEFAULT_RATES]; // Return a fresh copy
-    
-    // Original logic commented out for debugging
-    /*
-    // Return cached rates if they're fresh
-    if (!forceRefresh && this.isCacheValid()) {
-      console.log('RatesService: Using cached rates:', this.cachedRates.length);
+    // Return cached rates if they exist and are fresh (within 24 hours)
+    if (!forceRefresh && this.isCacheValid() && this.cachedRates.length > 0) {
+      console.log('RatesService: Using cached rates (within 24 hours):', this.cachedRates.length);
+      return this.cachedRates;
+    }
+
+    // Check if API key is available
+    const apiKey = getFirecrawlApiKey();
+    if (!apiKey) {
+      console.warn('No Firecrawl API key - keeping existing rates');
       return this.cachedRates.length > 0 ? this.cachedRates : this.DEFAULT_RATES;
     }
 
@@ -73,20 +68,23 @@ export class RatesService {
       const freshRates = await this.fetchLiveRates();
       console.log('RatesService: Fresh rates received:', freshRates.length, freshRates);
       
+      // ONLY update if we actually got new rates
       if (freshRates.length > 0) {
         this.cachedRates = freshRates;
         this.lastFetch = new Date();
-        console.log('Successfully updated rates from RateHub');
+        console.log(`Successfully updated rates from RateHub at ${this.lastFetch.toISOString()}`);
+        console.log('Next update will be after:', new Date(this.lastFetch.getTime() + this.CACHE_DURATION).toISOString());
         return freshRates;
+      } else {
+        console.warn('RateHub returned no rates - keeping existing rates');
       }
     } catch (error) {
-      console.warn('Failed to fetch rates from RateHub, using defaults:', error);
+      console.warn('Failed to fetch rates from RateHub - keeping existing rates:', error);
+      console.error('Firecrawl error details:', error);
     }
 
-    // Fallback to default rates
-    console.log('RatesService: Using default rates:', this.DEFAULT_RATES.length, this.DEFAULT_RATES);
-    return this.DEFAULT_RATES;
-    */
+    // Return existing cached rates or defaults only if no cache exists
+    return this.cachedRates.length > 0 ? this.cachedRates : this.DEFAULT_RATES;
   }
 
   /**
@@ -154,23 +152,21 @@ export class RatesService {
   }
 
   /**
-   * Parse mortgage rates from RateHub content using specific patterns
+   * Parse mortgage rates from RateHub content using current patterns
    */
   private static parseRateHubContent(content: string): MortgageRate[] {
     const rates: MortgageRate[] = [];
 
-    // RateHub best-mortgage-rates specific patterns
+    // Updated patterns based on current RateHub structure
     const ratePatterns = [
       // Pattern: "3.95% 5-yr variable" from header link
       /(\d+\.\d+)%\s+(\d+)-yr\s+(variable|fixed)/gi,
-      // Pattern: Table format "| 4.04% | Provider | Payment |" (mortgage rate range)
-      /\|\s*([3-8]\.\d{2})%\s*\|\s*(?:.*?(?:Bank|Credit|Financial|Lender|Mortgage|CIBC|TD|BMO|Scotia|RBC).*?)\|\s*\$[\d,]+\/mo/gi,
-      // Pattern: "5-Year Fixed: 4.79%" or "5 Year Fixed 4.79%"
-      /(\d+)(?:\s*-?\s*)?[Yy]ear\s+[Ff]ixed\s*:?\s*(\d+\.\d+)%/gi,
-      // Pattern: "5-Year Variable: 5.85%" - ONLY ACCEPT 5-YEAR VARIABLE (others are fake)
-      /5(?:\s*-?\s*)?[Yy]ear\s+[Vv]ariable\s*:?\s*(\d+\.\d+)%/gi,
-      // Pattern: Best rates table from ratehub.ca/best-mortgage-rates
-      /best.*rate.*?(\d+\.\d+)%.*?(\d+)\s*year.*?(fixed|variable)/gi
+      // Pattern: Look for specific rate values we know exist
+      // 1-year: 4.79%, 2-year: 4.29%, 3-year: 3.69%, 4-year: 4.29%, 5-year: 4.04%
+      // 3-year variable: 4.15%, 5-year variable: 3.95%
+      /(\d+\.\d+)%.*?(\d+)(?:\s*-?\s*)?[Yy]ear.*?(fixed|variable)/gi,
+      // Direct rate extraction with term context
+      /(\d+)(?:\s*-?\s*)[Yy]ear.*?(\d+\.\d+)%/gi
     ];
 
     for (let i = 0; i < ratePatterns.length; i++) {
@@ -234,15 +230,26 @@ export class RatesService {
   }
 
   /**
-   * Process and clean scraped rates
+   * Process and clean scraped rates - only keep 1-5 year fixed and 5-year variable
    */
   private static processRates(rawRates: MortgageRate[]): MortgageRate[] {
     if (rawRates.length === 0) return [];
 
+    // Filter to only include 1-5 year terms
+    const filteredRates = rawRates.filter(rate => {
+      const termNum = parseInt(rate.term);
+      if (rate.type === 'Fixed') {
+        return termNum >= 1 && termNum <= 5;
+      } else if (rate.type === 'Variable') {
+        return termNum === 5; // Only 5-year variable
+      }
+      return false;
+    });
+
     // Group rates by term and type, take the best (lowest) rate
     const rateMap = new Map<string, MortgageRate>();
 
-    for (const rate of rawRates) {
+    for (const rate of filteredRates) {
       const key = `${rate.term}-${rate.type}`;
       const rateValue = parseFloat(rate.rate.replace('%', ''));
       
@@ -260,11 +267,18 @@ export class RatesService {
   }
 
   /**
-   * Check if cached rates are still valid
+   * Check if cached rates are still valid (24-hour cache)
    */
   private static isCacheValid(): boolean {
-    if (!this.lastFetch) return false;
-    return Date.now() - this.lastFetch.getTime() < this.CACHE_DURATION;
+    if (!this.lastFetch) {
+      console.log('Cache invalid: No previous fetch recorded');
+      return false;
+    }
+    const ageMs = Date.now() - this.lastFetch.getTime();
+    const ageHours = ageMs / (1000 * 60 * 60);
+    const isValid = ageMs < this.CACHE_DURATION;
+    console.log(`Cache check: Last fetch was ${ageHours.toFixed(2)} hours ago. Valid: ${isValid}`);
+    return isValid;
   }
 
   /**

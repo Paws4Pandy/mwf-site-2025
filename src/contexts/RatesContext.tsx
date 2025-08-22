@@ -1,5 +1,5 @@
-import React, { createContext, useContext, useEffect, useState, ReactNode } from 'react';
-import { RatesService } from '@/services/ratesService';
+import React, { createContext, useContext, useEffect, useState, ReactNode, useCallback } from 'react';
+import { RatesService } from '@/services/RatesService';
 import type { MortgageRate } from '@/lib/constants/cmhc';
 
 interface RatesContextType {
@@ -24,14 +24,25 @@ export const RatesProvider: React.FC<RatesProviderProps> = ({ children }) => {
   const [error, setError] = useState<string | null>(null);
   const [lastUpdated, setLastUpdated] = useState<Date | null>(null);
 
-  const fetchRates = async (forceRefresh = false) => {
+  const fetchRates = useCallback(async (forceRefresh = false) => {
     try {
       setLoading(true);
       setError(null);
       
+      console.log('RatesContext: Fetching rates...', { forceRefresh });
       const freshRates = await RatesService.getRates(forceRefresh);
-      setRates(freshRates);
-      setLastUpdated(new Date());
+      
+      console.log('RatesContext: Received rates:', freshRates);
+      console.log('RatesContext: Received rates count:', freshRates.length);
+      
+      // Always update rates if we get data back
+      if (freshRates && freshRates.length > 0) {
+        setRates(freshRates);
+        setLastUpdated(new Date());
+        console.log('RatesContext: Rates updated:', freshRates);
+      } else {
+        console.warn('RatesContext: No rates received from service');
+      }
     } catch (err) {
       const errorMessage = err instanceof Error ? err.message : 'Failed to fetch rates';
       setError(errorMessage);
@@ -39,7 +50,7 @@ export const RatesProvider: React.FC<RatesProviderProps> = ({ children }) => {
     } finally {
       setLoading(false);
     }
-  };
+  }, []);
 
   const refreshRates = async () => {
     await fetchRates(true);
@@ -57,10 +68,31 @@ export const RatesProvider: React.FC<RatesProviderProps> = ({ children }) => {
     return rates.find(r => r.term === term && r.type === type) || null;
   };
 
-  // Load rates on mount
+  // Initialize with default rates
   useEffect(() => {
-    fetchRates();
+    console.log('RatesContext: Initializing with default rates...');
+    // Set default rates immediately
+    setRates([
+      { term: '1 Year', type: 'Fixed', rate: '4.79%' },
+      { term: '2 Year', type: 'Fixed', rate: '4.29%' },
+      { term: '3 Year', type: 'Fixed', rate: '3.69%' },
+      { term: '3 Year', type: 'Variable', rate: '4.15%' },
+      { term: '4 Year', type: 'Fixed', rate: '4.29%' },
+      { term: '5 Year', type: 'Fixed', rate: '4.04%' },
+      { term: '5 Year', type: 'Variable', rate: '3.95%' }
+    ]);
+    setLoading(false);
   }, []);
+  
+  // Separate effect to fetch fresh rates after initialization
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      console.log('RatesContext: Attempting to fetch fresh rates from Firecrawl...');
+      fetchRates();
+    }, 2000); // 2 second delay to ensure table is visible first
+    
+    return () => clearTimeout(timer);
+  }, [fetchRates]);
 
   // Auto-refresh rates daily at 9 AM EST
   useEffect(() => {

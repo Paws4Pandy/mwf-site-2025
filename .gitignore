@@ -32,3 +32,4 @@ env/
 *.sw?
 
 .vercel
+.env*.local

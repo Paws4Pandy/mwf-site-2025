@@ -1,9 +1,9 @@
 
-/* New Design System Fonts */
+/* Optimized Font Loading with font-display: swap */
 @import url('https://fonts.googleapis.com/css2?family=Anton:wght@400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=HK+Grotesk:wght@300;400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Display:ital,wght@1,400&display=swap');
-/* Legacy fonts */
+/* Legacy fonts with swap */
 @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;400;500;600;700;800;900&family=Hammersmith+One:wght@400&family=Open+Sauce+One:wght@300;400;500;600;700;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Montserrat:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700;900&display=swap');
 
@@ -57,6 +57,35 @@
   }
 }
 
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes accordion-down {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+  }
+}
+
+@keyframes accordion-up {
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+  to {
+    height: 0;
+  }
+}
+
 /* Premium Professional Styles */
 @layer components {
   /* Premium button shimmer effect */
@@ -105,6 +134,40 @@
     background-image: 
       radial-gradient(circle at 1px 1px, rgba(66, 62, 58, 0.03) 1px, transparent 0);
     background-size: 20px 20px;
+  }
+
+  /* Fade-in animations with delays */
+  .animate-fade-in-delay-1 {
+    animation: fadeInUp 0.8s ease-out 0.2s both;
+  }
+  
+  .animate-fade-in-delay-2 {
+    animation: fadeInUp 0.8s ease-out 0.4s both;
+  }
+  
+  .animate-fade-in-delay-3 {
+    animation: fadeInUp 0.8s ease-out 0.6s both;
+  }
+  
+  .animate-fade-in-delay-4 {
+    animation: fadeInUp 0.8s ease-out 0.8s both;
+  }
+  
+  .animate-fade-in-delay-5 {
+    animation: fadeInUp 0.8s ease-out 1.0s both;
+  }
+  
+  .animate-fade-in-delay-6 {
+    animation: fadeInUp 0.8s ease-out 1.2s both;
+  }
+
+  /* Accordion animations */
+  .animate-accordion-down {
+    animation: accordion-down 0.2s ease-out;
+  }
+  
+  .animate-accordion-up {
+    animation: accordion-up 0.2s ease-out;
   }
 
   /* GLASS MORPHISM SYSTEM */
@@ -241,7 +304,7 @@
   }
 
   .prose h4 {
-    @apply text-xl font-hk-grotesk-light font-medium text-design-plum mt-6 mb-3;
+    @apply text-xl font-hk-grotesk-light font-medium text-design-lilac mt-6 mb-3;
   }
 
   .prose p {
@@ -280,7 +343,7 @@
   }
 
   .prose blockquote {
-    @apply border-l-4 border-design-plum bg-design-plum/20 pl-6 py-4 my-6 rounded-r-lg;
+    @apply border-l-4 border-design-lilac bg-design-lilac/20 pl-6 py-4 my-6 rounded-r-lg;
   }
 
   .prose blockquote p {
@@ -288,7 +351,7 @@
   }
 
   .prose strong {
-    @apply text-design-plum font-semibold;
+    @apply text-design-lilac font-semibold;
   }
 
   /* ===============================================
@@ -382,7 +445,7 @@
       #16213e 25%,
       #0f3460 50%,
       #533483 75%,
-      #844E6B 100%);
+      #A79FC7 100%);
     position: relative;
   }
 
@@ -452,7 +515,7 @@
     height: 20px;
     width: 20px;
     border-radius: 50%;
-    background: #844E6B; /* design-plum - light plum color */
+    background: #A79FC7; /* design-lilac - light plum color */
     cursor: pointer;
     border: 2px solid #DAB453; /* design-gold border */
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
@@ -468,7 +531,7 @@
     height: 20px;
     width: 20px;
     border-radius: 50%;
-    background: #844E6B; /* design-plum - light plum color */
+    background: #A79FC7; /* design-lilac - light plum color */
     cursor: pointer;
     border: 2px solid #DAB453; /* design-gold border */
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
@@ -601,13 +664,13 @@
 }
 
 .neon-text {
-  @apply text-design-plum animate-glow;
+  @apply text-design-lilac animate-glow;
 }
 
 .nav-card {
-  @apply bg-design-sage/30 backdrop-blur-sm border border-design-plum/10 
-  rounded-lg transition-all duration-300 hover:border-design-plum hover:border-opacity-50 
-  hover:shadow-lg hover:shadow-design-plum/10 hover:-translate-y-1;
+  @apply bg-design-sage/30 backdrop-blur-sm border border-design-lilac/10 
+  rounded-lg transition-all duration-300 hover:border-design-lilac hover:border-opacity-50 
+  hover:shadow-lg hover:shadow-design-lilac/10 hover:-translate-y-1;
 }
 
 .bg-texture {

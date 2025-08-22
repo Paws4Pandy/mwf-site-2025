@@ -1,57 +1,111 @@
 import React from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import PageBackground from '@/components/PageBackground';
 import RatesTable from '@/components/RatesTable';
+import CalculatorSelection from '@/components/CalculatorSelection';
+import MortgageFAQ from '@/components/MortgageFAQ';
+import LiquidGlassButton from '@/components/ui/LiquidGlassButton';
+import LiquidGlassWrapper from '@/components/ui/LiquidGlassWrapper';
 
 const Rates = () => {
   return (
-    <PageBackground>
-      {/* Header outside container for consistent positioning */}
-      <div className="absolute top-0 left-0 right-0 z-50">
-        <Header />
-      </div>
+    <div className="min-h-screen relative">
+      {/* Fixed Gradient Background */}
+      <div 
+        className="fixed inset-0 w-full h-full z-0"
+        style={{
+          backgroundImage: "url('/gradients/17.svg')",
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          backgroundAttachment: 'fixed'
+        }}
+      />
       
-      <div className="container mx-auto px-4 py-12 relative z-10 pt-24">
+      {/* Semi-transparent overlay for better text readability */}
+      <div className="fixed inset-0 bg-black/10 z-[1]" />
+      
+      {/* Scrollable content container */}
+      <div className="relative z-10 overflow-y-auto">
+        <div className="container mx-auto px-4">
+          <Header transparent={true} />
         
-        <section className="mb-16 opacity-0 animate-fade-in-delay-1 pt-8">
-          <h1 className="text-4xl md:text-6xl mb-8 text-center font-noto-serif-display italic font-normal">
-            <span className="text-design-plum">Current</span> <span className="text-design-gold">Mortgage Rates</span>
-          </h1>
-          
-          <div className="mb-12 text-center max-w-3xl mx-auto">
-            <p className="text-white/80 text-lg leading-relaxed">
-              Current mortgage rates for Ontario residents.
-            </p>
+        {/* Main content */}
+        <section className="py-10 md:py-16">
+          <div className="max-w-5xl mx-auto text-center">
+            <div className="mb-12 opacity-0 animate-fade-in-delay-1">
+              <h1 className="font-anton text-5xl md:text-7xl lg:text-8xl text-[#ED8071] leading-[0.85] mb-4">
+                Current
+                <br />
+                <span className="text-white">Mortgage Rates</span>
+              </h1>
+            </div>
+            
+            <div className="mb-16 opacity-0 animate-fade-in-delay-2">
+              <p className="text-xl md:text-2xl font-hk-grotesk-light text-white/90 max-w-4xl mx-auto leading-relaxed">
+                Current mortgage rates for Ontario residents updated daily
+              </p>
+            </div>
           </div>
-          
-          <div className="max-w-4xl mx-auto">
-            <RatesTable 
-              title="Current Mortgage Rates" 
-              showRefreshButton={true}
-              compact={false}
-            />
-          </div>
-          
-          <div className="text-center mt-8">
-            <a 
-              href="/calculator" 
-              className="inline-block px-6 py-3 rounded-xl border-2 border-design-gold text-white bg-design-gold/10 hover:bg-design-gold hover:text-black transition-all duration-300 font-medium mr-4"
+
+          {/* Rates Content - Increased spacing with Liquid Glass */}
+          <div className="mt-20 mb-20 opacity-0 animate-fade-in-delay-3">
+            <LiquidGlassWrapper
+              mode="standard"
+              intensity={0.3}
+              scale={0.5}
             >
-              Use Calculator
-            </a>
-            <a 
-              href="/" 
-              className="inline-block px-6 py-3 rounded-xl border-2 border-white text-white bg-transparent hover:bg-white hover:text-black transition-all duration-300 font-medium"
+              <div className="max-w-4xl mx-auto">
+                <RatesTable 
+                  title="" 
+                  compact={false}
+                />
+              </div>
+            </LiquidGlassWrapper>
+          </div>
+          
+          {/* Calculator Selection Section */}
+          <div className="mt-32 mb-20 opacity-0 animate-fade-in-delay-4">
+            <LiquidGlassWrapper
+              mode="standard"
+              intensity={0.3}
+              scale={0.5}
+            >
+              <div className="max-w-6xl mx-auto">
+                <CalculatorSelection />
+              </div>
+            </LiquidGlassWrapper>
+          </div>
+
+          {/* FAQ Section */}
+          <div className="mt-32 mb-20 opacity-0 animate-fade-in-delay-5">
+            <LiquidGlassWrapper
+              mode="standard"
+              intensity={0.3}
+              scale={0.5}
+            >
+              <div className="max-w-5xl mx-auto">
+                <MortgageFAQ />
+              </div>
+            </LiquidGlassWrapper>
+          </div>
+
+          {/* Bottom Navigation */}
+          <div className="flex justify-center gap-4 mt-12 mb-20 opacity-0 animate-fade-in-delay-6">
+            <LiquidGlassButton
+              href="/"
+              variant="secondary"
+              size="lg"
             >
               Back to Home
-            </a>
+            </LiquidGlassButton>
           </div>
         </section>
         
-        <Footer />
+          <Footer />
+        </div>
       </div>
-    </PageBackground>
+    </div>
   );
 };
 

@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import PageBackground from '@/components/PageBackground';
 import MortgageCalculator from '@/components/calculator/MortgageCalculator';
 import { AdvancedMortgageCalculator } from '@/components/calculator/AdvancedMortgageCalculator';
 import LiquidGlassWrapper from '@/components/ui/LiquidGlassWrapper';
@@ -53,9 +52,9 @@ const ComingSoon: React.FC<{ title: string; description: string }> = ({ title, d
       <div className="text-6xl mb-6">🚀</div>
       <h3 className="text-3xl font-bold text-white mb-4">{title}</h3>
       <p className="text-xl text-white/80 mb-8">{description}</p>
-      <div className="bg-gradient-to-r from-design-plum/20 to-design-gold/20 rounded-lg p-4 border border-design-gold/30">
+      <div className="bg-gradient-to-r from-design-lilac/20 to-design-gold/20 rounded-lg p-4 border border-design-gold/30">
         <p className="text-design-gold font-semibold">Coming Soon!</p>
-        <p className="text-white/70 text-sm mt-2">We're working hard to bring you this calculator. Stay tuned!</p>
+        <p className="text-white/90 text-sm mt-2">We're working hard to bring you this calculator. Stay tuned!</p>
       </div>
     </div>
   </div>
@@ -69,49 +68,64 @@ const Calculator = () => {
   const ActiveComponent = activeTabConfig.component;
 
   return (
-    <PageBackground>
-      {/* Header outside container for consistent positioning */}
-      <div className="absolute top-0 left-0 right-0 z-50">
-        <Header />
-      </div>
+    <div className="min-h-screen relative">
+      {/* Fixed Gradient Background */}
+      <div 
+        className="fixed inset-0 w-full h-full z-0"
+        style={{
+          backgroundImage: "url('/gradients/17.svg')",
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          backgroundAttachment: 'fixed'
+        }}
+      />
       
-      {/* Content container */}
-      <div className="container mx-auto px-4 py-12 relative z-10 pt-24">
+      {/* Semi-transparent overlay for better text readability */}
+      <div className="fixed inset-0 bg-black/10 z-[1]" />
+      
+      {/* Scrollable content container */}
+      <div className="relative z-10 overflow-y-auto">
+        <div className="container mx-auto px-4">
+          <Header transparent={true} />
         
         {/* Main content */}
-        <section className="mb-16 opacity-0 animate-fade-in-delay-1 pt-8">
-          {/* Main heading - updated to plural "Calculators" */}
-          <h1 className="text-4xl md:text-6xl mb-8 text-center font-noto-serif-display italic font-normal">
-            <span className="text-design-plum">Mortgage</span> <span className="text-design-gold">Calculators</span>
-          </h1>
-          
-          <div className="mb-20 text-center max-w-4xl mx-auto">
-            <p className="text-white/80 text-lg leading-relaxed mb-2">
-              Calculate your mortgage payments, explore CMHC insurance premiums
-            </p>
-            <p className="text-white/80 text-lg leading-relaxed">
-              and learn more about how to qualify for a home purchase
-            </p>
+        <section className="py-10 md:py-16">
+          <div className="max-w-5xl mx-auto text-center">
+            <div className="mb-12 opacity-0 animate-fade-in-delay-1">
+              <h1 className="font-anton text-5xl md:text-7xl lg:text-8xl text-[#ED8071] leading-[0.85] mb-4">
+                Mortgage
+                <br />
+                <span className="text-white">Calculators</span>
+              </h1>
+            </div>
+            
+            <div className="mb-16 opacity-0 animate-fade-in-delay-2">
+              <p className="text-xl md:text-2xl font-hk-grotesk-light text-white/90 max-w-4xl mx-auto leading-relaxed">
+                Calculate your mortgage payments, explore CMHC insurance premiums and learn more about how to qualify for a home purchase
+              </p>
+            </div>
           </div>
 
           {/* Tab Navigation - LIQUID GLASS MORPHISM */}
-          <div className="mb-16">
+          <div className="mb-16 opacity-0 animate-fade-in-delay-3">
             <div className="flex flex-wrap justify-center gap-6 mb-8">
               {tabs.map((tab) => {
                 const IconComponent = tab.icon;
                 return (
-                  <LiquidGlassWrapper
-                    key={tab.id}
-                    mode={activeTab === tab.id ? 'prominent' : 'standard'}
-                    intensity={activeTab === tab.id ? 0.6 : 0.3}
-                    scale={0.4}
-                  >
+                  <div key={tab.id} className="relative">
+                    <LiquidGlassWrapper
+                      mode={activeTab === tab.id ? 'prominent' : 'standard'}
+                      intensity={activeTab === tab.id ? 0.3 : 0.2}
+                      scale={0.3}
+                      className="absolute inset-0 rounded-2xl"
+                    />
                     <button
                       onClick={() => setActiveTab(tab.id)}
-                      className={`group relative overflow-hidden px-8 py-4 rounded-2xl font-semibold text-white transition-all duration-300 transform hover:scale-105 flex-1 min-w-[200px] max-w-[240px] ${
+                      className={`group relative z-10 overflow-hidden px-8 py-4 rounded-2xl font-semibold transition-all duration-300 transform hover:scale-105 flex-1 min-w-[200px] max-w-[260px] ${
                         activeTab === tab.id
-                          ? 'bg-gradient-to-r from-design-plum to-design-gold shadow-2xl scale-105'
-                          : 'bg-white/5 backdrop-blur-sm border border-white/10 hover:bg-white/10'
+                          ? 'bg-gradient-to-r from-design-lilac to-design-lilac/90 text-white shadow-2xl scale-105 border-2 border-design-lilac'
+                          : 'bg-white/70 border-2 border-white/40 hover:bg-white/80 text-design-charcoal hover:text-design-lilac shadow-lg'
                       }`}
                       style={{
                         boxShadow: activeTab === tab.id 
@@ -124,11 +138,11 @@ const Calculator = () => {
                       
                       {/* Content */}
                       <div className="relative flex items-center justify-center gap-3">
-                        <IconComponent className="w-5 h-5" />
-                        <span className="font-hammersmith text-sm">{tab.label}</span>
+                        <IconComponent className={`w-5 h-5 ${activeTab === tab.id ? 'text-white' : 'text-design-charcoal'}`} />
+                        <span className={`text-lg font-medium ${activeTab === tab.id ? 'text-white' : 'text-design-charcoal'}`}>{tab.label}</span>
                       </div>
                     </button>
-                  </LiquidGlassWrapper>
+                  </div>
                 );
               })}
             </div>
@@ -136,7 +150,7 @@ const Calculator = () => {
           </div>
 
           {/* Calculator Content - Increased spacing with Liquid Glass */}
-          <div className="mt-20 mb-20">
+          <div className="mt-20 mb-20 opacity-0 animate-fade-in-delay-4">
             <LiquidGlassWrapper
               mode="standard"
               intensity={0.3}
@@ -155,10 +169,11 @@ const Calculator = () => {
           
         </section>
         
-        {/* Footer */}
-        <Footer />
+          {/* Footer */}
+          <Footer />
+        </div>
       </div>
-    </PageBackground>
+    </div>
   );
 };
 

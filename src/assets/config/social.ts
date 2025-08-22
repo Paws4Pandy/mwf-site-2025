@@ -27,13 +27,7 @@ export const socialLinks = {
     handle: "@MortgagewithFord"
   },
   
-  tiktok: {
-    name: "TikTok",
-    url: "https://www.tiktok.com/@mortgage.with.ford?lang=en",
-    icon: "tiktok" as const,
-    handle: "@mortgage.with.ford"
-  }
 } as const;
 
 // Social media display order for UI components
-export const socialOrder = ["linkedin", "facebook", "instagram", "youtube", "tiktok"] as const;
+export const socialOrder = ["linkedin", "facebook", "instagram", "youtube"] as const;

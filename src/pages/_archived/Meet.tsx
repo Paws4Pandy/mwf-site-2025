@@ -22,7 +22,7 @@ const Meet = () => {
             <div className="flex flex-col md:flex-row items-center md:items-start gap-8">
               <div className="md:w-1/3">
                 <div className="">
-                  <img src="/lovable-uploads/59838530-0c06-4b13-8800-ce90bc56d60e.png" alt="Andreina Ford" className="w-auto h-auto object-cover" />
+                  <img src="/andreina-ford.jpg" alt="Andreina Ford" className="w-auto h-auto object-cover" />
                 </div>
               </div>
               <div className="md:w-2/3 px-[67px] py-[41px] rounded-md">

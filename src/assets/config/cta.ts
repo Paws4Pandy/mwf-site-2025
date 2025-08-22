@@ -8,7 +8,7 @@ export const ctaButtons = {
   
   startPreApproval: {
     text: "Start my mortgage pre-approval", 
-    url: "#", // TODO: Add actual pre-approval link
+    url: "https://andreina-ford.mtg-app.com/signup?brokerName=andreina.ford&brokerId=7208e0a3-3590-47b7-a99d-4704d9c75268",
     type: "primary" as const
   },
   
@@ -42,7 +42,7 @@ export const ctaButtons = {
     text: "Join live drop-in office hours",
     formType: "officeHours" as const,
     type: "form" as const,
-    helpLink: "#what-is-live-drop-in-office-hours"
+    helpLink: "/faq#office-hours"
   },
   
   subscribeUpdates: {

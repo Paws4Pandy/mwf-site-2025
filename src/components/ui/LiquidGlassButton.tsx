@@ -3,22 +3,28 @@ import LiquidGlassWrapper from './LiquidGlassWrapper';
 
 interface LiquidGlassButtonProps {
   children: React.ReactNode;
-  href: string;
+  href?: string;
+  onClick?: () => void;
   variant?: 'primary' | 'secondary' | 'accent' | 'custom';
   size?: 'sm' | 'md' | 'lg';
   className?: string;
   external?: boolean;
   icon?: React.ReactNode;
+  type?: 'button' | 'submit';
+  disabled?: boolean;
 }
 
 const LiquidGlassButton: React.FC<LiquidGlassButtonProps> = ({
   children,
   href,
+  onClick,
   variant = 'primary',
   size = 'md',
   className = '',
   external = false,
-  icon
+  icon,
+  type = 'button',
+  disabled = false
 }) => {
   const baseClasses = "group inline-flex items-center justify-center font-hk-grotesk-light font-medium rounded-xl transition-all duration-500 transform hover:-translate-y-1";
   
@@ -49,7 +55,27 @@ const LiquidGlassButton: React.FC<LiquidGlassButtonProps> = ({
     </>
   );
 
-  if (external) {
+  // If onClick is provided, render as button
+  if (onClick) {
+    return (
+      <LiquidGlassWrapper
+        mode={liquidGlassSettings[variant].mode}
+        intensity={liquidGlassSettings[variant].intensity}
+        scale={liquidGlassSettings[variant].scale}
+      >
+        <button
+          type={type}
+          onClick={onClick}
+          disabled={disabled}
+          className={`${baseClasses} ${sizeClasses[size]} ${variantClasses[variant]} ${className} ${disabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`}
+        >
+          {buttonContent}
+        </button>
+      </LiquidGlassWrapper>
+    );
+  }
+
+  if (external && href) {
     return (
       <LiquidGlassWrapper
         mode={liquidGlassSettings[variant].mode}
@@ -75,7 +101,7 @@ const LiquidGlassButton: React.FC<LiquidGlassButtonProps> = ({
       scale={liquidGlassSettings[variant].scale}
     >
       <a
-        href={href}
+        href={href || '#'}
         className={`${baseClasses} ${sizeClasses[size]} ${variantClasses[variant]} ${className}`}
       >
         {buttonContent}

@@ -10,92 +10,85 @@ const PageBackground: React.FC<PageBackgroundProps> = ({
   backgroundImage
 }) => {
   return (
-    <div className="min-h-screen relative overflow-hidden bg-black">
-      {/* Vector 1 - Green */}
+    <div className="min-h-screen relative overflow-hidden bg-design-charcoal">
+      {/* Soft Green Glow - Top Right */}
       <div 
         className="absolute"
         style={{
-          width: '807.96px',
-          height: '1034.32px',
-          left: '860px',
-          top: '231px',
-          background: '#00DD81',
-          filter: 'blur(175px)'
+          width: '900px',
+          height: '900px',
+          left: '70%',
+          top: '10%',
+          background: 'radial-gradient(circle, rgba(167, 243, 208, 0.4) 0%, rgba(167, 243, 208, 0.1) 40%, transparent 70%)',
+          filter: 'blur(120px)'
         }}
       />
 
-      {/* Vector 3 - Blue */}
+      {/* Gentle Blue Mist - Left Side */}
       <div 
         className="absolute"
         style={{
-          width: '1112.33px',
-          height: '786.18px',
-          left: '-201px',
-          top: '555px',
-          background: '#0038FF',
-          filter: 'blur(175px)'
+          width: '1000px',
+          height: '700px',
+          left: '-20%',
+          top: '40%',
+          background: 'radial-gradient(ellipse, rgba(186, 230, 253, 0.35) 0%, rgba(186, 230, 253, 0.08) 50%, transparent 80%)',
+          filter: 'blur(150px)'
         }}
       />
 
-      {/* Vector 2 - Magenta */}
+      {/* Soft Purple Accent - Center */}
       <div 
         className="absolute"
         style={{
-          width: '1112.33px',
-          height: '786.18px',
-          left: '-201px',
-          top: '603px',
-          background: '#FF00F5',
-          filter: 'blur(175px)'
+          width: '800px',
+          height: '600px',
+          left: '30%',
+          top: '50%',
+          background: 'radial-gradient(ellipse, rgba(233, 213, 255, 0.25) 0%, rgba(233, 213, 255, 0.05) 60%, transparent 85%)',
+          filter: 'blur(140px)'
         }}
       />
 
-      {/* Ellipse 1 - Red */}
+      {/* Warm Peach Glow - Bottom Right */}
       <div 
         className="absolute rounded-full"
         style={{
-          width: '984px',
-          height: '653px',
-          left: '423px',
-          top: '732px',
-          background: '#FF4545',
-          filter: 'blur(175px)'
+          width: '700px',
+          height: '500px',
+          left: '60%',
+          top: '65%',
+          background: 'radial-gradient(ellipse, rgba(254, 215, 170, 0.3) 0%, rgba(254, 215, 170, 0.08) 50%, transparent 75%)',
+          filter: 'blur(130px)'
         }}
       />
 
-      {/* Ellipse 2 - Pink */}
+      {/* Gentle Rose Tint - Bottom Left */}
       <div 
         className="absolute rounded-full"
         style={{
-          width: '756px',
-          height: '502px',
-          left: '439px',
-          top: '808px',
-          background: '#FF50D4',
-          filter: 'blur(75px)'
+          width: '600px',
+          height: '400px',
+          left: '10%',
+          top: '70%',
+          background: 'radial-gradient(ellipse, rgba(251, 207, 232, 0.2) 0%, rgba(251, 207, 232, 0.05) 55%, transparent 80%)',
+          filter: 'blur(110px)'
         }}
       />
 
-      {/* Ellipse 3 - Yellow */}
+      {/* Soft Yellow Accent - Top Center */}
       <div 
         className="absolute rounded-full"
         style={{
-          width: '353px',
-          height: '353px',
-          left: '1114px',
-          top: '781px',
-          background: '#FFF181',
-          filter: 'blur(125px)'
+          width: '400px',
+          height: '400px',
+          left: '45%',
+          top: '5%',
+          background: 'radial-gradient(circle, rgba(254, 249, 195, 0.25) 0%, rgba(254, 249, 195, 0.06) 60%, transparent 85%)',
+          filter: 'blur(100px)'
         }}
       />
 
-      {/* 50% Noise Overlay */}
-      <div 
-        className="absolute inset-0 opacity-50 mix-blend-overlay"
-        style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`
-        }}
-      />
 
       {children}
     </div>

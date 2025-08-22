@@ -9,31 +9,43 @@ export interface NavItem {
   external?: boolean;
 }
 
-// Main navigation menu items
+// Main navigation menu items - SEO optimized
 export const mainNavigation: NavItem[] = [
-  { 
-    name: 'Calculator', 
-    href: '/calculator', 
-    icon: 'calculator',
-    description: 'Run Some Numbers'
+  {
+    name: 'MEET ME',
+    href: '/meet',
+    icon: 'user',
+    description: 'Meet Andreina Ford, experienced Level 2 Mortgage Agent serving Ontario with personalized mortgage solutions and expert guidance'
   },
-  { 
-    name: 'Rates', 
-    href: '/rates', 
-    icon: 'rates',
-    description: 'Current Mortgage Rates'
+  {
+    name: 'MY STRATEGY',
+    href: '/my-strategy',
+    icon: 'target',
+    description: 'Discover my proven mortgage strategy and personalized approach to securing the best rates and terms for your home financing needs'
+  },
+  {
+    name: 'RATES',
+    href: '/rates',
+    icon: 'trending-down',
+    description: 'Current mortgage rates in Ontario - compare fixed, variable, and specialty mortgage rates updated daily for best financing options'
+  },
+  {
+    name: 'CALCULATORS',
+    href: '/calculator',
+    icon: 'calculator',
+    description: 'Free mortgage calculators - affordability, payment, amortization tools to help plan your home purchase and financing strategy'
+  },
+  {
+    name: 'FREE PLAYBOOKS',
+    href: '/playbooks',
+    icon: 'book-open',
+    description: 'Free mortgage guides and playbooks - first-time buyer tips, refinancing strategies, and expert advice for Ontario homebuyers'
   }
 ];
 
-// Header-specific navigation (subset for hamburger menu)
+// Header-specific navigation (uses main navigation)
 export const headerNavigation: NavItem[] = [
-  ...mainNavigation,
-  { 
-    name: 'Liquid Glass Demo', 
-    href: '/liquid-glass-test', 
-    icon: 'gift',
-    description: 'UI Effect Testing'
-  }
+  ...mainNavigation
 ];
 
 // Footer navigation sections

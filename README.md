@@ -1,73 +1,114 @@
-# Welcome to your Lovable project
+# Mortgage with Ford - August 2025
 
-## Project info
+Professional mortgage brokerage website built with React, TypeScript, Vite, and Tailwind CSS.
 
-**URL**: https://lovable.dev/projects/65062ee4-9041-46e2-ada2-a53eef68b34c
+## 🚀 Getting Started
 
-## How can I edit this code?
+### Prerequisites
+- Node.js 18+ 
+- npm or yarn
 
-There are several ways of editing your application.
+### Installation
 
-**Use Lovable**
+1. Clone the repository:
+```bash
+git clone [your-repo-url]
+cd mortgage-with-ford-august-2025
+```
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/65062ee4-9041-46e2-ada2-a53eef68b34c) and start prompting.
+2. Install dependencies:
+```bash
+npm install
+```
 
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+3. Start the development server:
+```bash
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+The site will be available at http://localhost:8080
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## 📁 Project Structure
 
-**Use GitHub Codespaces**
+```
+src/
+├── pages/           # Route components
+├── components/      # Reusable UI components
+├── components/ui/   # shadcn/ui component library
+├── assets/
+│   ├── config/      # Centralized configuration
+│   ├── images/      # Static images
+│   └── data/        # Data files
+├── hooks/           # Custom React hooks
+├── lib/             # Utility functions
+└── contexts/        # React contexts
+```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## 🛠️ Available Scripts
 
-## What technologies are used for this project?
+- `npm run dev` - Start development server (port 8080)
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build
+- `npm run lint` - Run ESLint
 
-This project is built with:
+## 🌐 Deployment
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+This project is configured for **Vercel deployment**.
 
-## How can I deploy this project?
+### Deploy to Vercel:
 
-Simply open [Lovable](https://lovable.dev/projects/65062ee4-9041-46e2-ada2-a53eef68b34c) and click on Share -> Publish.
+1. Push your code to GitHub
+2. Import the project in Vercel
+3. Configure environment variables if needed
+4. Deploy!
 
-## Can I connect a custom domain to my Lovable project?
+The build settings are automatically detected:
+- **Build Command**: `npm run build`
+- **Output Directory**: `dist/`
+- **Framework**: Vite
 
-Yes, you can!
+## 🎨 Tech Stack
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+- **Framework**: React 18 with TypeScript
+- **Build Tool**: Vite
+- **Styling**: Tailwind CSS with custom design system
+- **UI Components**: shadcn/ui (Radix UI)
+- **Routing**: React Router DOM
+- **State Management**: React Query
+- **Forms**: React Hook Form with Zod validation
+- **Icons**: Lucide React
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+## 📝 Configuration
+
+All configuration files are centralized in `/src/assets/config/`:
+
+- `contact.ts` - Contact information and emails
+- `links.ts` - External and internal URLs
+- `cta.ts` - Call-to-action buttons
+- `forms.ts` - Form configurations
+- `social.ts` - Social media links
+- `navigation.ts` - Site navigation structure
+
+## 🔧 Environment Variables
+
+Create a `.env.local` file for local development:
+
+```env
+# Add any required environment variables here
+VITE_API_URL=your_api_url
+```
+
+## 📄 License
+
+Copyright © 2025 Mortgage with Ford. All rights reserved.
+
+## 👩‍💻 Development Notes
+
+- Always use the centralized config files for links and contact info
+- Follow the established design system (colors, typography)
+- Test all changes on mobile devices
+- Run `npm run lint` before committing
+
+## 🆘 Support
+
+For questions or issues, contact: hello@mortgagewithford.ca

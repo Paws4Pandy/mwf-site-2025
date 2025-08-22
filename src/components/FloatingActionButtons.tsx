@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Calculator, TrendingUp, ChevronUp } from 'lucide-react';
-import { PremiumGlassCard } from '@/components/ui/PremiumGlassCard';
+import AGlassCard from '@/components/ui/AGlassCard';
 
 interface FloatingActionButtonsProps {
   showScrollTop?: boolean;
@@ -48,11 +48,7 @@ export const FloatingActionButtons: React.FC<FloatingActionButtonsProps> = ({
         className="group"
         aria-label="Open Mortgage Calculator"
       >
-        <PremiumGlassCard
-          variant="premium"
-          intensity="strong"
-          hover={true}
-          glow={true}
+        <AGlassCard
           className="w-14 h-14 p-0 flex items-center justify-center"
         >
           <Calculator className="w-6 h-6 text-pure-white group-hover:text-yellow-300 transition-colors duration-300" />
@@ -64,7 +60,7 @@ export const FloatingActionButtons: React.FC<FloatingActionButtonsProps> = ({
               <div className="absolute left-full top-1/2 -translate-y-1/2 w-0 h-0 border-y-4 border-y-transparent border-l-4 border-l-pure-black/90"></div>
             </div>
           </div>
-        </PremiumGlassCard>
+        </AGlassCard>
       </button>
 
       {/* Rates Button */}
@@ -73,11 +69,7 @@ export const FloatingActionButtons: React.FC<FloatingActionButtonsProps> = ({
         className="group"
         aria-label="View Current Rates"
       >
-        <PremiumGlassCard
-          variant="financial"
-          intensity="strong"
-          hover={true}
-          glow={true}
+        <AGlassCard
           className="w-14 h-14 p-0 flex items-center justify-center"
         >
           <TrendingUp className="w-6 h-6 text-light-azure group-hover:text-pure-white transition-colors duration-300" />
@@ -89,7 +81,7 @@ export const FloatingActionButtons: React.FC<FloatingActionButtonsProps> = ({
               <div className="absolute left-full top-1/2 -translate-y-1/2 w-0 h-0 border-y-4 border-y-transparent border-l-4 border-l-pure-black/90"></div>
             </div>
           </div>
-        </PremiumGlassCard>
+        </AGlassCard>
       </button>
 
       {/* Scroll to Top Button */}
@@ -99,11 +91,7 @@ export const FloatingActionButtons: React.FC<FloatingActionButtonsProps> = ({
           className="group"
           aria-label="Scroll to top"
         >
-          <PremiumGlassCard
-            variant="accent"
-            intensity="strong"
-            hover={true}
-            glow={true}
+          <AGlassCard
             className="w-14 h-14 p-0 flex items-center justify-center animate-bounce"
           >
             <ChevronUp className="w-6 h-6 text-pure-white group-hover:text-brand-red transition-colors duration-300" />
@@ -115,7 +103,7 @@ export const FloatingActionButtons: React.FC<FloatingActionButtonsProps> = ({
                 <div className="absolute left-full top-1/2 -translate-y-1/2 w-0 h-0 border-y-4 border-y-transparent border-l-4 border-l-pure-black/90"></div>
               </div>
             </div>
-          </PremiumGlassCard>
+          </AGlassCard>
         </button>
       )}
     </div>

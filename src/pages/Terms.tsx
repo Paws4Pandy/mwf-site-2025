@@ -13,51 +13,65 @@ const Terms = () => {
       <main className="min-h-screen py-12 relative z-10">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 p-8">
-            <h1 className={`${getH1Classes('text-white mb-8')}`}>Website Terms & Conditions</h1>
+            <h1 className={`${getH1Classes('text-white mb-8')}`}>Terms of Service</h1>
             <p className={`${getBodyClasses('text-white/80 mb-4')}`}>
               <strong>For:</strong> Andreina Ford – Mortgage Agent Level 2, BRX Mortgage #13463
             </p>
             
             <div className="space-y-6">
-              <p className={`${getBodyClasses('text-white/90')}`}>
-                By using this website, you agree to the following terms:
-              </p>
-
               <section>
-                <h2 className="text-xl font-semibold text-white mb-3">Use of Content</h2>
+                <h2 className="text-xl font-semibold text-white mb-3">Agreement to Terms</h2>
                 <p className={`${getBodyClasses('text-white/90')}`}>
-                  All content provided is for informational purposes only. Reproduction or distribution of content requires prior written consent.
+                  By accessing and using this website, you agree to be bound by these Terms of Service and all applicable laws and regulations.
                 </p>
               </section>
 
               <section>
-                <h2 className="text-xl font-semibold text-white mb-3">Site Access & Changes</h2>
+                <h2 className="text-xl font-semibold text-white mb-3">Use of Website</h2>
                 <p className={`${getBodyClasses('text-white/90')}`}>
-                  We reserve the right to update, modify, or discontinue the website at any time. We do not guarantee uninterrupted access.
+                  This website is provided for informational purposes about mortgage services. You may not use this website for any illegal or unauthorized purpose.
                 </p>
               </section>
 
               <section>
                 <h2 className="text-xl font-semibold text-white mb-3">Intellectual Property</h2>
                 <p className={`${getBodyClasses('text-white/90')}`}>
-                  All text, images, and logos are owned by Andreina Ford – Mortgage Agent Level 2, BRX Mortgage #13463, unless otherwise stated.
+                  All content on this website, including text, graphics, logos, and images, is the property of Andreina Ford and BRX Mortgage and is protected by copyright laws.
                 </p>
               </section>
 
               <section>
                 <h2 className="text-xl font-semibold text-white mb-3">Limitation of Liability</h2>
                 <p className={`${getBodyClasses('text-white/90')}`}>
-                  We strive for accuracy, but we make no guarantees regarding completeness or reliability of information. Use the site at your own risk.
+                  Andreina Ford and BRX Mortgage shall not be liable for any direct, indirect, incidental, special, or consequential damages resulting from the use or inability to use this website.
                 </p>
               </section>
 
               <section>
-                <h2 className="text-xl font-semibold text-white mb-3">Contact</h2>
+                <h2 className="text-xl font-semibold text-white mb-3">Mortgage Services</h2>
                 <p className={`${getBodyClasses('text-white/90')}`}>
-                  For questions about these terms, please email{' '}
-                  <a href="mailto:hello@mortgagewithford.ca" className="text-design-gold hover:underline">
-                    hello@mortgagewithford.ca
-                  </a>.
+                  All mortgage services are subject to qualification and approval. Rates and terms are subject to change without notice. Please contact us directly for current rates and personalized advice.
+                </p>
+              </section>
+
+              <section>
+                <h2 className="text-xl font-semibold text-white mb-3">Privacy</h2>
+                <p className={`${getBodyClasses('text-white/90')}`}>
+                  Your use of our website is also governed by our Privacy Policy. Please review our Privacy Policy for information about how we collect, use, and protect your information.
+                </p>
+              </section>
+
+              <section>
+                <h2 className="text-xl font-semibold text-white mb-3">Changes to Terms</h2>
+                <p className={`${getBodyClasses('text-white/90')}`}>
+                  We reserve the right to modify these terms at any time. Your continued use of the website following any changes constitutes acceptance of the new terms.
+                </p>
+              </section>
+
+              <section>
+                <h2 className="text-xl font-semibold text-white mb-3">Contact Information</h2>
+                <p className={`${getBodyClasses('text-white/90')}`}>
+                  For questions about these Terms of Service, please contact us at hello@mortgagewithford.ca
                 </p>
               </section>
             </div>

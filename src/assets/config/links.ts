@@ -9,11 +9,11 @@ export const externalLinks = {
   bookACall: "https://callme.mortgagewithford.ca",
   
   // Applications and processes  
-  startPreApproval: "#", // TODO: Add actual pre-approval link
+  startPreApproval: "https://andreina-ford.mtg-app.com/signup?brokerName=andreina.ford&brokerId=7208e0a3-3590-47b7-a99d-4704d9c75268",
   
   // Downloadable guides (redirect after form submission)
-  downloadableGuides: "/guides", // TODO: Create guides page
+  downloadableGuides: "/guides",
   
   // Help and support
-  officeHoursInfo: "#what-is-live-drop-in-office-hours" // TODO: Add FAQ anchor or page
+  officeHoursInfo: "/faq#office-hours"
 } as const;

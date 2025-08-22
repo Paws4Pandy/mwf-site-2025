@@ -1,21 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Separator } from '@/components/ui/separator';
-import { getBodyClasses } from '@/assets/config/typography';
 import { headerNavigation } from '@/assets/config/navigation';
-import AppIcon from '@/components/AppIcon';
-import LiquidGlassButton from '@/components/ui/LiquidGlassButton';
-import { Book } from 'lucide-react';
 
 interface HeaderProps {
   showDivider?: boolean;
+  transparent?: boolean;
 }
 
-const Header: React.FC<HeaderProps> = ({ showDivider = true }) => {
+const Header: React.FC<HeaderProps> = ({ showDivider = true, transparent = false }) => {
   return (
     <>
-      <header className="py-4 sm:py-6 bg-transparent relative">
-        <div className="container mx-auto px-4 sm:px-8">
+      <header className={`py-8 sm:py-10 relative ${transparent ? 'bg-transparent' : 'bg-hunter-green'}`}>
+        <div className="container mx-auto px-4">
           <div className="flex items-center justify-between">
             
             {/* Left Side - BRX Logo and Agent Info */}
@@ -36,43 +32,28 @@ const Header: React.FC<HeaderProps> = ({ showDivider = true }) => {
               </div>
             </div>
             
-            {/* Right Side - Anton Font Navigation */}
+            {/* Right Side - Navigation from Config */}
             <nav className="hidden md:flex items-center gap-6">
-              <Link
-                to="/playbooks"
-                className="font-anton text-white hover:text-muted-red transition-colors duration-300 text-lg relative group"
-              >
-                FREE PLAYBOOKS
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-muted-red transition-all duration-300 group-hover:w-full"></span>
-              </Link>
-              <Link
-                to="/rates"
-                className="font-anton text-white hover:text-muted-red transition-colors duration-300 text-lg relative group"
-              >
-                RATES
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-muted-red transition-all duration-300 group-hover:w-full"></span>
-              </Link>
-              <Link
-                to="/calculator"
-                className="font-anton text-white hover:text-muted-red transition-colors duration-300 text-lg relative group"
-              >
-                CALCULATORS
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-muted-red transition-all duration-300 group-hover:w-full"></span>
-              </Link>
-              <Link
-                to="/meet"
-                className="font-anton text-white hover:text-muted-red transition-colors duration-300 text-lg relative group"
-              >
-                MEET ME
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-muted-red transition-all duration-300 group-hover:w-full"></span>
-              </Link>
-              <Link
-                to="/strategies"
-                className="font-anton text-white hover:text-muted-red transition-colors duration-300 text-lg relative group"
-              >
-                MY STRATEGIES
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-muted-red transition-all duration-300 group-hover:w-full"></span>
-              </Link>
+              {headerNavigation.map((item) => {
+                const isPlaybooks = item.name === 'FREE PLAYBOOKS';
+                const linkClassName = `font-anton hover:text-design-gold transition-colors duration-300 text-lg relative group ${
+                  isPlaybooks ? 'text-white/60' : 'text-white'
+                }`;
+                
+                return (
+                  <Link
+                    key={item.href}
+                    to={item.href}
+                    className={linkClassName}
+                  >
+                    {item.name}
+                    {isPlaybooks && (
+                      <span className="text-xs text-design-lilac/80 absolute -top-2 -right-3 bg-design-lilac/20 px-1 rounded">SOON</span>
+                    )}
+                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-design-gold transition-all duration-300 group-hover:w-full"></span>
+                  </Link>
+                );
+              })}
             </nav>
             
             {/* Mobile Menu Button */}

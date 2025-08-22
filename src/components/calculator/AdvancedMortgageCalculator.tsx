@@ -114,7 +114,7 @@ export const AdvancedMortgageCalculator: React.FC<AdvancedMortgageCalculatorProp
                   const minRequiredDown = calculateMinDownPayment(newPrice);
                   setDownPayment(Math.max(newDownPaymentAmount, minRequiredDown));
                 }}
-                className="w-full h-4 bg-gradient-to-r from-design-plum/30 to-design-gold/50 rounded-lg appearance-none cursor-pointer slider-custom"
+                className="w-full h-4 bg-gradient-to-r from-design-lilac/30 to-design-gold/50 rounded-lg appearance-none cursor-pointer slider-custom"
               />
               <div className="flex justify-between text-sm text-white/80 mt-1 font-hk-grotesk-light">
                 <span>$500K</span>
@@ -134,7 +134,7 @@ export const AdvancedMortgageCalculator: React.FC<AdvancedMortgageCalculatorProp
                 step="5000"
                 value={downPayment}
                 onChange={(e) => setDownPayment(Number(e.target.value))}
-                className="w-full h-4 bg-gradient-to-r from-design-plum/30 to-design-gold/50 rounded-lg appearance-none cursor-pointer slider-custom"
+                className="w-full h-4 bg-gradient-to-r from-design-lilac/30 to-design-gold/50 rounded-lg appearance-none cursor-pointer slider-custom"
               />
               <div className="flex justify-between text-base text-white/90 mt-1 font-medium font-hk-grotesk-light">
                 <span>Minimum: {formatCurrency(minDownPayment)}</span>
@@ -156,7 +156,7 @@ export const AdvancedMortgageCalculator: React.FC<AdvancedMortgageCalculatorProp
                 step="0.01"
                 value={interestRate}
                 onChange={(e) => setInterestRate(Number(e.target.value))}
-                className="w-full h-4 bg-gradient-to-r from-design-plum/30 to-design-gold/50 rounded-lg appearance-none cursor-pointer slider-custom"
+                className="w-full h-4 bg-gradient-to-r from-design-lilac/30 to-design-gold/50 rounded-lg appearance-none cursor-pointer slider-custom"
               />
               <div className="flex justify-between text-sm text-white/80 mt-2 font-hk-grotesk-light">
                 <span>3%</span>
@@ -176,7 +176,7 @@ export const AdvancedMortgageCalculator: React.FC<AdvancedMortgageCalculatorProp
                 step="1"
                 value={amortizationYears}
                 onChange={(e) => setAmortizationYears(Number(e.target.value))}
-                className="w-full h-4 bg-gradient-to-r from-design-plum/30 to-design-gold/50 rounded-lg appearance-none cursor-pointer slider-custom"
+                className="w-full h-4 bg-gradient-to-r from-design-lilac/30 to-design-gold/50 rounded-lg appearance-none cursor-pointer slider-custom"
               />
               <div className="flex justify-between text-sm text-white/80 mt-2 font-hk-grotesk-light">
                 <span>15 years</span>
@@ -196,7 +196,7 @@ export const AdvancedMortgageCalculator: React.FC<AdvancedMortgageCalculatorProp
                 step="5000"
                 value={annualIncome}
                 onChange={(e) => setAnnualIncome(Number(e.target.value))}
-                className="w-full h-4 bg-gradient-to-r from-design-plum/30 to-design-gold/50 rounded-lg appearance-none cursor-pointer slider-custom"
+                className="w-full h-4 bg-gradient-to-r from-design-lilac/30 to-design-gold/50 rounded-lg appearance-none cursor-pointer slider-custom"
               />
               <div className="flex justify-between text-sm text-white/80 mt-1 font-hk-grotesk-light">
                 <span>$30K</span>
@@ -216,7 +216,7 @@ export const AdvancedMortgageCalculator: React.FC<AdvancedMortgageCalculatorProp
                 step="50"
                 value={monthlyDebts}
                 onChange={(e) => setMonthlyDebts(Number(e.target.value))}
-                className="w-full h-4 bg-gradient-to-r from-design-plum/30 to-design-gold/50 rounded-lg appearance-none cursor-pointer slider-custom"
+                className="w-full h-4 bg-gradient-to-r from-design-lilac/30 to-design-gold/50 rounded-lg appearance-none cursor-pointer slider-custom"
               />
               <div className="flex justify-between text-sm text-white/80 mt-1 font-hk-grotesk-light">
                 <span>$0</span>
@@ -236,7 +236,7 @@ export const AdvancedMortgageCalculator: React.FC<AdvancedMortgageCalculatorProp
                 step="100"
                 value={propertyTaxes}
                 onChange={(e) => setPropertyTaxes(Number(e.target.value))}
-                className="w-full h-4 bg-gradient-to-r from-design-plum/30 to-design-gold/50 rounded-lg appearance-none cursor-pointer slider-custom"
+                className="w-full h-4 bg-gradient-to-r from-design-lilac/30 to-design-gold/50 rounded-lg appearance-none cursor-pointer slider-custom"
               />
               <div className="flex justify-between text-sm text-white/80 mt-1 font-hk-grotesk-light">
                 <span>$1K</span>
@@ -256,7 +256,7 @@ export const AdvancedMortgageCalculator: React.FC<AdvancedMortgageCalculatorProp
                 step="50"
                 value={heatingCosts}
                 onChange={(e) => setHeatingCosts(Number(e.target.value))}
-                className="w-full h-4 bg-gradient-to-r from-design-plum/30 to-design-gold/50 rounded-lg appearance-none cursor-pointer slider-custom"
+                className="w-full h-4 bg-gradient-to-r from-design-lilac/30 to-design-gold/50 rounded-lg appearance-none cursor-pointer slider-custom"
               />
               <div className="flex justify-between text-sm text-white/80 mt-1 font-hk-grotesk-light">
                 <span>$600</span>
@@ -271,7 +271,7 @@ export const AdvancedMortgageCalculator: React.FC<AdvancedMortgageCalculatorProp
         <LiquidGlassWrapper mode="polar" intensity={0.4} scale={0.3}>
           <div className="flex flex-col">
           {/* Main Payment Result */}
-          <div className="rounded-2xl shadow-xl p-6 text-center text-white relative overflow-hidden hover:shadow-2xl transition-all duration-300 bg-gradient-to-br from-design-plum via-design-charcoal to-design-gold mb-4">
+          <div className="rounded-2xl shadow-xl p-6 text-center text-white relative overflow-hidden hover:shadow-2xl transition-all duration-300 bg-gradient-to-br from-design-lilac via-design-charcoal to-design-gold mb-4">
             <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent"></div>
             <div className="absolute -top-4 -right-4 w-32 h-32 bg-white/5 rounded-full blur-2xl"></div>
             <div className="absolute -bottom-6 -left-6 w-24 h-24 bg-white/5 rounded-full blur-xl"></div>

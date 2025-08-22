@@ -71,7 +71,7 @@ export const GoogleReviews: React.FC = () => {
     <section className="py-16 px-4 bg-black">
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="font-abril text-4xl md:text-5xl text-pure-white mb-4">
+          <h2 className="font-abril text-4xl md:text-5xl text-muted-red mb-4">
             Client Success Stories
           </h2>
           <div className="flex items-center justify-center gap-2 mb-2">
@@ -95,7 +95,7 @@ export const GoogleReviews: React.FC = () => {
             </span>
           </div>
           <a
-            href="https://g.page/r/C03g9uljp/review"
+            href="https://g.page/r/CZvNhnlLCiB-EAE/review"
             target="_blank"
             rel="noopener noreferrer"
             className="text-muted-red hover:text-brand-red transition-colors underline"
@@ -105,8 +105,8 @@ export const GoogleReviews: React.FC = () => {
         </div>
 
         <div className="relative">
-          <div className="p-6 md:p-8 bg-light-crimson/50 backdrop-blur-md border border-light-crimson/20 rounded-2xl shadow-xl">
-            <Quote className="w-10 h-10 text-light-crimson/40 mb-3" />
+          <div className="p-6 md:p-8 bg-white/90 backdrop-blur-sm border border-gray-200 rounded-2xl shadow-xl">
+            <Quote className="w-10 h-10 text-muted-red/30 mb-3" />
             
             <div className="mb-6">
               <div className="flex gap-1 mb-4">
@@ -122,16 +122,16 @@ export const GoogleReviews: React.FC = () => {
                 ))}
               </div>
               
-              <p className="text-base text-light-azure leading-relaxed mb-6">
+              <p className="text-base text-gray-700 leading-relaxed mb-6">
                 "{currentReview.text}"
               </p>
               
               <div className="flex items-center justify-between">
                 <div>
-                  <p className="font-semibold text-pure-white">
+                  <p className="font-semibold text-pure-black">
                     {currentReview.author}
                   </p>
-                  <p className="text-sm text-light-azure/60">
+                  <p className="text-sm text-gray-500">
                     {new Date(currentReview.date).toLocaleDateString('en-US', {
                       month: 'long',
                       day: 'numeric',
@@ -139,7 +139,7 @@ export const GoogleReviews: React.FC = () => {
                     })}
                   </p>
                 </div>
-                <div className="flex items-center gap-1 text-sm text-light-azure/60">
+                <div className="flex items-center gap-1 text-sm text-gray-500">
                   <img 
                     src="https://www.google.com/favicon.ico" 
                     alt="Google" 

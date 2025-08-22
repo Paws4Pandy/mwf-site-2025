@@ -89,7 +89,7 @@ const MortgageCalculator: React.FC<MortgageCalculatorProps> = ({
                   const minRequiredDown = calculateMinDownPayment(newPrice);
                   setDownPayment(Math.max(newDownPaymentAmount, minRequiredDown));
                 }}
-                className="w-full h-4 bg-gradient-to-r from-design-plum/30 to-design-gold/50 rounded-lg appearance-none cursor-pointer slider-custom"
+                className="w-full h-4 bg-gradient-to-r from-design-lilac/30 to-design-gold/50 rounded-lg appearance-none cursor-pointer slider-custom"
               />
               <div className="flex justify-between text-sm text-white/80 mt-1 font-hk-grotesk-light">
                 <span>$500K</span>
@@ -109,7 +109,7 @@ const MortgageCalculator: React.FC<MortgageCalculatorProps> = ({
                 step="5000"
                 value={downPayment}
                 onChange={(e) => setDownPayment(Number(e.target.value))}
-                className="w-full h-4 bg-gradient-to-r from-design-plum/30 to-design-gold/50 rounded-lg appearance-none cursor-pointer slider-custom"
+                className="w-full h-4 bg-gradient-to-r from-design-lilac/30 to-design-gold/50 rounded-lg appearance-none cursor-pointer slider-custom"
               />
               <div className="flex justify-between text-base text-white/90 mt-1 font-medium font-hk-grotesk-light">
                 <span>Minimum: {formatCurrency(minDownPayment)}</span>
@@ -141,7 +141,7 @@ const MortgageCalculator: React.FC<MortgageCalculatorProps> = ({
                   <button
                     onClick={refreshRates}
                     disabled={loading}
-                    className="px-3 py-1 text-xs bg-design-plum/20 hover:bg-design-plum/40 text-white rounded border border-design-plum/30 transition-colors disabled:opacity-50"
+                    className="px-3 py-1 text-xs bg-design-lilac/20 hover:bg-design-lilac/40 text-white rounded border border-design-lilac/30 transition-colors disabled:opacity-50"
                   >
                     {loading ? '⟳' : '↻'} Refresh
                   </button>
@@ -154,7 +154,7 @@ const MortgageCalculator: React.FC<MortgageCalculatorProps> = ({
                 step="0.01"
                 value={interestRate}
                 onChange={(e) => setInterestRate(Number(e.target.value))}
-                className="w-full h-4 bg-gradient-to-r from-design-plum/30 to-design-gold/50 rounded-lg appearance-none cursor-pointer slider-custom"
+                className="w-full h-4 bg-gradient-to-r from-design-lilac/30 to-design-gold/50 rounded-lg appearance-none cursor-pointer slider-custom"
               />
               <div className="flex justify-between text-sm text-white/80 mt-2 font-hk-grotesk-light">
                 <span>3%</span>
@@ -179,7 +179,7 @@ const MortgageCalculator: React.FC<MortgageCalculatorProps> = ({
                 step="1"
                 value={amortizationYears}
                 onChange={(e) => setAmortizationYears(Number(e.target.value))}
-                className="w-full h-4 bg-gradient-to-r from-design-plum/30 to-design-gold/50 rounded-lg appearance-none cursor-pointer slider-custom"
+                className="w-full h-4 bg-gradient-to-r from-design-lilac/30 to-design-gold/50 rounded-lg appearance-none cursor-pointer slider-custom"
               />
               <div className="flex justify-between text-sm text-white/80 mt-2 font-hk-grotesk-light">
                 <span>15 years</span>
@@ -199,7 +199,7 @@ const MortgageCalculator: React.FC<MortgageCalculatorProps> = ({
         <LiquidGlassWrapper mode="polar" intensity={0.4} scale={0.3}>
           <div className="h-[800px] flex flex-col">
           {/* Main Payment Result */}
-          <div className="rounded-2xl shadow-xl p-6 text-center text-white relative overflow-hidden hover:shadow-2xl transition-all duration-300 bg-gradient-to-br from-design-plum via-design-charcoal to-design-gold mb-4">
+          <div className="rounded-2xl shadow-xl p-6 text-center text-white relative overflow-hidden hover:shadow-2xl transition-all duration-300 bg-gradient-to-br from-design-lilac via-design-charcoal to-design-gold mb-4">
             <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent"></div>
             <div className="absolute -top-4 -right-4 w-32 h-32 bg-white/5 rounded-full blur-2xl"></div>
             <div className="absolute -bottom-6 -left-6 w-24 h-24 bg-white/5 rounded-full blur-xl"></div>
@@ -228,14 +228,14 @@ const MortgageCalculator: React.FC<MortgageCalculatorProps> = ({
                       type="checkbox"
                       checked={isFirstTimeBuyer}
                       onChange={(e) => setIsFirstTimeBuyer(e.target.checked)}
-                      className="w-5 h-5 text-design-plum focus:ring-design-plum border-design-charcoal/30 rounded"
+                      className="w-5 h-5 text-design-lilac focus:ring-design-lilac border-design-charcoal/30 rounded"
                     />
                     <span className="text-lg font-semibold text-white font-hk-grotesk-light">
                       First-time homebuyer
                     </span>
                   </label>
                   {isFirstTimeBuyer && (
-                    <p className="text-design-plum text-sm font-medium mt-1 ml-8 font-hk-grotesk-light">
+                    <p className="text-design-lilac text-sm font-medium mt-1 ml-8 font-hk-grotesk-light">
                       ✓ Eligible for 30-year amortization on new builds & rebates up to $8,475
                     </p>
                   )}
@@ -249,7 +249,7 @@ const MortgageCalculator: React.FC<MortgageCalculatorProps> = ({
                         type="checkbox"
                         checked={isNewBuild}
                         onChange={(e) => setIsNewBuild(e.target.checked)}
-                        className="w-5 h-5 text-design-plum focus:ring-design-plum border-design-charcoal/30 rounded"
+                        className="w-5 h-5 text-design-lilac focus:ring-design-lilac border-design-charcoal/30 rounded"
                       />
                       <span className="text-lg font-semibold text-white font-hk-grotesk-light">
                         New build home (First-time buyer)
@@ -270,7 +270,7 @@ const MortgageCalculator: React.FC<MortgageCalculatorProps> = ({
                       type="checkbox"
                       checked={!isTraditionalDownPayment}
                       onChange={(e) => setIsTraditionalDownPayment(!e.target.checked)}
-                      className="w-5 h-5 text-design-plum focus:ring-design-plum border-design-charcoal/30 rounded"
+                      className="w-5 h-5 text-design-lilac focus:ring-design-lilac border-design-charcoal/30 rounded"
                     />
                     <span className="text-lg font-semibold text-white font-hk-grotesk-light">
                       Borrowed down payment
@@ -285,7 +285,7 @@ const MortgageCalculator: React.FC<MortgageCalculatorProps> = ({
 
                 {/* Conventional Mortgage Notice */}
                 {(downPayment/purchasePrice) >= 0.20 && (
-                  <div className="bg-design-plum/10 border border-design-plum/30 rounded-lg p-3 mt-3">
+                  <div className="bg-design-lilac/10 border border-design-lilac/30 rounded-lg p-3 mt-3">
                     <p className="text-white text-sm font-semibold font-hk-grotesk-light">
                       ✓ Conventional Mortgage (20%+ down payment)
                     </p>
@@ -367,7 +367,7 @@ const MortgageCalculator: React.FC<MortgageCalculatorProps> = ({
             {!isEligibleForCMHC && (
               <div className="bg-gradient-to-r from-design-charcoal/10 to-design-charcoal/20 border border-design-charcoal/30 rounded-xl p-4 shadow-sm">
                 <div className="flex items-start space-x-3">
-                  <span className="text-design-plum text-xl mt-0.5">⚠️</span>
+                  <span className="text-design-lilac text-xl mt-0.5">⚠️</span>
                   <div>
                     <h4 className="font-semibold text-white">
                       CMHC Insurance Not Available

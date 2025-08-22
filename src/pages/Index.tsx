@@ -1,50 +1,53 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import NavCard from '@/components/NavCard';
 import { CircleDollarSign } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import PageBackground from '@/components/PageBackground';
-import RatesTable from '@/components/RatesTable';
 import { mainNavigation } from '@/assets/config/navigation';
 import { GoogleReviews } from '@/components/GoogleReviews';
 import { FAQSection } from '@/components/FAQSection';
-import { InternalLinks } from '@/components/InternalLinks';
 import { SchemaMarkup } from '@/components/SchemaMarkup';
 import LiquidGlassButton from '@/components/ui/LiquidGlassButton';
-
+import ElevenLabsWithTransfer from '@/components/ElevenLabsWithTransfer';
 
 const Index = () => {
+
   return (
     <div>
       {/* Schema Markup for SEO */}
-      <SchemaMarkup type="LocalBusiness" />
+      <SchemaMarkup type="ServiceWithReviews" />
       <SchemaMarkup type="Organization" />
-      {/* Use centralized header component */}
-      <div className="absolute top-0 left-0 right-0 z-50">
-        <Header />
-      </div>
-
+      
       {/* Hero section - Full Width Background */}
       <section className="relative min-h-screen flex items-center overflow-hidden bg-black">
-        {/* Background Image with B&W filter and noise - contained to hero section */}
+        {/* Background Image with B&W filter - contained to hero section */}
         <div 
           className="absolute inset-0 bg-cover bg-top bg-no-repeat grayscale contrast-110 brightness-90"
           style={{ backgroundImage: "url('/room-main.jpg?v=1')" }}
         ></div>
         
+        {/* Dark gradient overlay */}
+        <div 
+          className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70"
+        ></div>
+        
         {/* Noise overlay - contained to hero section */}
         <div 
-          className="absolute inset-0 opacity-20"
+          className="absolute inset-0 opacity-30"
           style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
+            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
             mixBlendMode: 'overlay'
           }}
         ></div>
         
         {/* Left-aligned text content */}
         <div className="relative z-10 container mx-auto px-4">
-          <div className="flex flex-col items-start justify-start h-screen max-w-2xl pt-32 md:pt-40 lg:pt-48">
+          {/* Header at top of content */}
+          <Header transparent={true} />
+          
+          <div className="flex flex-col items-start justify-start h-screen max-w-2xl pt-8 md:pt-16 lg:pt-20">
             
             {/* "I don't sell mortgages" image - slightly larger */}
             <div className="mb-4">
@@ -52,6 +55,9 @@ const Index = () => {
                 src="/i-dont-sell-mortgages.png" 
                 alt="I don't sell mortgages" 
                 className="w-full max-w-xl h-auto"
+                width="576"
+                height="80"
+                loading="eager"
               />
             </div>
             
@@ -61,6 +67,9 @@ const Index = () => {
                 src="/i-guard.png" 
                 alt="I Guard" 
                 className="w-full max-w-2xl h-auto"
+                width="768"
+                height="120"
+                loading="eager"
               />
             </div>
           </div>
@@ -93,6 +102,21 @@ const Index = () => {
               </div>
             </div>
 
+            {/* Professional Photo */}
+            <div className="mb-12 opacity-0 animate-fade-in-delay-2">
+              <div className="inline-block relative group">
+                <div className="absolute inset-0 bg-gradient-to-br from-muted-red/20 to-brand-red/20 blur-xl group-hover:blur-2xl transition-all duration-500"></div>
+                <div className="relative backdrop-blur-sm bg-white/5 border border-white/10 rounded-2xl p-2 hover:scale-105 transition-transform duration-300">
+                  <img 
+                    src="/andreina/andreina-mwf.jpg" 
+                    alt="Andreina Ford - Mortgage Agent Level 2"
+                    className="w-48 h-48 md:w-56 md:h-56 object-cover rounded-xl"
+                    loading="eager"
+                  />
+                </div>
+              </div>
+            </div>
+
             {/* CTA Section - Enhanced Liquid Glass Buttons */}
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 items-center justify-center opacity-0 animate-fade-in-delay-3 w-full max-w-5xl mx-auto mb-16">
               <LiquidGlassButton
@@ -109,22 +133,12 @@ const Index = () => {
               <LiquidGlassButton
                 href="https://andreina-ford.mtg-app.com/signup?brokerName=andreina.ford&brokerId=7208e0a3-3590-47b7-a99d-4704d9c75268"
                 variant="accent"
-                size="lg"
-                external={true}
-                className="w-full sm:w-64 lg:w-72"
-                icon={<CircleDollarSign size={20} className="sm:size-6" />}
-              >
-                Start Application
-              </LiquidGlassButton>
-              
-              <LiquidGlassButton
-                href="/playbooks"
-                variant="secondary"
                 size="md"
+                external={true}
                 className="w-full sm:w-48 lg:w-52"
-                icon="📚"
+                icon={<CircleDollarSign size={20} />}
               >
-                Playbooks
+                Apply Now
               </LiquidGlassButton>
             </div>
           </section>
@@ -136,31 +150,12 @@ const Index = () => {
           </h2>
           
           {/* Attribution */}
-          <p className="text-center text-white/60 text-sm mb-12 opacity-0 animate-fade-in-delay-2">
+          <p className="text-center text-white/80 text-sm mb-20 opacity-0 animate-fade-in-delay-2">
             — Morgan Housel
           </p>
           
-          {/* Current Rates - Compact */}
-          <div className="max-w-4xl mx-auto mb-12 opacity-0 animate-fade-in-delay-2">
-            <RatesTable 
-              title="Current Mortgage Rates" 
-              showRefreshButton={false}
-              compact={true}
-            />
-          </div>
+
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 mx-auto max-w-3xl">
-            {mainNavigation.map((item, index) => (
-              <NavCard 
-                key={item.name}
-                title={item.name} 
-                description={item.description || ''} 
-                icon={item.icon as keyof typeof import('@/assets/config/icons').icons} 
-                href={item.href} 
-                className={`animate-fade-in-delay-${index < 2 ? '2' : '3'}`}
-              />
-            ))}
-          </div>
         </section>
 
         {/* Google Reviews Section */}
@@ -174,6 +169,9 @@ const Index = () => {
         </div>
 
       </div>
+      
+      {/* ElevenLabs ConvAI Widget with Call Transfer - Delayed */}
+      <ElevenLabsWithTransfer />
     </div>
   );
 };

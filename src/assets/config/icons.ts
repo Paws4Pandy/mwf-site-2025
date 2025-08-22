@@ -16,13 +16,16 @@ import {
   Linkedin,
   Youtube,
   TrendingUp,
+  TrendingDown,
   CircleDollarSign,
   Menu,
-  X
+  X,
+  Target,
+  BookOpen
 } from 'lucide-react';
 
 // Custom components for icons not available in Lucide
-import TikTokIcon from '@/components/icons/TikTokIcon';
+// import TikTokIcon from '@/components/icons/TikTokIcon';
 
 // Comprehensive icon mapping for consistent use across components
 export const icons = {
@@ -34,6 +37,9 @@ export const icons = {
   info: Info,
   message: MessageCircle,
   rates: TrendingUp,
+  target: Target,
+  'trending-down': TrendingDown,
+  'book-open': BookOpen,
   
   // Contact icons  
   phone: Phone,
@@ -47,7 +53,7 @@ export const icons = {
   youtube: Youtube,
   
   // Custom social icons
-  tiktok: TikTokIcon,
+  // tiktok: TikTokIcon,
   
   // Action icons
   dollar: CircleDollarSign,

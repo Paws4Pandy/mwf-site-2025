@@ -10,7 +10,7 @@ const QuoteCard: React.FC = () => {
           <div className="flex flex-col md:flex-row items-center md:items-start justify-between">
             <div className="md:w-1/2 flex justify-center md:justify-start">
               <Avatar className="w-40 h-40 border-2 border-hunter-green aspect-square">
-                <AvatarImage src="/lovable-uploads/59838530-0c06-4b13-8800-ce90bc56d60e.png" alt="Andreina Ford" className="object-cover" />
+                <AvatarImage src="/andreina-ford.jpg" alt="Andreina Ford" className="object-cover" />
                 <AvatarFallback className="bg-hunter-green text-pure-white">AF</AvatarFallback>
               </Avatar>
             </div>

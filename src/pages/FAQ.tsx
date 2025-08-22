@@ -93,7 +93,7 @@ export default function FAQ() {
         <Header />
         
         {/* Hero Section */}
-        <div className="pt-32 pb-12 px-4">
+        <div className="pt-20 pb-12 px-4">
           <div className="container mx-auto max-w-4xl text-center">
             <h1 className="font-anton text-5xl md:text-7xl text-pure-white mb-4">
               FREQUENTLY ASKED QUESTIONS

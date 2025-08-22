@@ -50,7 +50,7 @@ const handleDownload = (downloadUrl: string, title: string) => {
 const Playbooks = () => {
   return (
     <PageBackground>
-      <div className="container mx-auto px-4 py-12 relative z-10">
+      <div className="container mx-auto px-4 relative z-10">
           <Header />
           
           {/* Hero Section - Futuristic Glass Design */}
@@ -60,7 +60,7 @@ const Playbooks = () => {
                 <h1 className="text-6xl md:text-7xl lg:text-8xl font-anton font-normal text-design-charcoal tracking-tighter leading-[0.85] mb-8 premium-text">
                   Mortgage
                   <br />
-                  <span className="text-design-plum">Playbooks</span>
+                  <span className="text-design-lilac">Playbooks</span>
                 </h1>
               </div>
               
@@ -72,17 +72,17 @@ const Playbooks = () => {
 
               {/* Stats - Clean Cards */}
               <div className="flex flex-wrap justify-center gap-8 mb-20 opacity-0 animate-fade-in-delay-3">
-                <div className="bg-design-cream/50 border border-design-plum/20 rounded-2xl p-8 text-center backdrop-blur-sm">
-                  <div className="text-4xl font-anton text-design-plum mb-2">{playbooksData.length}</div>
-                  <div className="text-sm font-hk-grotesk-light text-design-charcoal/70 uppercase tracking-widest">Volumes</div>
+                <div className="bg-design-cream/50 border border-design-lilac/20 rounded-2xl p-8 text-center backdrop-blur-sm">
+                  <div className="text-4xl font-anton text-design-lilac mb-2">{playbooksData.length}</div>
+                  <div className="text-sm font-hk-grotesk-light text-white/80 uppercase tracking-widest">Volumes</div>
                 </div>
-                <div className="bg-design-cream/50 border border-design-plum/20 rounded-2xl p-8 text-center backdrop-blur-sm">
-                  <div className="text-4xl font-anton text-design-plum mb-2">100%</div>
-                  <div className="text-sm font-hk-grotesk-light text-design-charcoal/70 uppercase tracking-widest">Professional</div>
+                <div className="bg-design-cream/50 border border-design-lilac/20 rounded-2xl p-8 text-center backdrop-blur-sm">
+                  <div className="text-4xl font-anton text-design-lilac mb-2">100%</div>
+                  <div className="text-sm font-hk-grotesk-light text-white/80 uppercase tracking-widest">Professional</div>
                 </div>
-                <div className="bg-design-cream/50 border border-design-plum/20 rounded-2xl p-8 text-center backdrop-blur-sm">
-                  <div className="text-4xl font-anton text-design-plum mb-2">Free</div>
-                  <div className="text-sm font-hk-grotesk-light text-design-charcoal/70 uppercase tracking-widest">Download</div>
+                <div className="bg-design-cream/50 border border-design-lilac/20 rounded-2xl p-8 text-center backdrop-blur-sm">
+                  <div className="text-4xl font-anton text-design-lilac mb-2">Free</div>
+                  <div className="text-sm font-hk-grotesk-light text-white/80 uppercase tracking-widest">Download</div>
                 </div>
               </div>
             </div>
@@ -101,14 +101,14 @@ const Playbooks = () => {
                       return (
                         <article 
                           key={playbook.id}
-                          className={`group bg-design-cream/50 border border-design-plum/10 rounded-3xl overflow-hidden hover:shadow-2xl hover:shadow-design-plum/10 transition-all duration-500 transform hover:-translate-y-2 opacity-0 animate-fade-in-delay-${Math.min(index + 1, 6)}`}
+                          className={`group bg-design-cream/50 border border-design-lilac/10 rounded-3xl overflow-hidden hover:shadow-2xl hover:shadow-design-lilac/10 transition-all duration-500 transform hover:-translate-y-2 opacity-0 animate-fade-in-delay-${Math.min(index + 1, 6)}`}
                         >
                           {/* Cover Area */}
-                          <div className="relative h-56 bg-gradient-to-br from-design-sage/30 to-design-plum/20 flex items-center justify-center overflow-hidden">
+                          <div className="relative h-56 bg-gradient-to-br from-design-sage/30 to-design-lilac/20 flex items-center justify-center overflow-hidden">
                             <div className="absolute inset-0 bg-texture opacity-30"></div>
                             
                             {/* Icon Container */}
-                            <div className="relative z-10 w-24 h-24 bg-design-plum rounded-full flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform duration-500">
+                            <div className="relative z-10 w-24 h-24 bg-design-lilac rounded-full flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform duration-500">
                               <IconComponent size={32} className="text-white drop-shadow-lg" />
                             </div>
                             
@@ -130,7 +130,7 @@ const Playbooks = () => {
                           {/* Content Area */}
                           <div className="p-10">
                             <div className="mb-8">
-                              <h3 className="text-3xl font-tan-ashford font-normal text-design-charcoal mb-4 premium-text group-hover:text-design-plum transition-colors duration-500">
+                              <h3 className="text-3xl font-tan-ashford font-normal text-design-charcoal mb-4 premium-text group-hover:text-design-lilac transition-colors duration-500">
                                 {playbook.title}
                               </h3>
                               <p className="font-hk-grotesk-light text-design-charcoal/70 text-lg leading-relaxed mb-8">
@@ -150,7 +150,7 @@ const Playbooks = () => {
                               
                               <button 
                                 onClick={() => handleDownload(playbook.downloadUrl, playbook.title)}
-                                className="px-8 py-4 bg-transparent border-2 border-design-plum text-design-plum font-hk-grotesk-light font-medium rounded-xl hover:bg-design-plum hover:text-white transition-all duration-500 shadow-lg transform hover:-translate-y-1"
+                                className="px-8 py-4 bg-transparent border-2 border-design-lilac text-design-lilac font-hk-grotesk-light font-medium rounded-xl hover:bg-design-lilac hover:text-white transition-all duration-500 shadow-lg transform hover:-translate-y-1"
                               >
                                 <Download size={20} />
                               </button>
@@ -167,14 +167,14 @@ const Playbooks = () => {
                   <div className="sticky top-8 space-y-8">
                     
                     {/* Quick Resources */}
-                    <div className="bg-design-cream/80 border border-design-plum/10 rounded-3xl p-8 backdrop-blur-sm">
+                    <div className="bg-design-cream/80 border border-design-lilac/10 rounded-3xl p-8 backdrop-blur-sm">
                       <h4 className="text-2xl font-tan-ashford text-design-charcoal mb-8 premium-text">
                         Quick Resources
                       </h4>
                       <div className="space-y-4">
                         <a 
                           href="https://callme.mortgagewithford.ca"
-                          className="group flex items-center p-4 bg-design-sage/20 rounded-xl hover:bg-design-plum/10 transition-all duration-500"
+                          className="group flex items-center p-4 bg-design-sage/20 rounded-xl hover:bg-design-lilac/10 transition-all duration-500"
                         >
                           <div className="w-12 h-12 bg-design-gold rounded-xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
                             <Phone size={18} className="text-white" />
@@ -187,9 +187,9 @@ const Playbooks = () => {
 
                         <Link 
                           to="/calculator"
-                          className="group flex items-center p-4 bg-design-sage/20 rounded-xl hover:bg-design-plum/10 transition-all duration-500"
+                          className="group flex items-center p-4 bg-design-sage/20 rounded-xl hover:bg-design-lilac/10 transition-all duration-500"
                         >
-                          <div className="w-12 h-12 bg-design-plum rounded-xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
+                          <div className="w-12 h-12 bg-design-lilac rounded-xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
                             <Calculator size={18} className="text-white" />
                           </div>
                           <div>
@@ -200,7 +200,7 @@ const Playbooks = () => {
 
                         <a 
                           href="https://andreina-ford.mtg-app.com/signup?brokerName=andreina.ford&brokerId=7208e0a3-3590-47b7-a99d-4704d9c75268"
-                          className="group flex items-center p-4 bg-design-sage/20 rounded-xl hover:bg-design-plum/10 transition-all duration-500"
+                          className="group flex items-center p-4 bg-design-sage/20 rounded-xl hover:bg-design-lilac/10 transition-all duration-500"
                         >
                           <div className="w-12 h-12 bg-design-sage rounded-xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
                             <Rocket size={18} className="text-white" />
@@ -214,7 +214,7 @@ const Playbooks = () => {
                     </div>
 
                     {/* Important Links */}
-                    <div className="bg-design-cream/80 border border-design-plum/10 rounded-3xl p-8 backdrop-blur-sm">
+                    <div className="bg-design-cream/80 border border-design-lilac/10 rounded-3xl p-8 backdrop-blur-sm">
                       <h4 className="text-2xl font-tan-ashford text-design-charcoal mb-8 premium-text">
                         Important Links
                       </h4>
@@ -250,8 +250,8 @@ const Playbooks = () => {
                         Questions about these playbooks? Get personalized guidance.
                       </p>
                       <a 
-                        href="mailto:ask@mortgagewithford.ca"
-                        className="inline-flex items-center px-6 py-4 bg-design-gold text-white font-hk-grotesk-light font-medium text-base rounded-xl hover:bg-design-plum transition-all duration-300"
+                        href="mailto:hello@mortgagewithford.ca"
+                        className="inline-flex items-center px-6 py-4 bg-design-gold text-white font-hk-grotesk-light font-medium text-base rounded-xl hover:bg-design-lilac transition-all duration-300"
                       >
                         <ExternalLink size={16} className="mr-2" />
                         Ask Andreina

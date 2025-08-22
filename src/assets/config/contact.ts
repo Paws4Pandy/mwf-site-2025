@@ -3,7 +3,8 @@
 
 export const CONTACT_CONFIG = {
   // Primary contact information
-  email: 'ask@mortgagewithford.ca',
+  email: 'hello@mortgagewithford.ca',
+  officeHoursEmail: 'andreina@mortgagewithford.ca',
   phone: '6137437866',
   
   // Application and booking URLs

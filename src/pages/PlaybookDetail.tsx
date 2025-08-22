@@ -13,7 +13,7 @@ const playbooksData = {
     description: 'Everything you need to know for your first home purchase. No BS, just the facts that protect your investment.',
     readTime: '15 min read',
     icon: '🏠',
-    color: 'design-plum',
+    color: 'design-lilac',
     coverImage: '/src/assets/images/playbooks/first-time-buyer-cover.jpg',
     chapters: [
       {
@@ -163,7 +163,7 @@ const PlaybookDetail = () => {
   if (!playbook) {
     return (
       <PageBackground>
-        <div className="container mx-auto px-4 py-12 relative z-10">
+        <div className="container mx-auto px-4 relative z-10">
           <Header />
           <div className="max-w-4xl mx-auto text-center py-20">
             <h1 className="text-4xl font-anton text-design-charcoal mb-4">Playbook Not Found</h1>
@@ -183,14 +183,14 @@ const PlaybookDetail = () => {
 
   return (
     <PageBackground>
-      <div className="container mx-auto px-4 py-12 relative z-10">
+      <div className="container mx-auto px-4 relative z-10">
         <Header />
         
         {/* Navigation */}
         <div className="max-w-6xl mx-auto mb-8">
           <Link 
             to="/playbooks" 
-            className="inline-flex items-center text-design-charcoal/80 hover:text-design-plum transition-colors duration-300 font-hk-grotesk-light"
+            className="inline-flex items-center text-design-charcoal/80 hover:text-design-lilac transition-colors duration-300 font-hk-grotesk-light"
           >
             <ArrowLeft size={18} className="mr-2" />
             Back to Playbooks
@@ -205,17 +205,17 @@ const PlaybookDetail = () => {
               
               {/* Playbook Header */}
               <div className="mb-12">
-                <div className="bg-design-cream/80 border border-design-plum/10 rounded-3xl p-10 mb-8 relative overflow-hidden backdrop-blur-sm">
+                <div className="bg-design-cream/80 border border-design-lilac/10 rounded-3xl p-10 mb-8 relative overflow-hidden backdrop-blur-sm">
                   <div className="relative z-10">
                     <div className="flex items-center gap-4 mb-6">
-                      <div className="w-16 h-16 bg-design-plum rounded-full flex items-center justify-center shadow-2xl">
+                      <div className="w-16 h-16 bg-design-lilac rounded-full flex items-center justify-center shadow-2xl">
                         <span className="text-2xl text-white">{playbook.icon}</span>
                       </div>
                       <div>
                         <h1 className="text-4xl md:text-5xl font-anton font-normal text-design-charcoal premium-text">
                           {playbook.title}
                         </h1>
-                        <p className="text-xl font-hk-grotesk-light text-design-plum mt-2">
+                        <p className="text-xl font-hk-grotesk-light text-design-lilac mt-2">
                           {playbook.subtitle}
                         </p>
                       </div>
@@ -244,19 +244,19 @@ const PlaybookDetail = () => {
               </div>
 
               {/* Chapter Content */}
-              <div className="bg-design-cream/80 border border-design-plum/10 rounded-3xl p-8 md:p-12 shadow-lg backdrop-blur-sm">
+              <div className="bg-design-cream/80 border border-design-lilac/10 rounded-3xl p-8 md:p-12 shadow-lg backdrop-blur-sm">
                 
                 {/* Chapter Header */}
-                <div className="mb-8 pb-6 border-b border-design-plum/20">
+                <div className="mb-8 pb-6 border-b border-design-lilac/20">
                   <div className="flex items-center gap-3 mb-4">
-                    <span className="w-8 h-8 bg-design-plum rounded-full flex items-center justify-center text-sm font-hk-grotesk-light font-medium text-white">
+                    <span className="w-8 h-8 bg-design-lilac rounded-full flex items-center justify-center text-sm font-hk-grotesk-light font-medium text-white">
                       {currentChapter.id}
                     </span>
                     <div>
                       <h2 className="text-3xl font-tan-ashford font-normal text-design-charcoal premium-text">
                         {currentChapter.title}
                       </h2>
-                      <p className="text-lg font-hk-grotesk-light text-design-plum">
+                      <p className="text-lg font-hk-grotesk-light text-design-lilac">
                         {currentChapter.subtitle}
                       </p>
                     </div>
@@ -274,7 +274,7 @@ const PlaybookDetail = () => {
                 />
 
                 {/* Key Takeaways */}
-                <div className="mt-12 bg-design-sage/30 border border-design-plum/10 p-6 rounded-xl backdrop-blur-sm">
+                <div className="mt-12 bg-design-sage/30 border border-design-lilac/10 p-6 rounded-xl backdrop-blur-sm">
                   <h4 className="text-xl font-tan-ashford text-design-charcoal mb-4 premium-text">
                     Key Takeaways
                   </h4>
@@ -289,11 +289,11 @@ const PlaybookDetail = () => {
                 </div>
 
                 {/* Chapter Navigation */}
-                <div className="flex justify-between items-center mt-12 pt-8 border-t border-design-plum/20">
+                <div className="flex justify-between items-center mt-12 pt-8 border-t border-design-lilac/20">
                   <button
                     onClick={() => setActiveChapter(Math.max(1, activeChapter - 1))}
                     disabled={activeChapter === 1}
-                    className="bg-design-sage/30 border border-design-plum/10 px-6 py-3 text-design-charcoal font-hk-grotesk-light rounded-lg hover:bg-design-plum/10 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center backdrop-blur-sm"
+                    className="bg-design-sage/30 border border-design-lilac/10 px-6 py-3 text-design-charcoal font-hk-grotesk-light rounded-lg hover:bg-design-lilac/10 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center backdrop-blur-sm"
                   >
                     <ArrowLeft size={16} className="mr-2" />
                     Previous Chapter
@@ -322,7 +322,7 @@ const PlaybookDetail = () => {
               <div className="sticky top-8 space-y-6">
                 
                 {/* Table of Contents */}
-                <div className="bg-design-cream/80 border border-design-plum/10 rounded-3xl p-6 backdrop-blur-sm">
+                <div className="bg-design-cream/80 border border-design-lilac/10 rounded-3xl p-6 backdrop-blur-sm">
                   <h4 className="text-lg font-tan-ashford text-design-charcoal mb-4 premium-text">
                     Table of Contents
                   </h4>
@@ -334,7 +334,7 @@ const PlaybookDetail = () => {
                         className={`w-full text-left p-3 rounded-lg transition-all duration-300 ${
                           activeChapter === chapter.id
                             ? 'bg-design-gold text-white'
-                            : 'hover:bg-design-plum/10 text-design-charcoal/80'
+                            : 'hover:bg-design-lilac/10 text-design-charcoal/80'
                         }`}
                       >
                         <div className="font-hk-grotesk-light font-medium text-sm mb-1">
@@ -349,7 +349,7 @@ const PlaybookDetail = () => {
                 </div>
 
                 {/* Quick Actions */}
-                <div className="bg-design-cream/80 border border-design-plum/10 rounded-3xl p-6 backdrop-blur-sm">
+                <div className="bg-design-cream/80 border border-design-lilac/10 rounded-3xl p-6 backdrop-blur-sm">
                   <h4 className="text-lg font-tan-ashford text-design-charcoal mb-4 premium-text">
                     Quick Actions
                   </h4>
@@ -361,7 +361,7 @@ const PlaybookDetail = () => {
                     
                     <a 
                       href="https://callme.mortgagewithford.ca"
-                      className="w-full flex items-center p-3 bg-design-sage/30 border border-design-plum/10 text-design-charcoal rounded-lg hover:bg-design-plum/10 transition-all duration-300 backdrop-blur-sm"
+                      className="w-full flex items-center p-3 bg-design-sage/30 border border-design-lilac/10 text-design-charcoal rounded-lg hover:bg-design-lilac/10 transition-all duration-300 backdrop-blur-sm"
                     >
                       <ExternalLink size={16} className="mr-3" />
                       <span className="font-hk-grotesk-light text-sm">Book Consultation</span>
@@ -370,17 +370,17 @@ const PlaybookDetail = () => {
                 </div>
 
                 {/* Related Playbooks */}
-                <div className="bg-design-cream/80 border border-design-plum/10 rounded-3xl p-6 backdrop-blur-sm">
+                <div className="bg-design-cream/80 border border-design-lilac/10 rounded-3xl p-6 backdrop-blur-sm">
                   <h4 className="text-lg font-tan-ashford text-design-charcoal mb-4 premium-text">
                     Related Playbooks
                   </h4>
                   <div className="space-y-3">
-                    <Link to="/playbooks/volume-2" className="block p-3 rounded-lg hover:bg-design-plum/10 transition-colors duration-300">
+                    <Link to="/playbooks/volume-2" className="block p-3 rounded-lg hover:bg-design-lilac/10 transition-colors duration-300">
                       <div className="font-hk-grotesk-light font-medium text-design-charcoal text-sm mb-1">Volume 2</div>
                       <div className="font-hk-grotesk-light text-design-charcoal/60 text-xs">Next in series</div>
                     </Link>
                     
-                    <Link to="/playbooks/volume-3" className="block p-3 rounded-lg hover:bg-design-plum/10 transition-colors duration-300">
+                    <Link to="/playbooks/volume-3" className="block p-3 rounded-lg hover:bg-design-lilac/10 transition-colors duration-300">
                       <div className="font-hk-grotesk-light font-medium text-design-charcoal text-sm mb-1">Volume 3</div>
                       <div className="font-hk-grotesk-light text-design-charcoal/60 text-xs">Advanced strategies</div>
                     </Link>
