@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { MortgageCalculator } from '@/components/calculator/MortgageCalculator';
+import MortgageCalculator from '@/components/calculator/MortgageCalculator';
 import { AdvancedMortgageCalculator } from '@/components/calculator/AdvancedMortgageCalculator';
 import LandTransferTaxCalculator from '@/components/calculator/LandTransferTaxCalculator';
 import LiquidGlassWrapper from '@/components/ui/LiquidGlassWrapper';
