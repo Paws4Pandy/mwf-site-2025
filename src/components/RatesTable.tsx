@@ -121,7 +121,7 @@ const RatesTable: React.FC<RatesTableProps> = ({
                 <div className="bg-gradient-to-br from-brand-red/20 to-transparent backdrop-blur-md border border-brand-red/30 rounded-2xl p-4">
                   <div className="flex justify-between items-center">
                     <div>
-                      <span className="text-white font-hammersmith text-2xl">
+                      <span className="text-white font-roboto-flex font-bold text-2xl">
                         5 Year Fixed
                       </span>
                       <p className="text-white/70 text-sm">Most Popular</p>
@@ -138,7 +138,7 @@ const RatesTable: React.FC<RatesTableProps> = ({
                 <div className="bg-gradient-to-br from-light-crimson/20 to-transparent backdrop-blur-md border border-light-crimson/30 rounded-2xl p-4">
                   <div className="flex justify-between items-center">
                     <div>
-                      <span className="text-white font-hammersmith text-2xl">
+                      <span className="text-white font-roboto-flex font-bold text-2xl">
                         5 Year Variable
                       </span>
                       <p className="text-white/70 text-sm">Flexible Option</p>
@@ -176,7 +176,7 @@ const RatesTable: React.FC<RatesTableProps> = ({
           {/* Error Message */}
           {error && (
             <div className="mb-6 p-4 bg-red-500/20 backdrop-blur-md border border-red-500/30 rounded-2xl">
-              <p className="text-red-300 text-sm flex items-center gap-2 font-hammersmith">
+              <p className="text-red-300 text-sm flex items-center gap-2 font-roboto-flex font-bold">
                 <Info className="w-4 h-4" />
                 Showing default rates
               </p>
@@ -192,7 +192,7 @@ const RatesTable: React.FC<RatesTableProps> = ({
                   key={index} 
                   className="flex items-center justify-between py-2 px-3 border-b border-white/10 last:border-b-0"
                 >
-                  <span className="text-white/90 text-sm font-hammersmith">
+                  <span className="text-white/90 text-sm font-roboto-flex font-bold">
                     {rate.term}
                   </span>
                   <span className="text-brand-red font-anton text-sm">
@@ -217,7 +217,7 @@ const RatesTable: React.FC<RatesTableProps> = ({
                         className="flex justify-between items-center py-4 border-b border-white/10 last:border-b-0 group hover:bg-white/5 transition-all duration-200 rounded-lg px-4"
                       >
                         <div className="flex items-center gap-3">
-                          <span className="text-white font-hammersmith text-2xl">
+                          <span className="text-white font-roboto-flex font-bold text-2xl">
                             {rate.term} Fixed
                           </span>
                           <TrendIcon trend={getTrend(rate.term)} />
@@ -244,7 +244,7 @@ const RatesTable: React.FC<RatesTableProps> = ({
                         className="flex justify-between items-center py-4 border-b border-white/10 last:border-b-0 group hover:bg-white/5 transition-all duration-200 rounded-lg px-4"
                       >
                         <div className="flex items-center gap-3">
-                          <span className="text-white font-hammersmith text-2xl">
+                          <span className="text-white font-roboto-flex font-bold text-2xl">
                             {rate.term} Variable
                           </span>
                           <TrendIcon trend={getTrend(`${rate.term} Variable`)} />
@@ -263,7 +263,7 @@ const RatesTable: React.FC<RatesTableProps> = ({
           {/* Footer Info */}
           {!compact && (
             <div className="mt-6 pt-4 border-t border-white/10">
-              <p className="text-sm text-white/60 leading-relaxed text-center font-hammersmith">
+              <p className="text-sm text-white/60 leading-relaxed text-center font-roboto-flex font-bold">
                 Individual rates may vary based on credit score, down payment, and other qualification factors
               </p>
             </div>

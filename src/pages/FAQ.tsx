@@ -98,7 +98,7 @@ export default function FAQ() {
             <h1 className="font-anton text-5xl md:text-7xl text-pure-white mb-4">
               FREQUENTLY ASKED QUESTIONS
             </h1>
-            <p className="font-opensauce text-lg text-light-azure/80">
+            <p className="font-roboto-flex text-lg text-light-azure/80">
               Find answers to common mortgage questions
             </p>
           </div>
@@ -125,7 +125,7 @@ export default function FAQ() {
               <button
                 key={category}
                 onClick={() => setSelectedCategory(category)}
-                className={`px-4 py-2 rounded-full font-hammersmith text-sm transition-all ${
+                className={`px-4 py-2 rounded-full font-roboto-flex font-bold text-sm transition-all ${
                   selectedCategory === category
                     ? 'bg-muted-red text-pure-white'
                     : 'bg-pure-white/5 backdrop-blur-md text-light-azure hover:bg-pure-white/10 border border-light-azure/10'
@@ -150,10 +150,10 @@ export default function FAQ() {
                   className="w-full px-6 py-4 flex items-center justify-between text-left hover:bg-pure-white/5 transition-colors"
                 >
                   <div className="flex-1 pr-4">
-                    <span className="text-light-azure/60 text-xs font-hammersmith uppercase tracking-wider">
+                    <span className="text-light-azure/60 text-xs font-roboto-flex font-bold uppercase tracking-wider">
                       {faq.category}
                     </span>
-                    <h3 className="text-pure-white font-hammersmith text-lg mt-1">
+                    <h3 className="text-pure-white font-roboto-flex font-bold text-lg mt-1">
                       {faq.question}
                     </h3>
                   </div>
@@ -167,7 +167,7 @@ export default function FAQ() {
                 {openIndex === index && (
                   <div className="px-6 pb-4">
                     <div className="border-t border-light-azure/10 pt-4">
-                      <p className="text-light-azure/80 font-opensauce leading-relaxed">
+                      <p className="text-light-azure/80 font-roboto-flex leading-relaxed">
                         {faq.answer}
                       </p>
                     </div>
@@ -179,7 +179,7 @@ export default function FAQ() {
 
           {filteredFAQs.length === 0 && (
             <div className="text-center py-12">
-              <p className="text-light-azure/60 font-opensauce">
+              <p className="text-light-azure/60 font-roboto-flex">
                 No questions found matching your search.
               </p>
             </div>

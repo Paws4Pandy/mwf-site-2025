@@ -22,9 +22,9 @@ const NotFound = () => {
         <Header transparent={true} />
         
         <div className="bg-design-cream/20 backdrop-blur-sm border border-design-lilac/30 rounded-lg p-8 mb-10 shadow-sm max-w-md mx-auto text-center">
-          <h1 className="text-4xl font-league-spartan font-bold mb-4 text-pure-black">404</h1>
-          <p className="text-xl text-hunter-green/80 mb-6 font-opensauce">Oops! Page not found</p>
-          <a href="/" className="inline-block px-6 py-3 rounded border-2 border-hunter-green text-pure-white bg-hunter-green hover:bg-pure-white hover:text-pure-black hover:border-pure-black transition-all duration-300 font-medium font-opensauce">
+          <h1 className="text-4xl font-anton font-bold mb-4 text-pure-black">404</h1>
+          <p className="text-xl text-hunter-green/80 mb-6 font-roboto-flex">Oops! Page not found</p>
+          <a href="/" className="inline-block px-6 py-3 rounded border-2 border-hunter-green text-pure-white bg-hunter-green hover:bg-pure-white hover:text-pure-black hover:border-pure-black transition-all duration-300 font-medium font-roboto-flex">
             Return to Home
           </a>
         </div>

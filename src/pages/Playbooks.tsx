@@ -65,7 +65,7 @@ const Playbooks = () => {
               </div>
               
               <div className="mb-16 opacity-0 animate-fade-in-delay-2">
-                <p className="text-xl md:text-2xl font-hk-grotesk-light font-light text-design-charcoal/80 max-w-4xl mx-auto leading-relaxed">
+                <p className="text-xl md:text-2xl font-roboto-flex font-light text-design-charcoal/80 max-w-4xl mx-auto leading-relaxed">
                   Professional mortgage guidance with radical transparency and insider knowledge.
                 </p>
               </div>
@@ -74,15 +74,15 @@ const Playbooks = () => {
               <div className="flex flex-wrap justify-center gap-8 mb-20 opacity-0 animate-fade-in-delay-3">
                 <div className="bg-design-cream/50 border border-design-lilac/20 rounded-2xl p-8 text-center backdrop-blur-sm">
                   <div className="text-4xl font-anton text-design-lilac mb-2">{playbooksData.length}</div>
-                  <div className="text-sm font-hk-grotesk-light text-white/80 uppercase tracking-widest">Volumes</div>
+                  <div className="text-sm font-roboto-flex text-white/80 uppercase tracking-widest">Volumes</div>
                 </div>
                 <div className="bg-design-cream/50 border border-design-lilac/20 rounded-2xl p-8 text-center backdrop-blur-sm">
                   <div className="text-4xl font-anton text-design-lilac mb-2">100%</div>
-                  <div className="text-sm font-hk-grotesk-light text-white/80 uppercase tracking-widest">Professional</div>
+                  <div className="text-sm font-roboto-flex text-white/80 uppercase tracking-widest">Professional</div>
                 </div>
                 <div className="bg-design-cream/50 border border-design-lilac/20 rounded-2xl p-8 text-center backdrop-blur-sm">
                   <div className="text-4xl font-anton text-design-lilac mb-2">Free</div>
-                  <div className="text-sm font-hk-grotesk-light text-white/80 uppercase tracking-widest">Download</div>
+                  <div className="text-sm font-roboto-flex text-white/80 uppercase tracking-widest">Download</div>
                 </div>
               </div>
             </div>
@@ -114,14 +114,14 @@ const Playbooks = () => {
                             
                             {/* Volume Badge */}
                             <div className="absolute top-6 left-6">
-                              <span className="bg-white/90 px-4 py-2 text-design-charcoal text-sm font-hk-grotesk-light font-medium rounded-full backdrop-blur-sm">
+                              <span className="bg-white/90 px-4 py-2 text-design-charcoal text-sm font-roboto-flex font-medium rounded-full backdrop-blur-sm">
                                 {playbook.volume}
                               </span>
                             </div>
                             
                             {/* Read Time Badge */}
                             <div className="absolute top-6 right-6">
-                              <span className="bg-design-gold/90 px-4 py-2 text-white text-sm font-hk-grotesk-light rounded-full">
+                              <span className="bg-design-gold/90 px-4 py-2 text-white text-sm font-roboto-flex rounded-full">
                                 {playbook.readTime}
                               </span>
                             </div>
@@ -130,10 +130,10 @@ const Playbooks = () => {
                           {/* Content Area */}
                           <div className="p-10">
                             <div className="mb-8">
-                              <h3 className="text-3xl font-tan-ashford font-normal text-design-charcoal mb-4 premium-text group-hover:text-design-lilac transition-colors duration-500">
+                              <h3 className="text-3xl font-roboto-flex font-bold font-normal text-design-charcoal mb-4 premium-text group-hover:text-design-lilac transition-colors duration-500">
                                 {playbook.title}
                               </h3>
-                              <p className="font-hk-grotesk-light text-design-charcoal/70 text-lg leading-relaxed mb-8">
+                              <p className="font-roboto-flex text-design-charcoal/70 text-lg leading-relaxed mb-8">
                                 {playbook.description}
                               </p>
                             </div>
@@ -142,7 +142,7 @@ const Playbooks = () => {
                             <div className="flex gap-4">
                               <Link
                                 to={`/playbooks/${playbook.id}`}
-                                className="flex-1 group/btn bg-design-gold text-white relative inline-flex items-center justify-center px-8 py-4 font-hk-grotesk-light font-medium rounded-xl hover:bg-design-charcoal transition-all duration-500 shadow-lg transform hover:-translate-y-1"
+                                className="flex-1 group/btn bg-design-gold text-white relative inline-flex items-center justify-center px-8 py-4 font-roboto-flex font-medium rounded-xl hover:bg-design-charcoal transition-all duration-500 shadow-lg transform hover:-translate-y-1"
                               >
                                 <BookOpen size={20} className="mr-3 group-hover/btn:animate-icon-float" />
                                 Read Online
@@ -150,7 +150,7 @@ const Playbooks = () => {
                               
                               <button 
                                 onClick={() => handleDownload(playbook.downloadUrl, playbook.title)}
-                                className="px-8 py-4 bg-transparent border-2 border-design-lilac text-design-lilac font-hk-grotesk-light font-medium rounded-xl hover:bg-design-lilac hover:text-white transition-all duration-500 shadow-lg transform hover:-translate-y-1"
+                                className="px-8 py-4 bg-transparent border-2 border-design-lilac text-design-lilac font-roboto-flex font-medium rounded-xl hover:bg-design-lilac hover:text-white transition-all duration-500 shadow-lg transform hover:-translate-y-1"
                               >
                                 <Download size={20} />
                               </button>
@@ -168,7 +168,7 @@ const Playbooks = () => {
                     
                     {/* Quick Resources */}
                     <div className="bg-design-cream/80 border border-design-lilac/10 rounded-3xl p-8 backdrop-blur-sm">
-                      <h4 className="text-2xl font-tan-ashford text-design-charcoal mb-8 premium-text">
+                      <h4 className="text-2xl font-roboto-flex font-bold text-design-charcoal mb-8 premium-text">
                         Quick Resources
                       </h4>
                       <div className="space-y-4">
@@ -180,8 +180,8 @@ const Playbooks = () => {
                             <Phone size={18} className="text-white" />
                           </div>
                           <div>
-                            <div className="font-hk-grotesk-light font-medium text-design-charcoal text-base">Book a Call</div>
-                            <div className="font-hk-grotesk-light text-design-charcoal/60 text-sm">Free consultation</div>
+                            <div className="font-roboto-flex font-medium text-design-charcoal text-base">Book a Call</div>
+                            <div className="font-roboto-flex text-design-charcoal/60 text-sm">Free consultation</div>
                           </div>
                         </a>
 
@@ -193,8 +193,8 @@ const Playbooks = () => {
                             <Calculator size={18} className="text-white" />
                           </div>
                           <div>
-                            <div className="font-hk-grotesk-light font-medium text-design-charcoal text-base">Calculators</div>
-                            <div className="font-hk-grotesk-light text-design-charcoal/60 text-sm">Run the numbers</div>
+                            <div className="font-roboto-flex font-medium text-design-charcoal text-base">Calculators</div>
+                            <div className="font-roboto-flex text-design-charcoal/60 text-sm">Run the numbers</div>
                           </div>
                         </Link>
 
@@ -206,8 +206,8 @@ const Playbooks = () => {
                             <Rocket size={18} className="text-white" />
                           </div>
                           <div>
-                            <div className="font-hk-grotesk-light font-medium text-design-charcoal text-base">Apply Now</div>
-                            <div className="font-hk-grotesk-light text-design-charcoal/60 text-sm">Start application</div>
+                            <div className="font-roboto-flex font-medium text-design-charcoal text-base">Apply Now</div>
+                            <div className="font-roboto-flex text-design-charcoal/60 text-sm">Start application</div>
                           </div>
                         </a>
                       </div>
@@ -215,43 +215,43 @@ const Playbooks = () => {
 
                     {/* Important Links */}
                     <div className="bg-design-cream/80 border border-design-lilac/10 rounded-3xl p-8 backdrop-blur-sm">
-                      <h4 className="text-2xl font-tan-ashford text-design-charcoal mb-8 premium-text">
+                      <h4 className="text-2xl font-roboto-flex font-bold text-design-charcoal mb-8 premium-text">
                         Important Links
                       </h4>
                       <div className="space-y-3">
                         <a href="https://www.cmhc-schl.gc.ca/" target="_blank" rel="noopener noreferrer" className="block p-4 rounded-xl hover:bg-design-sage/20 transition-colors duration-300">
-                          <div className="font-hk-grotesk-light font-medium text-design-charcoal text-base mb-1">CMHC</div>
-                          <div className="font-hk-grotesk-light text-design-charcoal/60 text-sm">Mortgage insurance info</div>
+                          <div className="font-roboto-flex font-medium text-design-charcoal text-base mb-1">CMHC</div>
+                          <div className="font-roboto-flex text-design-charcoal/60 text-sm">Mortgage insurance info</div>
                         </a>
                         
                         <a href="https://www.bankofcanada.ca/" target="_blank" rel="noopener noreferrer" className="block p-4 rounded-xl hover:bg-design-sage/20 transition-colors duration-300">
-                          <div className="font-hk-grotesk-light font-medium text-design-charcoal text-base mb-1">Bank of Canada</div>
-                          <div className="font-hk-grotesk-light text-design-charcoal/60 text-sm">Current rates & policy</div>
+                          <div className="font-roboto-flex font-medium text-design-charcoal text-base mb-1">Bank of Canada</div>
+                          <div className="font-roboto-flex text-design-charcoal/60 text-sm">Current rates & policy</div>
                         </a>
                         
                         <a href="https://www.fsrao.ca/" target="_blank" rel="noopener noreferrer" className="block p-4 rounded-xl hover:bg-design-sage/20 transition-colors duration-300">
-                          <div className="font-hk-grotesk-light font-medium text-design-charcoal text-base mb-1">FSRAO</div>
-                          <div className="font-hk-grotesk-light text-design-charcoal/60 text-sm">Regulatory authority</div>
+                          <div className="font-roboto-flex font-medium text-design-charcoal text-base mb-1">FSRAO</div>
+                          <div className="font-roboto-flex text-design-charcoal/60 text-sm">Regulatory authority</div>
                         </a>
 
                         <a href="https://www.canada.ca/en/financial-consumer-agency.html" target="_blank" rel="noopener noreferrer" className="block p-4 rounded-xl hover:bg-design-sage/20 transition-colors duration-300">
-                          <div className="font-hk-grotesk-light font-medium text-design-charcoal text-base mb-1">FCAC</div>
-                          <div className="font-hk-grotesk-light text-design-charcoal/60 text-sm">Consumer protection</div>
+                          <div className="font-roboto-flex font-medium text-design-charcoal text-base mb-1">FCAC</div>
+                          <div className="font-roboto-flex text-design-charcoal/60 text-sm">Consumer protection</div>
                         </a>
                       </div>
                     </div>
 
                     {/* Contact Card */}
                     <div className="bg-design-charcoal rounded-3xl p-8 text-design-cream">
-                      <h4 className="text-2xl font-tan-ashford mb-4 premium-text text-design-cream">
+                      <h4 className="text-2xl font-roboto-flex font-bold mb-4 premium-text text-design-cream">
                         Need Help?
                       </h4>
-                      <p className="font-hk-grotesk-light text-design-cream/90 text-base mb-8 leading-relaxed">
+                      <p className="font-roboto-flex text-design-cream/90 text-base mb-8 leading-relaxed">
                         Questions about these playbooks? Get personalized guidance.
                       </p>
                       <a 
                         href="mailto:hello@mortgagewithford.ca"
-                        className="inline-flex items-center px-6 py-4 bg-design-gold text-white font-hk-grotesk-light font-medium text-base rounded-xl hover:bg-design-lilac transition-all duration-300"
+                        className="inline-flex items-center px-6 py-4 bg-design-gold text-white font-roboto-flex font-medium text-base rounded-xl hover:bg-design-lilac transition-all duration-300"
                       >
                         <ExternalLink size={16} className="mr-2" />
                         Ask Andreina

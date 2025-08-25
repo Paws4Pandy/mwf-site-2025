@@ -47,7 +47,7 @@ const CalculatorSelection = () => {
           <br />
           <span className="text-white">Run Some Numbers</span>
         </h2>
-        <p className="text-xl md:text-2xl font-opensauce text-white/90 max-w-3xl mx-auto leading-relaxed">
+        <p className="text-xl md:text-2xl font-roboto-flex text-white/90 max-w-3xl mx-auto leading-relaxed">
           Choose the calculator that best fits your needs
         </p>
       </div>
@@ -77,7 +77,7 @@ const CalculatorSelection = () => {
                   <h3 className="font-anton text-white text-2xl md:text-3xl mb-4 leading-tight">
                     {calc.title}
                   </h3>
-                  <p className="text-white/90 font-opensauce text-base md:text-lg leading-relaxed">
+                  <p className="text-white/90 font-roboto-flex text-base md:text-lg leading-relaxed">
                     {calc.description}
                   </p>
                 </div>
@@ -88,7 +88,7 @@ const CalculatorSelection = () => {
                     href={calc.href}
                     variant="primary"
                     size="lg"
-                    className="bg-[#ED8071] hover:bg-[#ED8071]/90 text-white font-hammersmith text-lg px-8 py-4"
+                    className="bg-[#ED8071] hover:bg-[#ED8071]/90 text-white font-roboto-flex font-bold text-lg px-8 py-4"
                   >
                     Calculate Now
                   </LiquidGlassButton>
@@ -104,14 +104,14 @@ const CalculatorSelection = () => {
         <div className="relative rounded-3xl overflow-hidden opacity-0 animate-fade-in-delay-5">
           <div className="absolute inset-0 bg-gradient-to-br from-brand-red/20 via-transparent to-light-crimson/20 blur-xl" />
           <div className="relative backdrop-blur-xl bg-white/10 border border-white/20 rounded-3xl p-8">
-            <p className="text-white/90 font-opensauce text-lg mb-6 max-w-2xl mx-auto">
+            <p className="text-white/90 font-roboto-flex text-lg mb-6 max-w-2xl mx-auto">
               Need help choosing the right calculator or have questions about your results?
             </p>
             <LiquidGlassButton
               href="/meet"
               variant="secondary"
               size="lg"
-              className="font-hammersmith text-lg px-8 py-4"
+              className="font-roboto-flex font-bold text-lg px-8 py-4"
             >
               Talk to a Mortgage Expert
             </LiquidGlassButton>

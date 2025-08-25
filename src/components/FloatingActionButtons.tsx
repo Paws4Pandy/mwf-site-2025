@@ -55,7 +55,7 @@ export const FloatingActionButtons: React.FC<FloatingActionButtonsProps> = ({
           
           {/* Tooltip */}
           <div className="absolute right-16 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-            <div className="bg-pure-black/90 backdrop-blur-md text-pure-white px-3 py-2 rounded-lg text-sm font-hammersmith whitespace-nowrap border border-light-azure/20">
+            <div className="bg-pure-black/90 backdrop-blur-md text-pure-white px-3 py-2 rounded-lg text-sm font-roboto-flex font-bold whitespace-nowrap border border-light-azure/20">
               Calculator
               <div className="absolute left-full top-1/2 -translate-y-1/2 w-0 h-0 border-y-4 border-y-transparent border-l-4 border-l-pure-black/90"></div>
             </div>
@@ -76,7 +76,7 @@ export const FloatingActionButtons: React.FC<FloatingActionButtonsProps> = ({
           
           {/* Tooltip */}
           <div className="absolute right-16 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-            <div className="bg-pure-black/90 backdrop-blur-md text-pure-white px-3 py-2 rounded-lg text-sm font-hammersmith whitespace-nowrap border border-light-azure/20">
+            <div className="bg-pure-black/90 backdrop-blur-md text-pure-white px-3 py-2 rounded-lg text-sm font-roboto-flex font-bold whitespace-nowrap border border-light-azure/20">
               Current Rates
               <div className="absolute left-full top-1/2 -translate-y-1/2 w-0 h-0 border-y-4 border-y-transparent border-l-4 border-l-pure-black/90"></div>
             </div>
@@ -98,7 +98,7 @@ export const FloatingActionButtons: React.FC<FloatingActionButtonsProps> = ({
             
             {/* Tooltip */}
             <div className="absolute right-16 top-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-              <div className="bg-pure-black/90 backdrop-blur-md text-pure-white px-3 py-2 rounded-lg text-sm font-hammersmith whitespace-nowrap border border-light-azure/20">
+              <div className="bg-pure-black/90 backdrop-blur-md text-pure-white px-3 py-2 rounded-lg text-sm font-roboto-flex font-bold whitespace-nowrap border border-light-azure/20">
                 Back to Top
                 <div className="absolute left-full top-1/2 -translate-y-1/2 w-0 h-0 border-y-4 border-y-transparent border-l-4 border-l-pure-black/90"></div>
               </div>

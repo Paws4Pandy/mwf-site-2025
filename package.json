@@ -8,7 +8,12 @@
     "build": "vite build",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "lint:fix": "eslint . --fix",
+    "typecheck": "tsc --noEmit",
+    "preview": "vite preview",
+    "figma:icons": "node scripts/figma-icons.js",
+    "replace:icons": "node scripts/icon-mapping.js",
+    "create:icon-templates": "node scripts/create-icon-template.js"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.57.0",

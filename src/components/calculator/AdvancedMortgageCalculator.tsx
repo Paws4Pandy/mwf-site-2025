@@ -11,8 +11,8 @@ import {
   formatPercent
 } from '@/lib/constants/cmhc';
 import { useRates, useBest5YearFixed } from '@/contexts/RatesContext';
-import LiquidGlassWrapper from '@/components/ui/LiquidGlassWrapper';
 import LiquidGlassButton from '@/components/ui/LiquidGlassButton';
+import AGlassCard from '@/components/ui/AGlassCard';
 import { TrendingUp, FileText } from 'lucide-react';
 
 
@@ -85,17 +85,16 @@ export const AdvancedMortgageCalculator: React.FC<AdvancedMortgageCalculatorProp
     <div className="max-w-6xl mx-auto">
       <div className="grid lg:grid-cols-2 gap-8">
         {/* Left Column - Input Controls - EXPANDED TO FIT CONTENT */}
-        <LiquidGlassWrapper mode="standard" intensity={0.4} scale={0.3}>
-          <div className="rounded-2xl shadow-xl backdrop-blur-sm border-2 p-6 hover:shadow-2xl transition-all duration-300 bg-white/10 border-white/20 flex flex-col">
-          <p className="text-2xl font-bold mb-8 text-hunter-green font-hammersmith">
+        <AGlassCard className="hover:shadow-2xl transition-all duration-300 flex flex-col">
+          <p className="text-3xl font-bold mb-8 text-hunter-green font-display">
             Verify qualification with stress test
           </p>
           
           <div className="space-y-6">
             {/* Purchase Price Slider */}
             <div>
-              <label className="block text-lg font-bold mb-2 text-gray-orange font-hk-grotesk-light">
-                Purchase Price: <span className="font-bold text-gray-orange">{formatCurrency(purchasePrice)}</span>
+              <label className="block text-3xl font-bold mb-2 text-gray-orange font-display">
+                Purchase Price: <span className="font-bold text-gray-orange font-calculator">{formatCurrency(purchasePrice)}</span>
               </label>
               <input
                 type="range"
@@ -116,7 +115,7 @@ export const AdvancedMortgageCalculator: React.FC<AdvancedMortgageCalculatorProp
                 }}
                 className="w-full h-4 bg-gradient-to-r from-design-lilac/30 to-design-gold/50 rounded-lg appearance-none cursor-pointer slider-custom"
               />
-              <div className="flex justify-between text-sm text-white/80 mt-1 font-hk-grotesk-light">
+              <div className="flex justify-between text-xl text-white/80 mt-1 font-calculator">
                 <span>$500K</span>
                 <span>$2M</span>
               </div>
@@ -124,8 +123,8 @@ export const AdvancedMortgageCalculator: React.FC<AdvancedMortgageCalculatorProp
 
             {/* Down Payment Slider */}
             <div>
-              <label className="block text-lg font-bold mb-2 text-gray-orange font-hk-grotesk-light">
-                Down Payment: <span className="font-bold text-gray-orange">{formatCurrency(downPayment)} ({formatPercent((downPayment/purchasePrice)*100)})</span>
+              <label className="block text-3xl font-bold mb-2 text-gray-orange font-display">
+                Down Payment: <span className="font-bold text-gray-orange font-calculator">{formatCurrency(downPayment)} ({formatPercent((downPayment/purchasePrice)*100)})</span>
               </label>
               <input
                 type="range"
@@ -136,7 +135,7 @@ export const AdvancedMortgageCalculator: React.FC<AdvancedMortgageCalculatorProp
                 onChange={(e) => setDownPayment(Number(e.target.value))}
                 className="w-full h-4 bg-gradient-to-r from-design-lilac/30 to-design-gold/50 rounded-lg appearance-none cursor-pointer slider-custom"
               />
-              <div className="flex justify-between text-base text-white/90 mt-1 font-medium font-hk-grotesk-light">
+              <div className="flex justify-between text-xl text-white/90 mt-1 font-medium font-calculator">
                 <span>Minimum: {formatCurrency(minDownPayment)}</span>
                 <span>50%: {formatCurrency(purchasePrice * 0.50)}</span>
               </div>
@@ -145,8 +144,8 @@ export const AdvancedMortgageCalculator: React.FC<AdvancedMortgageCalculatorProp
             {/* Interest Rate */}
             <div>
               <div className="flex justify-between items-center mb-2">
-                <label className="block text-lg font-bold text-gray-orange font-hk-grotesk-light">
-                  Interest Rate: <span className="font-bold text-gray-orange">{interestRate}%</span>
+                <label className="block text-3xl font-bold text-gray-orange font-display">
+                  Interest Rate: <span className="font-bold text-gray-orange font-calculator">{interestRate}%</span>
                 </label>
               </div>
               <input
@@ -158,7 +157,7 @@ export const AdvancedMortgageCalculator: React.FC<AdvancedMortgageCalculatorProp
                 onChange={(e) => setInterestRate(Number(e.target.value))}
                 className="w-full h-4 bg-gradient-to-r from-design-lilac/30 to-design-gold/50 rounded-lg appearance-none cursor-pointer slider-custom"
               />
-              <div className="flex justify-between text-sm text-white/80 mt-2 font-hk-grotesk-light">
+              <div className="flex justify-between text-xl text-white/80 mt-2 font-calculator">
                 <span>3%</span>
                 <span>7%</span>
               </div>
@@ -166,8 +165,8 @@ export const AdvancedMortgageCalculator: React.FC<AdvancedMortgageCalculatorProp
             
             {/* Amortization Period */}
             <div>
-              <label className="block text-lg font-bold mb-2 text-gray-orange font-hk-grotesk-light">
-                Amortization: <span className="font-bold text-gray-orange">{amortizationYears} years</span>
+              <label className="block text-3xl font-bold mb-2 text-gray-orange font-display">
+                Amortization: <span className="font-bold text-gray-orange font-calculator">{amortizationYears} years</span>
               </label>
               <input
                 type="range"
@@ -178,7 +177,7 @@ export const AdvancedMortgageCalculator: React.FC<AdvancedMortgageCalculatorProp
                 onChange={(e) => setAmortizationYears(Number(e.target.value))}
                 className="w-full h-4 bg-gradient-to-r from-design-lilac/30 to-design-gold/50 rounded-lg appearance-none cursor-pointer slider-custom"
               />
-              <div className="flex justify-between text-sm text-white/80 mt-2 font-hk-grotesk-light">
+              <div className="flex justify-between text-xl text-white/80 mt-2 font-calculator">
                 <span>15 years</span>
                 <span>30 years</span>
               </div>
@@ -186,8 +185,8 @@ export const AdvancedMortgageCalculator: React.FC<AdvancedMortgageCalculatorProp
 
             {/* Annual Income Slider */}
             <div>
-              <label className="block text-lg font-bold mb-2 text-gray-orange font-hk-grotesk-light">
-                Annual Income: <span className="font-bold text-gray-orange">{formatCurrency(annualIncome)}</span>
+              <label className="block text-3xl font-bold mb-2 text-gray-orange font-display">
+                Annual Income: <span className="font-bold text-gray-orange font-calculator">{formatCurrency(annualIncome)}</span>
               </label>
               <input
                 type="range"
@@ -198,7 +197,7 @@ export const AdvancedMortgageCalculator: React.FC<AdvancedMortgageCalculatorProp
                 onChange={(e) => setAnnualIncome(Number(e.target.value))}
                 className="w-full h-4 bg-gradient-to-r from-design-lilac/30 to-design-gold/50 rounded-lg appearance-none cursor-pointer slider-custom"
               />
-              <div className="flex justify-between text-sm text-white/80 mt-1 font-hk-grotesk-light">
+              <div className="flex justify-between text-xl text-white/80 mt-1 font-calculator">
                 <span>$30K</span>
                 <span>$300K</span>
               </div>
@@ -206,8 +205,8 @@ export const AdvancedMortgageCalculator: React.FC<AdvancedMortgageCalculatorProp
 
             {/* Monthly Debts Slider */}
             <div>
-              <label className="block text-lg font-bold mb-2 text-gray-orange font-hk-grotesk-light">
-                Monthly Debts: <span className="font-bold text-gray-orange">{formatCurrency(monthlyDebts)}</span>
+              <label className="block text-3xl font-bold mb-2 text-gray-orange font-display">
+                Monthly Debts: <span className="font-bold text-gray-orange font-calculator">{formatCurrency(monthlyDebts)}</span>
               </label>
               <input
                 type="range"
@@ -218,7 +217,7 @@ export const AdvancedMortgageCalculator: React.FC<AdvancedMortgageCalculatorProp
                 onChange={(e) => setMonthlyDebts(Number(e.target.value))}
                 className="w-full h-4 bg-gradient-to-r from-design-lilac/30 to-design-gold/50 rounded-lg appearance-none cursor-pointer slider-custom"
               />
-              <div className="flex justify-between text-sm text-white/80 mt-1 font-hk-grotesk-light">
+              <div className="flex justify-between text-xl text-white/80 mt-1 font-calculator">
                 <span>$0</span>
                 <span>$5K</span>
               </div>
@@ -226,8 +225,8 @@ export const AdvancedMortgageCalculator: React.FC<AdvancedMortgageCalculatorProp
 
             {/* Property Taxes Slider */}
             <div>
-              <label className="block text-lg font-bold mb-2 text-gray-orange font-hk-grotesk-light">
-                Property Taxes (Annual): <span className="font-bold text-gray-orange">{formatCurrency(propertyTaxes)}</span>
+              <label className="block text-3xl font-bold mb-2 text-gray-orange font-display">
+                Property Taxes (Annual): <span className="font-bold text-gray-orange font-calculator">{formatCurrency(propertyTaxes)}</span>
               </label>
               <input
                 type="range"
@@ -238,7 +237,7 @@ export const AdvancedMortgageCalculator: React.FC<AdvancedMortgageCalculatorProp
                 onChange={(e) => setPropertyTaxes(Number(e.target.value))}
                 className="w-full h-4 bg-gradient-to-r from-design-lilac/30 to-design-gold/50 rounded-lg appearance-none cursor-pointer slider-custom"
               />
-              <div className="flex justify-between text-sm text-white/80 mt-1 font-hk-grotesk-light">
+              <div className="flex justify-between text-xl text-white/80 mt-1 font-calculator">
                 <span>$1K</span>
                 <span>$15K</span>
               </div>
@@ -246,8 +245,8 @@ export const AdvancedMortgageCalculator: React.FC<AdvancedMortgageCalculatorProp
 
             {/* Heating Costs Slider */}
             <div>
-              <label className="block text-lg font-bold mb-2 text-gray-orange font-hk-grotesk-light">
-                Heating Costs (Annual): <span className="font-bold text-gray-orange">{formatCurrency(heatingCosts)}</span>
+              <label className="block text-3xl font-bold mb-2 text-gray-orange font-display">
+                Heating Costs (Annual): <span className="font-bold text-gray-orange font-calculator">{formatCurrency(heatingCosts)}</span>
               </label>
               <input
                 type="range"
@@ -258,17 +257,16 @@ export const AdvancedMortgageCalculator: React.FC<AdvancedMortgageCalculatorProp
                 onChange={(e) => setHeatingCosts(Number(e.target.value))}
                 className="w-full h-4 bg-gradient-to-r from-design-lilac/30 to-design-gold/50 rounded-lg appearance-none cursor-pointer slider-custom"
               />
-              <div className="flex justify-between text-sm text-white/80 mt-1 font-hk-grotesk-light">
+              <div className="flex justify-between text-xl text-white/80 mt-1 font-calculator">
                 <span>$600</span>
                 <span>$4K</span>
               </div>
             </div>
           </div>
-          </div>
-        </LiquidGlassWrapper>
+        </AGlassCard>
 
         {/* Results Panel - EXPANDED TO FIT CONTENT */}
-        <LiquidGlassWrapper mode="polar" intensity={0.4} scale={0.3}>
+        <AGlassCard className="hover:shadow-2xl transition-all duration-300">
           <div className="flex flex-col">
           {/* Main Payment Result */}
           <div className="rounded-2xl shadow-xl p-6 text-center text-white relative overflow-hidden hover:shadow-2xl transition-all duration-300 bg-gradient-to-br from-design-lilac via-design-charcoal to-design-gold mb-4">
@@ -276,11 +274,11 @@ export const AdvancedMortgageCalculator: React.FC<AdvancedMortgageCalculatorProp
             <div className="absolute -top-4 -right-4 w-32 h-32 bg-white/5 rounded-full blur-2xl"></div>
             <div className="absolute -bottom-6 -left-6 w-24 h-24 bg-white/5 rounded-full blur-xl"></div>
             <div className="relative z-10">
-              <h3 className="text-2xl font-bold mb-3 font-hammersmith">Monthly Payment</h3>
-              <div className="text-4xl font-bold mb-2">
+              <h3 className="text-3xl font-bold mb-3 font-display">Monthly Payment</h3>
+              <div className="text-4xl font-bold mb-2 font-calculator">
                 {formatCurrency(monthlyPayment)}
               </div>
-              <p className="text-lg font-medium text-gray-100">Principal & Interest</p>
+              <p className="text-3xl font-medium text-gray-100 font-body">Principal & Interest</p>
             </div>
           </div>
 
@@ -288,37 +286,37 @@ export const AdvancedMortgageCalculator: React.FC<AdvancedMortgageCalculatorProp
           <div className="space-y-4 mb-4">
             {/* Payment Breakdown */}
             <div className="backdrop-blur-sm rounded-2xl shadow-xl p-4 border-2 hover:shadow-2xl transition-all duration-300 bg-white/10 border-white/20">
-              <h4 className="text-lg font-bold mb-3 text-white font-hammersmith">Payment Breakdown</h4>
+              <h4 className="text-3xl font-bold mb-3 text-white font-display">Payment Breakdown</h4>
               <div className="space-y-4">
-                <div className="flex justify-between">
-                  <span className="text-base font-medium text-white font-hk-grotesk-light">Loan Amount:</span>
-                  <span className="font-bold text-white text-base font-hk-grotesk-light">{formatCurrency(loanAmount)}</span>
+                <div className="flex justify-between items-center">
+                  <span className="text-xl font-medium text-white font-body">Loan Amount:</span>
+                  <span className="font-bold text-white text-xl font-calculator">{formatCurrency(loanAmount)}</span>
                 </div>
                 {requiresCMHC && (
                   <>
-                    <div className="flex justify-between">
-                      <span className="text-base font-medium text-white font-hk-grotesk-light">CMHC Premium Rate:</span>
-                      <span className="font-bold text-design-gold text-base font-hk-grotesk-light">
+                    <div className="flex justify-between items-center">
+                      <span className="text-xl font-medium text-white font-body">CMHC Premium Rate:</span>
+                      <span className="font-bold text-design-gold text-xl font-calculator">
                         {((Object.entries(CMHC_RULES.premiumRates).find(([ltv]) => ltvRatio <= parseFloat(ltv))?.[1] ?? 0) * 100).toFixed(2)}%
                       </span>
                     </div>
-                    <div className="flex justify-between">
-                      <span className="text-base font-medium text-white font-hk-grotesk-light">CMHC Insurance:</span>
-                      <span className="font-bold text-design-gold text-base font-hk-grotesk-light">{formatCurrency(cmhcPremium)}</span>
+                    <div className="flex justify-between items-center">
+                      <span className="text-xl font-medium text-white font-body">CMHC Insurance:</span>
+                      <span className="font-bold text-design-gold text-xl font-calculator">{formatCurrency(cmhcPremium)}</span>
                     </div>
                   </>
                 )}
-                <div className="flex justify-between border-t pt-3">
-                  <span className="text-base font-medium text-white font-hk-grotesk-light">Total Loan:</span>
-                  <span className="font-bold text-white text-base font-hk-grotesk-light">{formatCurrency(totalLoanAmount)}</span>
+                <div className="flex justify-between items-center border-t pt-3">
+                  <span className="text-xl font-medium text-white font-body">Total Loan:</span>
+                  <span className="font-bold text-white text-xl font-calculator">{formatCurrency(totalLoanAmount)}</span>
                 </div>
-                <div className="flex justify-between">
-                  <span className="text-base font-medium text-white font-hk-grotesk-light">LTV Ratio:</span>
-                  <span className="font-bold text-white text-base font-hk-grotesk-light">{formatPercent(ltvRatio)}</span>
+                <div className="flex justify-between items-center">
+                  <span className="text-xl font-medium text-white font-body">LTV Ratio:</span>
+                  <span className="font-bold text-white text-xl font-calculator">{formatPercent(ltvRatio)}</span>
                 </div>
-                <div className="flex justify-between">
-                  <span className="text-base font-medium text-white font-hk-grotesk-light">Amortization:</span>
-                  <span className="font-bold text-white text-base font-hk-grotesk-light">{amortizationYears} years</span>
+                <div className="flex justify-between items-center">
+                  <span className="text-xl font-medium text-white font-body">Amortization:</span>
+                  <span className="font-bold text-white text-xl font-calculator">{amortizationYears} years</span>
                 </div>
               </div>
             </div>
@@ -328,20 +326,20 @@ export const AdvancedMortgageCalculator: React.FC<AdvancedMortgageCalculatorProp
               <div className="flex items-start space-x-3">
                 <span className="text-design-gold text-xl mt-0.5">📊</span>
                 <div>
-                  <h4 className="font-semibold text-white mb-2 font-hammersmith">
+                  <h4 className="font-semibold text-white mb-2 font-display">
                     What is the Stress Test?
                   </h4>
-                  <p className="text-sm text-white/90 leading-relaxed">
-                    The government requires lenders to test if you can afford higher payments. We calculate your payment at a higher rate ({interestRate.toFixed(2)}% vs {stressTestRate.toFixed(2)}%) to make sure you won't struggle if rates go up. This protects you from getting in over your head.
+                  <p className="text-xl text-white/90 leading-relaxed font-body">
+                    The government requires lenders to test if you can afford higher payments. We calculate your payment at a higher rate (<span className="font-calculator">{interestRate.toFixed(2)}%</span> vs <span className="font-calculator">{stressTestRate.toFixed(2)}%</span>) to make sure you won't struggle if rates go up. This protects you from getting in over your head.
                   </p>
                   <div className="mt-3 bg-white/10 rounded-lg p-3">
-                    <div className="flex justify-between text-sm mb-1">
-                      <span className="text-white/80">Your payment @ {interestRate.toFixed(2)}%:</span>
-                      <span className="text-white font-bold">{formatCurrency(monthlyPayment)}</span>
+                    <div className="flex justify-between items-center text-xl mb-1">
+                      <span className="text-white/80 font-body">Your payment @ <span className="font-calculator">{interestRate.toFixed(2)}%</span>:</span>
+                      <span className="text-white font-bold font-calculator">{formatCurrency(monthlyPayment)}</span>
                     </div>
-                    <div className="flex justify-between text-sm">
-                      <span className="text-white/80">Stress test @ {stressTestRate.toFixed(2)}%:</span>
-                      <span className="text-design-gold font-bold">{formatCurrency(stressTestPayment)}</span>
+                    <div className="flex justify-between items-center text-xl">
+                      <span className="text-white/80 font-body">Stress test @ <span className="font-calculator">{stressTestRate.toFixed(2)}%</span>:</span>
+                      <span className="text-design-gold font-bold font-calculator">{formatCurrency(stressTestPayment)}</span>
                     </div>
                   </div>
                 </div>
@@ -359,9 +357,9 @@ export const AdvancedMortgageCalculator: React.FC<AdvancedMortgageCalculatorProp
               {passStressTest ? (
                 <div>
                   <span className="text-3xl">🎉</span>
-                  <h4 className="text-xl mt-3 font-hammersmith">You QUALIFY!</h4>
-                  <p className="text-sm font-normal mt-2 leading-relaxed">You pass the stress test requirements</p>
-                  <div className="mt-3 text-xs font-normal space-y-1">
+                  <h4 className="text-xl mt-3 font-display">You QUALIFY!</h4>
+                  <p className="text-xl font-normal mt-2 leading-relaxed font-body">You pass the stress test requirements</p>
+                  <div className="mt-3 text-xs font-normal space-y-1 font-calculator">
                     <div>GDS Ratio: {formatPercent(gdsRatio)} (✓ Under 39%)</div>
                     <div>TDS Ratio: {formatPercent(tdsRatio)} (✓ Under 44%)</div>
                   </div>
@@ -369,15 +367,15 @@ export const AdvancedMortgageCalculator: React.FC<AdvancedMortgageCalculatorProp
               ) : (
                 <div>
                   <span className="text-3xl">⚠️</span>
-                  <h4 className="text-xl mt-3 font-hammersmith">Qualification Challenge</h4>
-                  <p className="text-sm font-normal mt-2 leading-relaxed">
+                  <h4 className="text-xl mt-3 font-display">Qualification Challenge</h4>
+                  <p className="text-xl font-normal mt-2 leading-relaxed font-body">
                     Your debt-to-income ratios exceed lending guidelines
                   </p>
-                  <div className="mt-3 text-xs font-normal space-y-1">
+                  <div className="mt-3 text-xs font-normal space-y-1 font-calculator">
                     <div>GDS Ratio: {formatPercent(gdsRatio)} {!passesGDS ? '(❌ Over 39%)' : '(✓ Under 39%)'}</div>
                     <div>TDS Ratio: {formatPercent(tdsRatio)} {!passesTDS ? '(❌ Over 44%)' : '(✓ Under 44%)'}</div>
                   </div>
-                  <p className="text-xs font-normal mt-3 leading-relaxed">
+                  <p className="text-xs font-normal mt-3 leading-relaxed font-body">
                     Consider: Higher income, lower debts, larger down payment, or longer amortization
                   </p>
                 </div>
@@ -385,7 +383,7 @@ export const AdvancedMortgageCalculator: React.FC<AdvancedMortgageCalculatorProp
             </div>
           </div>
           </div>
-        </LiquidGlassWrapper>
+        </AGlassCard>
       </div>
       
       {/* BUTTONS POSITIONED BELOW CARDS AT SAME LEVEL */}

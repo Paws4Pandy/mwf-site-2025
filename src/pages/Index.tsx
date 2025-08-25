@@ -86,7 +86,7 @@ const Index = () => {
           <section className="py-12 text-center">
             {/* Personal Info */}
             <div className="mb-4 opacity-0 animate-fade-in-delay-1">
-              <div className="text-white font-hk-grotesk-light text-base md:text-lg lg:text-xl leading-none">
+              <div className="text-white font-roboto-flex text-base md:text-lg lg:text-xl leading-none">
                 <span className="block sm:inline">Andreina Ford</span>
                 <span className="hidden sm:inline"> • </span>
                 <span className="block sm:inline">Mortgage Agent Level 2</span>
@@ -97,7 +97,7 @@ const Index = () => {
             <div className="mb-16 opacity-0 animate-fade-in-delay-2 flex justify-center">
               <div className="flex items-center space-x-4 text-white/80">
                 <div className="h-px w-12 bg-white/30"></div>
-                <span className="font-hk-grotesk-light text-sm tracking-widest uppercase leading-none">Licensed Mortgage Professional</span>
+                <span className="font-roboto-flex text-sm tracking-widest uppercase leading-none">Licensed Mortgage Professional</span>
                 <div className="h-px w-12 bg-white/30"></div>
               </div>
             </div>
@@ -145,7 +145,7 @@ const Index = () => {
           
           {/* Navigation Cards */}
           <section className="py-20">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl mb-8 sm:mb-12 text-center opacity-0 animate-fade-in-delay-2 text-white font-noto-serif-display italic font-normal premium-text max-w-3xl mx-auto">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl mb-8 sm:mb-12 text-center opacity-0 animate-fade-in-delay-2 text-white font-roboto-flex font-bold italic font-normal premium-text max-w-3xl mx-auto">
           "Planning is important, but the most important part of every plan is to plan on the plan not going according to plan."
           </h2>
           

@@ -83,12 +83,12 @@ const MortgageFAQ = () => {
                 className="border-b border-white/20 last:border-b-0"
               >
                 <AccordionTrigger className="text-left hover:no-underline py-6 px-4 hover:bg-white/5 rounded-lg transition-all duration-200">
-                  <span className="text-white font-hammersmith text-lg md:text-xl leading-relaxed pr-4">
+                  <span className="text-white font-roboto-flex font-bold text-lg md:text-xl leading-relaxed pr-4">
                     {faq.question}
                   </span>
                 </AccordionTrigger>
                 <AccordionContent className="px-4 pb-6">
-                  <div className="text-white/90 font-opensauce text-base md:text-lg leading-relaxed">
+                  <div className="text-white/90 font-roboto-flex text-base md:text-lg leading-relaxed">
                     {faq.answer}
                   </div>
                 </AccordionContent>

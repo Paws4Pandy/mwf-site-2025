@@ -46,10 +46,10 @@ const WhoIWorkFor = () => {
           transition={{ duration: 0.6 }}
         >
           <h3 className="font-anton text-3xl md:text-4xl text-white mb-4 text-center">{featuredCard.title}</h3>
-          <p className="font-hk-grotesk-light text-white/90 text-xl mb-4 text-center">
+          <p className="font-roboto-flex text-white/90 text-xl mb-4 text-center">
             "{featuredCard.quote}"
           </p>
-          <p className="font-hk-grotesk-light text-white/80 text-lg text-center max-w-3xl mx-auto">
+          <p className="font-roboto-flex text-white/80 text-lg text-center max-w-3xl mx-auto">
             {featuredCard.content}
           </p>
         </motion.div>
@@ -66,10 +66,10 @@ const WhoIWorkFor = () => {
               transition={{ duration: 0.5, delay: (index + 1) * 0.1 }}
             >
               <h3 className="font-anton text-2xl md:text-3xl text-white mb-4">{card.title}</h3>
-              <p className="font-hk-grotesk-light text-white/90 text-lg mb-4">
+              <p className="font-roboto-flex text-white/90 text-lg mb-4">
                 "{card.quote}"
               </p>
-              <p className="font-hk-grotesk-light text-white/80 text-lg">
+              <p className="font-roboto-flex text-white/80 text-lg">
                 {card.content}
               </p>
             </motion.div>
@@ -81,7 +81,7 @@ const WhoIWorkFor = () => {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="text-center text-white text-2xl font-hk-grotesk-light mt-12"
+          className="text-center text-white text-2xl font-roboto-flex mt-12"
         >
           Because everyone deserves a fair shot at home
         </motion.p>

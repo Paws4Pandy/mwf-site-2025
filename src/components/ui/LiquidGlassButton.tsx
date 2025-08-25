@@ -26,7 +26,7 @@ const LiquidGlassButton: React.FC<LiquidGlassButtonProps> = ({
   type = 'button',
   disabled = false
 }) => {
-  const baseClasses = "group inline-flex items-center justify-center font-hk-grotesk-light font-medium rounded-xl transition-all duration-500 transform hover:-translate-y-1";
+  const baseClasses = "group inline-flex items-center justify-center font-roboto-flex font-medium rounded-xl transition-all duration-500 transform hover:-translate-y-1";
   
   const sizeClasses = {
     sm: "px-4 py-3 text-sm h-12",

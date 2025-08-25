@@ -1,20 +1,16 @@
 import React from 'react';
 import Header from '@/components/Header';
 import AGlassCard from '@/components/ui/AGlassCard';
+import GradientBackground from '@/components/GradientBackground';
 
 const TestGlass = () => {
   return (
     <div className="min-h-screen relative">
-      {/* Fixed Gradient Background */}
-      <div 
+      {/* Optimized Gradient Background */}
+      <GradientBackground 
+        gradient="cosmic"
+        animated={true}
         className="fixed inset-0 w-full h-full z-0"
-        style={{
-          backgroundImage: "url('/gradients/17.svg')",
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-          backgroundAttachment: 'fixed'
-        }}
       />
       
       {/* Semi-transparent overlay */}
@@ -31,7 +27,7 @@ const TestGlass = () => {
                 <h1 className="font-anton text-4xl text-white mb-4">
                   AND GLASS CARD TEST
                 </h1>
-                <p className="font-hk-grotesk-light text-lg text-white/80">
+                <p className="font-roboto-flex text-lg text-white/80">
                   This is the new AndGlassCard component with your exact specifications.
                 </p>
                 <div className="mt-4">

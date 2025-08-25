@@ -168,7 +168,7 @@ const PlaybookDetail = () => {
           <div className="max-w-4xl mx-auto text-center py-20">
             <h1 className="text-4xl font-anton text-design-charcoal mb-4">Playbook Not Found</h1>
             <p className="text-design-charcoal/70 mb-8">The playbook you're looking for doesn't exist.</p>
-            <Link to="/playbooks" className="inline-flex items-center px-6 py-3 bg-design-gold text-white font-hk-grotesk-light rounded-lg hover:bg-design-charcoal transition-all duration-300">
+            <Link to="/playbooks" className="inline-flex items-center px-6 py-3 bg-design-gold text-white font-roboto-flex rounded-lg hover:bg-design-charcoal transition-all duration-300">
               <ArrowLeft size={18} className="mr-2" />
               Back to Playbooks
             </Link>
@@ -190,7 +190,7 @@ const PlaybookDetail = () => {
         <div className="max-w-6xl mx-auto mb-8">
           <Link 
             to="/playbooks" 
-            className="inline-flex items-center text-design-charcoal/80 hover:text-design-lilac transition-colors duration-300 font-hk-grotesk-light"
+            className="inline-flex items-center text-design-charcoal/80 hover:text-design-lilac transition-colors duration-300 font-roboto-flex"
           >
             <ArrowLeft size={18} className="mr-2" />
             Back to Playbooks
@@ -215,26 +215,26 @@ const PlaybookDetail = () => {
                         <h1 className="text-4xl md:text-5xl font-anton font-normal text-design-charcoal premium-text">
                           {playbook.title}
                         </h1>
-                        <p className="text-xl font-hk-grotesk-light text-design-lilac mt-2">
+                        <p className="text-xl font-roboto-flex text-design-lilac mt-2">
                           {playbook.subtitle}
                         </p>
                       </div>
                     </div>
                     
-                    <p className="font-hk-grotesk-light text-design-charcoal/80 text-lg leading-relaxed mb-6">
+                    <p className="font-roboto-flex text-design-charcoal/80 text-lg leading-relaxed mb-6">
                       {playbook.description}
                     </p>
                     
                     <div className="flex items-center gap-6">
                       <div className="flex items-center text-design-charcoal/70">
                         <Clock size={16} className="mr-2" />
-                        <span className="font-hk-grotesk-light text-sm">{playbook.readTime}</span>
+                        <span className="font-roboto-flex text-sm">{playbook.readTime}</span>
                       </div>
                       <div className="flex items-center text-design-charcoal/70">
                         <BookOpen size={16} className="mr-2" />
-                        <span className="font-hk-grotesk-light text-sm">{playbook.chapters.length} Chapters</span>
+                        <span className="font-roboto-flex text-sm">{playbook.chapters.length} Chapters</span>
                       </div>
-                      <button className="ml-auto bg-design-gold text-white px-6 py-3 font-hk-grotesk-light font-medium rounded-lg hover:bg-design-charcoal transition-all duration-300 shadow-lg flex items-center">
+                      <button className="ml-auto bg-design-gold text-white px-6 py-3 font-roboto-flex font-medium rounded-lg hover:bg-design-charcoal transition-all duration-300 shadow-lg flex items-center">
                         <Download size={16} className="mr-2" />
                         Download PDF
                       </button>
@@ -249,40 +249,40 @@ const PlaybookDetail = () => {
                 {/* Chapter Header */}
                 <div className="mb-8 pb-6 border-b border-design-lilac/20">
                   <div className="flex items-center gap-3 mb-4">
-                    <span className="w-8 h-8 bg-design-lilac rounded-full flex items-center justify-center text-sm font-hk-grotesk-light font-medium text-white">
+                    <span className="w-8 h-8 bg-design-lilac rounded-full flex items-center justify-center text-sm font-roboto-flex font-medium text-white">
                       {currentChapter.id}
                     </span>
                     <div>
-                      <h2 className="text-3xl font-tan-ashford font-normal text-design-charcoal premium-text">
+                      <h2 className="text-3xl font-roboto-flex font-bold font-normal text-design-charcoal premium-text">
                         {currentChapter.title}
                       </h2>
-                      <p className="text-lg font-hk-grotesk-light text-design-lilac">
+                      <p className="text-lg font-roboto-flex text-design-lilac">
                         {currentChapter.subtitle}
                       </p>
                     </div>
                     <div className="ml-auto flex items-center text-design-charcoal/60">
                       <Clock size={14} className="mr-1" />
-                      <span className="font-hk-grotesk-light text-sm">{currentChapter.readTime}</span>
+                      <span className="font-roboto-flex text-sm">{currentChapter.readTime}</span>
                     </div>
                   </div>
                 </div>
 
                 {/* Chapter Content */}
                 <div 
-                  className="prose prose-lg max-w-none font-hk-grotesk-light text-design-charcoal/90 leading-relaxed"
+                  className="prose prose-lg max-w-none font-roboto-flex text-design-charcoal/90 leading-relaxed"
                   dangerouslySetInnerHTML={{ __html: currentChapter.content }}
                 />
 
                 {/* Key Takeaways */}
                 <div className="mt-12 bg-design-sage/30 border border-design-lilac/10 p-6 rounded-xl backdrop-blur-sm">
-                  <h4 className="text-xl font-tan-ashford text-design-charcoal mb-4 premium-text">
+                  <h4 className="text-xl font-roboto-flex font-bold text-design-charcoal mb-4 premium-text">
                     Key Takeaways
                   </h4>
                   <ul className="space-y-3">
                     {currentChapter.keyTakeaways.map((takeaway, index) => (
                       <li key={index} className="flex items-start">
                         <CheckCircle size={18} className="text-design-gold mr-3 mt-0.5 flex-shrink-0" />
-                        <span className="font-hk-grotesk-light text-design-charcoal/80">{takeaway}</span>
+                        <span className="font-roboto-flex text-design-charcoal/80">{takeaway}</span>
                       </li>
                     ))}
                   </ul>
@@ -293,14 +293,14 @@ const PlaybookDetail = () => {
                   <button
                     onClick={() => setActiveChapter(Math.max(1, activeChapter - 1))}
                     disabled={activeChapter === 1}
-                    className="bg-design-sage/30 border border-design-lilac/10 px-6 py-3 text-design-charcoal font-hk-grotesk-light rounded-lg hover:bg-design-lilac/10 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center backdrop-blur-sm"
+                    className="bg-design-sage/30 border border-design-lilac/10 px-6 py-3 text-design-charcoal font-roboto-flex rounded-lg hover:bg-design-lilac/10 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center backdrop-blur-sm"
                   >
                     <ArrowLeft size={16} className="mr-2" />
                     Previous Chapter
                   </button>
                   
                   <div className="text-center">
-                    <span className="font-hk-grotesk-light text-design-charcoal/60 text-sm">
+                    <span className="font-roboto-flex text-design-charcoal/60 text-sm">
                       Chapter {activeChapter} of {playbook.chapters.length}
                     </span>
                   </div>
@@ -308,7 +308,7 @@ const PlaybookDetail = () => {
                   <button
                     onClick={() => setActiveChapter(Math.min(playbook.chapters.length, activeChapter + 1))}
                     disabled={activeChapter === playbook.chapters.length}
-                    className="bg-design-gold text-white px-6 py-3 font-hk-grotesk-light rounded-lg hover:bg-design-charcoal transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center"
+                    className="bg-design-gold text-white px-6 py-3 font-roboto-flex rounded-lg hover:bg-design-charcoal transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed flex items-center"
                   >
                     Next Chapter
                     <ChevronRight size={16} className="ml-2" />
@@ -323,7 +323,7 @@ const PlaybookDetail = () => {
                 
                 {/* Table of Contents */}
                 <div className="bg-design-cream/80 border border-design-lilac/10 rounded-3xl p-6 backdrop-blur-sm">
-                  <h4 className="text-lg font-tan-ashford text-design-charcoal mb-4 premium-text">
+                  <h4 className="text-lg font-roboto-flex font-bold text-design-charcoal mb-4 premium-text">
                     Table of Contents
                   </h4>
                   <nav className="space-y-3">
@@ -337,10 +337,10 @@ const PlaybookDetail = () => {
                             : 'hover:bg-design-lilac/10 text-design-charcoal/80'
                         }`}
                       >
-                        <div className="font-hk-grotesk-light font-medium text-sm mb-1">
+                        <div className="font-roboto-flex font-medium text-sm mb-1">
                           Chapter {chapter.id}: {chapter.title}
                         </div>
-                        <div className="font-hk-grotesk-light text-xs opacity-80">
+                        <div className="font-roboto-flex text-xs opacity-80">
                           {chapter.readTime}
                         </div>
                       </button>
@@ -350,13 +350,13 @@ const PlaybookDetail = () => {
 
                 {/* Quick Actions */}
                 <div className="bg-design-cream/80 border border-design-lilac/10 rounded-3xl p-6 backdrop-blur-sm">
-                  <h4 className="text-lg font-tan-ashford text-design-charcoal mb-4 premium-text">
+                  <h4 className="text-lg font-roboto-flex font-bold text-design-charcoal mb-4 premium-text">
                     Quick Actions
                   </h4>
                   <div className="space-y-3">
                     <button className="w-full flex items-center p-3 bg-design-gold text-white rounded-lg hover:bg-design-charcoal transition-all duration-300">
                       <Download size={16} className="mr-3" />
-                      <span className="font-hk-grotesk-light text-sm">Download PDF</span>
+                      <span className="font-roboto-flex text-sm">Download PDF</span>
                     </button>
                     
                     <a 
@@ -364,25 +364,25 @@ const PlaybookDetail = () => {
                       className="w-full flex items-center p-3 bg-design-sage/30 border border-design-lilac/10 text-design-charcoal rounded-lg hover:bg-design-lilac/10 transition-all duration-300 backdrop-blur-sm"
                     >
                       <ExternalLink size={16} className="mr-3" />
-                      <span className="font-hk-grotesk-light text-sm">Book Consultation</span>
+                      <span className="font-roboto-flex text-sm">Book Consultation</span>
                     </a>
                   </div>
                 </div>
 
                 {/* Related Playbooks */}
                 <div className="bg-design-cream/80 border border-design-lilac/10 rounded-3xl p-6 backdrop-blur-sm">
-                  <h4 className="text-lg font-tan-ashford text-design-charcoal mb-4 premium-text">
+                  <h4 className="text-lg font-roboto-flex font-bold text-design-charcoal mb-4 premium-text">
                     Related Playbooks
                   </h4>
                   <div className="space-y-3">
                     <Link to="/playbooks/volume-2" className="block p-3 rounded-lg hover:bg-design-lilac/10 transition-colors duration-300">
-                      <div className="font-hk-grotesk-light font-medium text-design-charcoal text-sm mb-1">Volume 2</div>
-                      <div className="font-hk-grotesk-light text-design-charcoal/60 text-xs">Next in series</div>
+                      <div className="font-roboto-flex font-medium text-design-charcoal text-sm mb-1">Volume 2</div>
+                      <div className="font-roboto-flex text-design-charcoal/60 text-xs">Next in series</div>
                     </Link>
                     
                     <Link to="/playbooks/volume-3" className="block p-3 rounded-lg hover:bg-design-lilac/10 transition-colors duration-300">
-                      <div className="font-hk-grotesk-light font-medium text-design-charcoal text-sm mb-1">Volume 3</div>
-                      <div className="font-hk-grotesk-light text-design-charcoal/60 text-xs">Advanced strategies</div>
+                      <div className="font-roboto-flex font-medium text-design-charcoal text-sm mb-1">Volume 3</div>
+                      <div className="font-roboto-flex text-design-charcoal/60 text-xs">Advanced strategies</div>
                     </Link>
                   </div>
                 </div>
@@ -393,7 +393,7 @@ const PlaybookDetail = () => {
         
         {/* Playbook Footer - Agent Information */}
         <div className="bg-design-charcoal rounded-xl p-6 mt-16 text-center">
-          <p className="font-hk-grotesk-light text-design-cream text-sm">
+          <p className="font-roboto-flex text-design-cream text-sm">
             Andreina Ford • Mortgage Agent Level 2 • BRX Mortgage
           </p>
         </div>

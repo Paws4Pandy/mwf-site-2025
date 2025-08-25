@@ -6,11 +6,11 @@ const MortgageBasics = () => {
     setActiveSection(sectionId === activeSection ? null : sectionId);
   };
   return <div className="bg-pure-white bg-opacity-70 backdrop-blur-sm border border-hunter-green/30 rounded-lg p-8 mb-10 shadow-sm">
-      <h2 className="text-2xl font-hammersmith mb-6 text-hunter-green">Mortgage Basics 101</h2>
+      <h2 className="text-2xl font-roboto-flex font-bold mb-6 text-hunter-green">Mortgage Basics 101</h2>
       
       <Accordion type="single" collapsible defaultValue="terms" className="space-y-4">
         <AccordionItem value="terms" className="border border-hunter-green/10 rounded-lg overflow-hidden">
-          <AccordionTrigger className="px-4 py-3 bg-hunter-green/5 hover:bg-hunter-green/10 text-xl font-hammersmith text-hunter-green">
+          <AccordionTrigger className="px-4 py-3 bg-hunter-green/5 hover:bg-hunter-green/10 text-xl font-roboto-flex font-bold text-hunter-green">
             Understanding Mortgage Terms
           </AccordionTrigger>
           <AccordionContent className="p-4 text-hunter-green/80">

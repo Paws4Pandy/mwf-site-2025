@@ -1,15 +1,540 @@
 
-/* Optimized Font Loading with font-display: swap */
-@import url('https://fonts.googleapis.com/css2?family=Anton:wght@400&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=HK+Grotesk:wght@300;400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Display:ital,wght@1,400&display=swap');
-/* Legacy fonts with swap */
-@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;400;500;600;700;800;900&family=Hammersmith+One:wght@400&family=Open+Sauce+One:wght@300;400;500;600;700;800;900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Montserrat:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700;900&display=swap');
+/* Complete Roboto Font System - Loaded from HTML (Single Source: Google Fonts CDN) */
+/* Fonts loaded in index.html:
+   - Roboto Serif: All weights, optical sizing, for body text
+   - Roboto Flex: Variable width/weight, for display/calculator elements */
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Optimized gradient animations */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Performance optimization for gradients */
+.gradient-optimized {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+  will-change: background-position;
+}
+
+/* ==================== MODERN CALCULATOR STYLING V2 ==================== */
+/* Professional design optimized for white frosted glass background */
+
+/* Header Card Styling */
+.calculator-header-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 
+    0 20px 25px -5px rgba(0, 0, 0, 0.1), 
+    0 10px 10px -5px rgba(0, 0, 0, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+/* Inputs/Results Cards */
+.calculator-inputs-card,
+.calculator-results-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 
+    0 10px 15px -3px rgba(0, 0, 0, 0.1), 
+    0 4px 6px -2px rgba(0, 0, 0, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  transition: all 0.3s ease;
+}
+
+.calculator-inputs-card:hover,
+.calculator-results-card:hover {
+  box-shadow: 
+    0 20px 25px -5px rgba(0, 0, 0, 0.15), 
+    0 10px 10px -5px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  transform: translateY(-2px);
+}
+
+/* Modern Dual Input Styling */
+.calculator-number-input {
+  background: #f8fafc;
+  border: 2px solid #e2e8f0;
+  color: #1a202c;
+  font-family: 'Roboto Flex', sans-serif;
+  font-weight: 700;
+  transition: all 0.3s ease;
+  letter-spacing: -0.025em;
+}
+
+.calculator-number-input:focus {
+  background: #ffffff;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
+  transform: scale(1.02);
+}
+
+.calculator-number-input::placeholder {
+  color: #94a3b8;
+  font-weight: 600;
+}
+
+/* Modern Gamified Slider */
+.calculator-modern-slider {
+  background: linear-gradient(90deg, #e5e7eb 0%, #f3f4f6 100%);
+  height: 12px;
+  border-radius: 9999px;
+  appearance: none;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.calculator-modern-slider::-webkit-slider-thumb {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  border: 2px solid white;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 
+    0 4px 8px -2px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  z-index: 2;
+  margin-top: -4px;
+}
+
+.calculator-modern-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+  box-shadow: 
+    0 20px 25px -5px rgba(0, 0, 0, 0.15),
+    0 10px 10px -5px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.calculator-modern-slider::-webkit-slider-thumb:active {
+  transform: scale(1.25);
+  box-shadow: 
+    0 25px 50px -12px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+.calculator-modern-slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  border: 2px solid white;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 
+    0 4px 8px -2px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease;
+}
+
+.calculator-modern-slider::-moz-range-thumb:hover {
+  transform: scale(1.15);
+  box-shadow: 
+    0 20px 25px -5px rgba(0, 0, 0, 0.15),
+    0 10px 10px -5px rgba(0, 0, 0, 0.08);
+}
+
+/* Modern Checkbox */
+.calculator-modern-checkbox {
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.calculator-modern-checkbox:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Result Cards */
+.calculator-result-card {
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.calculator-result-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.calculator-result-card:hover::before {
+  opacity: 1;
+}
+
+.calculator-result-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Message Cards */
+.calculator-message-card {
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.calculator-message-card:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Action Buttons */
+.calculator-action-button {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: 'Roboto Flex', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.025em;
+  position: relative;
+  overflow: hidden;
+}
+
+.calculator-action-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.calculator-action-button:hover::before {
+  left: 100%;
+}
+
+.calculator-action-button:hover {
+  transform: translateY(-2px);
+}
+
+.calculator-action-button:active {
+  transform: translateY(0);
+}
+
+/* Typography Improvements */
+.calculator-dual-input label {
+  font-family: 'Roboto Flex', sans-serif;
+  font-weight: 600;
+  color: #374151;
+  letter-spacing: -0.025em;
+}
+
+/* Animations */
+.calculator-animate-in {
+  animation: calculatorSlideIn 0.6s ease-out forwards;
+}
+
+@keyframes calculatorSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .calculator-header-card,
+  .calculator-inputs-card,
+  .calculator-results-card {
+    padding: 1.5rem;
+  }
+  
+  .calculator-number-input {
+    font-size: 1.25rem;
+    padding: 1rem 1.25rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .calculator-header-card,
+  .calculator-inputs-card,
+  .calculator-results-card {
+    padding: 1rem;
+  }
+  
+  .calculator-number-input {
+    font-size: 1.125rem;
+    padding: 0.875rem 1rem;
+  }
+  
+  .calculator-modern-slider::-webkit-slider-thumb {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .calculator-modern-slider::-moz-range-thumb {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+/* Focus Accessibility */
+.calculator-modern-slider:focus,
+.calculator-number-input:focus,
+.calculator-modern-checkbox input:focus {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* High Contrast Support */
+@media (prefers-contrast: high) {
+  .calculator-header-card,
+  .calculator-inputs-card,
+  .calculator-results-card {
+    border: 2px solid #000;
+    background: #fff;
+  }
+  
+  .calculator-number-input {
+    border: 2px solid #000;
+  }
+  
+  .calculator-modern-slider::-webkit-slider-thumb,
+  .calculator-modern-slider::-moz-range-thumb {
+    border: 3px solid #000;
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  .calculator-header-card,
+  .calculator-inputs-card,
+  .calculator-results-card,
+  .calculator-number-input,
+  .calculator-modern-slider::-webkit-slider-thumb,
+  .calculator-modern-slider::-moz-range-thumb,
+  .calculator-result-card,
+  .calculator-action-button {
+    transition: none;
+  }
+  
+  .calculator-animate-in {
+    animation: none;
+  }
+}
+
+/* Calculator Input Styling */
+.calculator-input {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0.75rem;
+  color: white;
+  font-family: 'Roboto Flex', sans-serif;
+  font-size: 1.125rem;
+  padding: 0.75rem 1rem;
+  width: 100%;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.calculator-input:focus {
+  ring: 2px solid rgba(218, 180, 83, 0.5);
+  border-color: rgba(218, 180, 83, 0.5);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* Calculator Checkbox Styling */
+.calculator-checkbox {
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 0.25rem;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.1);
+  accent-color: #DAB453;
+  cursor: pointer;
+}
+
+.calculator-checkbox:focus {
+  ring: 2px solid rgba(218, 180, 83, 0.5);
+  border-color: #DAB453;
+}
+
+.calculator-checkbox:checked {
+  background: #DAB453;
+  border-color: #DAB453;
+}
+
+/* Calculator Button Options */
+.calculator-button-option {
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0.75rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-family: 'Roboto Flex', sans-serif;
+  font-weight: 600;
+  padding: 1rem;
+  text-align: left;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  width: 100%;
+}
+
+.calculator-button-option:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-1px);
+}
+
+.calculator-button-option.selected {
+  background: rgba(218, 180, 83, 0.2);
+  border-color: #DAB453;
+  color: white;
+  box-shadow: 0 4px 12px rgba(218, 180, 83, 0.3);
+}
+
+/* Calculator Button */
+.calculator-button {
+  font-family: 'Roboto Flex', sans-serif;
+  font-weight: 600;
+  border-radius: 0.75rem;
+  padding: 0.875rem 1.5rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+.calculator-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.calculator-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Calculator Result Cards */
+.calculator-result {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.75rem;
+  padding: 1rem;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.calculator-result:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.15);
+  transform: translateY(-1px);
+}
+
+/* Calculator Typography - Consistent across all calculators */
+.calculator-title {
+  font-family: 'Anton', sans-serif;
+  font-size: 2rem;
+  font-weight: normal;
+  color: #DAB453;
+  margin-bottom: 2rem;
+  line-height: 1.2;
+}
+
+.calculator-subtitle {
+  font-family: 'Roboto Flex', sans-serif;
+  font-size: 1.125rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 1rem;
+}
+
+.calculator-label {
+  font-family: 'Roboto Flex', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #DAB453;
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+.calculator-value {
+  font-family: 'Roboto Flex', sans-serif;
+  font-weight: 700;
+  color: #DAB453;
+}
+
+.calculator-helper {
+  font-family: 'Roboto Flex', sans-serif;
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-style: italic;
+  margin-top: 0.5rem;
+}
+
+/* Calculator Animations */
+.calculator-animate-in {
+  animation: calculatorFadeIn 0.6s ease-out forwards;
+}
+
+@keyframes calculatorFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Calculator Responsive Breakpoints */
+@media (max-width: 1024px) {
+  .calculator-title {
+    font-size: 1.75rem;
+  }
+  
+  .calculator-label {
+    font-size: 1.125rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .calculator-title {
+    font-size: 1.5rem;
+  }
+  
+  .calculator-label {
+    font-size: 1rem;
+  }
+  
+  .calculator-slider::-webkit-slider-thumb {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .calculator-slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+  }
+}
 
 /* Premium Background Animations */
 @keyframes float {
@@ -300,11 +825,11 @@
   }
 
   .prose h3 {
-    @apply text-2xl font-tan-ashford text-design-charcoal mt-8 mb-4 premium-text;
+    @apply text-2xl font-roboto-flex font-bold text-design-charcoal mt-8 mb-4 premium-text;
   }
 
   .prose h4 {
-    @apply text-xl font-hk-grotesk-light font-medium text-design-lilac mt-6 mb-3;
+    @apply text-xl font-roboto-flex font-bold text-design-lilac mt-6 mb-3;
   }
 
   .prose p {
@@ -334,7 +859,7 @@
   }
 
   .prose ol li::before {
-    @apply absolute left-[-2rem] top-0 w-6 h-6 bg-design-gold text-white rounded-full flex items-center justify-center text-xs font-hk-grotesk-light font-medium;
+    @apply absolute left-[-2rem] top-0 w-6 h-6 bg-design-gold text-white rounded-full flex items-center justify-center text-xs font-roboto-flex font-medium;
     content: counter(list-counter);
   }
 
@@ -642,24 +1167,82 @@
   }
 
   body {
-    @apply bg-design-cream text-design-charcoal font-hk-grotesk-light;
+    @apply bg-design-cream text-design-charcoal font-body font-normal;
+    /* Apply Roboto Serif font-optical-sizing */
+    font-optical-sizing: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    line-height: 1.6;
   }
   
+  /* Typography hierarchy using Roboto fonts */
   h1 {
-    @apply font-league-spartan font-bold;
+    @apply font-display font-bold;
+    font-variation-settings: 'wdth' 100, 'opsz' 72;
   }
   
-  h2 {
-    @apply italic;
-    font-family: Times, "Times New Roman", serif;
-  }
-  
-  h3, h4, h5, h6 {
-    @apply font-hammersmith;
+  h2, h3, h4, h5, h6 {
+    @apply font-display font-bold;
+    font-variation-settings: 'wdth' 100, 'opsz' 48;
   }
   
   .subheading {
-    @apply font-hammersmith;
+    @apply font-display font-bold;
+    font-variation-settings: 'wdth' 100, 'opsz' 32;
+  }
+  
+  /* Calculator-specific elements use Roboto Flex */
+  input[type="number"],
+  input[type="range"], 
+  input[type="text"],
+  select,
+  .numeric-display,
+  .calculator-value {
+    @apply font-calculator;
+    font-variation-settings: 'wdth' 100, 'opsz' 14;
+  }
+  
+  /* Button elements optimized for UI */
+  button {
+    @apply font-display;
+    font-variation-settings: 'wdth' 100, 'opsz' 16;
+  }
+  
+  /* Improved spacing and padding for calculator elements */
+  .calculator-section {
+    @apply space-y-8 p-8;
+  }
+  
+  .calculator-label {
+    @apply mb-4 block;
+    line-height: 1.4;
+  }
+  
+  .calculator-input-group {
+    @apply space-y-3;
+  }
+  
+  .calculator-slider {
+    @apply my-4;
+  }
+  
+  .calculator-result-card {
+    @apply p-8 space-y-6;
+    line-height: 1.5;
+  }
+  
+  /* Enhanced readability for calculator text */
+  .font-calculator {
+    letter-spacing: 0.025em;
+  }
+  
+  .font-body {
+    line-height: 1.7;
+  }
+  
+  .font-display {
+    line-height: 1.3;
   }
 }
 

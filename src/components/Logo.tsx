@@ -20,15 +20,15 @@ const Logo: React.FC<LogoProps> = ({
   
   return (
     <Link to="/" className="flex flex-col no-underline">
-      <div className={`font-league-spartan font-bold tracking-tighter ${sizeClasses[size]} ${className}`}>
+      <div className={`font-anton font-bold tracking-tighter ${sizeClasses[size]} ${className}`}>
         Mortgage with Ford.ca
       </div>
       {size !== 'sm' && (
         <>
-          <div className="text-md mt-1 font-hammersmith text-hunter-green">
+          <div className="text-md mt-1 font-roboto-flex font-bold text-hunter-green">
             Based in Prince Edward County - Serving Ontario Wide.
           </div>
-          <div className="text-md mt-1 font-opensauce font-semibold text-hunter-green">
+          <div className="text-md mt-1 font-roboto-flex font-semibold text-hunter-green">
             Andreina Ford - Mortgage Agent Level 2
           </div>
         </>

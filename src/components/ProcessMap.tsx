@@ -43,10 +43,10 @@ const ProcessMap = () => {
             {step.icon}
           </div>
           <div className="flex-1">
-            <h3 className="text-xl font-hammersmith font-semibold text-hunter-green mb-2">
+            <h3 className="text-xl font-roboto-flex font-bold font-semibold text-hunter-green mb-2">
               {step.subtitle}
             </h3>
-            <p className="text-hunter-green/80 leading-relaxed text-lg font-opensauce">
+            <p className="text-hunter-green/80 leading-relaxed text-lg font-roboto-flex">
               {step.description}
             </p>
           </div>

@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import MortgageCalculator from '@/components/calculator/MortgageCalculator';
+import ModernMortgageCalculator from '@/components/calculator/ModernMortgageCalculator';
 import { AdvancedMortgageCalculator } from '@/components/calculator/AdvancedMortgageCalculator';
+import LandTransferTaxCalculator from '@/components/calculator/LandTransferTaxCalculator';
 import LiquidGlassWrapper from '@/components/ui/LiquidGlassWrapper';
+import GradientBackground from '@/components/GradientBackground';
 import { Calculator as CalculatorIcon, TrendingUp, Home, FileText, DollarSign } from 'lucide-react';
 
 // Tab configuration with icons and descriptions
@@ -13,7 +15,7 @@ const tabs = [
     label: 'Quick Payment',
     icon: CalculatorIcon,
     description: 'Get instant mortgage payment estimates',
-    component: MortgageCalculator
+    component: ModernMortgageCalculator
   },
   {
     id: 'stress-test',
@@ -34,7 +36,7 @@ const tabs = [
     label: 'Land Transfer Tax',
     icon: FileText,
     description: 'Calculate land transfer tax costs',
-    component: null // Coming soon
+    component: LandTransferTaxCalculator
   },
   {
     id: 'rental-income',
@@ -69,16 +71,11 @@ const Calculator = () => {
 
   return (
     <div className="min-h-screen relative">
-      {/* Fixed Gradient Background */}
-      <div 
+      {/* Optimized Gradient Background - replaces 5.2MB SVG with 3KB CSS */}
+      <GradientBackground 
+        gradient="cosmic"
+        animated={true}
         className="fixed inset-0 w-full h-full z-0"
-        style={{
-          backgroundImage: "url('/gradients/17.svg')",
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-          backgroundAttachment: 'fixed'
-        }}
       />
       
       {/* Semi-transparent overlay for better text readability */}
@@ -101,7 +98,7 @@ const Calculator = () => {
             </div>
             
             <div className="mb-16 opacity-0 animate-fade-in-delay-2">
-              <p className="text-xl md:text-2xl font-hk-grotesk-light text-white/90 max-w-4xl mx-auto leading-relaxed">
+              <p className="text-xl md:text-2xl font-roboto-flex text-white/90 max-w-4xl mx-auto leading-relaxed">
                 Calculate your mortgage payments, explore CMHC insurance premiums and learn more about how to qualify for a home purchase
               </p>
             </div>

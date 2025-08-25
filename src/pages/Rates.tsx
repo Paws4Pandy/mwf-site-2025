@@ -6,20 +6,16 @@ import CalculatorSelection from '@/components/CalculatorSelection';
 import MortgageFAQ from '@/components/MortgageFAQ';
 import LiquidGlassButton from '@/components/ui/LiquidGlassButton';
 import LiquidGlassWrapper from '@/components/ui/LiquidGlassWrapper';
+import GradientBackground from '@/components/GradientBackground';
 
 const Rates = () => {
   return (
     <div className="min-h-screen relative">
-      {/* Fixed Gradient Background */}
-      <div 
+      {/* Optimized Gradient Background */}
+      <GradientBackground 
+        gradient="cosmic"
+        animated={true}
         className="fixed inset-0 w-full h-full z-0"
-        style={{
-          backgroundImage: "url('/gradients/17.svg')",
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-          backgroundAttachment: 'fixed'
-        }}
       />
       
       {/* Semi-transparent overlay for better text readability */}
@@ -42,7 +38,7 @@ const Rates = () => {
             </div>
             
             <div className="mb-16 opacity-0 animate-fade-in-delay-2">
-              <p className="text-xl md:text-2xl font-hk-grotesk-light text-white/90 max-w-4xl mx-auto leading-relaxed">
+              <p className="text-xl md:text-2xl font-roboto-flex text-white/90 max-w-4xl mx-auto leading-relaxed">
                 Current mortgage rates for Ontario residents updated daily
               </p>
             </div>

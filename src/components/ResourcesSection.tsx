@@ -79,24 +79,24 @@ const ResourcesSection = () => {
 
   return (
     <div className="bg-pure-white bg-opacity-70 backdrop-blur-sm border border-hunter-green/30 rounded-lg p-8 mb-10 shadow-sm">
-      <h2 className="text-2xl font-hammersmith mb-6 text-hunter-green">Helpful Resources</h2>
+      <h2 className="text-2xl font-roboto-flex font-bold mb-6 text-hunter-green">Helpful Resources</h2>
       
       <div className="space-y-10">
         <div>
-          <h3 className="text-xl font-hammersmith mb-4 text-hunter-green font-semibold">1. Regulatory & Licensing Authorities</h3>
-          <p className="text-hunter-green/80 mb-6 font-opensauce">These bodies oversee mortgage licensing, conduct, and legislation in Ontario.</p>
+          <h3 className="text-xl font-roboto-flex font-bold mb-4 text-hunter-green font-semibold">1. Regulatory & Licensing Authorities</h3>
+          <p className="text-hunter-green/80 mb-6 font-roboto-flex">These bodies oversee mortgage licensing, conduct, and legislation in Ontario.</p>
           <ResourceGroup title="" resources={regulatoryResources} />
         </div>
         
         <div>
-          <h3 className="text-xl font-hammersmith mb-4 text-hunter-green font-semibold">2. Housing, Market & Economic Data</h3>
-          <p className="text-hunter-green/80 mb-6 font-opensauce">Use these for pricing trends, policy changes, affordability stats, and economic forecasts.</p>
+          <h3 className="text-xl font-roboto-flex font-bold mb-4 text-hunter-green font-semibold">2. Housing, Market & Economic Data</h3>
+          <p className="text-hunter-green/80 mb-6 font-roboto-flex">Use these for pricing trends, policy changes, affordability stats, and economic forecasts.</p>
           <ResourceGroup title="" resources={housingResources} />
         </div>
         
         <div>
-          <h3 className="text-xl font-hammersmith mb-4 text-hunter-green font-semibold">3. Legal & Consumer Rights</h3>
-          <p className="text-hunter-green/80 mb-6 font-opensauce">These sources help clients understand contracts, default rights, and dispute resolution.</p>
+          <h3 className="text-xl font-roboto-flex font-bold mb-4 text-hunter-green font-semibold">3. Legal & Consumer Rights</h3>
+          <p className="text-hunter-green/80 mb-6 font-roboto-flex">These sources help clients understand contracts, default rights, and dispute resolution.</p>
           <ResourceGroup title="" resources={legalResources} />
         </div>
       </div>

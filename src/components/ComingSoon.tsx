@@ -59,10 +59,10 @@ const ComingSoon: React.FC<ComingSoonProps> = ({
               transition={{ duration: 0.8, delay: 0.4 }}
               className="mb-12"
             >
-              <p className="text-xl md:text-2xl font-hk-grotesk-light font-light text-white/90 max-w-4xl mx-auto leading-relaxed mb-6">
+              <p className="text-xl md:text-2xl font-roboto-flex font-light text-white/90 max-w-4xl mx-auto leading-relaxed mb-6">
                 {description}
               </p>
-              <p className="text-lg font-hk-grotesk-light text-white/90 max-w-3xl mx-auto">
+              <p className="text-lg font-roboto-flex text-white/90 max-w-3xl mx-auto">
                 I'm working hard to bring you comprehensive mortgage playbooks. 
                 Stay tuned for professional guidance that will transform your home buying journey!
               </p>
@@ -77,15 +77,15 @@ const ComingSoon: React.FC<ComingSoonProps> = ({
             >
               <div className="bg-design-cream/50 border border-design-lilac/20 rounded-2xl p-6 text-center backdrop-blur-sm">
                 <div className="text-3xl font-anton text-design-lilac mb-2">🚧</div>
-                <div className="text-sm font-hk-grotesk-light text-white/80 uppercase tracking-widest">In Development</div>
+                <div className="text-sm font-roboto-flex text-white/80 uppercase tracking-widest">In Development</div>
               </div>
               <div className="bg-design-cream/50 border border-design-lilac/20 rounded-2xl p-6 text-center backdrop-blur-sm">
                 <div className="text-3xl font-anton text-design-lilac mb-2">📚</div>
-                <div className="text-sm font-hk-grotesk-light text-white/80 uppercase tracking-widest">Content Creation</div>
+                <div className="text-sm font-roboto-flex text-white/80 uppercase tracking-widest">Content Creation</div>
               </div>
               <div className="bg-design-cream/50 border border-design-lilac/20 rounded-2xl p-6 text-center backdrop-blur-sm">
                 <div className="text-3xl font-anton text-design-lilac mb-2">🎯</div>
-                <div className="text-sm font-hk-grotesk-light text-white/80 uppercase tracking-widest">Quality Focus</div>
+                <div className="text-sm font-roboto-flex text-white/80 uppercase tracking-widest">Quality Focus</div>
               </div>
             </motion.div>
 
@@ -99,7 +99,7 @@ const ComingSoon: React.FC<ComingSoonProps> = ({
               <h3 className="font-anton text-2xl text-white mb-4">
                 Get Notified When Ready
               </h3>
-              <p className="font-hk-grotesk-light text-white/90 mb-6">
+              <p className="font-roboto-flex text-white/90 mb-6">
                 Be the first to access these comprehensive mortgage playbooks
               </p>
               <div className="flex justify-center">

@@ -6,6 +6,7 @@ import { ChevronDown } from 'lucide-react';
 import LiquidGlassButton from '@/components/ui/LiquidGlassButton';
 import WhoIWorkFor from '@/components/WhoIWorkFor';
 import AGlassCard from '@/components/ui/AGlassCard';
+import GradientBackground from '@/components/GradientBackground';
 
 const MyStrategy = () => {
   const [scrollY, setScrollY] = useState(0);
@@ -27,16 +28,11 @@ const MyStrategy = () => {
 
   return (
     <div className="min-h-screen relative">
-      {/* Fixed Gradient Background */}
-      <div 
+      {/* Optimized Gradient Background */}
+      <GradientBackground 
+        gradient="cosmic"
+        animated={true}
         className="fixed inset-0 w-full h-full z-0"
-        style={{
-          backgroundImage: "url('/gradients/17.svg')",
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-          backgroundAttachment: 'fixed'
-        }}
       />
           
             {/* Scrollable content container */}
@@ -56,7 +52,7 @@ const MyStrategy = () => {
             </div>
             
             <div className="mb-16 opacity-0 animate-fade-in-delay-2">
-              <p className="text-xl md:text-2xl font-hk-grotesk-light text-white/90 max-w-4xl mx-auto leading-relaxed">
+              <p className="text-xl md:text-2xl font-roboto-flex text-white/90 max-w-4xl mx-auto leading-relaxed">
                 Mortgages with advocacy first - protecting your interests, demystifying the process, and making homeownership a force for equity
               </p>
             </div>

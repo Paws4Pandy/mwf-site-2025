@@ -20,22 +20,13 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				// New Design System Fonts
-				'anton': ['Anton', 'sans-serif'],
-				'tan-ashford': ['TAN ASHFORD', 'serif'],
-				'hk-grotesk-light': ['HK Grotesk', 'sans-serif'],
-				'noto-serif-display': ['Noto Serif Display', 'serif'],
-				'times': ['Times', '"Times New Roman"', 'serif'],
-				// Legacy fonts (keep for backward compatibility)
-				'league-spartan': ['League Spartan', 'sans-serif'],
-				'times-italic': ['Times', '"Times New Roman"', 'serif'],
-				'hammersmith': ['Hammersmith One', 'sans-serif'],
-				'opensauce': ['Open Sauce One', 'sans-serif'],
-				serif: ['Playfair Display', 'serif'],
-				sans: ['Montserrat', 'sans-serif'],
-				roboto: ['Roboto', 'sans-serif'],
+				// UNIFIED FONT SYSTEM - Single Source
+				'anton': ['Anton', 'sans-serif'],           // Display/Headings
+				'roboto-flex': ['Roboto Flex', 'sans-serif'], // Body/UI
+				'sans': ['Roboto Flex', 'sans-serif'],       // Default
 			},
 			colors: {
+				// Shadcn UI Colors (keep for component compatibility)
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',
@@ -79,21 +70,31 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// Premium Design System Colors (2024-2025)
-				'design-charcoal': '#423E3A',   // Primary text - authoritative
-				'design-lilac': '#A79FC7',      // Accent text - sophisticated  
+				
+				// UNIFIED BRAND COLORS - Single Source from design-system.ts
+				'design-black': '#000000',      // Primary text
+				'design-white': '#ffffff',      // Background  
+				'design-red': '#8c3839',        // Primary accent
+				'design-gold': '#DAB453',       // Premium CTAs
+				'design-green': '#2b4743',      // Hunter green
+				'design-azure': '#cedeeb',      // Light backgrounds
+				'design-crimson': '#ffd3db',    // Soft accents
+				'design-brand-red': '#da7073',  // CTA highlights
+				'design-gray-orange': '#dda83f', // Warning
+				'design-charcoal': '#423E3A',   // Authoritative text
+				'design-lilac': '#A79FC7',      // Sophisticated accent
 				'design-sage': '#BBCEC9',       // Supporting backgrounds
-				'design-gold': '#DAB453',       // Premium CTAs - attention
-				'design-cream': '#EFE0DF',      // Primary background - warm
-				// Brand Colors from CLAUDE.md
-				'pure-black': '#000000',        // Primary text
-				'pure-white': '#ffffff',        // Background
-				'muted-red': '#8c3839',         // Primary accent (CRITICAL FIX)
-				'light-azure': '#cedeeb',       // Light backgrounds
-				'light-crimson': '#ffd3db',     // Soft accents
-				'brand-red': '#da7073',         // CTA/highlights
-				'hunter-green': '#2b4743',      // Secondary text
-				'gray-orange': '#dda83f',       // Warning/attention
+				'design-cream': '#EFE0DF',      // Warm background
+				
+				// Legacy support (use design-* versions instead)
+				'pure-black': '#000000',
+				'pure-white': '#ffffff', 
+				'muted-red': '#8c3839',
+				'light-azure': '#cedeeb',
+				'light-crimson': '#ffd3db',
+				'brand-red': '#da7073',
+				'hunter-green': '#2b4743',
+				'gray-orange': '#dda83f',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

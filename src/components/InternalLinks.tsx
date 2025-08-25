@@ -82,7 +82,7 @@ export const InternalLinks: React.FC<InternalLinksProps> = ({
       <div className="max-w-6xl mx-auto">
         {showTitle && (
           <div className="text-center mb-8">
-            <h3 className="font-hammersmith text-2xl text-hunter-green mb-2">
+            <h3 className="font-roboto-flex font-bold text-2xl text-hunter-green mb-2">
               Explore More
             </h3>
             <p className="text-gray-600">

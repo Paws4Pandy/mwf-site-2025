@@ -105,7 +105,7 @@ const EmailNotificationPopup: React.FC<EmailNotificationPopupProps> = ({
                       <Mail className="w-8 h-8 text-design-lilac" />
                     </div>
                     <h2 className="font-anton text-2xl text-white mb-2">{title}</h2>
-                    <p className="font-hk-grotesk-light text-white/80">
+                    <p className="font-roboto-flex text-white/80">
                       Be the first to know when our comprehensive mortgage playbooks are ready!
                     </p>
                   </div>
@@ -113,7 +113,7 @@ const EmailNotificationPopup: React.FC<EmailNotificationPopupProps> = ({
                   {/* Form */}
                   <form onSubmit={handleSubmit} className="space-y-4">
                     <div>
-                      <label htmlFor="email" className="block text-sm font-hk-grotesk-light text-white/90 mb-2">
+                      <label htmlFor="email" className="block text-sm font-roboto-flex text-white/90 mb-2">
                         Email Address *
                       </label>
                       <input
@@ -128,7 +128,7 @@ const EmailNotificationPopup: React.FC<EmailNotificationPopupProps> = ({
                     </div>
                     
                     <div>
-                      <label htmlFor="name" className="block text-sm font-hk-grotesk-light text-white/90 mb-2">
+                      <label htmlFor="name" className="block text-sm font-roboto-flex text-white/90 mb-2">
                         Name (Optional)
                       </label>
                       <input
@@ -199,10 +199,10 @@ const EmailNotificationPopup: React.FC<EmailNotificationPopupProps> = ({
                     <Check className="w-8 h-8 text-green-400" />
                   </motion.div>
                   <h2 className="font-anton text-2xl text-white mb-2">You're All Set!</h2>
-                  <p className="font-hk-grotesk-light text-white/90 mb-4">
+                  <p className="font-roboto-flex text-white/90 mb-4">
                     Thanks for subscribing! We'll notify you as soon as the playbooks are ready.
                   </p>
-                  <p className="font-hk-grotesk-light text-white/70 text-sm">
+                  <p className="font-roboto-flex text-white/70 text-sm">
                     Check your email for confirmation and feel free to reach out with questions.
                   </p>
                 </div>

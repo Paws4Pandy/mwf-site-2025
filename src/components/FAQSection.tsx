@@ -112,7 +112,7 @@ export const FAQSection: React.FC<FAQSectionProps> = ({
             <div className="space-y-8">
               {categories.map(category => (
                 <div key={category}>
-                  <h3 className="font-hammersmith text-2xl text-hunter-green mb-4">
+                  <h3 className="font-roboto-flex font-bold text-2xl text-hunter-green mb-4">
                     {category}
                   </h3>
                   <Accordion type="single" collapsible className="space-y-4">
@@ -123,7 +123,7 @@ export const FAQSection: React.FC<FAQSectionProps> = ({
                         className="bg-white border border-gray-200 rounded-lg overflow-hidden"
                       >
                         <AccordionTrigger className="px-6 py-4 text-left hover:bg-light-azure/10 transition-colors">
-                          <span className="font-opensauce text-lg text-pure-black pr-4">
+                          <span className="font-roboto-flex text-lg text-pure-black pr-4">
                             {faq.question}
                           </span>
                         </AccordionTrigger>
@@ -145,7 +145,7 @@ export const FAQSection: React.FC<FAQSectionProps> = ({
                   className="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow"
                 >
                   <AccordionTrigger className="px-6 py-4 text-left hover:bg-light-azure/10 transition-colors">
-                    <span className="font-opensauce text-lg text-pure-black pr-4">
+                    <span className="font-roboto-flex text-lg text-pure-black pr-4">
                       {faq.question}
                     </span>
                   </AccordionTrigger>
