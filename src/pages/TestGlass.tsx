@@ -1,17 +1,12 @@
 import React from 'react';
 import Header from '@/components/Header';
 import AGlassCard from '@/components/ui/AGlassCard';
-import GradientBackground from '@/components/GradientBackground';
 
 const TestGlass = () => {
   return (
     <div className="min-h-screen relative">
       {/* Optimized Gradient Background */}
-      <GradientBackground 
-        gradient="cosmic"
-        animated={true}
-        className="fixed inset-0 w-full h-full z-0"
-      />
+      <div className="fixed inset-0 w-full h-full z-0 bg-gradient-to-br from-hunter-green via-sage to-warm-gray" />
       
       {/* Semi-transparent overlay */}
       <div className="fixed inset-0 bg-black/10 z-[1]" />

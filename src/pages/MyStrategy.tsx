@@ -6,7 +6,6 @@ import { ChevronDown } from 'lucide-react';
 import LiquidGlassButton from '@/components/ui/LiquidGlassButton';
 import WhoIWorkFor from '@/components/WhoIWorkFor';
 import AGlassCard from '@/components/ui/AGlassCard';
-import GradientBackground from '@/components/GradientBackground';
 
 const MyStrategy = () => {
   const [scrollY, setScrollY] = useState(0);
@@ -29,11 +28,7 @@ const MyStrategy = () => {
   return (
     <div className="min-h-screen relative">
       {/* Optimized Gradient Background */}
-      <GradientBackground 
-        gradient="cosmic"
-        animated={true}
-        className="fixed inset-0 w-full h-full z-0"
-      />
+      <div className="fixed inset-0 w-full h-full z-0 bg-gradient-to-br from-hunter-green via-sage to-warm-gray" />
           
             {/* Scrollable content container */}
       <div className="relative z-10 overflow-y-auto">

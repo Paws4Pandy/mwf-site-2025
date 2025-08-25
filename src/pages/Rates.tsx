@@ -6,17 +6,12 @@ import CalculatorSelection from '@/components/CalculatorSelection';
 import MortgageFAQ from '@/components/MortgageFAQ';
 import LiquidGlassButton from '@/components/ui/LiquidGlassButton';
 import LiquidGlassWrapper from '@/components/ui/LiquidGlassWrapper';
-import GradientBackground from '@/components/GradientBackground';
 
 const Rates = () => {
   return (
     <div className="min-h-screen relative">
       {/* Optimized Gradient Background */}
-      <GradientBackground 
-        gradient="cosmic"
-        animated={true}
-        className="fixed inset-0 w-full h-full z-0"
-      />
+      <div className="fixed inset-0 w-full h-full z-0 bg-gradient-to-br from-hunter-green via-sage to-warm-gray" />
       
       {/* Semi-transparent overlay for better text readability */}
       <div className="fixed inset-0 bg-black/10 z-[1]" />
