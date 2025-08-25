@@ -22,8 +22,10 @@ const Meet = () => {
 
   return (
     <div className="min-h-screen relative">
-      {/* Gradient Background */}
-      <div className="fixed inset-0 w-full h-full z-0 bg-gradient-to-br from-hunter-green via-sage to-warm-gray"
+      {/* Background Image */}
+      <div 
+        className="fixed inset-0 w-full h-full z-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: 'url("/background-optimized.svg")' }}
       />
       
       {/* Semi-transparent overlay for better text readability */}
