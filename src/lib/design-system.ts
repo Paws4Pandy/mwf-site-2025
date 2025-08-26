@@ -13,6 +13,7 @@ export const brandColors = {
     red: '#8c3839',        // Primary accent
     gold: '#DAB453',       // Premium CTAs
     green: '#2b4743',      // Secondary text/Hunter green
+    teal: '#228F9D',       // New contrarian/accent color
   },
   
   // Supporting Colors
@@ -81,7 +82,7 @@ export const typography = {
       font: 'font-anton', 
       size: 'text-3xl md:text-4xl',
       weight: 'font-normal',
-      color: 'text-design-gold',
+      color: 'text-design-brand-red',  // Changed from gold to coral
       spacing: 'tracking-normal',
       leading: 'leading-tight',
     },
@@ -117,6 +118,14 @@ export const typography = {
       spacing: 'tracking-wide',
       leading: 'leading-none',
     },
+    contrarian: {
+      font: 'font-roboto-flex',
+      size: 'text-3xl md:text-4xl',
+      weight: 'font-bold',
+      color: 'text-design-teal',
+      spacing: 'tracking-normal',
+      leading: 'leading-tight',
+    },
   },
 } as const;
 
@@ -146,8 +155,8 @@ export const breakpoints = {
 export const components = {
   button: {
     primary: {
-      bg: 'bg-design-gold',
-      hover: 'hover:bg-design-gold/90',
+      bg: 'bg-design-brand-red',       // Changed from gold to coral
+      hover: 'hover:bg-design-brand-red/90',
       text: 'text-white',
       border: 'border-transparent',
       shadow: 'shadow-lg',
@@ -163,9 +172,9 @@ export const components = {
     },
     ghost: {
       bg: 'bg-transparent',
-      hover: 'hover:bg-design-gold/10',
-      text: 'text-design-gold',
-      border: 'border-design-gold/30',
+      hover: 'hover:bg-design-brand-red/10',  // Changed from gold to coral
+      text: 'text-design-brand-red',          // Changed from gold to coral
+      border: 'border-design-brand-red/30',   // Changed from gold to coral
       shadow: 'shadow-none',
     },
   },

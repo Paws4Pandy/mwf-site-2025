@@ -22,14 +22,14 @@ const Meet = () => {
 
   return (
     <div className="min-h-screen relative">
-      {/* Background Image */}
+      {/* Background Image - 49.png */}
       <div 
         className="fixed inset-0 w-full h-full z-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: 'url("/background-optimized.svg")' }}
+        style={{ backgroundImage: 'url("/49.png")' }}
       />
       
       {/* Semi-transparent overlay for better text readability */}
-      <div className="fixed inset-0 bg-black/10 z-[1]" />
+      <div className="fixed inset-0 bg-black/20 z-[1]" />
       
       {/* Scrollable content container */}
       <div className="relative z-10 overflow-y-auto">

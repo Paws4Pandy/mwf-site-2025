@@ -1,5 +1,6 @@
-// Centralized Font Configuration
+// Centralized Font & Color Configuration
 // SIMPLIFIED: Only Anton for H1 and Roboto Flex for everything else
+// UNIFIED: Single source for all typography and color tokens
 
 /**
  * Font Import URLs
@@ -30,6 +31,7 @@ export const fontClasses = {
 /**
  * Typography System
  * Clean, simple typography with only two fonts
+ * COLORS: All colors come from src/lib/design-system.ts - DO NOT DUPLICATE
  */
 export const typographySystem = {
   // H1 - Main headings (Anton)

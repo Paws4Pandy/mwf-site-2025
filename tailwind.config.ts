@@ -1,5 +1,6 @@
 
 import type { Config } from "tailwindcss";
+import { brandColors } from "./src/lib/design-system";
 
 export default {
 	darkMode: ["class"],
@@ -71,30 +72,31 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				
-				// UNIFIED BRAND COLORS - Single Source from design-system.ts
-				'design-black': '#000000',      // Primary text
-				'design-white': '#ffffff',      // Background  
-				'design-red': '#8c3839',        // Primary accent
-				'design-gold': '#DAB453',       // Premium CTAs
-				'design-green': '#2b4743',      // Hunter green
-				'design-azure': '#cedeeb',      // Light backgrounds
-				'design-crimson': '#ffd3db',    // Soft accents
-				'design-brand-red': '#da7073',  // CTA highlights
-				'design-gray-orange': '#dda83f', // Warning
-				'design-charcoal': '#423E3A',   // Authoritative text
-				'design-lilac': '#A79FC7',      // Sophisticated accent
-				'design-sage': '#BBCEC9',       // Supporting backgrounds
-				'design-cream': '#EFE0DF',      // Warm background
+				// UNIFIED BRAND COLORS - FROM SINGLE SOURCE: design-system.ts
+				'design-black': brandColors.primary.black,
+				'design-white': brandColors.primary.white,
+				'design-red': brandColors.primary.red,
+				'design-gold': '#F7A279',
+				'design-green': brandColors.primary.green,
+				'design-teal': brandColors.primary.teal,
+				'design-azure': brandColors.supporting.azure,
+				'design-crimson': brandColors.supporting.crimson,
+				'design-brand-red': brandColors.supporting.brandRed,
+				'design-gray-orange': brandColors.supporting.grayOrange,
+				'design-charcoal': brandColors.supporting.charcoal,
+				'design-lilac': brandColors.supporting.lilac,
+				'design-sage': brandColors.supporting.sage,
+				'design-cream': brandColors.supporting.cream,
 				
-				// Legacy support (use design-* versions instead)
-				'pure-black': '#000000',
-				'pure-white': '#ffffff', 
-				'muted-red': '#8c3839',
-				'light-azure': '#cedeeb',
-				'light-crimson': '#ffd3db',
-				'brand-red': '#da7073',
-				'hunter-green': '#2b4743',
-				'gray-orange': '#dda83f',
+				// Legacy support - NOW REFERENCES SINGLE SOURCE (use design-* versions instead)
+				'pure-black': brandColors.primary.black,
+				'pure-white': brandColors.primary.white,
+				'muted-red': brandColors.primary.red,
+				'light-azure': brandColors.supporting.azure,
+				'light-crimson': brandColors.supporting.crimson,
+				'brand-red': brandColors.supporting.brandRed,
+				'hunter-green': brandColors.primary.green,
+				'gray-orange': brandColors.supporting.grayOrange,
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

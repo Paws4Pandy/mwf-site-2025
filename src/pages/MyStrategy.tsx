@@ -27,10 +27,16 @@ const MyStrategy = () => {
 
   return (
     <div className="min-h-screen relative">
-      {/* Optimized Gradient Background */}
-      <div className="fixed inset-0 w-full h-full z-0 bg-gradient-to-br from-hunter-green via-sage to-warm-gray" />
+      {/* Background Image - 49.png */}
+      <div 
+        className="fixed inset-0 w-full h-full z-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: 'url("/49.png")' }}
+      />
+      
+      {/* Semi-transparent overlay for better text readability */}
+      <div className="fixed inset-0 bg-black/20 z-[1]" />
           
-            {/* Scrollable content container */}
+      {/* Scrollable content container */}
       <div className="relative z-10 overflow-y-auto">
         <div className="container mx-auto px-4">
           <Header transparent={true} />

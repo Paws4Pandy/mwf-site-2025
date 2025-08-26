@@ -35,9 +35,9 @@ const LiquidGlassButton: React.FC<LiquidGlassButtonProps> = ({
   };
   
   const variantClasses = {
-    primary: "bg-transparent border-2 border-white text-white hover:bg-white hover:text-black",
+    primary: "bg-transparent border-2 border-design-teal text-design-teal hover:bg-design-teal hover:text-white",
     secondary: "bg-transparent border-2 border-design-gold text-design-gold hover:bg-design-gold hover:text-black",
-    accent: "bg-gradient-to-r from-design-gold to-yellow-400 border-2 border-transparent text-black hover:from-yellow-400 hover:to-design-gold",
+    accent: "bg-gradient-to-r from-design-teal to-cyan-500 border-2 border-transparent text-white hover:from-cyan-500 hover:to-design-teal",
     custom: "border-2 border-transparent"
   };
 

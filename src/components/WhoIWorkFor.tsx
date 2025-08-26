@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import AGlassCard from '@/components/ui/AGlassCard';
+import { getTypographyClasses } from '@/lib/design-system';
 
 const WhoIWorkFor = () => {
   const featuredCard = {
@@ -45,7 +46,7 @@ const WhoIWorkFor = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h3 className="font-anton text-3xl md:text-4xl text-white mb-4 text-center">{featuredCard.title}</h3>
+          <h3 className={getTypographyClasses('contrarian', 'mb-4 text-center')}>{featuredCard.title}</h3>
           <p className="font-roboto-flex text-white/90 text-xl mb-4 text-center">
             "{featuredCard.quote}"
           </p>

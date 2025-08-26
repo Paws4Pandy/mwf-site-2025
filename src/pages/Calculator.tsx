@@ -5,6 +5,7 @@ import MortgageCalculator from '@/components/calculator/MortgageCalculator';
 import { AdvancedMortgageCalculator } from '@/components/calculator/AdvancedMortgageCalculator';
 import LandTransferTaxCalculator from '@/components/calculator/LandTransferTaxCalculator';
 import LiquidGlassWrapper from '@/components/ui/LiquidGlassWrapper';
+import LiquidGlassButton from '@/components/ui/LiquidGlassButton';
 import { Calculator as CalculatorIcon, TrendingUp, Home, FileText, DollarSign } from 'lucide-react';
 
 // Tab configuration with icons and descriptions
@@ -70,8 +71,11 @@ const Calculator = () => {
 
   return (
     <div className="min-h-screen relative">
-      {/* Optimized Gradient Background - replaces 5.2MB SVG with 3KB CSS */}
-      <div className="fixed inset-0 w-full h-full z-0 bg-gradient-to-br from-hunter-green via-sage to-warm-gray" />
+      {/* Background image using 105.png */}
+      <div 
+        className="fixed inset-0 w-full h-full z-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: 'url(/105.png)' }}
+      />
       
       {/* Semi-transparent overlay for better text readability */}
       <div className="fixed inset-0 bg-black/10 z-[1]" />
@@ -84,7 +88,7 @@ const Calculator = () => {
         {/* Main content */}
         <section className="py-10 md:py-16">
           <div className="max-w-5xl mx-auto text-center">
-            <div className="mb-12 opacity-0 animate-fade-in-delay-1">
+            <div className="mb-20 opacity-0 animate-fade-in-delay-1">
               <h1 className="font-anton text-5xl md:text-7xl lg:text-8xl text-[#ED8071] leading-[0.85] mb-4">
                 Mortgage
                 <br />
@@ -92,71 +96,49 @@ const Calculator = () => {
               </h1>
             </div>
             
-            <div className="mb-16 opacity-0 animate-fade-in-delay-2">
-              <p className="text-xl md:text-2xl font-roboto-flex text-white/90 max-w-4xl mx-auto leading-relaxed">
-                Calculate your mortgage payments, explore CMHC insurance premiums and learn more about how to qualify for a home purchase
-              </p>
-            </div>
           </div>
 
-          {/* Tab Navigation - LIQUID GLASS MORPHISM */}
+          {/* Tab Navigation - Using LiquidGlassButton */}
           <div className="mb-16 opacity-0 animate-fade-in-delay-3">
             <div className="flex flex-wrap justify-center gap-6 mb-8">
               {tabs.map((tab) => {
                 const IconComponent = tab.icon;
                 return (
-                  <div key={tab.id} className="relative">
-                    <LiquidGlassWrapper
-                      mode={activeTab === tab.id ? 'prominent' : 'standard'}
-                      intensity={activeTab === tab.id ? 0.3 : 0.2}
-                      scale={0.3}
-                      className="absolute inset-0 rounded-2xl"
-                    />
-                    <button
-                      onClick={() => setActiveTab(tab.id)}
-                      className={`group relative z-10 overflow-hidden px-8 py-4 rounded-2xl font-semibold transition-all duration-300 transform hover:scale-105 flex-1 min-w-[200px] max-w-[260px] ${
-                        activeTab === tab.id
-                          ? 'bg-gradient-to-r from-design-lilac to-design-lilac/90 text-white shadow-2xl scale-105 border-2 border-design-lilac'
-                          : 'bg-white/70 border-2 border-white/40 hover:bg-white/80 text-design-charcoal hover:text-design-lilac shadow-lg'
-                      }`}
-                      style={{
-                        boxShadow: activeTab === tab.id 
-                          ? '0 12px 40px rgba(139, 69, 139, 0.4), 0 6px 20px rgba(221, 168, 63, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2)'
-                          : '0 4px 16px rgba(0, 0, 0, 0.05), inset 0 1px 0 rgba(255, 255, 255, 0.05)'
-                      }}
-                    >
-                      {/* Animated background shimmer */}
-                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
-                      
-                      {/* Content */}
-                      <div className="relative flex items-center justify-center gap-3">
-                        <IconComponent className={`w-5 h-5 ${activeTab === tab.id ? 'text-white' : 'text-design-charcoal'}`} />
-                        <span className={`text-lg font-medium ${activeTab === tab.id ? 'text-white' : 'text-design-charcoal'}`}>{tab.label}</span>
-                      </div>
-                    </button>
-                  </div>
+                  <LiquidGlassButton
+                    key={tab.id}
+                    onClick={() => setActiveTab(tab.id)}
+                    variant={activeTab === tab.id ? "accent" : "primary"}
+                    size="md"
+                    icon={<IconComponent className="w-5 h-5" />}
+                    className="min-w-[200px] max-w-[260px]"
+                  >
+                    {tab.label}
+                  </LiquidGlassButton>
                 );
               })}
             </div>
             
           </div>
 
-          {/* Calculator Content - Increased spacing with Liquid Glass */}
-          <div className="mt-20 mb-20 opacity-0 animate-fade-in-delay-4">
-            <LiquidGlassWrapper
-              mode="standard"
-              intensity={0.3}
-              scale={0.5}
-            >
-              {ActiveComponent ? (
-                <ActiveComponent />
-              ) : (
-                <ComingSoon 
-                  title={activeTabConfig.label}
-                  description={activeTabConfig.description}
-                />
-              )}
-            </LiquidGlassWrapper>
+          {/* Calculator Content - Improved spacing and padding */}
+          <div className="mt-32 mb-32 opacity-0 animate-fade-in-delay-4 px-4 md:px-8">
+            <div className="max-w-6xl mx-auto">
+              <LiquidGlassWrapper
+                mode="standard"
+                intensity={0.3}
+                scale={0.5}
+                className="p-8 md:p-12"
+              >
+                {ActiveComponent ? (
+                  <ActiveComponent />
+                ) : (
+                  <ComingSoon 
+                    title={activeTabConfig.label}
+                    description={activeTabConfig.description}
+                  />
+                )}
+              </LiquidGlassWrapper>
+            </div>
           </div>
           
         </section>

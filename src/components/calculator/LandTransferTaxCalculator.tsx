@@ -1,11 +1,14 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { CONTACT_CONFIG } from '@/assets/config/contact';
-import { formatCurrency, formatPercent } from '@/lib/constants/cmhc';
+import { formatCurrency } from '@/lib/constants/cmhc';
 import LiquidGlassButton from '@/components/ui/LiquidGlassButton';
 import AGlassCard from '@/components/ui/AGlassCard';
-import { Calculator, FileText, Info, AlertCircle } from 'lucide-react';
+import { Calculator, FileText, Info, AlertCircle, TrendingUp } from 'lucide-react';
+import calculatorConfig from '@/lib/calculator-config';
+
+const { styles, defaults, messages } = calculatorConfig;
 
 interface LandTransferTaxCalculatorProps {
   onOpenContactForm?: () => void;
@@ -104,308 +107,247 @@ function getLTTRateForBracket(price: number): string {
 const LandTransferTaxCalculator: React.FC<LandTransferTaxCalculatorProps> = ({ 
   onOpenContactForm
 }) => {
-  const [purchasePrice, setPurchasePrice] = useState(1000000);
-  const [isToronto, setIsToronto] = useState(false);
+  const [propertyValue, setPropertyValue] = useState(defaults.landTransferTax.propertyValue.default);
   const [isFirstTimeBuyer, setIsFirstTimeBuyer] = useState(false);
+  const [isInToronto, setIsInToronto] = useState(true);
 
-  const lttResult = lttCalculator(purchasePrice, isToronto, isFirstTimeBuyer);
-  const effectiveRate = (lttResult.total / purchasePrice) * 100;
-  const torontoAdminFee = isToronto ? 86.78 * 1.13 : 0; // $86.78 + HST
-  const totalWithFees = lttResult.total + torontoAdminFee;
+  const lttResults = lttCalculator(propertyValue, isInToronto, isFirstTimeBuyer);
+  const currentRate = getLTTRateForBracket(propertyValue);
 
   return (
-    <div className="max-w-6xl mx-auto">
-      <div className="grid lg:grid-cols-2 gap-8">
+    <div className={styles.container.wrapper}>
+      <div className={styles.container.grid}>
         {/* Left Column - Input Controls */}
-        <AGlassCard className="hover:shadow-2xl transition-all duration-300 flex flex-col">
-            <h2 className="text-3xl font-bold mb-8 text-white font-display">
-              Calculate your Land Transfer Tax
-            </h2>
-            
-            <div className="space-y-6">
-              {/* Purchase Price Slider */}
-              <div>
-                <label className="block text-3xl font-bold mb-2 text-gray-orange font-display">
-                  Purchase Price: <span className="font-bold text-gray-orange font-calculator">{formatCurrency(purchasePrice)}</span>
-                </label>
-                <input
-                  type="range"
-                  min="300000"
-                  max="3000000"
-                  step="25000"
-                  value={purchasePrice}
-                  onChange={(e) => setPurchasePrice(Number(e.target.value))}
-                  className="w-full h-4 bg-gradient-to-r from-design-lilac/30 to-design-gold/50 rounded-lg appearance-none cursor-pointer slider-custom"
-                />
-                <div className="flex justify-between text-xl text-white/80 mt-1 font-calculator">
-                  <span>$300K</span>
-                  <span>$3M</span>
-                </div>
-                <div className="mt-2 text-center">
-                  <span className="text-white/80 text-xl font-body">
-                    Current bracket rate: <span className="font-bold text-gray-orange font-calculator">{getLTTRateForBracket(purchasePrice)}</span>
-                  </span>
-                </div>
+        <AGlassCard className={styles.cards.inputCard}>
+          <h2 className={styles.typography.sectionHeader}>
+            {messages.landTransferTax.title}
+          </h2>
+          <p className={styles.typography.bodyText}>
+            {messages.landTransferTax.subtitle}
+          </p>
+          
+          <div className={styles.form.group}>
+            {/* Property Value Slider */}
+            <div>
+              <label className={`block ${styles.typography.label} mb-2`}>
+                {messages.landTransferTax.labels.propertyValue}: <span className={styles.typography.value}>{formatCurrency(propertyValue)}</span>
+              </label>
+              <input
+                type="range"
+                min={defaults.landTransferTax.propertyValue.min}
+                max={defaults.landTransferTax.propertyValue.max}
+                step={defaults.landTransferTax.propertyValue.step}
+                value={propertyValue}
+                onChange={(e) => setPropertyValue(Number(e.target.value))}
+                className={styles.form.slider.track}
+              />
+              <div className={styles.form.range.container}>
+                <span>$100K</span>
+                <span>$10M</span>
               </div>
-
-              {/* Location Toggle */}
-              <div>
-                <label className="block text-3xl font-bold mb-4 text-gray-orange font-display">
-                  Property Location
-                </label>
-                <div className="grid grid-cols-2 gap-4">
-                  <button
-                    onClick={() => setIsToronto(false)}
-                    className={`p-4 rounded-lg border-2 transition-all duration-300 font-semibold ${
-                      !isToronto 
-                        ? 'border-design-lilac bg-design-lilac/20 text-white' 
-                        : 'border-white/20 bg-white/5 text-white/70 hover:bg-white/10'
-                    }`}
-                  >
-                    Rest of Ontario
-                  </button>
-                  <button
-                    onClick={() => setIsToronto(true)}
-                    className={`p-4 rounded-lg border-2 transition-all duration-300 font-semibold ${
-                      isToronto 
-                        ? 'border-design-gold bg-design-gold/20 text-white' 
-                        : 'border-white/20 bg-white/5 text-white/70 hover:bg-white/10'
-                    }`}
-                  >
-                    City of Toronto
-                  </button>
-                </div>
-                {isToronto && (
-                  <div className="mt-3 bg-design-gold/10 border border-design-gold/30 rounded-lg p-3">
-                    <p className="text-white text-xl font-semibold">
-                      <Info className="w-4 h-4 inline mr-1" />
-                      Toronto Property Notice
-                    </p>
-                    <p className="text-white/80 text-xl mt-1">
-                      You'll pay both Provincial and Municipal Land Transfer Tax
-                    </p>
-                  </div>
-                )}
-              </div>
-
-              {/* First-Time Buyer Toggle */}
-              <div>
-                <label className="flex items-center space-x-3 cursor-pointer">
-                  <input
-                    type="checkbox"
-                    checked={isFirstTimeBuyer}
-                    onChange={(e) => setIsFirstTimeBuyer(e.target.checked)}
-                    className="w-5 h-5 text-design-lilac focus:ring-design-lilac border-design-charcoal/30 rounded"
-                  />
-                  <span className="text-3xl font-semibold text-white font-display">
-                    First-time homebuyer
-                  </span>
-                </label>
-                {isFirstTimeBuyer && (
-                  <div className="mt-3 bg-design-lilac/10 border border-design-lilac/30 rounded-lg p-3">
-                    <p className="text-white text-xl font-semibold">
-                      ✓ First-Time Buyer Rebates Available
-                    </p>
-                    <ul className="text-white/80 text-xl mt-2 space-y-1">
-                      <li>• Ontario rebate: up to $4,000</li>
-                      {isToronto && <li>• Toronto rebate: up to $4,475</li>}
-                      <li>• Must be 18+ and Canadian citizen/PR</li>
-                      <li>• Must occupy within 9 months</li>
-                    </ul>
-                  </div>
-                )}
-              </div>
-
-              {/* Rate Breakdown */}
-              <div className="bg-white/5 border border-white/20 rounded-lg p-4">
-                <h4 className="text-3xl font-bold mb-3 text-white font-display">
-                  Ontario LTT Rate Structure
-                </h4>
-                <div className="space-y-3 text-xl">
-                  <div className="flex justify-between items-center">
-                    <span className="text-white/80 font-body">First $55,000:</span>
-                    <span className="text-white font-semibold font-calculator">0.5%</span>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-white/80 font-body">$55,001 - $250,000:</span>
-                    <span className="text-white font-semibold font-calculator">1.0%</span>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-white/80 font-body">$250,001 - $400,000:</span>
-                    <span className="text-white font-semibold font-calculator">1.5%</span>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-white/80 font-body">$400,001 - $2,000,000:</span>
-                    <span className="text-white font-semibold font-calculator">2.0%</span>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-white/80 font-body">Over $2,000,000:</span>
-                    <span className="text-white font-semibold font-calculator">2.5%</span>
-                  </div>
-                  {isToronto && (
-                    <div className="mt-3 pt-2 border-t border-white/20">
-                      <div className="flex justify-between items-center">
-                        <span className="text-design-gold font-body">Toronto adds identical rates</span>
-                        <span className="text-design-gold font-semibold font-calculator">Double the tax</span>
-                      </div>
-                    </div>
-                  )}
-                </div>
-              </div>
-            </div>
-        </AGlassCard>
-
-        {/* Results Panel */}
-        <AGlassCard className="hover:shadow-2xl transition-all duration-300">
-          <div className="h-[800px] flex flex-col">
-            {/* Main LTT Result */}
-            <div className="rounded-2xl shadow-xl p-6 text-center text-white relative overflow-hidden hover:shadow-2xl transition-all duration-300 bg-gradient-to-br from-design-lilac via-design-charcoal to-design-gold mb-4">
-              <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent"></div>
-              <div className="absolute -top-4 -right-4 w-32 h-32 bg-white/5 rounded-full blur-2xl"></div>
-              <div className="absolute -bottom-6 -left-6 w-24 h-24 bg-white/5 rounded-full blur-xl"></div>
-              <div className="relative z-10">
-                <h3 className="text-3xl font-bold mb-3 font-display">Total Land Transfer Tax</h3>
-                <div className="text-4xl font-bold mb-2 font-calculator">
-                  {formatCurrency(totalWithFees)}
-                </div>
-                <p className="text-3xl font-medium text-gray-100 font-body">
-                  {effectiveRate.toFixed(3)}% of purchase price
-                </p>
+              <div className="mt-2">
+                <span className={`text-lg ${styles.typography.helper}`}>
+                  Current LTT Rate: <span className={styles.typography.value}>{currentRate}</span>
+                </span>
               </div>
             </div>
 
-            {/* Scrollable content area */}
-            <div className="flex-1 overflow-y-auto space-y-4 mb-4">
-              {/* Tax Breakdown */}
-              <div className="backdrop-blur-sm rounded-2xl shadow-xl p-4 border-2 hover:shadow-2xl transition-all duration-300 bg-white/10 border-white/20">
-                <h4 className="text-3xl font-bold mb-3 text-white font-display">Tax Breakdown</h4>
-                <div className="space-y-3">
-                  <div className="flex justify-between">
-                    <span className="text-xl font-medium text-white font-body">Ontario LTT:</span>
-                    <span className="font-bold text-white text-xl font-calculator">{formatCurrency(lttResult.ontarioLTT)}</span>
-                  </div>
-                  
-                  {isToronto && (
-                    <div className="flex justify-between">
-                      <span className="text-xl font-medium text-white font-body">Toronto LTT:</span>
-                      <span className="font-bold text-design-gold text-xl font-calculator">{formatCurrency(lttResult.torontoLTT)}</span>
-                    </div>
-                  )}
-
-                  {isFirstTimeBuyer && lttResult.rebates > 0 && (
-                    <div className="flex justify-between">
-                      <span className="text-xl font-medium text-green-400 font-body">First-Time Buyer Rebates:</span>
-                      <span className="font-bold text-green-400 text-xl font-calculator">-{formatCurrency(lttResult.rebates)}</span>
-                    </div>
-                  )}
-
-                  {isToronto && (
-                    <div className="flex justify-between">
-                      <span className="text-xl font-medium text-white font-body">Toronto Admin Fee (incl. HST):</span>
-                      <span className="font-bold text-white text-xl font-calculator">{formatCurrency(torontoAdminFee)}</span>
-                    </div>
-                  )}
-
-                  <div className="flex justify-between border-t pt-3">
-                    <span className="text-xl font-medium text-white font-body">Total Amount Due:</span>
-                    <span className="font-bold text-white text-xl font-calculator">{formatCurrency(totalWithFees)}</span>
-                  </div>
+            {/* Location Toggle */}
+            <div className="mt-6">
+              <h4 className={styles.typography.sectionHeader}>Property Location</h4>
+              <div className="space-y-4">
+                <div>
+                  <label className={styles.form.checkbox.container}>
+                    <input
+                      type="checkbox"
+                      checked={isInToronto}
+                      onChange={(e) => setIsInToronto(e.target.checked)}
+                      className={styles.form.checkbox.input}
+                    />
+                    <span className={styles.form.checkbox.label}>
+                      Located in Toronto (Additional Municipal LTT applies)
+                    </span>
+                  </label>
                 </div>
               </div>
-
-              {/* Rebate Details */}
-              {isFirstTimeBuyer && (
-                <div className="bg-gradient-to-r from-green-500/10 to-green-500/20 border border-green-500/30 rounded-xl p-4 shadow-sm">
-                  <div className="flex items-start space-x-3">
-                    <span className="text-green-400 text-xl mt-0.5">✓</span>
-                    <div>
-                      <h4 className="font-semibold text-white">
-                        First-Time Buyer Rebates Applied
-                      </h4>
-                      <div className="text-xl mt-2 text-white/80 space-y-1 font-body">
-                        <p>• Ontario rebate: <span className="font-calculator">{formatCurrency(Math.min(lttResult.ontarioLTT, 4000))}</span></p>
-                        {isToronto && (
-                          <p>• Toronto rebate: <span className="font-calculator">{formatCurrency(Math.min(lttResult.torontoLTT, 4475))}</span></p>
-                        )}
-                        <p className="mt-2 font-semibold text-green-400">
-                          Total savings: <span className="font-calculator">{formatCurrency(lttResult.rebates)}</span>
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              )}
-
-              {/* Important Notes */}
-              <div className="bg-gradient-to-r from-design-gold/10 to-design-gold/20 border border-design-gold/30 rounded-xl p-4 shadow-sm">
-                <div className="flex items-start space-x-3">
-                  <AlertCircle className="text-design-gold w-5 h-5 mt-0.5 flex-shrink-0" />
-                  <div>
-                    <h4 className="font-semibold text-white">Important Considerations</h4>
-                    <ul className="text-xl mt-2 text-white/80 space-y-1 font-body leading-relaxed">
-                      <li>• LTT is due on closing date</li>
-                      <li>• Additional costs may include legal fees and title insurance</li>
-                      <li>• Non-residents may face additional speculation tax (15%)</li>
-                      {isFirstTimeBuyer && (
-                        <>
-                          <li>• First-time buyer status must be declared and verified</li>
-                          <li>• Property must be occupied as principal residence within 9 months</li>
-                        </>
-                      )}
-                    </ul>
-                  </div>
-                </div>
-              </div>
-
-              {/* Comparison */}
-              {!isFirstTimeBuyer && (
-                <div className="bg-design-lilac/10 border border-design-lilac/30 rounded-xl p-4 shadow-sm">
-                  <h4 className="font-semibold text-white mb-2">💡 Did you know?</h4>
-                  <p className="text-xl text-white/80 font-body">
-                    First-time buyers could save up to <span className="font-calculator font-semibold">{formatCurrency(isToronto ? 8475 : 4000)}</span> in rebates on this purchase.
-                  </p>
-                </div>
-              )}
             </div>
 
-            {/* CTA Buttons - Fixed at bottom */}
-            <div className="grid grid-cols-2 gap-4 mt-4">
-              {/* Mortgage Calculator Button */}
-              <LiquidGlassButton
-                href="/calculator"
-                variant="primary"
-                size="md"
-                icon={<Calculator className="w-4 h-4" />}
-                className="w-full"
-              >
-                Mortgage Calculator
-              </LiquidGlassButton>
-              
-              {/* Get Pre-Approved Button */}
-              {onOpenContactForm ? (
-                <button
-                  onClick={onOpenContactForm}
-                  className="w-full px-6 py-4 text-xl font-semibold inline-block rounded-lg text-white transition-all duration-300 text-center font-display"
-                >
-                  Get Pre-Approved
-                </button>
-              ) : (
-                <LiquidGlassButton
-                  href={CONTACT_CONFIG.applicationUrl}
-                  external
-                  variant="accent"
-                  size="md"
-                  icon={<FileText className="w-4 h-4" />}
-                  className="w-full"
-                >
-                  {CONTACT_CONFIG.cta.primary}
-                </LiquidGlassButton>
-              )}
+            {/* First-Time Buyer Toggle */}
+            <div className="mt-6">
+              <h4 className={styles.typography.sectionHeader}>Rebates</h4>
+              <div className="space-y-4">
+                <div>
+                  <label className={styles.form.checkbox.container}>
+                    <input
+                      type="checkbox"
+                      checked={isFirstTimeBuyer}
+                      onChange={(e) => setIsFirstTimeBuyer(e.target.checked)}
+                      className={styles.form.checkbox.input}
+                    />
+                    <span className={styles.form.checkbox.label}>
+                      {messages.landTransferTax.labels.firstTimeBuyer}
+                    </span>
+                  </label>
+                  {isFirstTimeBuyer && (
+                    <p className={styles.form.checkbox.description}>
+                      You may be eligible for up to {formatCurrency(isInToronto ? 8475 : 4000)} in rebates
+                    </p>
+                  )}
+                </div>
+              </div>
             </div>
           </div>
         </AGlassCard>
+
+        {/* Results Panel */}
+        <div className={styles.cards.resultContainer}>
+          {/* Main Result */}
+          <AGlassCard className={`${styles.cards.monthlyPayment} text-center`}>
+            <h3 className={styles.typography.sectionHeader}>Total Land Transfer Tax</h3>
+            <div className={styles.typography.result}>
+              {formatCurrency(lttResults.total)}
+            </div>
+            <p className={styles.typography.resultLabel}>Amount Due at Closing</p>
+          </AGlassCard>
+
+          {/* Tax Breakdown */}
+          <AGlassCard className={styles.cards.breakdownCard}>
+            <h4 className={styles.typography.sectionHeader}>Tax Breakdown</h4>
+            <div className="space-y-4">
+              <div className={styles.results.breakdown.row}>
+                <span className={styles.results.breakdown.label}>{messages.landTransferTax.results.provincialTax}:</span>
+                <span className={styles.results.breakdown.highlight}>{formatCurrency(lttResults.ontarioLTT)}</span>
+              </div>
+              
+              {isInToronto && (
+                <div className={styles.results.breakdown.row}>
+                  <span className={styles.results.breakdown.label}>{messages.landTransferTax.results.municipalTax}:</span>
+                  <span className={styles.results.breakdown.highlight}>{formatCurrency(lttResults.torontoLTT)}</span>
+                </div>
+              )}
+              
+              <div className={`${styles.results.breakdown.row} border-t pt-3`}>
+                <span className={styles.results.breakdown.label}>Subtotal:</span>
+                <span className={styles.results.breakdown.value}>{formatCurrency(lttResults.ontarioLTT + lttResults.torontoLTT)}</span>
+              </div>
+              
+              {isFirstTimeBuyer && lttResults.rebates > 0 && (
+                <div className={styles.results.breakdown.row}>
+                  <span className="text-green-400 text-xl font-medium font-body">Rebates:</span>
+                  <span className="text-green-400 font-bold text-xl font-calculator">-{formatCurrency(lttResults.rebates)}</span>
+                </div>
+              )}
+              
+              <div className={`${styles.results.breakdown.row} border-t pt-3 font-bold`}>
+                <span className={styles.results.breakdown.label}>Final Amount:</span>
+                <span className={styles.results.breakdown.value}>{formatCurrency(lttResults.total)}</span>
+              </div>
+            </div>
+          </AGlassCard>
+
+          {/* Tax Rate Information */}
+          <AGlassCard className={styles.cards.optionsCard}>
+            <h4 className={styles.typography.sectionHeader}>
+              <Info className="inline w-5 h-5 mr-2" />
+              LTT Rate Schedule
+            </h4>
+            <div className="space-y-3">
+              <div className={styles.results.breakdown.row}>
+                <span className={styles.results.breakdown.label}>$0 - $55,000:</span>
+                <span className={styles.results.breakdown.value}>0.5%</span>
+              </div>
+              <div className={styles.results.breakdown.row}>
+                <span className={styles.results.breakdown.label}>$55,001 - $250,000:</span>
+                <span className={styles.results.breakdown.value}>1.0%</span>
+              </div>
+              <div className={styles.results.breakdown.row}>
+                <span className={styles.results.breakdown.label}>$250,001 - $400,000:</span>
+                <span className={styles.results.breakdown.value}>1.5%</span>
+              </div>
+              <div className={styles.results.breakdown.row}>
+                <span className={styles.results.breakdown.label}>$400,001 - $2,000,000:</span>
+                <span className={styles.results.breakdown.value}>2.0%</span>
+              </div>
+              <div className={styles.results.breakdown.row}>
+                <span className={styles.results.breakdown.label}>Over $2,000,000:</span>
+                <span className={styles.results.breakdown.value}>2.5%</span>
+              </div>
+            </div>
+          </AGlassCard>
+
+          {/* First-Time Buyer Information */}
+          {isFirstTimeBuyer && (
+            <div className={styles.results.success.container}>
+              <div className="flex items-start space-x-3">
+                <span className="text-2xl">🎉</span>
+                <div>
+                  <h4 className={styles.results.success.text}>
+                    First-Time Buyer Rebates Applied
+                  </h4>
+                  <div className={styles.results.success.body}>
+                    <p>Ontario Rebate: Up to {formatCurrency(4000)}</p>
+                    {isInToronto && <p>Toronto Rebate: Up to {formatCurrency(4475)}</p>}
+                    <p className="mt-2">You're saving: <span className="font-calculator">{formatCurrency(lttResults.rebates)}</span></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* Important Notice */}
+          <div className={styles.results.warning.container}>
+            <div className="flex items-start space-x-3">
+              <AlertCircle className="w-5 h-5 text-design-gold mt-1" />
+              <div>
+                <h4 className={styles.results.warning.text}>Important Notice</h4>
+                <p className={styles.results.warning.body}>
+                  This calculator provides estimates only. Actual LTT may vary based on specific circumstances. 
+                  Consult with a lawyer or your mortgage professional for precise calculations.
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
       </div>
-    </div>  
+      
+      {/* CTA Buttons - Same layout as Advanced Calculator */}
+      <div className={styles.actions.container}>
+        <div className={styles.actions.group}>
+          {/* Get Pre-Approved Button */}
+          <LiquidGlassButton
+            href="/rates"
+            variant="primary"
+            size="md"
+            icon={<TrendingUp className="w-4 h-4" />}
+            className={styles.actions.primary}
+          >
+            View Current Rates
+          </LiquidGlassButton>
+          
+          {/* Start Application Button */}
+          {onOpenContactForm ? (
+            <button
+              onClick={onOpenContactForm}
+              className={`${styles.actions.secondary} px-6 py-4 text-xl font-semibold inline-block rounded-lg text-white transition-all duration-300 text-center font-display`}
+            >
+              Get Pre-Approved
+            </button>
+          ) : (
+            <LiquidGlassButton
+              href={CONTACT_CONFIG.applicationUrl}
+              external
+              variant="accent"
+              size="md"
+              icon={<FileText className="w-4 h-4" />}
+              className={styles.actions.secondary}
+            >
+              {CONTACT_CONFIG.cta.primary}
+            </LiquidGlassButton>
+          )}
+        </div>
+      </div>
+    </div>
   );
 };
 

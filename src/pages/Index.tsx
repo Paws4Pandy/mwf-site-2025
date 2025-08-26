@@ -104,16 +104,13 @@ const Index = () => {
 
             {/* Professional Photo */}
             <div className="mb-12 opacity-0 animate-fade-in-delay-2">
-              <div className="inline-block relative group">
-                <div className="absolute inset-0 bg-gradient-to-br from-muted-red/20 to-brand-red/20 blur-xl group-hover:blur-2xl transition-all duration-500"></div>
-                <div className="relative backdrop-blur-sm bg-white/5 border border-white/10 rounded-2xl p-2 hover:scale-105 transition-transform duration-300">
-                  <img 
-                    src="/andreina/andreina-mwf.jpg" 
-                    alt="Andreina Ford - Mortgage Agent Level 2"
-                    className="w-48 h-48 md:w-56 md:h-56 object-cover rounded-xl"
-                    loading="eager"
-                  />
-                </div>
+              <div className="inline-block">
+                <img 
+                  src="/andreina/andreina-mwf-lean.jpg" 
+                  alt="Andreina Ford - Mortgage Agent Level 2"
+                  className="w-48 h-48 md:w-56 md:h-56 object-cover rounded-xl"
+                  loading="eager"
+                />
               </div>
             </div>
 

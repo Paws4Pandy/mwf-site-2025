@@ -1034,37 +1034,40 @@
     animation: icon-float 3s ease-in-out infinite;
   }
 
-  /* Custom Slider Styling */
+  /* Custom Slider Styling - Dark to Coral gradient with white thumb */
   .slider-custom::-webkit-slider-thumb {
     appearance: none;
-    height: 20px;
-    width: 20px;
+    height: 16px;
+    width: 16px;
     border-radius: 50%;
-    background: #A79FC7; /* design-lilac - light plum color */
+    background: #f8fafc;
     cursor: pointer;
-    border: 2px solid #DAB453; /* design-gold border */
+    border: 2px solid #f8fafc;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
     transition: all 0.2s ease;
   }
 
   .slider-custom::-webkit-slider-thumb:hover {
-    background: #DAB453; /* design-gold on hover */
+    background: #e2e8f0;
+    border: 2px solid #e2e8f0;
     transform: scale(1.1);
   }
 
   .slider-custom::-moz-range-thumb {
-    height: 20px;
-    width: 20px;
+    height: 16px;
+    width: 16px;
     border-radius: 50%;
-    background: #A79FC7; /* design-lilac - light plum color */
+    background: #f8fafc;
     cursor: pointer;
-    border: 2px solid #DAB453; /* design-gold border */
+    border: 2px solid #f8fafc;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
     transition: all 0.2s ease;
+    -moz-appearance: none;
   }
 
   .slider-custom::-moz-range-thumb:hover {
-    background: #DAB453; /* design-gold on hover */
+    background: #e2e8f0;
+    border: 2px solid #e2e8f0;
     transform: scale(1.1);
   }
 

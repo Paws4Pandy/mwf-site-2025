@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { getTypographyClasses } from '@/lib/design-system';
 
 export default function Privacy() {
   return (
@@ -8,11 +9,11 @@ export default function Privacy() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-6">
             <Link href="/" className="flex items-center space-x-3">
-              <div className="w-10 h-10 rounded-lg flex items-center justify-center" style={{background: 'linear-gradient(to right, #264653, #2A9D8F)'}}>
+              <div className="w-10 h-10 rounded-lg flex items-center justify-center bg-gradient-to-r from-design-green to-design-teal">
                 <span className="text-white font-bold text-xl">B</span>
               </div>
               <div>
-                <h1 className="text-2xl font-bold" style={{color: '#222831'}}>
+                <h1 className={getTypographyClasses('h2', 'text-design-charcoal')}>
                   Boring Mortgages Ontario
                 </h1>
               </div>

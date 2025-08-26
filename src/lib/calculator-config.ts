@@ -1,77 +1,128 @@
 /**
  * CENTRALIZED CALCULATOR CONFIGURATION
  * Single source of truth for all calculator styling and behavior
- * No hardcoding allowed
+ * No hardcoding allowed - ALL UI MUST USE THIS CONFIG
  */
 
 import { getTypographyClasses, getButtonClasses, getCardClasses } from './design-system';
 
 // ==================== CALCULATOR STYLING PRESETS ====================
 export const calculatorStyles = {
-  // Main container
+  // Main container - Updated per user requirements
   container: {
-    wrapper: 'max-w-4xl mx-auto',
-    grid: 'grid grid-cols-1 lg:grid-cols-2 gap-8',
+    wrapper: 'max-w-7xl mx-auto', // Wider container
+    grid: 'grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16', // More spacing between cards
+    fullWidth: 'w-full', // Full width elements
+    stressTestLayout: 'space-y-8', // Epic full-width stress test layout
+    halfWidthGrid: 'grid grid-cols-1 lg:grid-cols-2 gap-8 mt-8', // Half-width cards below
   },
   
   // Typography presets (using design system)
   typography: {
     title: getTypographyClasses('h2', 'mb-8 text-center'),
     sectionTitle: getTypographyClasses('h3', 'mb-6'),
-    label: 'text-2xl font-roboto-flex font-semibold text-design-gold mb-2',
-    value: 'font-roboto-flex font-bold text-design-gold',
-    helper: 'text-lg text-white/80 font-roboto-flex',
-    result: 'text-3xl font-roboto-flex font-bold text-white',
-    resultLabel: 'text-xl font-roboto-flex font-medium text-white/80',
+    subHeading: 'text-2xl font-serif italic text-white font-normal', // 2px larger, Roboto Serif italics, white
+    label: 'text-2xl font-medium text-white/90 font-body', // Calculator labels - White/muted
+    value: 'font-bold text-[#F7A279] font-calculator', // Values in labels - CORAL
+    helper: 'text-xl text-white/80 font-calculator', // Helper text
+    result: 'text-4xl font-bold text-white font-calculator', // Main result
+    resultLabel: 'text-xl font-medium text-gray-100 font-body', // Result labels
+    sectionHeader: 'text-3xl font-bold text-white font-display', // Section headers
+    bodyText: 'text-xl text-white/80 font-body leading-relaxed', // Body text
+  },
+  
+  // Color scheme - Updated with coral accent
+  colors: {
+    primary: '#F7A279', // Coral color per user requirement
+    secondary: '#228F9D', // Teal for buttons per user requirement
+    accent: 'design-charcoal',
+    highlight: '#F7A279', // Changed from gold to coral
+    warning: '#F7A279', // Coral instead of gold
+    success: 'green-500',
+    error: 'red-500',
   },
   
   // Form elements
   form: {
-    group: 'space-y-4',
+    group: 'space-y-6', // More spacing
+    groupEpic: 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8', // Epic grid layout for stress test
     slider: {
-      track: 'w-full h-2 bg-white/20 rounded-lg appearance-none cursor-pointer',
-      thumb: 'appearance-none h-6 w-6 bg-design-gold rounded-full cursor-pointer border-2 border-white shadow-lg',
+      track: 'w-full h-[2px] bg-gradient-to-r from-black to-[#F7A279] rounded-lg appearance-none cursor-pointer slider-custom',
       container: 'relative',
+      thumb: 'w-5 h-5 bg-white rounded-full cursor-pointer border-2 border-white shadow-lg', // White dot
     },
     range: {
-      container: 'flex justify-between text-lg text-white/80 mt-1',
-      min: 'text-white/60',
-      max: 'text-white/60',
+      container: 'flex justify-between text-xl text-white/80 mt-1 font-calculator',
+      min: 'text-white/80',
+      max: 'text-white/80',
     },
     checkbox: {
-      container: 'flex items-center space-x-3 p-4 bg-white/5 rounded-lg border border-white/10',
-      input: 'w-5 h-5 rounded border-white/30 bg-white/10 text-design-gold focus:ring-design-gold focus:border-design-gold',
-      label: 'text-white font-roboto-flex font-medium',
-      description: 'text-white/70 font-roboto-flex text-sm mt-1',
+      container: 'flex items-center space-x-3 cursor-pointer',
+      input: 'w-5 h-5 text-design-lilac focus:ring-design-lilac border-design-charcoal/30 rounded',
+      label: 'text-xl font-semibold text-white font-display',
+      description: 'text-design-lilac text-xl font-medium mt-1 ml-8 font-body leading-relaxed',
     },
+  },
+  
+  // Card styles - NO gradient on payment card per user requirement
+  cards: {
+    inputCard: 'AGlassCard hover:shadow-2xl transition-all duration-300 flex flex-col', // Left side input card
+    inputCardFullWidth: 'AGlassCard hover:shadow-2xl transition-all duration-300 w-full p-8', // Epic full-width input card
+    resultContainer: 'flex flex-col space-y-4', // Right side container (no wrapper)
+    monthlyPayment: 'rounded-2xl shadow-xl p-6 text-center text-white bg-design-charcoal mb-4', // Simple background, no gradient
+    optionsCard: 'AGlassCard hover:shadow-2xl transition-all duration-300', // Individual cards on right
+    breakdownCard: 'AGlassCard hover:shadow-2xl transition-all duration-300', // Payment breakdown card
+    qualificationCard: {
+      pass: 'bg-gradient-to-r from-green-100 to-green-200 text-green-900 shadow-xl p-6 rounded-2xl text-center w-full', // Light green styling
+      fail: 'bg-gradient-to-r from-orange-100 to-orange-200 text-orange-900 shadow-xl p-6 rounded-2xl text-center w-full', // Light orange styling
+    },
+    stressTestCard: 'bg-gradient-to-r from-yellow-200/20 to-yellow-300/30 border border-yellow-300/40 rounded-xl p-6 shadow-sm w-full', // Full width stress test
   },
   
   // Results display
   results: {
-    card: getCardClasses('glass', 'border-design-gold/20'),
     grid: 'grid grid-cols-1 sm:grid-cols-2 gap-4',
     item: {
-      container: 'text-center p-4 bg-white/5 rounded-lg border border-white/10',
-      value: 'text-3xl font-roboto-flex font-bold text-design-gold',
-      label: 'text-white/80 font-roboto-flex text-sm mt-1',
+      container: 'text-center p-4',
+      value: 'text-3xl font-bold text-[#F7A279] font-calculator', // Coral color for values
+      label: 'text-xl font-medium text-white font-body',
+    },
+    breakdown: {
+      row: 'flex justify-between items-center',
+      label: 'text-xl font-medium text-white font-body',
+      value: 'font-bold text-white text-xl font-calculator',
+      highlight: 'font-bold text-[#F7A279] text-xl font-calculator', // Coral for highlighted values
     },
     warning: {
-      container: 'mt-4 p-4 bg-design-red/10 border border-design-red/20 rounded-lg',
-      text: 'text-white font-roboto-flex',
-      highlight: 'text-design-crimson font-semibold',
+      container: 'bg-yellow-200/20 border border-yellow-300/40 rounded-lg p-4',
+      text: 'text-white text-xl font-semibold font-display',
+      body: 'text-white/80 text-xl mt-2 font-body leading-relaxed',
     },
-    tip: {
-      container: 'mt-4 p-4 bg-design-gold/10 border border-design-gold/20 rounded-lg',
-      text: 'text-white font-roboto-flex',
-      highlight: 'text-design-gold font-semibold',
+    info: {
+      container: 'bg-gradient-to-r from-yellow-200/20 to-yellow-300/30 border border-yellow-300/40 rounded-xl p-4 shadow-sm',
+      icon: 'text-[#F7A279] text-xl mt-0.5',
+      text: 'text-xl mt-1 text-white/80 font-body leading-relaxed',
+    },
+    success: {
+      container: 'bg-design-lilac/10 border border-design-lilac/30 rounded-lg p-3 mt-3',
+      text: 'text-white text-xl font-semibold font-display',
+      body: 'text-white/80 text-xl mt-1 font-body leading-relaxed',
     },
   },
   
-  // Action buttons
+  // Action buttons - Consistent layout like Advanced Calculator
   actions: {
-    primary: getButtonClasses('primary', 'w-full mb-4'),
-    secondary: getButtonClasses('secondary', 'w-full'),
-    group: 'space-y-3 mt-6',
+    primary: 'w-full', // Use with LiquidGlassButton
+    secondary: 'w-full',
+    group: 'grid lg:grid-cols-2 gap-8 mt-6', // Same layout as Advanced Calculator
+    container: 'mt-16 mb-16', // Container wrapper for buttons below cards - increased padding top and bottom
+  },
+  
+  // Layout specific styles
+  layout: {
+    scrollableContent: 'flex-1 overflow-y-auto space-y-4 mb-4',
+    fixedHeight: 'h-[800px] flex flex-col',
+    flexColumn: 'flex flex-col',
   },
 } as const;
 
@@ -79,24 +130,53 @@ export const calculatorStyles = {
 export const calculatorDefaults = {
   mortgage: {
     purchasePrice: {
-      min: 100000,
-      max: 5000000,
-      step: 10000,
+      min: 500000,
+      max: 2000000,
+      step: 25000,
       default: 1000000,
     },
     downPayment: {
       minPercent: 5, // 5% minimum
-      step: 1000,
+      step: 5000,
     },
     interestRate: {
-      min: 1.0,
-      max: 10.0,
+      min: 3.0,
+      max: 7.0,
       step: 0.01,
       default: 5.5,
     },
     amortization: {
-      options: [15, 20, 25, 30],
+      min: 15,
+      max: 30,
+      step: 1,
       default: 25,
+    },
+  },
+  
+  stressTest: {
+    annualIncome: {
+      min: 30000,
+      max: 300000,
+      step: 5000,
+      default: 120000,
+    },
+    monthlyDebts: {
+      min: 0,
+      max: 5000,
+      step: 50,
+      default: 500,
+    },
+    propertyTaxes: {
+      min: 1000,
+      max: 15000,
+      step: 100,
+      default: 6000,
+    },
+    heatingCosts: {
+      min: 600,
+      max: 4000,
+      step: 50,
+      default: 1800,
     },
   },
   
@@ -117,29 +197,74 @@ export const calculatorDefaults = {
 // ==================== CALCULATOR MESSAGES ====================
 export const calculatorMessages = {
   mortgage: {
-    title: 'Mortgage Payment Calculator',
-    subtitle: 'Get instant payment estimates with live rates',
+    title: 'Get instant mortgage payment estimates',
+    subtitle: 'Calculate your mortgage payments with live rates',
     labels: {
       purchasePrice: 'Purchase Price',
       downPayment: 'Down Payment',
       interestRate: 'Interest Rate',
-      amortization: 'Amortization Period',
-      firstTimeBuyer: 'First-Time Home Buyer',
-      newBuild: 'New Construction',
+      amortization: 'Amortization',
+      firstTimeBuyer: 'First-time homebuyer',
+      newBuild: 'New build home (First-time buyer)',
+      borrowedDownPayment: 'Borrowed down payment',
     },
     results: {
       monthlyPayment: 'Monthly Payment',
-      totalInterest: 'Total Interest',
-      cmhcPremium: 'CMHC Premium',
-      totalCost: 'Total Cost',
+      principalInterest: 'Principal & Interest',
+      loanAmount: 'Loan Amount',
+      cmhcPremium: 'CMHC Insurance',
+      cmhcRate: 'CMHC Premium Rate',
+      totalLoan: 'Total Loan',
+      ltvRatio: 'LTV Ratio',
+      amortizationSurcharge: 'Amortization Surcharge',
+    },
+    sections: {
+      additionalOptions: 'Additional Options',
+      paymentBreakdown: 'CMHC Calculation Breakdown',
     },
     warnings: {
-      lowDownPayment: 'Down payment below 20% requires CMHC insurance',
-      maxAmortization: 'Amortization over 25 years increases total interest significantly',
+      highDownPayment: '️ High Down Payment Notice',
+      highDownPaymentBody: 'Consider keeping more cash for closing costs, renovations, or investments',
+      cmhcSurcharge: '⚠️ CMHC charges 0.25% surcharge for amortization over 25 years',
+      newBuildSurcharge: '⚠️ Additional 0.20% CMHC surcharge for 30-year new build',
+      borrowedDownPayment: '⚠️ Higher CMHC premium rate (4.50%) for borrowed down payment',
     },
-    tips: {
-      firstTimeBuyer: 'First-time buyers may qualify for additional rebates and programs',
-      rateNegotiation: 'Posted rates are often negotiable - contact us for better rates',
+    success: {
+      conventionalMortgage: '✓ Conventional Mortgage (20%+ down payment)',
+      conventionalBody: 'No CMHC insurance required - save on premium costs',
+      firstTimeBuyer: '✓ Eligible for 30-year amortization on new builds & rebates up to $8,475',
+    },
+  },
+  
+  stressTest: {
+    title: 'Verify qualification with stress test',
+    subtitle: 'Check if you qualify under mortgage stress test rules',
+    labels: {
+      annualIncome: 'Annual Income',
+      monthlyDebts: 'Monthly Debts',
+      propertyTaxes: 'Property Taxes (Annual)',
+      heatingCosts: 'Heating Costs (Annual)',
+    },
+    results: {
+      stressTestTitle: 'What is the Stress Test?',
+      stressTestBody: 'The government requires lenders to test if you can afford higher payments. We calculate your payment at a higher rate to make sure you won\'t struggle if rates go up. This protects you from getting in over your head.',
+      yourPayment: 'Your payment @',
+      stressTest: 'Stress test @',
+      gdsRatio: 'GDS Ratio',
+      tdsRatio: 'TDS Ratio',
+    },
+    qualification: {
+      pass: {
+        icon: '🎉',
+        title: 'You QUALIFY!',
+        body: 'You pass the stress test requirements',
+      },
+      fail: {
+        icon: '⚠️',
+        title: 'Qualification Challenge',
+        body: 'Your debt-to-income ratios exceed lending guidelines',
+        advice: 'Consider: Higher income, lower debts, larger down payment, or longer amortization',
+      },
     },
   },
   
@@ -157,34 +282,6 @@ export const calculatorMessages = {
       totalTax: 'Total Tax',
       rebate: 'Rebate',
       netTax: 'Net Amount Due',
-    },
-  },
-} as const;
-
-// ==================== FORM VALIDATION ====================
-export const calculatorValidation = {
-  mortgage: {
-    purchasePrice: {
-      min: calculatorDefaults.mortgage.purchasePrice.min,
-      max: calculatorDefaults.mortgage.purchasePrice.max,
-      required: true,
-      message: 'Purchase price must be between $100,000 and $5,000,000',
-    },
-    downPayment: {
-      minPercent: 5,
-      maxPercent: 100,
-      required: true,
-      validate: (downPayment: number, purchasePrice: number) => {
-        const minDown = Math.max(purchasePrice * 0.05, 25000);
-        return downPayment >= minDown;
-      },
-      message: 'Minimum 5% down payment required ($25,000 minimum)',
-    },
-    interestRate: {
-      min: calculatorDefaults.mortgage.interestRate.min,
-      max: calculatorDefaults.mortgage.interestRate.max,
-      required: true,
-      message: 'Interest rate must be between 1.0% and 10.0%',
     },
   },
 } as const;
@@ -213,57 +310,14 @@ export const getCalculatorMessages = (calculatorType: keyof typeof calculatorMes
   return calculatorMessages[calculatorType];
 };
 
-/**
- * Validate calculator input
- */
-export const validateCalculatorInput = (
-  calculatorType: keyof typeof calculatorValidation,
-  field: string,
-  value: any,
-  context?: any
-) => {
-  const validation = (calculatorValidation as any)[calculatorType]?.[field];
-  if (!validation) return { isValid: true, message: '' };
-  
-  if (validation.required && (value === null || value === undefined || value === '')) {
-    return { isValid: false, message: `${field} is required` };
-  }
-  
-  if (validation.min && value < validation.min) {
-    return { isValid: false, message: validation.message };
-  }
-  
-  if (validation.max && value > validation.max) {
-    return { isValid: false, message: validation.message };
-  }
-  
-  if (validation.validate && typeof validation.validate === 'function') {
-    const isValid = validation.validate(value, context);
-    if (!isValid) {
-      return { isValid: false, message: validation.message };
-    }
-  }
-  
-  return { isValid: true, message: '' };
-};
-
-// ==================== RESPONSIVE BREAKPOINTS ====================
-export const calculatorBreakpoints = {
-  mobile: 'lg:grid-cols-1',
-  tablet: 'lg:grid-cols-2', 
-  desktop: 'xl:grid-cols-2',
-} as const;
-
+// Export everything as default for easy import
 export default {
   styles: calculatorStyles,
   defaults: calculatorDefaults,
   messages: calculatorMessages,
-  validation: calculatorValidation,
-  breakpoints: calculatorBreakpoints,
   
   // Utility functions
   getCalculatorClass,
   getCalculatorDefaults,
   getCalculatorMessages,
-  validateCalculatorInput,
 };

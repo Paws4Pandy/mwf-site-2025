@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { CONTACT_CONFIG } from '@/assets/config/contact';
 import { 
-  CMHC_RULES, 
+  CMHC_RULES,
   calculateMinDownPayment, 
   calculateCMHCPremium, 
   calculatePayment,
@@ -14,31 +14,26 @@ import { useRates, useBest5YearFixed } from '@/contexts/RatesContext';
 import LiquidGlassButton from '@/components/ui/LiquidGlassButton';
 import AGlassCard from '@/components/ui/AGlassCard';
 import { TrendingUp, FileText } from 'lucide-react';
+import calculatorConfig from '@/lib/calculator-config';
 
+const { styles, defaults, messages } = calculatorConfig;
 
-
-interface AdvancedMortgageCalculatorProps {
-  onOpenContactForm?: () => void;
-}
-
-export const AdvancedMortgageCalculator: React.FC<AdvancedMortgageCalculatorProps> = ({ onOpenContactForm }) => {
+export const AdvancedMortgageCalculator: React.FC = () => {
   const { rates, loading, error, lastUpdated, refreshRates } = useRates();
   const best5YearFixed = useBest5YearFixed();
   
-  // Mortgage inputs - same as MortgageCalculator
-  const [purchasePrice, setPurchasePrice] = useState(1000000);
+  const [purchasePrice, setPurchasePrice] = useState(defaults.mortgage.purchasePrice.default);
   const [downPayment, setDownPayment] = useState(200000);
   const [interestRate, setInterestRate] = useState(best5YearFixed);
-  const [amortizationYears, setAmortizationYears] = useState(25);
+  const [amortizationYears, setAmortizationYears] = useState(defaults.mortgage.amortization.default);
+  const [term, setTerm] = useState(5); // 5 year term
+  const [annualIncome, setAnnualIncome] = useState(defaults.stressTest.annualIncome.default);
+  const [monthlyDebts, setMonthlyDebts] = useState(defaults.stressTest.monthlyDebts.default);
+  const [propertyTaxes, setPropertyTaxes] = useState(defaults.stressTest.propertyTaxes.default);
+  const [heatingCosts, setHeatingCosts] = useState(1200); // Set to $1200 as requested
   const [isFirstTimeBuyer, setIsFirstTimeBuyer] = useState(false);
   const [isNewBuild, setIsNewBuild] = useState(false);
   const [isTraditionalDownPayment, setIsTraditionalDownPayment] = useState(true);
-  
-  // Stress test specific inputs
-  const [annualIncome, setAnnualIncome] = useState(90000);
-  const [monthlyDebts, setMonthlyDebts] = useState(300);
-  const [propertyTaxes, setPropertyTaxes] = useState(3600);
-  const [heatingCosts, setHeatingCosts] = useState(1200);
 
   // Update interest rate when live rates are loaded
   useEffect(() => {
@@ -82,334 +77,312 @@ export const AdvancedMortgageCalculator: React.FC<AdvancedMortgageCalculatorProp
   const passStressTest = passesGDS && passesTDS;
 
   return (
-    <div className="max-w-6xl mx-auto">
-      <div className="grid lg:grid-cols-2 gap-8">
-        {/* Left Column - Input Controls - EXPANDED TO FIT CONTENT */}
-        <AGlassCard className="hover:shadow-2xl transition-all duration-300 flex flex-col">
-          <p className="text-3xl font-bold mb-8 text-hunter-green font-display">
-            Verify qualification with stress test
-          </p>
+    <div className={styles.container.wrapper}>
+      <div className={styles.container.stressTestLayout}>
+        <h3 className={`text-3xl font-serif italic text-white font-normal text-center mb-20`}>
+          Qualifying Under the Stress Test—How the Numbers Really Work.
+        </h3>
+
+        {/* Monthly Payment and CMHC Cards - Moved to Top */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+          {/* Monthly Payment Result with GDS/TDS */}
+          <AGlassCard className="text-center p-8">
+            <h3 className="text-3xl font-bold text-design-teal font-display">{messages.mortgage.results.monthlyPayment}</h3>
+            <div className="text-4xl font-bold text-design-teal font-calculator mt-4">
+              {formatCurrency(monthlyPayment)}
+            </div>
+            <p className={`${styles.typography.resultLabel} mt-2`}>{messages.mortgage.results.principalInterest}</p>
+            
+            {/* GDS/TDS Ratios */}
+            <div className="mt-6 pt-4 border-t border-white/20">
+              <div className="grid grid-cols-2 gap-4 text-sm">
+                <div>
+                  <p className="text-white/80 font-body">GDS Ratio</p>
+                  <p className="text-[#F7A279] font-bold font-calculator text-lg">{formatPercent(gdsRatio * 100)}</p>
+                  <p className="text-xs text-white/60">{passesGDS ? '✓ Under 39%' : '❌ Over 39%'}</p>
+                </div>
+                <div>
+                  <p className="text-white/80 font-body">TDS Ratio</p>
+                  <p className="text-[#F7A279] font-bold font-calculator text-lg">{formatPercent(tdsRatio * 100)}</p>
+                  <p className="text-xs text-white/60">{passesTDS ? '✓ Under 44%' : '❌ Over 44%'}</p>
+                </div>
+              </div>
+            </div>
+          </AGlassCard>
+
+          {/* CMHC Card */}
+          <AGlassCard className="p-8">
+            <h4 className={styles.typography.sectionHeader}>CMHC Details</h4>
+            <div className="space-y-4 mt-6">
+              <div className={styles.results.breakdown.row}>
+                <span className={styles.results.breakdown.label}>{messages.mortgage.results.loanAmount}:</span>
+                <span className={styles.results.breakdown.value}>{formatCurrency(loanAmount)}</span>
+              </div>
+              {requiresCMHC && (
+                <>
+                  <div className={styles.results.breakdown.row}>
+                    <span className={styles.results.breakdown.label}>{messages.mortgage.results.cmhcRate}:</span>
+                    <span className={styles.results.breakdown.highlight}>
+                      {((Object.entries(CMHC_RULES.premiumRates).find(([ltv]) => ltvRatio <= parseFloat(ltv))?.[1] ?? 0) * 100).toFixed(2)}%
+                    </span>
+                  </div>
+                  <div className={styles.results.breakdown.row}>
+                    <span className={styles.results.breakdown.label}>{messages.mortgage.results.cmhcPremium}:</span>
+                    <span className={styles.results.breakdown.highlight}>{formatCurrency(cmhcPremium)}</span>
+                  </div>
+                </>
+              )}
+              <div className={`${styles.results.breakdown.row} border-t pt-3`}>
+                <span className={styles.results.breakdown.label}>{messages.mortgage.results.totalLoan}:</span>
+                <span className={styles.results.breakdown.value}>{formatCurrency(totalLoanAmount)}</span>
+              </div>
+              <div className={styles.results.breakdown.row}>
+                <span className={styles.results.breakdown.label}>{messages.mortgage.results.ltvRatio}:</span>
+                <span className={styles.results.breakdown.value}>{formatPercent(ltvRatio)}</span>
+              </div>
+            </div>
+          </AGlassCard>
+        </div>
+
+        {/* Input Controls Section - No section title */}
+        <div className={styles.cards.inputCardFullWidth}>
           
-          <div className="space-y-6">
-            {/* Purchase Price Slider */}
-            <div>
-              <label className="block text-3xl font-bold mb-2 text-gray-orange font-display">
-                Purchase Price: <span className="font-bold text-gray-orange font-calculator">{formatCurrency(purchasePrice)}</span>
-              </label>
+          {/* Row 1: Income and Debts - Moved to top as requested */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-24 mb-16">
+            <div className="px-8">
+              <div className="text-left mb-4">
+                <span className={`${styles.typography.value} text-2xl`}>{formatCurrency(annualIncome)}</span>
+              </div>
               <input
                 type="range"
-                min="500000"
-                max="2000000"
-                step="25000"
+                min={defaults.stressTest.annualIncome.min}
+                max={defaults.stressTest.annualIncome.max}
+                step={defaults.stressTest.annualIncome.step}
+                value={annualIncome}
+                onChange={(e) => setAnnualIncome(Number(e.target.value))}
+                className={styles.form.slider.track}
+              />
+              <label className={`block ${styles.typography.label} mt-4 text-left`}>
+                {messages.stressTest.labels.annualIncome}
+              </label>
+            </div>
+
+            <div className="px-8">
+              <div className="text-left mb-4">
+                <span className={`${styles.typography.value} text-2xl`}>{formatCurrency(monthlyDebts)}</span>
+              </div>
+              <input
+                type="range"
+                min={defaults.stressTest.monthlyDebts.min}
+                max={defaults.stressTest.monthlyDebts.max}
+                step={defaults.stressTest.monthlyDebts.step}
+                value={monthlyDebts}
+                onChange={(e) => setMonthlyDebts(Number(e.target.value))}
+                className={styles.form.slider.track}
+              />
+              <label className={`block ${styles.typography.label} mt-4 text-left`}>
+                Monthly Debts (Credit Cards, Loans, Line of Credit)
+              </label>
+            </div>
+          </div>
+
+          {/* Row 2: Purchase Price, Down Payment */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-24 mb-16">
+            <div className="px-8">
+              <div className="text-left mb-4">
+                <span className={`${styles.typography.value} text-2xl`}>{formatCurrency(purchasePrice)}</span>
+              </div>
+              <input
+                type="range"
+                min={defaults.mortgage.purchasePrice.min}
+                max={defaults.mortgage.purchasePrice.max}
+                step={defaults.mortgage.purchasePrice.step}
                 value={purchasePrice}
                 onChange={(e) => {
                   const newPrice = Number(e.target.value);
                   const currentDownPaymentPercent = downPayment / purchasePrice;
-                  
                   setPurchasePrice(newPrice);
-                  
-                  // Keep the same down payment percentage, but respect minimum requirements
                   const newDownPaymentAmount = newPrice * currentDownPaymentPercent;
                   const minRequiredDown = calculateMinDownPayment(newPrice);
                   setDownPayment(Math.max(newDownPaymentAmount, minRequiredDown));
                 }}
-                className="w-full h-4 bg-gradient-to-r from-design-lilac/30 to-design-gold/50 rounded-lg appearance-none cursor-pointer slider-custom"
+                className={styles.form.slider.track}
               />
-              <div className="flex justify-between text-xl text-white/80 mt-1 font-calculator">
-                <span>$500K</span>
-                <span>$2M</span>
-              </div>
+              <label className={`block ${styles.typography.label} mt-4 text-left`}>
+                {messages.mortgage.labels.purchasePrice}
+              </label>
             </div>
 
-            {/* Down Payment Slider */}
-            <div>
-              <label className="block text-3xl font-bold mb-2 text-gray-orange font-display">
-                Down Payment: <span className="font-bold text-gray-orange font-calculator">{formatCurrency(downPayment)} ({formatPercent((downPayment/purchasePrice)*100)})</span>
-              </label>
+            <div className="px-8">
+              <div className="text-left mb-4">
+                <span className={`${styles.typography.value} text-2xl`}>{formatCurrency(downPayment)} <span className={`${styles.typography.helper} text-lg`}>({formatPercent((downPayment/purchasePrice)*100)})</span></span>
+              </div>
               <input
                 type="range"
                 min={minDownPayment}
                 max={purchasePrice * 0.50}
-                step="5000"
+                step={defaults.mortgage.downPayment.step}
                 value={downPayment}
                 onChange={(e) => setDownPayment(Number(e.target.value))}
-                className="w-full h-4 bg-gradient-to-r from-design-lilac/30 to-design-gold/50 rounded-lg appearance-none cursor-pointer slider-custom"
+                className={styles.form.slider.track}
               />
-              <div className="flex justify-between text-xl text-white/90 mt-1 font-medium font-calculator">
-                <span>Minimum: {formatCurrency(minDownPayment)}</span>
-                <span>50%: {formatCurrency(purchasePrice * 0.50)}</span>
-              </div>
+              <label className={`block ${styles.typography.label} mt-4 text-left`}>
+                {messages.mortgage.labels.downPayment}
+              </label>
             </div>
+          </div>
 
-            {/* Interest Rate */}
-            <div>
-              <div className="flex justify-between items-center mb-2">
-                <label className="block text-3xl font-bold text-gray-orange font-display">
-                  Interest Rate: <span className="font-bold text-gray-orange font-calculator">{interestRate}%</span>
-                </label>
+          {/* Row 3: Interest Rate, Term */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-24 mb-16">
+            <div className="px-8">
+              <div className="text-left mb-4">
+                <span className={`${styles.typography.value} text-2xl`}>{interestRate}%</span>
               </div>
               <input
                 type="range"
-                min="3"
-                max="7"
-                step="0.01"
+                min={defaults.mortgage.interestRate.min}
+                max={defaults.mortgage.interestRate.max}
+                step={defaults.mortgage.interestRate.step}
                 value={interestRate}
                 onChange={(e) => setInterestRate(Number(e.target.value))}
-                className="w-full h-4 bg-gradient-to-r from-design-lilac/30 to-design-gold/50 rounded-lg appearance-none cursor-pointer slider-custom"
+                className={styles.form.slider.track}
               />
-              <div className="flex justify-between text-xl text-white/80 mt-2 font-calculator">
-                <span>3%</span>
-                <span>7%</span>
-              </div>
-            </div>
-            
-            {/* Amortization Period */}
-            <div>
-              <label className="block text-3xl font-bold mb-2 text-gray-orange font-display">
-                Amortization: <span className="font-bold text-gray-orange font-calculator">{amortizationYears} years</span>
+              <label className={`block ${styles.typography.label} mt-4 text-left`}>
+                {messages.mortgage.labels.interestRate}
               </label>
+            </div>
+
+            <div className="px-8">
+              <div className="text-left mb-4">
+                <span className={`${styles.typography.value} text-2xl`}>{term} years</span>
+              </div>
               <input
                 type="range"
-                min="15"
-                max="30"
-                step="1"
+                min={1}
+                max={10}
+                step={1}
+                value={term}
+                onChange={(e) => setTerm(Number(e.target.value))}
+                className={styles.form.slider.track}
+              />
+              <label className={`block ${styles.typography.label} mt-4 text-left`}>
+                Term
+              </label>
+            </div>
+          </div>
+
+          {/* Row 4: Amortization, Property Taxes */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-24 mb-16">
+            <div className="px-8">
+              <div className="text-left mb-4">
+                <span className={`${styles.typography.value} text-2xl`}>{amortizationYears} years</span>
+              </div>
+              <input
+                type="range"
+                min={defaults.mortgage.amortization.min}
+                max={defaults.mortgage.amortization.max}
+                step={defaults.mortgage.amortization.step}
                 value={amortizationYears}
                 onChange={(e) => setAmortizationYears(Number(e.target.value))}
-                className="w-full h-4 bg-gradient-to-r from-design-lilac/30 to-design-gold/50 rounded-lg appearance-none cursor-pointer slider-custom"
+                className={styles.form.slider.track}
               />
-              <div className="flex justify-between text-xl text-white/80 mt-2 font-calculator">
-                <span>15 years</span>
-                <span>30 years</span>
-              </div>
+              <label className={`block ${styles.typography.label} mt-4 text-left`}>
+                {messages.mortgage.labels.amortization}
+              </label>
             </div>
 
-            {/* Annual Income Slider */}
-            <div>
-              <label className="block text-3xl font-bold mb-2 text-gray-orange font-display">
-                Annual Income: <span className="font-bold text-gray-orange font-calculator">{formatCurrency(annualIncome)}</span>
-              </label>
-              <input
-                type="range"
-                min="30000"
-                max="300000"
-                step="5000"
-                value={annualIncome}
-                onChange={(e) => setAnnualIncome(Number(e.target.value))}
-                className="w-full h-4 bg-gradient-to-r from-design-lilac/30 to-design-gold/50 rounded-lg appearance-none cursor-pointer slider-custom"
-              />
-              <div className="flex justify-between text-xl text-white/80 mt-1 font-calculator">
-                <span>$30K</span>
-                <span>$300K</span>
+            <div className="px-8">
+              <div className="text-left mb-4">
+                <span className={`${styles.typography.value} text-2xl`}>{formatCurrency(propertyTaxes)}</span>
               </div>
-            </div>
-
-            {/* Monthly Debts Slider */}
-            <div>
-              <label className="block text-3xl font-bold mb-2 text-gray-orange font-display">
-                Monthly Debts: <span className="font-bold text-gray-orange font-calculator">{formatCurrency(monthlyDebts)}</span>
-              </label>
               <input
                 type="range"
-                min="0"
-                max="5000"
-                step="50"
-                value={monthlyDebts}
-                onChange={(e) => setMonthlyDebts(Number(e.target.value))}
-                className="w-full h-4 bg-gradient-to-r from-design-lilac/30 to-design-gold/50 rounded-lg appearance-none cursor-pointer slider-custom"
-              />
-              <div className="flex justify-between text-xl text-white/80 mt-1 font-calculator">
-                <span>$0</span>
-                <span>$5K</span>
-              </div>
-            </div>
-
-            {/* Property Taxes Slider */}
-            <div>
-              <label className="block text-3xl font-bold mb-2 text-gray-orange font-display">
-                Property Taxes (Annual): <span className="font-bold text-gray-orange font-calculator">{formatCurrency(propertyTaxes)}</span>
-              </label>
-              <input
-                type="range"
-                min="1000"
-                max="15000"
-                step="100"
+                min={defaults.stressTest.propertyTaxes.min}
+                max={defaults.stressTest.propertyTaxes.max}
+                step={defaults.stressTest.propertyTaxes.step}
                 value={propertyTaxes}
                 onChange={(e) => setPropertyTaxes(Number(e.target.value))}
-                className="w-full h-4 bg-gradient-to-r from-design-lilac/30 to-design-gold/50 rounded-lg appearance-none cursor-pointer slider-custom"
+                className={styles.form.slider.track}
               />
-              <div className="flex justify-between text-xl text-white/80 mt-1 font-calculator">
-                <span>$1K</span>
-                <span>$15K</span>
-              </div>
-            </div>
-
-            {/* Heating Costs Slider */}
-            <div>
-              <label className="block text-3xl font-bold mb-2 text-gray-orange font-display">
-                Heating Costs (Annual): <span className="font-bold text-gray-orange font-calculator">{formatCurrency(heatingCosts)}</span>
+              <label className={`block ${styles.typography.label} mt-4 text-left`}>
+                {messages.stressTest.labels.propertyTaxes}
               </label>
+            </div>
+          </div>
+
+          {/* Row 5: Heating Costs with Stress Test Explanation */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-24 mb-16">
+            <div className="px-8">
+              <div className="text-left mb-4">
+                <span className={`${styles.typography.value} text-2xl`}>{formatCurrency(heatingCosts)}</span>
+              </div>
               <input
                 type="range"
-                min="600"
-                max="4000"
-                step="50"
+                min={600}
+                max={4000}
+                step={50}
                 value={heatingCosts}
                 onChange={(e) => setHeatingCosts(Number(e.target.value))}
-                className="w-full h-4 bg-gradient-to-r from-design-lilac/30 to-design-gold/50 rounded-lg appearance-none cursor-pointer slider-custom"
+                className={styles.form.slider.track}
               />
-              <div className="flex justify-between text-xl text-white/80 mt-1 font-calculator">
-                <span>$600</span>
-                <span>$4K</span>
-              </div>
-            </div>
-          </div>
-        </AGlassCard>
-
-        {/* Results Panel - EXPANDED TO FIT CONTENT */}
-        <AGlassCard className="hover:shadow-2xl transition-all duration-300">
-          <div className="flex flex-col">
-          {/* Main Payment Result */}
-          <div className="rounded-2xl shadow-xl p-6 text-center text-white relative overflow-hidden hover:shadow-2xl transition-all duration-300 bg-gradient-to-br from-design-lilac via-design-charcoal to-design-gold mb-4">
-            <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent"></div>
-            <div className="absolute -top-4 -right-4 w-32 h-32 bg-white/5 rounded-full blur-2xl"></div>
-            <div className="absolute -bottom-6 -left-6 w-24 h-24 bg-white/5 rounded-full blur-xl"></div>
-            <div className="relative z-10">
-              <h3 className="text-3xl font-bold mb-3 font-display">Monthly Payment</h3>
-              <div className="text-4xl font-bold mb-2 font-calculator">
-                {formatCurrency(monthlyPayment)}
-              </div>
-              <p className="text-3xl font-medium text-gray-100 font-body">Principal & Interest</p>
-            </div>
-          </div>
-
-          {/* Content area - all content visible */}
-          <div className="space-y-4 mb-4">
-            {/* Payment Breakdown */}
-            <div className="backdrop-blur-sm rounded-2xl shadow-xl p-4 border-2 hover:shadow-2xl transition-all duration-300 bg-white/10 border-white/20">
-              <h4 className="text-3xl font-bold mb-3 text-white font-display">Payment Breakdown</h4>
-              <div className="space-y-4">
-                <div className="flex justify-between items-center">
-                  <span className="text-xl font-medium text-white font-body">Loan Amount:</span>
-                  <span className="font-bold text-white text-xl font-calculator">{formatCurrency(loanAmount)}</span>
-                </div>
-                {requiresCMHC && (
-                  <>
-                    <div className="flex justify-between items-center">
-                      <span className="text-xl font-medium text-white font-body">CMHC Premium Rate:</span>
-                      <span className="font-bold text-design-gold text-xl font-calculator">
-                        {((Object.entries(CMHC_RULES.premiumRates).find(([ltv]) => ltvRatio <= parseFloat(ltv))?.[1] ?? 0) * 100).toFixed(2)}%
-                      </span>
-                    </div>
-                    <div className="flex justify-between items-center">
-                      <span className="text-xl font-medium text-white font-body">CMHC Insurance:</span>
-                      <span className="font-bold text-design-gold text-xl font-calculator">{formatCurrency(cmhcPremium)}</span>
-                    </div>
-                  </>
-                )}
-                <div className="flex justify-between items-center border-t pt-3">
-                  <span className="text-xl font-medium text-white font-body">Total Loan:</span>
-                  <span className="font-bold text-white text-xl font-calculator">{formatCurrency(totalLoanAmount)}</span>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-xl font-medium text-white font-body">LTV Ratio:</span>
-                  <span className="font-bold text-white text-xl font-calculator">{formatPercent(ltvRatio)}</span>
-                </div>
-                <div className="flex justify-between items-center">
-                  <span className="text-xl font-medium text-white font-body">Amortization:</span>
-                  <span className="font-bold text-white text-xl font-calculator">{amortizationYears} years</span>
-                </div>
-              </div>
+              <label className={`block ${styles.typography.label} mt-4 text-left`}>
+                {messages.stressTest.labels.heatingCosts}
+              </label>
             </div>
 
             {/* Stress Test Explanation Card */}
-            <div className="bg-gradient-to-r from-design-gold/10 to-design-gold/20 border border-design-gold/30 rounded-xl p-4 shadow-sm">
-              <div className="flex items-start space-x-3">
-                <span className="text-design-gold text-xl mt-0.5">📊</span>
-                <div>
-                  <h4 className="font-semibold text-white mb-2 font-display">
-                    What is the Stress Test?
-                  </h4>
-                  <p className="text-xl text-white/90 leading-relaxed font-body">
-                    The government requires lenders to test if you can afford higher payments. We calculate your payment at a higher rate (<span className="font-calculator">{interestRate.toFixed(2)}%</span> vs <span className="font-calculator">{stressTestRate.toFixed(2)}%</span>) to make sure you won't struggle if rates go up. This protects you from getting in over your head.
-                  </p>
-                  <div className="mt-3 bg-white/10 rounded-lg p-3">
-                    <div className="flex justify-between items-center text-xl mb-1">
-                      <span className="text-white/80 font-body">Your payment @ <span className="font-calculator">{interestRate.toFixed(2)}%</span>:</span>
-                      <span className="text-white font-bold font-calculator">{formatCurrency(monthlyPayment)}</span>
-                    </div>
-                    <div className="flex justify-between items-center text-xl">
-                      <span className="text-white/80 font-body">Stress test @ <span className="font-calculator">{stressTestRate.toFixed(2)}%</span>:</span>
-                      <span className="text-design-gold font-bold font-calculator">{formatCurrency(stressTestPayment)}</span>
-                    </div>
+            <div className="px-8">
+              <div className="bg-blue-50/30 border border-blue-200/40 rounded-xl p-6 shadow-sm w-full backdrop-blur-sm">
+                <h4 className="font-semibold text-blue-900 mb-2 font-display text-lg">
+                  What is the Stress Test?
+                </h4>
+                <p className="text-blue-800 text-sm font-body leading-relaxed mb-4">
+                  The government requires testing at a higher rate to ensure you can afford payments if rates increase. This protects you from getting in over your head.
+                </p>
+                <div className="bg-white/60 rounded-lg p-4 border border-blue-100/50 backdrop-blur-sm">
+                  <div className="flex justify-between items-center text-sm mb-2">
+                    <span className="text-blue-700 font-body">Your payment ({interestRate.toFixed(2)}%):</span>
+                    <span className="text-blue-900 font-bold font-calculator">{formatCurrency(monthlyPayment)}</span>
+                  </div>
+                  <div className="flex justify-between items-center text-sm">
+                    <span className="text-blue-700 font-body">Stress test ({stressTestRate.toFixed(2)}%):</span>
+                    <span className="text-[#F7A279] font-bold font-calculator">{formatCurrency(stressTestPayment)}</span>
                   </div>
                 </div>
               </div>
             </div>
+          </div>
+        </div>
 
-            {/* Qualification Status - EXPANDED TO SHOW FULL CONTENT */}
-            <div
-              className={`p-6 rounded-2xl font-bold text-center select-none transform transition-all duration-300 ${
-                passStressTest 
-                  ? "bg-gradient-to-r from-green-500 to-emerald-600 text-white shadow-2xl" 
-                  : "bg-gradient-to-r from-red-500 to-red-600 text-white shadow-2xl"
-              }`}
-            >
-              {passStressTest ? (
-                <div>
-                  <span className="text-3xl">🎉</span>
-                  <h4 className="text-xl mt-3 font-display">You QUALIFY!</h4>
-                  <p className="text-xl font-normal mt-2 leading-relaxed font-body">You pass the stress test requirements</p>
-                  <div className="mt-3 text-xs font-normal space-y-1 font-calculator">
-                    <div>GDS Ratio: {formatPercent(gdsRatio)} (✓ Under 39%)</div>
-                    <div>TDS Ratio: {formatPercent(tdsRatio)} (✓ Under 44%)</div>
-                  </div>
-                </div>
-              ) : (
-                <div>
-                  <span className="text-3xl">⚠️</span>
-                  <h4 className="text-xl mt-3 font-display">Qualification Challenge</h4>
-                  <p className="text-xl font-normal mt-2 leading-relaxed font-body">
-                    Your debt-to-income ratios exceed lending guidelines
-                  </p>
-                  <div className="mt-3 text-xs font-normal space-y-1 font-calculator">
-                    <div>GDS Ratio: {formatPercent(gdsRatio)} {!passesGDS ? '(❌ Over 39%)' : '(✓ Under 39%)'}</div>
-                    <div>TDS Ratio: {formatPercent(tdsRatio)} {!passesTDS ? '(❌ Over 44%)' : '(✓ Under 44%)'}</div>
-                  </div>
-                  <p className="text-xs font-normal mt-3 leading-relaxed font-body">
-                    Consider: Higher income, lower debts, larger down payment, or longer amortization
-                  </p>
-                </div>
-              )}
-            </div>
-          </div>
-          </div>
-        </AGlassCard>
+
       </div>
       
-      {/* BUTTONS POSITIONED BELOW CARDS AT SAME LEVEL */}
-      <div className="grid lg:grid-cols-2 gap-8 mt-6">
-        {/* Left Button - View Current Rates */}
-        <LiquidGlassButton
-          href="/rates"
-          variant="primary"
-          size="md"
-          icon={<TrendingUp className="w-4 h-4" />}
-          className="w-full"
-        >
-          View Current Rates
-        </LiquidGlassButton>
-        
-        {/* Right Button - Start My Application */}
-        <LiquidGlassButton
-          href={CONTACT_CONFIG.applicationUrl}
-          external
-          variant="accent"
-          size="md"
-          icon={<FileText className="w-4 h-4" />}
-          className="w-full"
-        >
-          Start My Application
-        </LiquidGlassButton>
+      {/* CTA Buttons */}
+      <div className={styles.actions.container}>
+        <div className={styles.actions.group}>
+          {/* View Current Rates Button */}
+          <LiquidGlassButton
+            href="/rates"
+            variant="primary"
+            size="md"
+            icon={<TrendingUp className="w-4 h-4" />}
+            className={styles.actions.primary}
+          >
+            View Current Rates
+          </LiquidGlassButton>
+          
+          {/* Start Application Button */}
+          <LiquidGlassButton
+            href={CONTACT_CONFIG.applicationUrl}
+            external
+            variant="accent"
+            size="md"
+            icon={<FileText className="w-4 h-4" />}
+            className={styles.actions.secondary}
+          >
+            Start My Application
+          </LiquidGlassButton>
+        </div>
       </div>
     </div>
   );
