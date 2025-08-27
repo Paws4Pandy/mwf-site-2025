@@ -55,7 +55,8 @@
       "Bash(start http://localhost:8083/blog-test)",
       "Bash(start http://localhost:8084)",
       "Bash(start http://localhost:8080/rates)",
-      "Bash(start http://localhost:8081/rates)"
+      "Bash(start http://localhost:8081/rates)",
+      "Bash(npm run figma:sync:*)"
     ],
     "deny": [],
     "defaultMode": "acceptEdits"

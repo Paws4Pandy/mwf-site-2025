@@ -121,11 +121,11 @@ const MortgageCalculator: React.FC<MortgageCalculatorProps> = ({
               {/* Down Payment Info */}
               <div className="mt-3 space-y-2">
                 {(downPayment/purchasePrice) > 0.20 && (
-                  <div className={styles.results.warning.container}>
-                    <p className={styles.results.warning.text}>
+                  <div className="bg-blue-50/10 border border-white/20 rounded-xl p-4 shadow-sm backdrop-blur-sm">
+                    <p className="text-white text-xl font-semibold font-display">
                       {messages.mortgage.warnings.highDownPayment}
                     </p>
-                    <p className={styles.results.warning.body}>
+                    <p className="text-white/90 text-xl mt-2 font-body leading-relaxed">
                       {messages.mortgage.warnings.highDownPaymentBody}
                     </p>
                   </div>
@@ -335,21 +335,21 @@ const MortgageCalculator: React.FC<MortgageCalculatorProps> = ({
 
           {/* CMHC Notice */}
           {requiresCMHC && isEligibleForCMHC && (
-            <div className={styles.results.info.container}>
+            <div className="bg-blue-50/10 border border-white/20 rounded-xl p-6 shadow-sm backdrop-blur-sm">
               <div className="flex items-start space-x-3">
-                <span className={styles.results.info.icon}>ℹ️</span>
+                <span className="text-[#F7A279] text-xl mt-0.5">ℹ️</span>
                 <div>
                   <h4 className="font-semibold text-white">
                     CMHC Insurance Required (Official 2025 Rates)
                   </h4>
-                  <p className={styles.results.info.text}>
+                  <p className="text-xl mt-1 text-white/90 font-body leading-relaxed">
                     LTV over 80% requires mortgage default insurance per CMHC rules.
-                    <br />Total Premium: <span className="font-calculator font-semibold">{formatCurrency(cmhcPremium)}</span>
-                    <br />Base Rate: <span className="font-calculator font-semibold">{((Object.entries(CMHC_RULES.premiumRates).find(([ltv]) => ltvRatio <= parseFloat(ltv))?.[1] ?? 0) * 100).toFixed(2)}%</span> of loan amount
-                    {amortizationYears > 25 && <><br />+ <span className="font-calculator">0.25%</span> amortization surcharge (26-30 years)</>}
-                    {isFirstTimeBuyer && isNewBuild && amortizationYears === 30 && <><br />+ <span className="font-calculator">0.20%</span> first-time buyer new build surcharge</>}
-                    {purchasePrice >= 1000000 && purchasePrice <= 1500000 && ltvRatio > 80 && <><br />+ <span className="font-calculator">0.25%</span> high-ratio surcharge ($1M-$1.5M)</>}
-                    {!isTraditionalDownPayment && ltvRatio > 90 && <><br />Higher rate (<span className="font-calculator">4.50%</span>) for borrowed down payment</>}
+                    <br />Total Premium: <span className="font-calculator font-semibold text-[#F7A279]">{formatCurrency(cmhcPremium)}</span>
+                    <br />Base Rate: <span className="font-calculator font-semibold text-[#F7A279]">{((Object.entries(CMHC_RULES.premiumRates).find(([ltv]) => ltvRatio <= parseFloat(ltv))?.[1] ?? 0) * 100).toFixed(2)}%</span> of loan amount
+                    {amortizationYears > 25 && <><br />+ <span className="font-calculator text-[#F7A279]">0.25%</span> amortization surcharge (26-30 years)</>}
+                    {isFirstTimeBuyer && isNewBuild && amortizationYears === 30 && <><br />+ <span className="font-calculator text-[#F7A279]">0.20%</span> first-time buyer new build surcharge</>}
+                    {purchasePrice >= 1000000 && purchasePrice <= 1500000 && ltvRatio > 80 && <><br />+ <span className="font-calculator text-[#F7A279]">0.25%</span> high-ratio surcharge ($1M-$1.5M)</>}
+                    {!isTraditionalDownPayment && ltvRatio > 90 && <><br />Higher rate (<span className="font-calculator text-[#F7A279]">4.50%</span>) for borrowed down payment</>}
                   </p>
                 </div>
               </div>
@@ -358,16 +358,16 @@ const MortgageCalculator: React.FC<MortgageCalculatorProps> = ({
           
           {/* CMHC Ineligible Notice */}
           {!isEligibleForCMHC && (
-            <div className="bg-gradient-to-r from-design-charcoal/10 to-design-charcoal/20 border border-design-charcoal/30 rounded-xl p-4 shadow-sm">
+            <div className="bg-blue-50/10 border border-white/20 rounded-xl p-6 shadow-sm backdrop-blur-sm">
               <div className="flex items-start space-x-3">
                 <span className="text-design-lilac text-xl mt-0.5">⚠️</span>
                 <div>
                   <h4 className="font-semibold text-white">
                     CMHC Insurance Not Available
                   </h4>
-                  <p className="text-xl mt-1 text-white/80 font-body leading-relaxed">
-                    Homes over <span className="font-calculator font-semibold">$1.5M</span> are not eligible for CMHC insurance.
-                    <br />Minimum <span className="font-calculator">20%</span> down payment required for conventional mortgage.
+                  <p className="text-xl mt-1 text-white/90 font-body leading-relaxed">
+                    Homes over <span className="font-calculator font-semibold text-[#F7A279]">$1.5M</span> are not eligible for CMHC insurance.
+                    <br />Minimum <span className="font-calculator text-[#F7A279]">20%</span> down payment required for conventional mortgage.
                   </p>
                 </div>
               </div>

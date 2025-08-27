@@ -1,6 +1,6 @@
 import React from 'react';
 import { getIcon, getIconSize, iconSizes, iconVariants } from '@/assets/config/icons';
-import GlassSocialIcon from '@/components/icons/GlassSocialIcons';
+// import GlassSocialIcon from '@/components/icons/GlassSocialIcons';
 
 interface AppIconProps {
   name: keyof typeof import('@/assets/config/icons').icons;
@@ -25,15 +25,16 @@ const AppIcon: React.FC<AppIconProps> = ({
   const iconSize = getIconSize(size);
 
   // Handle glass variant with custom glass social icons for social platforms
-  if (variant === 'glass' && ['instagram', 'facebook', 'linkedin', 'youtube'].includes(name)) {
-    return (
-      <GlassSocialIcon 
-        type={name as 'instagram' | 'facebook' | 'linkedin' | 'youtube'} 
-        size={iconSize}
-        className={className}
-      />
-    );
-  }
+  // TODO: Add GlassSocialIcon when available
+  // if (variant === 'glass' && ['instagram', 'facebook', 'linkedin', 'youtube'].includes(name)) {
+  //   return (
+  //     <GlassSocialIcon 
+  //       type={name as 'instagram' | 'facebook' | 'linkedin' | 'youtube'} 
+  //       size={iconSize}
+  //       className={className}
+  //     />
+  //   );
+  // }
 
   // Handle missing/undefined icons
   if (!IconComponent) {

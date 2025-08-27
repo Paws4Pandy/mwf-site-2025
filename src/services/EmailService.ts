@@ -15,27 +15,24 @@ interface EmailResponse {
 }
 
 export class EmailService {
-  private static readonly FORM_ENDPOINT = 'https://formspree.io/f/xdkoygkr'; // Replace with actual endpoint
+  // Use relative API endpoint for BrokerMail integration
+  private static readonly API_ENDPOINT = '/api/send-email';
+  private static readonly FALLBACK_ENDPOINT = 'https://formspree.io/f/xdkoygkr'; // Fallback option
   
   static async submitNotification(data: EmailSubmissionData): Promise<EmailResponse> {
     try {
-      // Prepare the email data
+      // Prepare the email data for our API
       const emailData = {
         name: data.name,
         email: data.email,
         type: data.type,
         source: data.source || 'website',
         message: data.message || `${data.name} requested to be notified about ${data.type}`,
-        subject: `New ${data.type} notification request from ${data.name}`,
-        to: 'hello@mortgagewithford.ca',
         timestamp: new Date().toISOString()
       };
 
-      // For development, we'll use a mock API call
-      // In production, this would connect to your email service
-      
-      // Simulate API call
-      const response = await fetch(EmailService.FORM_ENDPOINT, {
+      // Try primary API endpoint (BrokerMail)
+      let response = await fetch(EmailService.API_ENDPOINT, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -43,6 +40,23 @@ export class EmailService {
         },
         body: JSON.stringify(emailData)
       });
+
+      // If primary fails, try fallback
+      if (!response.ok && EmailService.FALLBACK_ENDPOINT) {
+        console.warn('Primary email service failed, trying fallback...');
+        response = await fetch(EmailService.FALLBACK_ENDPOINT, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify({
+            ...emailData,
+            subject: `New ${data.type} notification request from ${data.name}`,
+            to: 'andreina@mortgagewithford.ca'
+          })
+        });
+      }
 
       if (response.ok) {
         // Also store locally for backup/tracking
@@ -100,7 +114,7 @@ export class EmailService {
     const body = encodeURIComponent(
       `Hi Andreina,\n\nName: ${data.name}\nEmail: ${data.email}\n\nI would like to be notified when ${data.type} become available.\n\nThanks!\n${data.name}`
     );
-    return `mailto:hello@mortgagewithford.ca?subject=${subject}&body=${body}`;
+    return `mailto:andreina@mortgagewithford.ca?subject=${subject}&body=${body}`;
   }
 }
 

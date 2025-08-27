@@ -87,8 +87,8 @@ export const AdvancedMortgageCalculator: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
           {/* Monthly Payment Result with GDS/TDS */}
           <AGlassCard className="text-center p-8">
-            <h3 className="text-3xl font-bold text-design-teal font-display">{messages.mortgage.results.monthlyPayment}</h3>
-            <div className="text-4xl font-bold text-design-teal font-calculator mt-4">
+            <h3 className="text-3xl font-bold text-[#61d6c5] font-display">{messages.mortgage.results.monthlyPayment}</h3>
+            <div className="text-4xl font-bold text-[#61d6c5] font-calculator mt-4">
               {formatCurrency(monthlyPayment)}
             </div>
             <p className={`${styles.typography.resultLabel} mt-2`}>{messages.mortgage.results.principalInterest}</p>
@@ -332,20 +332,20 @@ export const AdvancedMortgageCalculator: React.FC = () => {
 
             {/* Stress Test Explanation Card */}
             <div className="px-8">
-              <div className="bg-blue-50/30 border border-blue-200/40 rounded-xl p-6 shadow-sm w-full backdrop-blur-sm">
-                <h4 className="font-semibold text-blue-900 mb-2 font-display text-lg">
+              <div className="bg-blue-50/10 border border-white/20 rounded-xl p-6 shadow-sm w-full backdrop-blur-sm">
+                <h4 className="font-semibold text-white mb-2 font-display text-lg">
                   What is the Stress Test?
                 </h4>
-                <p className="text-blue-800 text-sm font-body leading-relaxed mb-4">
+                <p className="text-white/90 text-sm font-body leading-relaxed mb-4">
                   The government requires testing at a higher rate to ensure you can afford payments if rates increase. This protects you from getting in over your head.
                 </p>
-                <div className="bg-white/60 rounded-lg p-4 border border-blue-100/50 backdrop-blur-sm">
+                <div className="bg-white/10 rounded-lg p-4 border border-white/20 backdrop-blur-sm">
                   <div className="flex justify-between items-center text-sm mb-2">
-                    <span className="text-blue-700 font-body">Your payment ({interestRate.toFixed(2)}%):</span>
-                    <span className="text-blue-900 font-bold font-calculator">{formatCurrency(monthlyPayment)}</span>
+                    <span className="text-white/80 font-body">Your payment ({interestRate.toFixed(2)}%):</span>
+                    <span className="text-[#F7A279] font-bold font-calculator">{formatCurrency(monthlyPayment)}</span>
                   </div>
                   <div className="flex justify-between items-center text-sm">
-                    <span className="text-blue-700 font-body">Stress test ({stressTestRate.toFixed(2)}%):</span>
+                    <span className="text-white/80 font-body">Stress test ({stressTestRate.toFixed(2)}%):</span>
                     <span className="text-[#F7A279] font-bold font-calculator">{formatCurrency(stressTestPayment)}</span>
                   </div>
                 </div>

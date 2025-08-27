@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { headerNavigation } from '@/assets/config/navigation';
 import { getTypographyClasses } from '@/lib/design-system';
+import AGlassCard from '@/components/ui/AGlassCard';
 
 interface HeaderProps {
   showDivider?: boolean;
@@ -52,37 +53,39 @@ const Header: React.FC<HeaderProps> = ({ showDivider = true, transparent = false
         </div>
       </header>
       
-      {/* Slide-out Navigation Menu */}
-      <div className={`fixed top-0 right-0 h-full w-72 bg-design-green shadow-2xl transform transition-transform duration-300 ease-in-out z-40 ${
-        isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
-      }`}>
-        <nav className="pt-20 px-6">
-          <div className="flex flex-col space-y-4">
-            {headerNavigation.map((item) => {
-              const isPlaybooks = item.name === 'FREE PLAYBOOKS';
-              const linkClassName = `font-anton text-lg transition-colors duration-300 block py-2 ${
-                isPlaybooks ? 'text-design-white/60' : 'text-design-white hover:text-design-brand-red'
-              }`;
-              
-              return (
-                <Link
-                  key={item.href}
-                  to={item.href}
-                  className={linkClassName}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  {item.name}
-                  {isPlaybooks && (
-                    <span className="ml-2 text-xs bg-design-brand-red text-design-white px-2 py-1 rounded-full">
-                      SOON
-                    </span>
-                  )}
-                </Link>
-              );
-            })}
-          </div>
-        </nav>
-      </div>
+      {/* Compact Dropdown Navigation Menu */}
+      {isMobileMenuOpen && (
+        <div className="absolute top-16 right-4 z-40 w-64">
+          <AGlassCard className="p-4">
+            <nav>
+              <div className="flex flex-col space-y-2">
+                {headerNavigation.map((item) => {
+                  const isPlaybooks = item.name === 'FREE PLAYBOOKS';
+                  const linkClassName = `font-roboto-flex text-sm transition-colors duration-300 block py-2 px-3 rounded-lg hover:bg-white/10 ${
+                    isPlaybooks ? 'text-[#61d6c5]/60' : 'text-[#61d6c5] hover:text-white'
+                  }`;
+                  
+                  return (
+                    <Link
+                      key={item.href}
+                      to={item.href}
+                      className={linkClassName}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      {item.name}
+                      {isPlaybooks && (
+                        <span className="ml-2 text-xs bg-[#61d6c5] text-white px-2 py-1 rounded-full">
+                          SOON
+                        </span>
+                      )}
+                    </Link>
+                  );
+                })}
+              </div>
+            </nav>
+          </AGlassCard>
+        </div>
+      )}
       
       {/* Overlay for mobile menu */}
       {isMobileMenuOpen && (

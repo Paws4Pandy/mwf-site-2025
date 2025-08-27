@@ -9,65 +9,67 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
   
   return (
-    <footer className="w-full bg-design-black text-design-white">
+    <footer className="w-full bg-transparent text-design-white">
       <div className="max-w-full px-0">
-        {/* Full-width black background - no padding to avoid background photo showing */}
-        <div className="w-full bg-design-black py-12">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Full-width transparent background */}
+        <div className="w-full bg-transparent py-12">
+          <div className="max-w-7xl mx-auto px-8 sm:px-12 lg:px-16">
             
-            {/* Social Media Icons - At Top */}
-            <div className="flex flex-wrap justify-center gap-4 mb-24 pt-16">
-              {socialOrder.map((platform) => {
-                const social = socialLinks[platform];
-                return (
-                  <a 
-                    key={platform}
-                    href={social.url} 
-                    target="_blank" 
-                    rel="noopener noreferrer" 
-                    className="hover:scale-110 transition-all duration-300"
-                    title={`${social.name} - ${social.handle}`}
-                  >
-                    <AppIcon 
-                      name={social.icon as keyof typeof import('@/assets/config/icons').icons}
-                      size="xl"
-                      variant="glass"
-                    />
-                  </a>
-                );
-              })}
-            </div>
 
-            <div className="grid md:grid-cols-4 gap-8 mb-8">
+            <div className="grid md:grid-cols-5 gap-8 mb-8">
               
-              {/* Brand Section */}
-              <div className="pr-2">
-                <div className="flex items-center space-x-3 mb-4">
-                  <img 
-                    src="/BRX_brand_white.png" 
-                    alt="BRX Mortgage Logo" 
-                    className="h-8"
-                  />
-                  <h3 className={getTypographyClasses('h3', 'text-lg text-design-white')}>
-                    Andreina Ford
-                  </h3>
-                </div>
-                <p className={getTypographyClasses('body', 'text-sm mb-4 text-design-white/70')}>
-                  Professional mortgage guidance for Ontario residents.
-                  <br />
-                  Not affiliated with any specific lender.
-                </p>
-                <p className={getTypographyClasses('caption', 'text-xs text-design-white/60')}>
-                  <span className="font-semibold text-design-white/60">Andreina Ford</span><br/>
+              {/* Brand Section - Takes 2 columns */}
+              <div className="md:col-span-2 pr-4">
+                <h3 className="text-lg text-[#ffa072] font-serif italic mb-3">
+                  Andreina Ford
+                </h3>
+                
+                <p className={getTypographyClasses('caption', 'text-xs text-design-white/60 mb-4')}>
                   Mortgage Agent Level 2<br/>
                   License #M24000357<br/>
                   BRX Mortgage #13463
                 </p>
+                
+                {/* Social Media Icons - Below BRX Mortgage */}
+                <div className="flex gap-3 mb-4">
+                  {socialOrder.map((platform) => {
+                    const social = socialLinks[platform];
+                    const iconMap = {
+                      facebook: 'Facebook_perspective_matte_s.png',
+                      instagram: 'Instagram_perspective_matte_s.png',
+                      linkedin: 'Linkedin_perspective_matte_s.png',
+                      youtube: 'Youtube_perspective_matte_s.png'
+                    };
+                    
+                    return (
+                      <a 
+                        key={platform}
+                        href={social.url} 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="hover:scale-110 transition-all duration-300 hover:drop-shadow-lg"
+                        title={`${social.name} - ${social.handle}`}
+                      >
+                        <img 
+                          src={`/src/components/icons/3d-icons/${iconMap[platform as keyof typeof iconMap]}`}
+                          alt={social.name}
+                          className="w-6 h-6 object-contain"
+                        />
+                      </a>
+                    );
+                  })}
+                </div>
+                
+                {/* Professional Guidance - Below Social Icons */}
+                <p className={getTypographyClasses('body', 'text-sm text-design-white/70 mb-4')}>
+                  Professional mortgage guidance for Ontario residents. Not affiliated with any specific lender.
+                </p>
+                
               </div>
 
               {/* Free Tools */}
-              <div className="pl-2">
-                <h3 className={getTypographyClasses('h3', 'text-lg mb-4 text-design-brand-red')}>
+              <div className="pl-4">
+                <h3 className={getTypographyClasses('body', 'text-sm mb-4 text-white font-bold')}>
                   Free Tools
                 </h3>
                 <ul className="space-y-2">
@@ -85,8 +87,8 @@ const Footer = () => {
               </div>
 
               {/* Services */}
-              <div className="pl-2">
-                <h3 className={getTypographyClasses('h3', 'text-lg mb-4 text-design-brand-red')}>
+              <div className="pl-4">
+                <h3 className={getTypographyClasses('body', 'text-sm mb-4 text-white font-bold')}>
                   Services
                 </h3>
                 <ul className="space-y-2">
@@ -115,8 +117,8 @@ const Footer = () => {
               </div>
 
               {/* Get Help */}
-              <div className="pl-2">
-                <h3 className={getTypographyClasses('h3', 'text-lg mb-4 text-design-brand-red')}>
+              <div className="pl-4">
+                <h3 className={getTypographyClasses('body', 'text-sm mb-4 text-white font-bold')}>
                   Get Help
                 </h3>
                 <ul className="space-y-2">
@@ -141,28 +143,46 @@ const Footer = () => {
                       )}
                     </li>
                   ))}
+                  {/* Add Privacy, Terms, Disclaimer */}
+                  {footerNavigation.legal.map((item) => (
+                    <li key={item.name}>
+                      <Link 
+                        to={item.href} 
+                        className={getTypographyClasses('body', 'text-design-white/60 hover:text-design-white transition-colors')}
+                      >
+                        {item.name}
+                      </Link>
+                    </li>
+                  ))}
                 </ul>
               </div>
             </div>
             
+            {/* Copyright - Centered above line break */}
+            <div className="text-center mt-12 mb-8">
+              <p className={getTypographyClasses('body', 'text-design-white/60 text-sm')}>
+                © {currentYear} MortgageWithFord.ca. Making Ontario mortgages simple.
+              </p>
+            </div>
+            
             {/* Trust Badges & Regulatory */}
-            <div className="border-t border-design-white/20 mt-24 pt-24">
+            <div className="border-t border-design-white/20 pt-24">
               <div className="flex flex-col items-center space-y-6">
-                <div className="flex items-center justify-center space-x-8 flex-wrap">
+                <div className="flex items-center justify-center space-x-12 flex-wrap">
                   {/* BRX Mortgage */}
                   <a 
                     href="https://www.brxmortgage.com" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="flex items-center space-x-2 hover:opacity-80 transition-opacity"
+                    className="flex flex-col items-center text-center hover:opacity-80 transition-opacity"
                   >
                     <img 
                       src="/BRX_brand_white.png" 
                       alt="BRX Mortgage" 
-                      className="h-6"
+                      className="h-8 mb-2"
                     />
                     <div className={getTypographyClasses('caption', 'text-design-white/60')}>
-                      BRX MORTGAGE<br/>
+                      BRX Mortgage<br/>
                       #13463
                     </div>
                   </a>
@@ -172,16 +192,16 @@ const Footer = () => {
                     href="https://www.canada.ca" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="flex items-center space-x-2 hover:opacity-80 transition-opacity"
+                    className="flex flex-col items-center text-center hover:opacity-80 transition-opacity"
                   >
                     <img 
                       src="/canada.png" 
                       alt="Government of Canada" 
-                      className="h-6"
+                      className="h-8 mb-2"
                     />
                     <div className={getTypographyClasses('caption', 'text-design-white/60')}>
-                      PROUDLY<br/>
-                      CANADIAN
+                      Proudly<br/>
+                      Canadian
                     </div>
                   </a>
                   
@@ -190,16 +210,16 @@ const Footer = () => {
                     href="https://www.cmhc-schl.gc.ca" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="flex items-center space-x-2 hover:opacity-80 transition-opacity"
+                    className="flex flex-col items-center text-center hover:opacity-80 transition-opacity"
                   >
                     <img 
-                      src="/cmhc.svg" 
+                      src="/cmhc-logo.png" 
                       alt="CMHC" 
-                      className="h-6"
+                      className="h-10 mb-2"
                     />
                     <div className={getTypographyClasses('caption', 'text-design-white/60')}>
-                      CANADA MORTGAGE<br/>
-                      & HOUSING CORP
+                      Canada Mortgage<br/>
+                      & Housing Corp
                     </div>
                   </a>
                   
@@ -208,35 +228,22 @@ const Footer = () => {
                     href="https://www.fsrao.ca" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="flex items-center space-x-2 hover:opacity-80 transition-opacity"
+                    className="flex flex-col items-center text-center hover:opacity-80 transition-opacity"
                   >
                     <img 
-                      src="/fsra.svg" 
+                      src="/fsra logo.png" 
                       alt="FSRA" 
-                      className="h-6"
+                      className="h-8 mb-2"
                     />
                     <div className={getTypographyClasses('caption', 'text-design-white/60')}>
-                      FINANCIAL SERVICES<br/>
-                      REGULATORY AUTHORITY
+                      Financial Services<br/>
+                      Regulatory Authority
                     </div>
                   </a>
                 </div>
                 
-                <div className="flex flex-col md:flex-row justify-between items-center w-full mb-24">
-                  <p className={getTypographyClasses('body', 'text-design-white/60 text-sm')}>
-                    © {currentYear} MortgageWithFord.ca. Making Ontario mortgages simple.
-                  </p>
-                  <div className="flex space-x-6 mt-4 md:mt-0">
-                    {footerNavigation.legal.map((item) => (
-                      <Link 
-                        key={item.name}
-                        to={item.href} 
-                        className={getTypographyClasses('body', 'text-design-white/60 hover:text-design-white text-sm transition-colors')}
-                      >
-                        {item.name}
-                      </Link>
-                    ))}
-                  </div>
+                <div className="w-full mb-24">
+                  {/* Legal links moved to Help column, copyright moved to first column */}
                 </div>
               </div>
             </div>

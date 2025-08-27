@@ -685,6 +685,10 @@
   .animate-fade-in-delay-6 {
     animation: fadeInUp 0.8s ease-out 1.2s both;
   }
+  
+  .animate-fade-in-delay-7 {
+    animation: fadeInUp 0.8s ease-out 1.4s both;
+  }
 
   /* Accordion animations */
   .animate-accordion-down {
