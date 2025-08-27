@@ -6,6 +6,7 @@ import { ChevronDown, Shield, BookOpen, Zap, Heart, Award, Coffee } from 'lucide
 import LiquidGlassButton from '@/components/ui/LiquidGlassButton';
 import WhoIWorkFor from '@/components/WhoIWorkFor';
 import AGlassCard from '@/components/ui/AGlassCard';
+import { getTypographyClasses } from '@/lib/design-system';
 
 const Meet = () => {
   const [scrollY, setScrollY] = useState(0);
@@ -52,16 +53,14 @@ const Meet = () => {
             className="relative group order-2 lg:order-1"
           >
             <div className="absolute inset-0 bg-gradient-to-br from-[#ED8071]/20 to-design-charcoal/20 blur-2xl group-hover:blur-3xl transition-all duration-500"></div>
-            <AGlassCard className="hover:shadow-3xl transition-all duration-500 p-2">
-              <img 
-                src="/andreina/andreina-mwf-social.jpg" 
-                alt="Andreina Ford - Professional Photo"
-                className="w-full rounded-2xl"
-                onError={(e) => {
-                  e.currentTarget.src = '/placeholder.svg';
-                }}
-              />
-            </AGlassCard>
+            <img 
+              src="/andreina/andreina-mwf-social.jpg" 
+              alt="Andreina Ford - Professional Photo"
+              className="w-full rounded-2xl shadow-2xl"
+              onError={(e) => {
+                e.currentTarget.src = '/placeholder.svg';
+              }}
+            />
           </motion.div>
           
           {/* Right Side - Text Content */}
@@ -88,7 +87,7 @@ const Meet = () => {
               initial={{ y: 30, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.8 }}
-              className="font-roboto-flex text-xl md:text-2xl text-white/90 mb-12 max-w-2xl"
+              className="font-serif italic text-xl md:text-2xl text-[#423E3A] mb-12 max-w-2xl"
             >
               Turning loopholes into leverage and six-figure loans into smart plays
             </motion.p>
@@ -161,16 +160,14 @@ const Meet = () => {
               {/* Photo */}
               <div className="relative group">
                 <div className="absolute inset-0 bg-gradient-to-br from-muted-red/20 to-brand-red/20 blur-2xl group-hover:blur-3xl transition-all duration-500"></div>
-                <AGlassCard  className="hover:shadow-2xl transition-all duration-500">
-                  <img 
-                    src="/andreina/andreina-mwf-pretty.jpg" 
-                    alt="Andreina Ford - Professional Photo"
-                    className="w-full rounded-2xl"
-                    onError={(e) => {
-                      e.currentTarget.src = '/placeholder.svg';
-                    }}
-                  />
-                </AGlassCard>
+                <img 
+                  src="/andreina/andreina-mwf-pretty.jpg" 
+                  alt="Andreina Ford - Professional Photo"
+                  className="w-full rounded-2xl shadow-2xl"
+                  onError={(e) => {
+                    e.currentTarget.src = '/placeholder.svg';
+                  }}
+                />
               </div>
             </div>
           </motion.div>
@@ -181,7 +178,7 @@ const Meet = () => {
   
       {/* Unique Methods & Promises */}
       <section className="py-20 px-4">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-5xl mx-auto">
           <motion.h2 
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -202,7 +199,7 @@ const Meet = () => {
               <div className="flex items-start gap-6">
                 <Shield className="w-12 h-12 text-[#ED8071] flex-shrink-0 group-hover:scale-110 transition-transform" />
                 <div>
-                  <h3 className="font-anton text-2xl text-white mb-3">RADICAL TRANSPARENCY</h3>
+                  <h3 className={`${getTypographyClasses('cardTitle')} text-2xl mb-3`}>RADICAL TRANSPARENCY</h3>
                   <p className="font-roboto-flex text-white/80 text-lg">
                     I tell you EXACTLY how things work and what to expect next. There's always more than one way to get the deal done and with me, there's no surprises, ever.
                   </p>
@@ -221,7 +218,7 @@ const Meet = () => {
               <div className="flex items-start gap-6">
                 <BookOpen className="w-12 h-12 text-[#ED8071] flex-shrink-0 group-hover:scale-110 transition-transform" />
                 <div>
-                  <h3 className="font-anton text-2xl text-white mb-3">EDUCATION FIRST</h3>
+                  <h3 className={`${getTypographyClasses('cardTitle')} text-2xl mb-3`}>EDUCATION FIRST</h3>
                   <p className="font-roboto-flex text-white/80 text-lg">
                     FREE Playbooks teach you to spot BS before it happens. You'll understand 
                     every document you sign. Knowledge is power, and I'm giving it all to you.
@@ -241,7 +238,7 @@ const Meet = () => {
               <div className="flex items-start gap-6">
                 <Zap className="w-12 h-12 text-[#ED8071] flex-shrink-0 group-hover:scale-110 transition-transform" />
                 <div>
-                  <h3 className="font-anton text-2xl text-white mb-3">ACCESSIBILITY ADVOCATE</h3>
+                  <h3 className={`${getTypographyClasses('cardTitle')} text-2xl mb-3`}>ACCESSIBILITY ADVOCATE</h3>
                   <p className="font-roboto-flex text-white/80 text-lg">
                     Complex situations? I love them. Unlike other mortgage agents that get deterred from complexities - I seek them. Constant challenges are what makes this career so fulfilling - so whatever it is; I've got you.
                   </p>
@@ -256,33 +253,28 @@ const Meet = () => {
 
 
       {/* Slice of Life */}
-      <div className="mt-20">
-              <h2 className="font-anton text-4xl md:text-5xl text-[#ED8071] mb-6">
-                when it's time to WIND DOWN, find ME:
-              </h2>
-      </div>
-
       <section className="py-20 px-6">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="font-anton text-4xl md:text-5xl text-white mb-6">
+            when it's time to WIND DOWN, find ME:
+          </h2>
           <motion.div 
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             className="grid md:grid-cols-2 gap-12 items-center"
           >
-            <AGlassCard >
-              <img 
-                src="/andreina/andreina-mwf-tub.jpg" 
-                alt="Andreina Ford - Personal Life"
-                className="w-full rounded-2xl"
-                onError={(e) => {
-                  e.currentTarget.src = '/placeholder.svg';
-                }}
-              />
-            </AGlassCard>
+            <img 
+              src="/andreina/andreina-mwf-tub.jpg" 
+              alt="Andreina Ford - Personal Life"
+              className="w-full rounded-2xl shadow-2xl"
+              onError={(e) => {
+                e.currentTarget.src = '/placeholder.svg';
+              }}
+            />
 
             <div>
-               <div className="space-y-3 font-roboto-flex text-white/90 text-xl">
+               <div className="space-y-3 font-roboto-flex text-[#423E3A] font-bold text-xl">
                 <ul className="space-y-3 list-none">
                   <li className="flex items-center gap-3">
                     <span className="w-3 h-3 rounded-full bg-[#ED8071]"></span>

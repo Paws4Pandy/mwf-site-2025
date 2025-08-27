@@ -126,6 +126,22 @@ export const typography = {
       spacing: 'tracking-normal',
       leading: 'leading-tight',
     },
+    subheading: {
+      font: 'font-serif',
+      size: 'text-xl md:text-2xl',
+      weight: 'italic',
+      color: 'text-design-charcoal',
+      spacing: 'tracking-normal',
+      leading: 'leading-tight',
+    },
+    cardTitle: {
+      font: 'font-serif',
+      size: 'text-2xl',
+      weight: 'font-bold',
+      color: 'text-white',
+      spacing: 'tracking-normal',
+      leading: 'leading-tight',
+    },
   },
 } as const;
 

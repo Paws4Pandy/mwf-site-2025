@@ -46,7 +46,7 @@ const WhoIWorkFor = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h3 className={getTypographyClasses('contrarian', 'mb-4 text-center')}>{featuredCard.title}</h3>
+          <h3 className={`${getTypographyClasses('cardTitle')} text-3xl md:text-4xl mb-4 text-center`}>{featuredCard.title}</h3>
           <p className="font-roboto-flex text-white/90 text-xl mb-4 text-center">
             "{featuredCard.quote}"
           </p>
@@ -66,7 +66,7 @@ const WhoIWorkFor = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: (index + 1) * 0.1 }}
             >
-              <h3 className="font-anton text-2xl md:text-3xl text-white mb-4">{card.title}</h3>
+              <h3 className={`${getTypographyClasses('cardTitle')} text-2xl md:text-3xl mb-4`}>{card.title}</h3>
               <p className="font-roboto-flex text-white/90 text-lg mb-4">
                 "{card.quote}"
               </p>
@@ -82,7 +82,7 @@ const WhoIWorkFor = () => {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          className="text-center text-white text-2xl font-roboto-flex mt-12"
+          className="text-center text-[#423E3A] font-serif italic text-2xl mt-12"
         >
           Because everyone deserves a fair shot at home
         </motion.p>
