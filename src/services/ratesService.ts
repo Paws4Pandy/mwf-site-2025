@@ -34,17 +34,7 @@ export class RatesService {
   private static lastFetch: Date | null = null;
   private static readonly CACHE_DURATION = 1000 * 60 * 60 * 24; // 1 day
 
-  // Default fallback rates (updated from RateHub best-mortgage-rates Dec 2024)
-  // Shows 1-5 year fixed rates and 3,5-year variable rates
-  private static readonly DEFAULT_RATES: MortgageRate[] = [
-    { term: '1 Year', type: 'Fixed', rate: '4.79%' },
-    { term: '2 Year', type: 'Fixed', rate: '4.29%' },
-    { term: '3 Year', type: 'Fixed', rate: '3.69%' },
-    { term: '3 Year', type: 'Variable', rate: '4.15%' },
-    { term: '4 Year', type: 'Fixed', rate: '4.29%' },
-    { term: '5 Year', type: 'Fixed', rate: '4.04%' },
-    { term: '5 Year', type: 'Variable', rate: '3.95%' }
-  ];
+  // No hardcoded rates - rates only come from successful API calls
 
   /**
    * Get current mortgage rates - only updates when API succeeds
@@ -60,7 +50,7 @@ export class RatesService {
     const apiKey = getFirecrawlApiKey();
     if (!apiKey) {
       console.warn('No Firecrawl API key - keeping existing rates');
-      return this.cachedRates.length > 0 ? this.cachedRates : this.DEFAULT_RATES;
+      return this.cachedRates;
     }
 
     try {
@@ -83,8 +73,8 @@ export class RatesService {
       console.error('Firecrawl error details:', error);
     }
 
-    // Return existing cached rates or defaults only if no cache exists
-    return this.cachedRates.length > 0 ? this.cachedRates : this.DEFAULT_RATES;
+    // Return existing cached rates only - no hardcoded fallbacks
+    return this.cachedRates;
   }
 
   /**
@@ -300,12 +290,24 @@ export class RatesService {
 
   /**
    * Get the best 5-year fixed rate (most commonly used for calculations)
+   * Returns null if no rate is available from successful API calls
    */
-  static async getBest5YearFixed(): Promise<number> {
+  static async getBest5YearFixed(): Promise<number | null> {
     const rateString = await this.getRate('5 Year', 'Fixed');
     if (rateString) {
       return parseFloat(rateString.replace('%', ''));
     }
-    return 4.04; // Fallback rate
+    return null; // No hardcoded fallback - only return actual rates from API
+  }
+
+  /**
+   * Get information about when rates were last successfully updated
+   */
+  static getLastUpdateInfo(): { lastFetch: Date | null; rateCount: number; hasRates: boolean } {
+    return {
+      lastFetch: this.lastFetch,
+      rateCount: this.cachedRates.length,
+      hasRates: this.cachedRates.length > 0
+    };
   }
 }

@@ -1,5 +1,5 @@
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import NavCard from '@/components/NavCard';
 import { CircleDollarSign } from 'lucide-react';
 import Header from '@/components/Header';
@@ -11,8 +11,10 @@ import { FAQSection } from '@/components/FAQSection';
 import { SchemaMarkup } from '@/components/SchemaMarkup';
 import LiquidGlassButton from '@/components/ui/LiquidGlassButton';
 import ElevenLabsWithTransfer from '@/components/ElevenLabsWithTransfer';
+import ContactFormModal from '@/components/ContactFormModal';
 
 const Index = () => {
+  const [showContactForm, setShowContactForm] = useState(false);
 
   return (
     <div>
@@ -117,14 +119,13 @@ const Index = () => {
             {/* CTA Section - Enhanced Liquid Glass Buttons */}
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 items-center justify-center opacity-0 animate-fade-in-delay-3 w-full max-w-5xl mx-auto mb-16">
               <LiquidGlassButton
-                href="https://callme.mortgagewithford.ca"
+                onClick={() => setShowContactForm(true)}
                 variant="primary"
                 size="md"
-                external={true}
                 className="w-full sm:w-48 lg:w-52"
                 icon="📞"
               >
-                Book Call
+                Contact Me
               </LiquidGlassButton>
               
               <LiquidGlassButton
@@ -169,6 +170,12 @@ const Index = () => {
       
       {/* ElevenLabs ConvAI Widget with Call Transfer - Delayed */}
       <ElevenLabsWithTransfer />
+      
+      {/* Contact Form Modal */}
+      <ContactFormModal 
+        isOpen={showContactForm}
+        onClose={() => setShowContactForm(false)}
+      />
     </div>
   );
 };

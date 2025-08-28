@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X, Mail, Check, AlertCircle, ExternalLink } from 'lucide-react';
+import { X, Mail, Check, AlertCircle } from 'lucide-react';
 import LiquidGlassButton from '@/components/ui/LiquidGlassButton';
 import EmailService from '@/services/EmailService';
 
@@ -143,23 +143,10 @@ const EmailNotificationPopup: React.FC<EmailNotificationPopupProps> = ({
 
                     {error && (
                       <div className="bg-red-500/10 border border-red-500/20 rounded-lg p-3 mb-4">
-                        <div className="flex items-center gap-2 text-red-400 text-sm mb-2">
+                        <div className="flex items-center gap-2 text-red-400 text-sm">
                           <AlertCircle className="w-4 h-4" />
                           {error}
                         </div>
-                        <LiquidGlassButton
-                          href={EmailService.createMailtoLink({
-                            name: name || 'Anonymous',
-                            email: email,
-                            type: 'playbooks'
-                          })}
-                          variant="secondary"
-                          size="sm"
-                          external={true}
-                          icon={<ExternalLink className="w-4 h-4" />}
-                        >
-                          Email Us Directly
-                        </LiquidGlassButton>
                       </div>
                     )}
 

@@ -23,6 +23,7 @@ const AnalyticsDashboard = lazy(() => import("./components/AnalyticsDashboard"))
 const CallbackAdmin = lazy(() => import("./pages/CallbackAdmin"));
 const Guides = lazy(() => import("./pages/Guides"));
 const TestGlass = lazy(() => import("./pages/TestGlass"));
+const TestEmailForms = lazy(() => import("./pages/TestEmailForms"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
@@ -56,6 +57,7 @@ const App = () => (
               <Route path="/callback-admin" element={<CallbackAdmin />} />
               <Route path="/guides" element={<Guides />} />
               <Route path="/test-glass" element={<TestGlass />} />
+              <Route path="/test-email-forms" element={<TestEmailForms />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>

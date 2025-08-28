@@ -56,9 +56,18 @@
       "Bash(start http://localhost:8084)",
       "Bash(start http://localhost:8080/rates)",
       "Bash(start http://localhost:8081/rates)",
-      "Bash(npm run figma:sync:*)"
+      "Bash(npm run figma:sync:*)",
+      "Bash(npm i:*)",
+      "Bash(start https://mortgage-with-ford-august-2025-mehxgkubp.vercel.app)",
+      "Bash(start https://mortgage-with-ford-august-2025-d6qy4700z.vercel.app)",
+      "Bash(start https://mortgage-with-ford-august-2025-27qjr3q9l.vercel.app)",
+      "Bash(start https://mortgage-with-ford-august-2025-job94k8fv.vercel.app)",
+      "Bash(start http://localhost:8080/calculator)"
     ],
     "deny": [],
-    "defaultMode": "acceptEdits"
+    "defaultMode": "acceptEdits",
+    "additionalDirectories": [
+      "C:\\c\\Users\\Andreina\\WEBSITES"
+    ]
   }
 }

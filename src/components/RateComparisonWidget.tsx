@@ -243,3 +243,4 @@ const RateComparisonWidget: React.FC<RateComparisonWidgetProps> = ({ className =
 };
 
 export default RateComparisonWidget;
+

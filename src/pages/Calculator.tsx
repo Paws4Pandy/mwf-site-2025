@@ -4,6 +4,7 @@ import Footer from '@/components/Footer';
 import MortgageCalculator from '@/components/calculator/MortgageCalculator';
 import { AdvancedMortgageCalculator } from '@/components/calculator/AdvancedMortgageCalculator';
 import LandTransferTaxCalculator from '@/components/calculator/LandTransferTaxCalculator';
+import GDSTDSCalculator from '@/components/calculator/GDSTDSCalculator';
 import LiquidGlassWrapper from '@/components/ui/LiquidGlassWrapper';
 import LiquidGlassButton from '@/components/ui/LiquidGlassButton';
 import { Calculator as CalculatorIcon, TrendingUp, Home, FileText, DollarSign } from 'lucide-react';
@@ -25,13 +26,6 @@ const tabs = [
     component: AdvancedMortgageCalculator
   },
   {
-    id: 'heloc',
-    label: 'HELOC',
-    icon: Home,
-    description: 'Home Equity Line of Credit calculator',
-    component: null // Coming soon
-  },
-  {
     id: 'land-transfer',
     label: 'Land Transfer Tax',
     icon: FileText,
@@ -39,11 +33,11 @@ const tabs = [
     component: LandTransferTaxCalculator
   },
   {
-    id: 'rental-income',
-    label: 'Rental Income',
+    id: 'gds-tds',
+    label: 'GDS/TDS Ratios',
     icon: DollarSign,
-    description: 'Investment property calculations',
-    component: null // Coming soon
+    description: 'Debt service ratio qualification calculator',
+    component: GDSTDSCalculator
   }
 ];
 
@@ -63,7 +57,10 @@ const ComingSoon: React.FC<{ title: string; description: string }> = ({ title, d
 );
 
 const Calculator = () => {
-  const [activeTab, setActiveTab] = useState('quick-payment');
+  // Get tab from URL parameter or default to quick-payment
+  const urlParams = new URLSearchParams(window.location.search);
+  const tabFromUrl = urlParams.get('tab') || 'quick-payment';
+  const [activeTab, setActiveTab] = useState(tabFromUrl);
 
   // Get the active tab configuration
   const activeTabConfig = tabs.find(tab => tab.id === activeTab) || tabs[0];

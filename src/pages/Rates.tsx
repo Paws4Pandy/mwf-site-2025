@@ -61,10 +61,10 @@ const Rates = () => {
         <section className="py-10 md:py-16">
           <div className="max-w-5xl mx-auto text-center">
             <div className="mb-20 opacity-0 animate-fade-in-delay-1">
-              <h1 className="font-anton text-5xl md:text-7xl lg:text-8xl text-[#ffa072] leading-[0.85] mb-4">
-                Current
+              <h1 className="font-anton text-5xl md:text-7xl lg:text-8xl text-[#ED8071] leading-[0.85] mb-4">
+                Mortgage
                 <br />
-                <span className="text-white">Mortgage Rates</span>
+                <span className="text-white">Rates</span>
               </h1>
             </div>
             
@@ -76,20 +76,16 @@ const Rates = () => {
               {tabs.map((tab) => {
                 const IconComponent = tab.icon;
                 return (
-                  <button
+                  <LiquidGlassButton
                     key={tab.id}
                     onClick={() => setActiveTab(tab.id)}
-                    className={`
-                      min-w-[200px] max-w-[260px] px-6 py-3 rounded-xl border-2 transition-all duration-300 flex items-center gap-3 font-roboto-flex font-bold
-                      ${activeTab === tab.id 
-                        ? 'bg-gray-800 border-gray-600 text-white shadow-lg' 
-                        : 'bg-transparent border-white text-white hover:bg-white/10'
-                      }
-                    `}
+                    variant={activeTab === tab.id ? "accent" : "primary"}
+                    size="md"
+                    icon={<IconComponent className="w-5 h-5" />}
+                    className="min-w-[200px] max-w-[260px]"
                   >
-                    <IconComponent className="w-5 h-5" />
                     {tab.label}
-                  </button>
+                  </LiquidGlassButton>
                 );
               })}
             </div>

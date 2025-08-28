@@ -8,8 +8,9 @@ interface RatesContextType {
   error: string | null;
   lastUpdated: Date | null;
   refreshRates: () => Promise<void>;
-  getBest5YearFixed: () => number;
+  getBest5YearFixed: () => number | null;
   getRate: (term: string, type: 'Fixed' | 'Variable') => MortgageRate | null;
+  getLastFetchInfo: () => { lastFetch: Date | null; rateCount: number; hasRates: boolean };
 }
 
 const RatesContext = createContext<RatesContextType | undefined>(undefined);
@@ -56,32 +57,26 @@ export const RatesProvider: React.FC<RatesProviderProps> = ({ children }) => {
     await fetchRates(true);
   };
 
-  const getBest5YearFixed = (): number => {
+  const getBest5YearFixed = (): number | null => {
     const rate = rates.find(r => r.term === '5 Year' && r.type === 'Fixed');
     if (rate) {
       return parseFloat(rate.rate.replace('%', ''));
     }
-    return 4.79; // Fallback rate
+    return null; // No hardcoded fallback - only return actual rates from API
   };
 
   const getRate = (term: string, type: 'Fixed' | 'Variable'): MortgageRate | null => {
     return rates.find(r => r.term === term && r.type === type) || null;
   };
 
-  // Initialize with default rates
+  const getLastFetchInfo = () => {
+    return RatesService.getLastUpdateInfo();
+  };
+
+  // Initialize - no hardcoded rates, only load from successful API calls
   useEffect(() => {
-    console.log('RatesContext: Initializing with default rates...');
-    // Set default rates immediately
-    setRates([
-      { term: '1 Year', type: 'Fixed', rate: '4.79%' },
-      { term: '2 Year', type: 'Fixed', rate: '4.29%' },
-      { term: '3 Year', type: 'Fixed', rate: '3.69%' },
-      { term: '3 Year', type: 'Variable', rate: '4.15%' },
-      { term: '4 Year', type: 'Fixed', rate: '4.29%' },
-      { term: '5 Year', type: 'Fixed', rate: '4.04%' },
-      { term: '5 Year', type: 'Variable', rate: '3.95%' }
-    ]);
-    setLoading(false);
+    console.log('RatesContext: Initializing - no hardcoded rates, waiting for API...');
+    setLoading(true); // Keep loading until we get real rates from API
   }, []);
   
   // Separate effect to fetch fresh rates after initialization
@@ -110,7 +105,8 @@ export const RatesProvider: React.FC<RatesProviderProps> = ({ children }) => {
     lastUpdated,
     refreshRates,
     getBest5YearFixed,
-    getRate
+    getRate,
+    getLastFetchInfo
   };
 
   return (
@@ -129,7 +125,7 @@ export const useRates = (): RatesContextType => {
 };
 
 // Convenience hooks for common use cases
-export const useBest5YearFixed = (): number => {
+export const useBest5YearFixed = (): number | null => {
   const { getBest5YearFixed } = useRates();
   return getBest5YearFixed();
 };

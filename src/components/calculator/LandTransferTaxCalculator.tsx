@@ -116,22 +116,75 @@ const LandTransferTaxCalculator: React.FC<LandTransferTaxCalculatorProps> = ({
 
   return (
     <div className={styles.container.wrapper}>
-      <div className={styles.container.grid}>
-        {/* Left Column - Input Controls */}
-        <AGlassCard className={styles.cards.inputCard}>
-          <h2 className={styles.typography.sectionHeader}>
-            {messages.landTransferTax.title}
-          </h2>
-          <p className={styles.typography.bodyText}>
-            {messages.landTransferTax.subtitle}
-          </p>
+      <div className={styles.container.stressTestLayout}>
+        <h3 className={`text-3xl font-serif italic text-white font-normal text-center mb-20`}>
+          Land Transfer Tax Calculator—Know Your Closing Costs Before You Buy.
+        </h3>
+
+        {/* Total LTT and Breakdown Cards - Moved to Top */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+          {/* Total LTT Result */}
+          <AGlassCard className="text-center p-8">
+            <h3 className="text-3xl font-bold text-[#61d6c5] font-display">Total Land Transfer Tax</h3>
+            <div className="text-4xl font-bold text-[#61d6c5] font-calculator mt-4">
+              {formatCurrency(lttResults.total)}
+            </div>
+            <p className={`${styles.typography.resultLabel} mt-2`}>Amount Due at Closing</p>
+            
+            {/* First-Time Buyer Rebate Notice */}
+            {isFirstTimeBuyer && lttResults.rebates > 0 && (
+              <div className="mt-6 pt-4 border-t border-white/20">
+                <p className="text-green-400 font-bold text-sm">✓ First-Time Buyer Rebates Applied</p>
+                <p className="text-xs text-white/60">You're saving {formatCurrency(lttResults.rebates)}</p>
+              </div>
+            )}
+          </AGlassCard>
+
+          {/* Tax Breakdown Card */}
+          <AGlassCard className="p-8">
+            <h4 className={styles.typography.sectionHeader}>Tax Breakdown</h4>
+            <div className="space-y-4 mt-6">
+              <div className={styles.results.breakdown.row}>
+                <span className={styles.results.breakdown.label}>{messages.landTransferTax.results.provincialTax}:</span>
+                <span className={styles.results.breakdown.highlight}>{formatCurrency(lttResults.ontarioLTT)}</span>
+              </div>
+              
+              {isInToronto && (
+                <div className={styles.results.breakdown.row}>
+                  <span className={styles.results.breakdown.label}>{messages.landTransferTax.results.municipalTax}:</span>
+                  <span className={styles.results.breakdown.highlight}>{formatCurrency(lttResults.torontoLTT)}</span>
+                </div>
+              )}
+              
+              {isFirstTimeBuyer && lttResults.rebates > 0 && (
+                <div className={styles.results.breakdown.row}>
+                  <span className="text-green-400 text-xl font-medium font-body">Rebates:</span>
+                  <span className="text-green-400 font-bold text-xl font-calculator">-{formatCurrency(lttResults.rebates)}</span>
+                </div>
+              )}
+              
+              <div className={`${styles.results.breakdown.row} border-t pt-3 font-bold`}>
+                <span className={styles.results.breakdown.label}>Current LTT Rate:</span>
+                <span className={styles.results.breakdown.value}>{currentRate}</span>
+              </div>
+            </div>
+          </AGlassCard>
+        </div>
+
+        {/* Input Controls Section */}
+        <div className={styles.cards.inputCardFullWidth}>
           
-          <div className={styles.form.group}>
-            {/* Property Value Slider */}
-            <div>
-              <label className={`block ${styles.typography.label} mb-2`}>
-                {messages.landTransferTax.labels.propertyValue}: <span className={styles.typography.value}>{formatCurrency(propertyValue)}</span>
-              </label>
+          {/* Row 1: Property Value */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-24 mb-16">
+            <div className="px-8">
+              <div className="text-left mb-4">
+                <span className={`${styles.typography.value} text-2xl`}>{formatCurrency(propertyValue)}</span>
+                <div className="mt-2">
+                  <span className={`text-sm ${styles.typography.helper}`}>
+                    Current LTT Rate: <span className={styles.typography.value}>{currentRate}</span>
+                  </span>
+                </div>
+              </div>
               <input
                 type="range"
                 min={defaults.landTransferTax.propertyValue.min}
@@ -141,21 +194,49 @@ const LandTransferTaxCalculator: React.FC<LandTransferTaxCalculatorProps> = ({
                 onChange={(e) => setPropertyValue(Number(e.target.value))}
                 className={styles.form.slider.track}
               />
-              <div className={styles.form.range.container}>
-                <span>$100K</span>
-                <span>$10M</span>
-              </div>
-              <div className="mt-2">
-                <span className={`text-lg ${styles.typography.helper}`}>
-                  Current LTT Rate: <span className={styles.typography.value}>{currentRate}</span>
-                </span>
-              </div>
+              <label className={`block ${styles.typography.label} mt-4 text-left`}>
+                {messages.landTransferTax.labels.propertyValue}
+              </label>
             </div>
 
-            {/* Location Toggle */}
-            <div className="mt-6">
-              <h4 className={styles.typography.sectionHeader}>Property Location</h4>
+            {/* LTT Rate Schedule Information */}
+            <div className="px-8">
+              <div className="bg-blue-50/10 border border-white/20 rounded-xl p-6 shadow-sm w-full backdrop-blur-sm">
+                <h4 className="font-semibold text-white mb-2 font-display text-lg">
+                  <Info className="inline w-5 h-5 mr-2" />
+                  Ontario LTT Rate Schedule
+                </h4>
+                <div className="text-xs text-white/80 space-y-1">
+                  <div className="flex justify-between">
+                    <span>$0 - $55,000:</span>
+                    <span className="text-[#F7A279]">0.5%</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>$55,001 - $250,000:</span>
+                    <span className="text-[#F7A279]">1.0%</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>$250,001 - $400,000:</span>
+                    <span className="text-[#F7A279]">1.5%</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>$400,001 - $2,000,000:</span>
+                    <span className="text-[#F7A279]">2.0%</span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>Over $2,000,000:</span>
+                    <span className="text-[#F7A279]">2.5%</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Row 2: Location and First-Time Buyer Options */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-24 mb-16">
+            <div className="px-8">
               <div className="space-y-4">
+                {/* Location Toggle */}
                 <div>
                   <label className={styles.form.checkbox.container}>
                     <input
@@ -169,13 +250,8 @@ const LandTransferTaxCalculator: React.FC<LandTransferTaxCalculatorProps> = ({
                     </span>
                   </label>
                 </div>
-              </div>
-            </div>
 
-            {/* First-Time Buyer Toggle */}
-            <div className="mt-6">
-              <h4 className={styles.typography.sectionHeader}>Rebates</h4>
-              <div className="space-y-4">
+                {/* First-Time Buyer Toggle */}
                 <div>
                   <label className={styles.form.checkbox.container}>
                     <input
@@ -196,118 +272,64 @@ const LandTransferTaxCalculator: React.FC<LandTransferTaxCalculatorProps> = ({
                 </div>
               </div>
             </div>
-          </div>
-        </AGlassCard>
 
-        {/* Results Panel */}
-        <div className={styles.cards.resultContainer}>
-          {/* Main Result */}
-          <AGlassCard className={`${styles.cards.monthlyPayment} text-center`}>
-            <h3 className={styles.typography.sectionHeader}>Total Land Transfer Tax</h3>
-            <div className={styles.typography.result}>
-              {formatCurrency(lttResults.total)}
-            </div>
-            <p className={styles.typography.resultLabel}>Amount Due at Closing</p>
-          </AGlassCard>
-
-          {/* Tax Breakdown */}
-          <AGlassCard className={styles.cards.breakdownCard}>
-            <h4 className={styles.typography.sectionHeader}>Tax Breakdown</h4>
-            <div className="space-y-4">
-              <div className={styles.results.breakdown.row}>
-                <span className={styles.results.breakdown.label}>{messages.landTransferTax.results.provincialTax}:</span>
-                <span className={styles.results.breakdown.highlight}>{formatCurrency(lttResults.ontarioLTT)}</span>
-              </div>
-              
-              {isInToronto && (
-                <div className={styles.results.breakdown.row}>
-                  <span className={styles.results.breakdown.label}>{messages.landTransferTax.results.municipalTax}:</span>
-                  <span className={styles.results.breakdown.highlight}>{formatCurrency(lttResults.torontoLTT)}</span>
-                </div>
-              )}
-              
-              <div className={`${styles.results.breakdown.row} border-t pt-3`}>
-                <span className={styles.results.breakdown.label}>Subtotal:</span>
-                <span className={styles.results.breakdown.value}>{formatCurrency(lttResults.ontarioLTT + lttResults.torontoLTT)}</span>
-              </div>
-              
-              {isFirstTimeBuyer && lttResults.rebates > 0 && (
-                <div className={styles.results.breakdown.row}>
-                  <span className="text-green-400 text-xl font-medium font-body">Rebates:</span>
-                  <span className="text-green-400 font-bold text-xl font-calculator">-{formatCurrency(lttResults.rebates)}</span>
-                </div>
-              )}
-              
-              <div className={`${styles.results.breakdown.row} border-t pt-3 font-bold`}>
-                <span className={styles.results.breakdown.label}>Final Amount:</span>
-                <span className={styles.results.breakdown.value}>{formatCurrency(lttResults.total)}</span>
-              </div>
-            </div>
-          </AGlassCard>
-
-          {/* Tax Rate Information */}
-          <AGlassCard className={styles.cards.optionsCard}>
-            <h4 className={styles.typography.sectionHeader}>
-              <Info className="inline w-5 h-5 mr-2" />
-              LTT Rate Schedule
-            </h4>
-            <div className="space-y-3">
-              <div className={styles.results.breakdown.row}>
-                <span className={styles.results.breakdown.label}>$0 - $55,000:</span>
-                <span className={styles.results.breakdown.value}>0.5%</span>
-              </div>
-              <div className={styles.results.breakdown.row}>
-                <span className={styles.results.breakdown.label}>$55,001 - $250,000:</span>
-                <span className={styles.results.breakdown.value}>1.0%</span>
-              </div>
-              <div className={styles.results.breakdown.row}>
-                <span className={styles.results.breakdown.label}>$250,001 - $400,000:</span>
-                <span className={styles.results.breakdown.value}>1.5%</span>
-              </div>
-              <div className={styles.results.breakdown.row}>
-                <span className={styles.results.breakdown.label}>$400,001 - $2,000,000:</span>
-                <span className={styles.results.breakdown.value}>2.0%</span>
-              </div>
-              <div className={styles.results.breakdown.row}>
-                <span className={styles.results.breakdown.label}>Over $2,000,000:</span>
-                <span className={styles.results.breakdown.value}>2.5%</span>
-              </div>
-            </div>
-          </AGlassCard>
-
-          {/* First-Time Buyer Information */}
-          {isFirstTimeBuyer && (
-            <div className={styles.results.success.container}>
-              <div className="flex items-start space-x-3">
-                <span className="text-2xl">🎉</span>
-                <div>
-                  <h4 className={styles.results.success.text}>
-                    First-Time Buyer Rebates Applied
+            {/* First-Time Buyer Information Card */}
+            <div className="px-8">
+              {isFirstTimeBuyer ? (
+                <div className="bg-green-50/10 border border-green-400/20 rounded-xl p-6 shadow-sm w-full backdrop-blur-sm">
+                  <h4 className="font-semibold text-white mb-2 font-display text-lg">
+                    🎉 First-Time Buyer Rebates
                   </h4>
-                  <div className={styles.results.success.body}>
-                    <p>Ontario Rebate: Up to {formatCurrency(4000)}</p>
-                    {isInToronto && <p>Toronto Rebate: Up to {formatCurrency(4475)}</p>}
-                    <p className="mt-2">You're saving: <span className="font-calculator">{formatCurrency(lttResults.rebates)}</span></p>
+                  <div className="text-sm text-white/80 space-y-1">
+                    <div className="flex justify-between">
+                      <span>Ontario Rebate:</span>
+                      <span className="text-green-400">Up to {formatCurrency(4000)}</span>
+                    </div>
+                    {isInToronto && (
+                      <div className="flex justify-between">
+                        <span>Toronto Rebate:</span>
+                        <span className="text-green-400">Up to {formatCurrency(4475)}</span>
+                      </div>
+                    )}
+                    <div className="pt-2 border-t border-white/20 mt-2">
+                      <div className="flex justify-between font-bold">
+                        <span>Your Savings:</span>
+                        <span className="text-green-400">{formatCurrency(lttResults.rebates)}</span>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </div>
-          )}
-
-          {/* Important Notice */}
-          <div className={styles.results.warning.container}>
-            <div className="flex items-start space-x-3">
-              <AlertCircle className="w-5 h-5 text-design-gold mt-1" />
-              <div>
-                <h4 className={styles.results.warning.text}>Important Notice</h4>
-                <p className={styles.results.warning.body}>
-                  This calculator provides estimates only. Actual LTT may vary based on specific circumstances. 
-                  Consult with a lawyer or your mortgage professional for precise calculations.
-                </p>
-              </div>
+              ) : (
+                <div className="bg-blue-50/10 border border-white/20 rounded-xl p-6 shadow-sm w-full backdrop-blur-sm">
+                  <h4 className="font-semibold text-white mb-2 font-display text-lg">
+                    About Land Transfer Tax
+                  </h4>
+                  <p className="text-white/90 text-sm font-body leading-relaxed">
+                    Land Transfer Tax is paid when you purchase a property. Toronto has both provincial and municipal LTT, while other Ontario cities only have provincial LTT.
+                  </p>
+                  <p className="text-white/90 text-sm font-body leading-relaxed mt-2">
+                    First-time buyers may be eligible for rebates that can significantly reduce or eliminate LTT costs.
+                  </p>
+                </div>
+              )}
             </div>
           </div>
 
+          {/* Important Notice */}
+          <div className="mb-16">
+            <div className="bg-yellow-50/10 border border-yellow-400/20 rounded-xl p-6 shadow-sm backdrop-blur-sm">
+              <div className="flex items-start space-x-3">
+                <AlertCircle className="w-5 h-5 text-design-gold mt-1" />
+                <div>
+                  <h4 className="font-semibold text-white mb-2">Important Notice</h4>
+                  <p className="text-white/90 text-sm font-body leading-relaxed">
+                    This calculator provides estimates only. Actual LTT may vary based on specific circumstances. 
+                    Consult with a lawyer or your mortgage professional for precise calculations.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       
