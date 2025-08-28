@@ -25,6 +25,7 @@ const Guides = lazy(() => import("./pages/Guides"));
 const TestGlass = lazy(() => import("./pages/TestGlass"));
 const TestEmailForms = lazy(() => import("./pages/TestEmailForms"));
 const NotFound = lazy(() => import("./pages/NotFound"));
+const Contact = lazy(() => import("./pages/Contact"));
 
 const queryClient = new QueryClient();
 
@@ -52,6 +53,7 @@ const App = () => (
               <Route path="/playbooks" element={<ComingSoon />} />
               <Route path="/playbooks/:playbookId" element={<ComingSoon />} />
               <Route path="/meet" element={<Meet />} />
+              <Route path="/contact" element={<Contact />} />
               <Route path="/my-strategy" element={<MyStrategy />} />
               <Route path="/analytics" element={<AnalyticsDashboard />} />
               <Route path="/callback-admin" element={<CallbackAdmin />} />
