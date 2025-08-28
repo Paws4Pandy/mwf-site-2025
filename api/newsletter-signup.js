@@ -1,5 +1,5 @@
-import { GoogleSpreadsheet } from 'google-spreadsheet';
-import { JWT } from 'google-auth-library';
+const { GoogleSpreadsheet } = require('google-spreadsheet');
+const { JWT } = require('google-auth-library');
 
 // Google Sheets Configuration
 const SHEET_ID = process.env.GOOGLE_SHEET_ID; // Your Google Sheet ID
@@ -39,7 +39,7 @@ const sendEmailNotification = async (formData) => {
   return emailResponse.ok;
 };
 
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
