@@ -45,40 +45,22 @@
     <!-- Resource Hints for Performance -->
     <link rel="dns-prefetch" href="https://ro.am">
     
-    <!-- MOBILE-OPTIMIZED FONT SYSTEM -->
+    <!-- SIMPLIFIED FONT SYSTEM -->
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- Defer all fonts to avoid render blocking -->
-    <link href="https://fonts.googleapis.com/css2?family=Anton:wght@400&display=optional" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;">
-    <noscript><link href="https://fonts.googleapis.com/css2?family=Anton:wght@400&display=optional" rel="stylesheet"></noscript>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,400;8..144,500;8..144,600;8..144,700&display=optional" rel="stylesheet" media="print" onload="this.media='all';this.onload=null;">
-    <noscript><link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,400;8..144,500;8..144,600;8..144,700&display=optional" rel="stylesheet"></noscript>
+    <!-- Standard font loading with swap for better performance -->
+    <link href="https://fonts.googleapis.com/css2?family=Anton:wght@400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,400;8..144,500;8..144,600;8..144,700&display=swap" rel="stylesheet">
     
     <link rel="preload" as="image" href="/room-main.jpg?v=1" fetchpriority="high">
     <link rel="preload" as="image" href="/i-dont-sell-mortgages.png" fetchpriority="high">
     <link rel="preload" as="image" href="/i-guard.png" fetchpriority="high">
     
-    <!-- Critical CSS for Mobile Performance -->
+    <!-- Minimal Critical CSS -->
     <style>
-      /* Critical above-fold styles */
-      *{box-sizing:border-box;margin:0;padding:0}
-      body{font-family:system-ui,-apple-system,sans-serif;line-height:1.6;color:#fff;background:#000}
-      .relative{position:relative}
-      .absolute{position:absolute}
-      .inset-0{top:0;right:0;bottom:0;left:0}
-      .z-10{z-index:10}
-      .bg-black{background-color:#000}
-      .text-white{color:#fff}
+      body{margin:0;padding:0;background:#000;color:#fff}
       .w-full{width:100%}
       .h-auto{height:auto}
-      .max-w-xl{max-width:36rem}
-      .max-w-2xl{max-width:42rem}
-      .mb-4{margin-bottom:1rem}
-      .mb-16{margin-bottom:4rem}
-      .ml-8{margin-left:2rem}
-      .bg-cover{background-size:cover}
-      .bg-top{background-position:top}
-      .bg-no-repeat{background-repeat:no-repeat}
     </style>
     
     <!-- Favicon -->

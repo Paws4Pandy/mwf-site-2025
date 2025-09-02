@@ -24,20 +24,13 @@ const Index = () => {
       
       {/* Hero section - Full Width Background */}
       <section className="relative min-h-screen flex items-center overflow-hidden bg-black">
-        {/* Mobile-Optimized Background - Deferred loading */}
+        {/* Background Image with B&W filter */}
         <div 
-          className="absolute inset-0 bg-black"
-          style={{ 
-            backgroundImage: "url('/room-main.jpg?v=1')",
-            backgroundSize: 'cover',
-            backgroundPosition: 'top',
-            backgroundRepeat: 'no-repeat',
-            filter: 'grayscale(100%) contrast(110%) brightness(90%)',
-            willChange: 'auto'
-          }}
+          className="absolute inset-0 bg-cover bg-top bg-no-repeat grayscale contrast-110 brightness-90"
+          style={{ backgroundImage: "url('/room-main.jpg?v=1')" }}
         ></div>
         
-        {/* Simplified overlay for mobile performance */}
+        {/* Dark gradient overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70"></div>
         
         {/* Left-aligned text content */}
@@ -57,8 +50,6 @@ const Index = () => {
                 height="80"
                 loading="eager"
                 fetchPriority="high"
-                decoding="sync"
-                style={{ contentVisibility: 'auto' }}
               />
             </div>
             
@@ -72,8 +63,6 @@ const Index = () => {
                 height="120"
                 loading="eager"
                 fetchPriority="high"
-                decoding="sync"
-                style={{ contentVisibility: 'auto' }}
               />
             </div>
           </div>
