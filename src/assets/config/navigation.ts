@@ -40,6 +40,18 @@ export const mainNavigation: NavItem[] = [
     href: '/playbooks',
     icon: 'book-open',
     description: 'Free mortgage guides and playbooks - first-time buyer tips, refinancing strategies, and expert advice for Ontario homebuyers'
+  },
+  {
+    name: 'GUIDES',
+    href: '/guides',
+    icon: 'download',
+    description: 'Free downloadable mortgage guides - comprehensive checklists and resources for first-time buyers, refinancing, and mortgage renewals'
+  },
+  {
+    name: 'CONTACT',
+    href: '/contact',
+    icon: 'mail',
+    description: 'Contact Andreina Ford - Ontario mortgage agent ready to help with your home financing needs. Book a consultation or send a message'
   }
 ];
 
@@ -52,12 +64,17 @@ export const headerNavigation: NavItem[] = [
 export const footerNavigation = {
   tools: [
     { name: 'Affordability Calculator', href: '/calculator' },
-    { name: 'Current Rates', href: '/rates' }
+    { name: 'Current Rates', href: '/rates' },
+    { name: 'Free Guides', href: '/guides' }
   ],
   services: [
+    { name: 'Meet Andreina', href: '/meet' },
+    { name: 'My Strategy', href: '/my-strategy' },
+    { name: 'Specialty Lending', href: '/specialty-lending' },
     { name: 'Book Consultation', href: 'https://callme.mortgagewithford.ca', external: true }
   ],
   help: [
+    { name: 'Contact', href: '/contact' },
     { name: 'Book a Call', href: 'https://callme.mortgagewithford.ca', external: true },
     { name: 'Home', href: '/' }
   ],
