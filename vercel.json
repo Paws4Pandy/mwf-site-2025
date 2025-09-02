@@ -22,7 +22,7 @@
       "destination": "/index.html"
     },
     {
-      "source": "/guides/(.*\\.(html|pdf))$",
+      "source": "/guides/(.*\\.(html|pdf))",
       "destination": "/guides/$1"
     },
     {
