@@ -49,7 +49,7 @@ const Index = () => {
                 width="576"
                 height="80"
                 loading="eager"
-                fetchPriority="high"
+                fetchpriority="high"
               />
             </div>
             
@@ -62,7 +62,7 @@ const Index = () => {
                 width="768"
                 height="120"
                 loading="eager"
-                fetchPriority="high"
+                fetchpriority="high"
               />
             </div>
           </div>
@@ -105,7 +105,7 @@ const Index = () => {
                   width="224"
                   height="224"
                   loading="eager"
-                  fetchPriority="high"
+                  fetchpriority="high"
                 />
               </div>
             </div>

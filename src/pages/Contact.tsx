@@ -130,8 +130,12 @@ const Contact = () => {
     });
   };
 
-  // Load Google Maps script
+  // Load Google Maps script - Disabled due to API key restrictions
   useEffect(() => {
+    // Temporarily disabled Google Maps due to RefererNotAllowedMapError
+    // Need to configure API key with proper domain restrictions
+    return;
+    
     const script = document.createElement('script');
     script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap`;
     script.async = true;
