@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Refinance Mortgage Checklist - Mortgage with Ford</title>
+    <link href="https://fonts.googleapis.com/css2?family=Anton:wght@400&family=Roboto+Flex:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+        }
+        
+        body { 
+            font-family: 'Roboto Flex', sans-serif; 
+            background: white;
+            color: #333;
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+        
+        .container { 
+            max-width: 800px; 
+            margin: 0 auto; 
+            padding: 0;
+            background: white;
+            min-height: 100vh;
+        }
+        
+        .header {
+            background: #f8f9fa;
+            color: #333;
+            padding: 30px 40px;
+            text-align: center;
+            border-bottom: 2px solid #ddd;
+        }
+        
+        .brand-logo {
+            font-family: 'Anton', sans-serif;
+            font-size: 1.6em;
+            margin-bottom: 8px;
+            color: #333;
+            letter-spacing: 1px;
+        }
+        
+        .brand-tagline {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 20px;
+        }
+        
+        h1 { 
+            font-family: 'Anton', sans-serif;
+            font-size: 2.5em; 
+            margin-bottom: 12px;
+            color: #333;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .subtitle {
+            font-size: 1.1em;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .intro {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #666;
+        }
+        
+        .intro h2 {
+            font-family: 'Roboto Flex', sans-serif;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 12px;
+            font-size: 1.4em;
+        }
+        
+        .intro p {
+            color: #555;
+            font-size: 1em;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .section {
+            margin: 40px 0;
+            padding: 25px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #666;
+        }
+        
+        .section h2 {
+            font-family: 'Roboto Flex', sans-serif;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 1.4em;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .section-number {
+            background: #666;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1em;
+            font-weight: 600;
+        }
+        
+        .checklist {
+            list-style: none;
+            margin: 20px 0;
+        }
+        
+        .checklist li {
+            padding: 15px;
+            margin: 10px 0;
+            background: white;
+            border-radius: 6px;
+            border: 1px solid #ddd;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+        
+        .checkbox {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #666;
+            border-radius: 3px;
+            flex-shrink: 0;
+            margin-top: 3px;
+            position: relative;
+            cursor: pointer;
+        }
+        
+        .checkbox.checked {
+            background: #666;
+            border-color: #666;
+        }
+        
+        .checkbox.checked::after {
+            content: '✓';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        
+        .checklist-text {
+            flex: 1;
+            font-size: 0.95em;
+            color: #333;
+        }
+        
+        .tip {
+            background: #f0f0f0;
+            padding: 20px;
+            border-radius: 6px;
+            margin: 25px 0;
+            border-left: 4px solid #999;
+        }
+        
+        .tip-title {
+            font-family: 'Roboto Flex', sans-serif;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 1em;
+        }
+        
+        .tip p {
+            color: #555;
+            margin: 0;
+            font-size: 0.9em;
+        }
+        
+        .footer {
+            background: #f8f9fa;
+            color: #333;
+            padding: 40px;
+            text-align: center;
+            border-top: 2px solid #ddd;
+        }
+        
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .footer h3 {
+            font-family: 'Roboto Flex', sans-serif;
+            font-weight: 600;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+            color: #333;
+        }
+        
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+        
+        .contact-item {
+            background: white;
+            padding: 15px;
+            border-radius: 6px;
+            border: 1px solid #ddd;
+        }
+        
+        .contact-item strong {
+            color: #333;
+            display: block;
+            margin-bottom: 6px;
+        }
+        
+        .contact-item a {
+            color: #666;
+            text-decoration: none;
+        }
+        
+        .contact-item a:hover {
+            color: #333;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: #666;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            margin: 10px 8px;
+            font-family: 'Roboto Flex', sans-serif;
+        }
+        
+        .cta-button:hover {
+            background: #555;
+        }
+        
+        .compliance {
+            margin-top: 25px;
+            font-size: 0.85em;
+            color: #666;
+            border-top: 1px solid #ddd;
+            padding-top: 15px;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                margin: 0;
+            }
+            
+            .header, .content, .footer {
+                padding: 20px 15px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
+            .section {
+                padding: 20px 15px;
+            }
+            
+            .section h2 {
+                font-size: 1.2em;
+            }
+            
+            .checklist li {
+                padding: 12px;
+            }
+            
+            .contact-info {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media print {
+            body { 
+                background: white !important; 
+                color: black !important;
+            }
+            .container { 
+                max-width: none;
+            }
+            .header, .footer { 
+                background: white !important;
+                color: black !important;
+                border-color: #ccc !important;
+            }
+            .section { 
+                break-inside: avoid; 
+                page-break-inside: avoid;
+                background: white !important;
+                border-color: #ccc !important;
+            }
+            .cta-button {
+                display: none;
+            }
+            .checkbox {
+                border-color: #999 !important;
+            }
+            .checkbox.checked {
+                background: #999 !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="brand-logo">MORTGAGE WITH FORD</div>
+            <div class="brand-tagline">Andreina Ford, Mortgage Agent Level 2</div>
+            <h1>Refinance Mortgage Checklist</h1>
+            <div class="subtitle">Your complete guide to refinancing for better rates, accessing equity, or consolidating debt.</div>
+        </div>
+
+        <div class="content">
+            <div class="intro">
+                <h2>Smart Refinancing Starts Here</h2>
+                <p>Refinancing can save you thousands in interest, help you access home equity, or consolidate high-interest debt. This comprehensive checklist ensures you're prepared to make the most of your refinancing opportunity.</p>
+            </div>
+
+            <div class="section">
+                <h2><span class="section-number">1</span> Gather Identification & Financial Info</h2>
+                <ul class="checklist">
+                    <li>
+                        <div class="checkbox" onclick="toggleCheckbox(this)"></div>
+                        <div class="checklist-text"><strong>Government-issued photo ID</strong><br>Driver's license or passport for all borrowers on the mortgage.</div>
+                    </li>
+                    <li>
+                        <div class="checkbox" onclick="toggleCheckbox(this)"></div>
+                        <div class="checklist-text"><strong>Most recent pay stubs</strong><br>Last 2-3 pay stubs for all income earners.</div>
+                    </li>
+                    <li>
+                        <div class="checkbox" onclick="toggleCheckbox(this)"></div>
+                        <div class="checklist-text"><strong>Employment letter</strong><br>Letter from employer confirming position, salary, and employment status.</div>
+                    </li>
+                    <li>
+                        <div class="checkbox" onclick="toggleCheckbox(this)"></div>
+                        <div class="checklist-text"><strong>Tax returns and NOAs</strong><br>Last 2 years' complete tax returns and Notices of Assessment.</div>
+                    </li>
+                    <li>
+                        <div class="checkbox" onclick="toggleCheckbox(this)"></div>
+                        <div class="checklist-text"><strong>Bank and investment statements</strong><br>Last 90 days of statements for all accounts.</div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2><span class="section-number">2</span> Mortgage & Property Details</h2>
+                <ul class="checklist">
+                    <li>
+                        <div class="checkbox" onclick="toggleCheckbox(this)"></div>
+                        <div class="checklist-text"><strong>Most recent mortgage statement</strong><br>Shows current balance, payment amount, and interest rate.</div>
+                    </li>
+                    <li>
+                        <div class="checkbox" onclick="toggleCheckbox(this)"></div>
+                        <div class="checklist-text"><strong>Current property tax statement/bill</strong><br>Annual property tax assessment and payment records.</div>
+                    </li>
+                    <li>
+                        <div class="checkbox" onclick="toggleCheckbox(this)"></div>
+                        <div class="checklist-text"><strong>Utility bill with your address</strong><br>Recent gas, electric, or water bill showing property address.</div>
+                    </li>
+                    <li>
+                        <div class="checkbox" onclick="toggleCheckbox(this)"></div>
+                        <div class="checklist-text"><strong>Legal description of property</strong><br>From tax bill, deed, or original purchase agreement.</div>
+                    </li>
+                    <li>
+                        <div class="checkbox" onclick="toggleCheckbox(this)"></div>
+                        <div class="checklist-text"><strong>Home insurance policy</strong><br>Current policy with coverage amounts and renewal date.</div>
+                    </li>
+                </ul>
+                <div class="tip">
+                    <div class="tip-title">Property Value Tip</div>
+                    <p>Your home's current market value determines your available equity. I can help arrange a professional appraisal or provide a market evaluation to maximize your refinancing options.</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2><span class="section-number">3</span> Other Relevant Documents</h2>
+                <ul class="checklist">
+                    <li>
+                        <div class="checkbox" onclick="toggleCheckbox(this)"></div>
+                        <div class="checklist-text"><strong>Divorce/marriage documents</strong><br>If alimony or child support affects income or obligations.</div>
+                    </li>
+                    <li>
+                        <div class="checkbox" onclick="toggleCheckbox(this)"></div>
+                        <div class="checklist-text"><strong>Proof of other income</strong><br>Pension, rental income, investment income, disability benefits.</div>
+                    </li>
+                    <li>
+                        <div class="checkbox" onclick="toggleCheckbox(this)"></div>
+                        <div class="checklist-text"><strong>List of all current debts</strong><br>Credit cards, loans, lines of credit with current balances and payments.</div>
+                    </li>
+                    <li>
+                        <div class="checkbox" onclick="toggleCheckbox(this)"></div>
+                        <div class="checklist-text"><strong>Void cheque</strong><br>For setting up new mortgage payment arrangements.</div>
+                    </li>
+                    <li>
+                        <div class="checkbox" onclick="toggleCheckbox(this)"></div>
+                        <div class="checklist-text"><strong>Credit report</strong><br>Recent credit report to review before application.</div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2><span class="section-number">4</span> Know Your Goals</h2>
+                <ul class="checklist">
+                    <li>
+                        <div class="checkbox" onclick="toggleCheckbox(this)"></div>
+                        <div class="checklist-text"><strong>Consolidating debt</strong><br>Calculate total high-interest debt to be paid off through refinancing.</div>
+                    </li>
+                    <li>
+                        <div class="checkbox" onclick="toggleCheckbox(this)"></div>
+                        <div class="checklist-text"><strong>Accessing equity</strong><br>Determine how much equity you need and what you'll use it for.</div>
+                    </li>
+                    <li>
+                        <div class="checkbox" onclick="toggleCheckbox(this)"></div>
+                        <div class="checklist-text"><strong>Lowering payment</strong><br>Calculate potential savings from lower interest rates or extended amortization.</div>
+                    </li>
+                    <li>
+                        <div class="checkbox" onclick="toggleCheckbox(this)"></div>
+                        <div class="checklist-text"><strong>Switching terms</strong><br>Decide between fixed/variable rates and desired term length.</div>
+                    </li>
+                    <li>
+                        <div class="checkbox" onclick="toggleCheckbox(this)"></div>
+                        <div class="checklist-text"><strong>Removing someone from mortgage</strong><br>If removing a co-borrower due to separation, divorce, or other circumstances.</div>
+                    </li>
+                </ul>
+                <div class="tip">
+                    <div class="tip-title">Goal Setting Success</div>
+                    <p>Having clear, specific goals helps me find the perfect refinancing solution for your situation. Whether it's saving monthly cash flow or accessing funds for home improvements, we'll create a strategy that works.</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2><span class="section-number">5</span> Financial Analysis</h2>
+                <ul class="checklist">
+                    <li>
+                        <div class="checkbox" onclick="toggleCheckbox(this)"></div>
+                        <div class="checklist-text"><strong>Calculate current home value</strong><br>Research recent comparable sales or get professional appraisal.</div>
+                    </li>
+                    <li>
+                        <div class="checkbox" onclick="toggleCheckbox(this)"></div>
+                        <div class="checklist-text"><strong>Determine available equity</strong><br>Home value minus current mortgage balance (up to 80% typically available).</div>
+                    </li>
+                    <li>
+                        <div class="checkbox" onclick="toggleCheckbox(this)"></div>
+                        <div class="checklist-text"><strong>Compare current vs. new rates</strong><br>Analyze potential interest savings with current market rates.</div>
+                    </li>
+                    <li>
+                        <div class="checkbox" onclick="toggleCheckbox(this)"></div>
+                        <div class="checklist-text"><strong>Calculate refinancing costs</strong><br>Appraisal, legal fees, discharge fees, and any penalties.</div>
+                    </li>
+                    <li>
+                        <div class="checkbox" onclick="toggleCheckbox(this)"></div>
+                        <div class="checklist-text"><strong>Break-even analysis</strong><br>How long to recover refinancing costs through savings.</div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2><span class="section-number">6</span> Common Refinancing Scenarios</h2>
+                <ul class="checklist">
+                    <li>
+                        <div class="checkbox" onclick="toggleCheckbox(this)"></div>
+                        <div class="checklist-text"><strong>Rate & Term Refinance</strong><br>Simply getting better rate or term without taking cash out.</div>
+                    </li>
+                    <li>
+                        <div class="checkbox" onclick="toggleCheckbox(this)"></div>
+                        <div class="checklist-text"><strong>Cash-Out Refinance</strong><br>Accessing equity for home improvements, investments, or major purchases.</div>
+                    </li>
+                    <li>
+                        <div class="checkbox" onclick="toggleCheckbox(this)"></div>
+                        <div class="checklist-text"><strong>Debt Consolidation</strong><br>Rolling high-interest debt into lower-rate mortgage.</div>
+                    </li>
+                    <li>
+                        <div class="checkbox" onclick="toggleCheckbox(this)"></div>
+                        <div class="checklist-text"><strong>Switch from Variable to Fixed</strong><br>Locking in rate protection against future increases.</div>
+                    </li>
+                    <li>
+                        <div class="checkbox" onclick="toggleCheckbox(this)"></div>
+                        <div class="checklist-text"><strong>Remove Mortgage Insurance</strong><br>If you now have 20%+ equity, eliminate CMHC premiums.</div>
+                    </li>
+                </ul>
+                <div class="tip">
+                    <div class="tip-title">Scenario Planning</div>
+                    <p>Each refinancing scenario has different requirements and benefits. I'll help you evaluate which approach delivers the best long-term value based on your specific financial goals and circumstances.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="footer-content">
+                <h3>Ready to Unlock Your Home's Potential?</h3>
+                <p>Refinancing is more than just getting a new rate—it's about optimizing your entire financial picture. Let's review your situation and create a refinancing strategy that truly works for you.</p>
+                
+                <a href="https://callme.mortgagewithford.ca" class="cta-button" target="_blank">Book Your Free Consultation</a>
+                <a href="/contact" class="cta-button">Get In Touch</a>
+                
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <strong>Phone</strong>
+                        <a href="tel:6137437866">(613) 743-7866</a>
+                    </div>
+                    <div class="contact-item">
+                        <strong>Email</strong>
+                        <a href="mailto:hello@mortgagewithford.ca">hello@mortgagewithford.ca</a>
+                    </div>
+                </div>
+                
+                <div class="compliance">
+                    <p><strong>Andreina Ford, Mortgage Agent Level 2 #M24000357 | BRX MORTGAGE #13463</strong></p>
+                    <p>Serving all of Eastern Ontario with expert mortgage solutions.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const STORAGE_KEY = 'refinance_checklist_state';
+
+        function saveChecklistState() {
+            const checkboxes = document.querySelectorAll('.checkbox');
+            const state = {};
+            checkboxes.forEach((checkbox, index) => {
+                state[index] = checkbox.classList.contains('checked');
+            });
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+        }
+
+        function loadChecklistState() {
+            const saved = localStorage.getItem(STORAGE_KEY);
+            if (saved) {
+                const state = JSON.parse(saved);
+                const checkboxes = document.querySelectorAll('.checkbox');
+                checkboxes.forEach((checkbox, index) => {
+                    if (state[index]) {
+                        checkbox.classList.add('checked');
+                    }
+                });
+            }
+        }
+
+        function toggleCheckbox(element) {
+            element.classList.toggle('checked');
+            saveChecklistState();
+        }
+
+        document.addEventListener('DOMContentLoaded', loadChecklistState);
+    </script>
+</body>
+</html>

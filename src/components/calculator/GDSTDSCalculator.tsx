@@ -56,8 +56,8 @@ const GDSTDSCalculator: React.FC<GDSTDSCalculatorProps> = ({
   const tdsRatio = calculateTDS(monthlyPayment, propertyTax, heatCost, condoFees, otherDebt, adjustedIncome);
 
   // CMHC limits
-  const gdsLimit = 39;
-  const tdsLimit = 44;
+  const gdsLimit = 32;
+  const tdsLimit = 40;
 
   const gdsStatus = gdsRatio <= gdsLimit ? 'pass' : 'fail';
   const tdsStatus = tdsRatio <= tdsLimit ? 'pass' : 'fail';

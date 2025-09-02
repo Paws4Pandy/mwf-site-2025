@@ -199,6 +199,7 @@ const Guides = () => {
                             src={guide.iconPath} 
                             alt={guide.title}
                             className="w-20 h-20 object-contain"
+                            loading="lazy"
                           />
                         </div>
                         <h3 className="text-2xl font-serif italic text-design-white font-normal mb-2">

@@ -31,6 +31,9 @@ const Header: React.FC<HeaderProps> = ({ showDivider = true, transparent = false
                   src="/BRX_brand_white.png" 
                   alt="BRX Mortgage Logo" 
                   className="h-6 sm:h-8 md:h-10"
+                  width="120"
+                  height="40"
+                  loading="lazy"
                 />
               </Link>
               

@@ -54,6 +54,7 @@ const Footer = () => {
                           src={`/src/components/icons/3d-icons/${iconMap[platform as keyof typeof iconMap]}`}
                           alt={social.name}
                           className="w-6 h-6 object-contain"
+                          loading="lazy"
                         />
                       </a>
                     );
@@ -180,6 +181,9 @@ const Footer = () => {
                       src="/BRX_brand_white.png" 
                       alt="BRX Mortgage" 
                       className="h-8 mb-2"
+                      width="120"
+                      height="32"
+                      loading="lazy"
                     />
                     <div className={getTypographyClasses('caption', 'text-design-white/60')}>
                       BRX Mortgage<br/>
@@ -198,6 +202,9 @@ const Footer = () => {
                       src="/canada.png" 
                       alt="Government of Canada" 
                       className="h-8 mb-2"
+                      width="64"
+                      height="32"
+                      loading="lazy"
                     />
                     <div className={getTypographyClasses('caption', 'text-design-white/60')}>
                       Proudly<br/>
@@ -216,6 +223,9 @@ const Footer = () => {
                       src="/cmhc-logo.png" 
                       alt="CMHC" 
                       className="h-10 mb-2"
+                      width="80"
+                      height="40"
+                      loading="lazy"
                     />
                     <div className={getTypographyClasses('caption', 'text-design-white/60')}>
                       Canada Mortgage<br/>
@@ -234,6 +244,9 @@ const Footer = () => {
                       src="/fsra logo.png" 
                       alt="FSRA" 
                       className="h-8 mb-2"
+                      width="80"
+                      height="32"
+                      loading="lazy"
                     />
                     <div className={getTypographyClasses('caption', 'text-design-white/60')}>
                       Financial Services<br/>

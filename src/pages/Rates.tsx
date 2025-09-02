@@ -6,7 +6,6 @@ import RateComparisonWidget from '@/components/RateComparisonWidget';
 import CalculatorSelection from '@/components/CalculatorSelection';
 import MortgageFAQ from '@/components/MortgageFAQ';
 import LiquidGlassButton from '@/components/ui/LiquidGlassButton';
-import LiquidGlassWrapper from '@/components/ui/LiquidGlassWrapper';
 import { TrendingUp, Home, FileText, DollarSign, Calculator } from 'lucide-react';
 
 // Tab configuration with icons and descriptions
@@ -95,12 +94,7 @@ const Rates = () => {
           {/* Rates Content - Improved spacing and padding */}
           <div className="mt-32 mb-32 opacity-0 animate-fade-in-delay-4 px-4 md:px-8">
             <div className="max-w-6xl mx-auto">
-              <LiquidGlassWrapper
-                mode="standard"
-                intensity={0.3}
-                scale={0.5}
-                className="p-8 md:p-12"
-              >
+              <div className="p-8 md:p-12 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl">
                 {activeTab === 'current-rates' && (
                   <RatesTable 
                     title="" 
@@ -109,7 +103,7 @@ const Rates = () => {
                 )}
                 {activeTab === 'calculators' && <CalculatorSelection />}
                 {activeTab === 'faq' && <MortgageFAQ />}
-              </LiquidGlassWrapper>
+              </div>
             </div>
           </div>
           

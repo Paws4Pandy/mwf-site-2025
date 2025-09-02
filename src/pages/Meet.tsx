@@ -57,6 +57,7 @@ const Meet = () => {
               src="/andreina/andreina-mwf-social.jpg" 
               alt="Andreina Ford - Professional Photo"
               className="w-full rounded-2xl shadow-2xl"
+              loading="lazy"
               onError={(e) => {
                 e.currentTarget.src = '/placeholder.svg';
               }}
@@ -164,6 +165,7 @@ const Meet = () => {
                   src="/andreina/andreina-mwf-pretty.jpg" 
                   alt="Andreina Ford - Professional Photo"
                   className="w-full rounded-2xl shadow-2xl"
+                  loading="lazy"
                   onError={(e) => {
                     e.currentTarget.src = '/placeholder.svg';
                   }}
@@ -268,6 +270,7 @@ const Meet = () => {
               src="/andreina/andreina-mwf-tub.jpg" 
               alt="Andreina Ford - Personal Life"
               className="w-full rounded-2xl shadow-2xl"
+              loading="lazy"
               onError={(e) => {
                 e.currentTarget.src = '/placeholder.svg';
               }}

@@ -60,6 +60,7 @@ const Index = () => {
                 width="576"
                 height="80"
                 loading="eager"
+                fetchPriority="high"
               />
             </div>
             
@@ -72,6 +73,7 @@ const Index = () => {
                 width="768"
                 height="120"
                 loading="eager"
+                fetchPriority="high"
               />
             </div>
           </div>
@@ -111,7 +113,10 @@ const Index = () => {
                   src="/andreina/andreina-mwf-lean.jpg" 
                   alt="Andreina Ford - Mortgage Agent Level 2"
                   className="w-48 h-48 md:w-56 md:h-56 object-cover rounded-xl"
+                  width="224"
+                  height="224"
                   loading="eager"
+                  fetchPriority="high"
                 />
               </div>
             </div>

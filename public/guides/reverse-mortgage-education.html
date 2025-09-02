@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reverse Mortgage Education - Mortgage with Ford</title>
+    <link href="https://fonts.googleapis.com/css2?family=Anton:wght@400&family=Roboto+Flex:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+        }
+        
+        body { 
+            font-family: 'Roboto Flex', sans-serif; 
+            background: white;
+            color: #333;
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+        
+        .container { 
+            max-width: 800px; 
+            margin: 0 auto; 
+            padding: 0;
+            background: white;
+            min-height: 100vh;
+        }
+        
+        .header {
+            background: #f8f9fa;
+            color: #333;
+            padding: 30px 40px;
+            text-align: center;
+            border-bottom: 2px solid #ddd;
+        }
+        
+        .brand-logo {
+            font-family: 'Anton', sans-serif;
+            font-size: 1.6em;
+            margin-bottom: 8px;
+            color: #333;
+            letter-spacing: 1px;
+        }
+        
+        .brand-tagline {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 20px;
+        }
+        
+        h1 { 
+            font-family: 'Anton', sans-serif;
+            font-size: 2.5em; 
+            margin-bottom: 12px;
+            color: #333;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .subtitle {
+            font-size: 1.1em;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .intro {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #666;
+        }
+        
+        .intro h2 {
+            font-family: 'Roboto Flex', sans-serif;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 12px;
+            font-size: 1.4em;
+        }
+        
+        .intro p {
+            color: #555;
+            font-size: 1em;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .section {
+            margin: 40px 0;
+            padding: 25px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #666;
+        }
+        
+        .section h2 {
+            font-family: 'Roboto Flex', sans-serif;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 1.4em;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .section-number {
+            background: #666;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1em;
+            font-weight: 600;
+        }
+        
+        .checklist {
+            list-style: none;
+            margin: 20px 0;
+        }
+        
+        .checklist li {
+            padding: 15px;
+            margin: 10px 0;
+            background: white;
+            border-radius: 6px;
+            border: 1px solid #ddd;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+        
+        .checkbox {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #666;
+            border-radius: 3px;
+            flex-shrink: 0;
+            margin-top: 3px;
+            position: relative;
+            cursor: pointer;
+        }
+        
+        .checkbox.checked {
+            background: #666;
+            border-color: #666;
+        }
+        
+        .checkbox.checked::after {
+            content: '✓';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        
+        .checklist-text {
+            flex: 1;
+            font-size: 0.95em;
+            color: #333;
+        }
+        
+        .tip {
+            background: #f0f0f0;
+            padding: 20px;
+            border-radius: 6px;
+            margin: 25px 0;
+            border-left: 4px solid #999;
+        }
+        
+        .tip-title {
+            font-family: 'Roboto Flex', sans-serif;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 1em;
+        }
+        
+        .tip p {
+            color: #555;
+            margin: 0;
+            font-size: 0.9em;
+        }
+        
+        .footer {
+            background: #f8f9fa;
+            color: #333;
+            padding: 40px;
+            text-align: center;
+            border-top: 2px solid #ddd;
+        }
+        
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .footer h3 {
+            font-family: 'Roboto Flex', sans-serif;
+            font-weight: 600;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+            color: #333;
+        }
+        
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+        
+        .contact-item {
+            background: white;
+            padding: 15px;
+            border-radius: 6px;
+            border: 1px solid #ddd;
+        }
+        
+        .contact-item strong {
+            color: #333;
+            display: block;
+            margin-bottom: 6px;
+        }
+        
+        .contact-item a {
+            color: #666;
+            text-decoration: none;
+        }
+        
+        .contact-item a:hover {
+            color: #333;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: #666;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            margin: 10px 8px;
+            font-family: 'Roboto Flex', sans-serif;
+        }
+        
+        .cta-button:hover {
+            background: #555;
+        }
+        
+        .compliance {
+            margin-top: 25px;
+            font-size: 0.85em;
+            color: #666;
+            border-top: 1px solid #ddd;
+            padding-top: 15px;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                margin: 0;
+            }
+            
+            .header, .content, .footer {
+                padding: 20px 15px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
+            .section {
+                padding: 20px 15px;
+            }
+            
+            .section h2 {
+                font-size: 1.2em;
+            }
+            
+            .checklist li {
+                padding: 12px;
+            }
+            
+            .contact-info {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media print {
+            body { 
+                background: white !important; 
+                color: black !important;
+            }
+            .container { 
+                max-width: none;
+            }
+            .header, .footer { 
+                background: white !important;
+                color: black !important;
+                border-color: #ccc !important;
+            }
+            .section { 
+                break-inside: avoid; 
+                page-break-inside: avoid;
+                background: white !important;
+                border-color: #ccc !important;
+            }
+            .cta-button {
+                display: none;
+            }
+            .checkbox {
+                border-color: #999 !important;
+            }
+            .checkbox.checked {
+                background: #999 !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="brand-logo">MORTGAGE WITH FORD</div>
+            <div class="brand-tagline">Andreina Ford, Mortgage Agent Level 2</div>
+            <h1>Reverse Mortgage Education</h1>
+            <div class="subtitle">Understanding reverse mortgages for Canadian homeowners 55+ with complete transparency.</div>
+        </div>
+
+        <div class="content">
+            <div class="intro">
+                <h2>Unlock Your Home's Value</h2>
+                <p>A reverse mortgage can provide financial flexibility in retirement by converting your home equity into tax-free cash. This guide explains everything you need to know to make an informed decision.</p>
+            </div>
+
+            <div class="section">
+                <h2><span class="section-number">1</span> Determine Eligibility</h2>
+                <ul class="checklist">
+                    <li>
+                        <div class="checkbox" onclick="toggleCheckbox(this)"></div>
+                        <div class="checklist-text"><strong>Age requirement</strong><br>At least 55 years of age (all borrowers on title must meet this requirement).</div>
+                    </li>
+                    <li>
+                        <div class="checkbox" onclick="toggleCheckbox(this)"></div>
+                        <div class="checklist-text"><strong>Primary residence in Canada</strong><br>Property must be your principal residence in Canada (available in Ontario).</div>
+                    </li>
+                    <li>
+                        <div class="checkbox" onclick="toggleCheckbox(this)"></div>
+                        <div class="checklist-text"><strong>Significant home equity</strong><br>Mortgage should be mostly or fully paid off with substantial equity built up.</div>
+                    </li>
+                    <li>
+                        <div class="checkbox" onclick="toggleCheckbox(this)"></div>
+                        <div class="checklist-text"><strong>Property type qualification</strong><br>Single-family homes, townhouses, and some condos qualify (must meet lender criteria).</div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2><span class="section-number">2</span> Pre-Application Assessment</h2>
+                <ul class="checklist">
+                    <li>
+                        <div class="checkbox" onclick="toggleCheckbox(this)"></div>
+                        <div class="checklist-text"><strong>Meet with mortgage specialist</strong><br>Discuss your goals and determine if reverse mortgage is right for you.</div>
+                    </li>
+                    <li>
+                        <div class="checkbox" onclick="toggleCheckbox(this)"></div>
+                        <div class="checklist-text"><strong>Assess property value</strong><br>Home appraisal usually required to determine available funds.</div>
+                    </li>
+                    <li>
+                        <div class="checkbox" onclick="toggleCheckbox(this)"></div>
+                        <div class="checklist-text"><strong>Review maintenance ability</strong><br>Must maintain property taxes, home insurance, and property upkeep.</div>
+                    </li>
+                    <li>
+                        <div class="checkbox" onclick="toggleCheckbox(this)"></div>
+                        <div class="checklist-text"><strong>Understand payment options</strong><br>Learn about lump sum, monthly payments, or line of credit options.</div>
+                    </li>
+                </ul>
+                <div class="tip">
+                    <div class="tip-title">Important Consideration</div>
+                    <p>Reverse mortgages are complex financial products. Take time to understand all terms, costs, and implications before proceeding. Independent advice is highly recommended.</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2><span class="section-number">3</span> Application Materials</h2>
+                <ul class="checklist">
+                    <li>
+                        <div class="checkbox" onclick="toggleCheckbox(this)"></div>
+                        <div class="checklist-text"><strong>Proof of age and ID</strong><br>Government-issued photo ID for all homeowners on title.</div>
+                    </li>
+                    <li>
+                        <div class="checkbox" onclick="toggleCheckbox(this)"></div>
+                        <div class="checklist-text"><strong>Property deed or title</strong><br>Legal proof of property ownership and mortgage status.</div>
+                    </li>
+                    <li>
+                        <div class="checkbox" onclick="toggleCheckbox(this)"></div>
+                        <div class="checklist-text"><strong>Property tax statements</strong><br>Recent tax assessment and payment history.</div>
+                    </li>
+                    <li>
+                        <div class="checkbox" onclick="toggleCheckbox(this)"></div>
+                        <div class="checklist-text"><strong>Home insurance policy</strong><br>Current policy showing adequate coverage.</div>
+                    </li>
+                    <li>
+                        <div class="checkbox" onclick="toggleCheckbox(this)"></div>
+                        <div class="checklist-text"><strong>Property appraisal</strong><br>Professional appraisal to determine current market value.</div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2><span class="section-number">4</span> Financial Planning Review</h2>
+                <ul class="checklist">
+                    <li>
+                        <div class="checkbox" onclick="toggleCheckbox(this)"></div>
+                        <div class="checklist-text"><strong>Calculate available funds</strong><br>Determine how much you can access based on age, home value, and interest rates.</div>
+                    </li>
+                    <li>
+                        <div class="checkbox" onclick="toggleCheckbox(this)"></div>
+                        <div class="checklist-text"><strong>Review interest rates and fees</strong><br>Understand all costs including setup fees, ongoing charges, and interest rates.</div>
+                    </li>
+                    <li>
+                        <div class="checkbox" onclick="toggleCheckbox(this)"></div>
+                        <div class="checklist-text"><strong>Consider impact on estate</strong><br>How will this affect inheritance and estate planning?</div>
+                    </li>
+                    <li>
+                        <div class="checkbox" onclick="toggleCheckbox(this)"></div>
+                        <div class="checklist-text"><strong>Explore alternatives</strong><br>Consider downsizing, HELOC, or other financial options.</div>
+                    </li>
+                    <li>
+                        <div class="checkbox" onclick="toggleCheckbox(this)"></div>
+                        <div class="checklist-text"><strong>Discuss with family</strong><br>Include adult children or beneficiaries in decision-making process.</div>
+                    </li>
+                </ul>
+                <div class="tip">
+                    <div class="tip-title">Financial Planning Note</div>
+                    <p>Interest compounds over time, reducing your equity. Consider how long you plan to stay in the home and your overall retirement financial strategy before proceeding.</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2><span class="section-number">5</span> Understanding Payment Options</h2>
+                <ul class="checklist">
+                    <li>
+                        <div class="checkbox" onclick="toggleCheckbox(this)"></div>
+                        <div class="checklist-text"><strong>Lump sum payment</strong><br>Receive all available funds at once for major expenses or investments.</div>
+                    </li>
+                    <li>
+                        <div class="checkbox" onclick="toggleCheckbox(this)"></div>
+                        <div class="checklist-text"><strong>Monthly advance</strong><br>Receive regular monthly payments to supplement retirement income.</div>
+                    </li>
+                    <li>
+                        <div class="checkbox" onclick="toggleCheckbox(this)"></div>
+                        <div class="checklist-text"><strong>Line of credit</strong><br>Access funds as needed, paying interest only on amounts used.</div>
+                    </li>
+                    <li>
+                        <div class="checkbox" onclick="toggleCheckbox(this)"></div>
+                        <div class="checklist-text"><strong>Combination approach</strong><br>Mix of lump sum, monthly payments, and credit line options.</div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2><span class="section-number">6</span> Important Considerations & Risks</h2>
+                <ul class="checklist">
+                    <li>
+                        <div class="checkbox" onclick="toggleCheckbox(this)"></div>
+                        <div class="checklist-text"><strong>Interest rate impact</strong><br>Understanding how compound interest reduces your equity over time.</div>
+                    </li>
+                    <li>
+                        <div class="checkbox" onclick="toggleCheckbox(this)"></div>
+                        <div class="checklist-text"><strong>Property maintenance requirements</strong><br>You must continue maintaining the property and paying taxes/insurance.</div>
+                    </li>
+                    <li>
+                        <div class="checkbox" onclick="toggleCheckbox(this)"></div>
+                        <div class="checklist-text"><strong>Reduced inheritance</strong><br>How this affects what you can leave to heirs.</div>
+                    </li>
+                    <li>
+                        <div class="checkbox" onclick="toggleCheckbox(this)"></div>
+                        <div class="checklist-text"><strong>Moving or selling considerations</strong><br>What happens if you need to sell or move to care facility.</div>
+                    </li>
+                    <li>
+                        <div class="checkbox" onclick="toggleCheckbox(this)"></div>
+                        <div class="checklist-text"><strong>Government benefits impact</strong><br>How additional income might affect pension benefits or other programs.</div>
+                    </li>
+                </ul>
+                <div class="tip">
+                    <div class="tip-title">Risk Management</div>
+                    <p>Reverse mortgages are not suitable for everyone. Ensure you can afford ongoing property costs and understand the long-term implications for your financial security and family.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="footer-content">
+                <h3>Expert Guidance for Your Financial Future</h3>
+                <p>Reverse mortgages require careful consideration and expert guidance. Let's review your specific situation and explore all your options to ensure you make the best decision for your retirement years.</p>
+                
+                <a href="https://callme.mortgagewithford.ca" class="cta-button" target="_blank">Book Your Free Consultation</a>
+                <a href="/contact" class="cta-button">Get In Touch</a>
+                
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <strong>Phone</strong>
+                        <a href="tel:6137437866">(613) 743-7866</a>
+                    </div>
+                    <div class="contact-item">
+                        <strong>Email</strong>
+                        <a href="mailto:hello@mortgagewithford.ca">hello@mortgagewithford.ca</a>
+                    </div>
+                </div>
+                
+                <div class="compliance">
+                    <p><strong>Andreina Ford, Mortgage Agent Level 2 #M24000357 | BRX MORTGAGE #13463</strong></p>
+                    <p>Serving all of Eastern Ontario with expert mortgage solutions.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const STORAGE_KEY = 'reverse_mortgage_checklist_state';
+
+        function saveChecklistState() {
+            const checkboxes = document.querySelectorAll('.checkbox');
+            const state = {};
+            checkboxes.forEach((checkbox, index) => {
+                state[index] = checkbox.classList.contains('checked');
+            });
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+        }
+
+        function loadChecklistState() {
+            const saved = localStorage.getItem(STORAGE_KEY);
+            if (saved) {
+                const state = JSON.parse(saved);
+                const checkboxes = document.querySelectorAll('.checkbox');
+                checkboxes.forEach((checkbox, index) => {
+                    if (state[index]) {
+                        checkbox.classList.add('checked');
+                    }
+                });
+            }
+        }
+
+        function toggleCheckbox(element) {
+            element.classList.toggle('checked');
+            saveChecklistState();
+        }
+
+        document.addEventListener('DOMContentLoaded', loadChecklistState);
+    </script>
+</body>
+</html>

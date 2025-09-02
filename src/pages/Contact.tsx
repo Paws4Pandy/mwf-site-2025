@@ -22,10 +22,10 @@ const Contact = () => {
 
   // Service areas for the map
   const serviceAreas = [
-    { name: 'Prince Edward County', lat: 44.0007, lng: -77.2505, description: 'Belleville, Picton, Wellington' },
-    { name: 'Durham Region', lat: 44.0269, lng: -78.8621, description: 'Whitby, Oshawa, Ajax' },
-    { name: 'Greater Ottawa', lat: 45.4215, lng: -75.6972, description: 'Ottawa, Kanata, Orleans' },
-    { name: 'Northumberland', lat: 44.0632, lng: -77.8728, description: 'Cobourg, Port Hope, Brighton' }
+    { name: 'Prince Edward County', lat: 44.0007, lng: -77.2505, description: 'All of PEC, Belleville, Quinte & Trenton', zoom: 10 },
+    { name: 'GTA/Durham', lat: 43.8563, lng: -79.0512, description: 'Toronto to Clarington', zoom: 9 },
+    { name: 'Greater Ottawa', lat: 45.4215, lng: -75.6972, description: 'Ottawa, Kanata, Orleans', zoom: 10 },
+    { name: 'Northumberland', lat: 44.0632, lng: -77.8728, description: 'Cobourg, Port Hope, Brighton', zoom: 10 }
   ];
 
   // Local FAQs
@@ -131,36 +131,70 @@ const Contact = () => {
     
     window.initMap = () => {
       const map = new google.maps.Map(document.getElementById('map') as HTMLElement, {
-        zoom: 7,
-        center: { lat: 44.2311, lng: -77.3849 }, // Centered between service areas
+        zoom: 6,
+        center: { lat: 44.5, lng: -79.5 }, // Centered on Ontario
         styles: [
-          { elementType: 'geometry', stylers: [{ color: '#f5f5f5' }] },
+          { elementType: 'all', stylers: [{ saturation: -100 }] },
+          { elementType: 'geometry', stylers: [{ color: '#e0e0e0' }] },
           { elementType: 'labels.icon', stylers: [{ visibility: 'off' }] },
-          { elementType: 'labels.text.fill', stylers: [{ color: '#616161' }] },
-          { elementType: 'labels.text.stroke', stylers: [{ color: '#f5f5f5' }] },
-          { featureType: 'administrative.land_parcel', elementType: 'labels.text.fill', stylers: [{ color: '#bdbdbd' }] },
-          { featureType: 'poi', elementType: 'geometry', stylers: [{ color: '#eeeeee' }] },
-          { featureType: 'poi', elementType: 'labels.text.fill', stylers: [{ color: '#757575' }] },
+          { elementType: 'labels.text.fill', stylers: [{ color: '#666666' }] },
+          { elementType: 'labels.text.stroke', stylers: [{ color: '#ffffff' }] },
+          { featureType: 'administrative.province', elementType: 'geometry.fill', stylers: [{ color: '#d0d0d0' }, { visibility: 'on' }] },
+          { featureType: 'administrative.province', elementType: 'geometry.stroke', stylers: [{ color: '#999999' }, { weight: 2 }] },
+          { featureType: 'poi', elementType: 'all', stylers: [{ visibility: 'off' }] },
           { featureType: 'road', elementType: 'geometry', stylers: [{ color: '#ffffff' }] },
-          { featureType: 'water', elementType: 'geometry', stylers: [{ color: '#cedeeb' }] }
+          { featureType: 'water', elementType: 'geometry', stylers: [{ color: '#b0b0b0' }] }
         ]
       });
 
-      // Add markers for service areas
-      serviceAreas.forEach(area => {
-        new google.maps.Marker({
-          position: { lat: area.lat, lng: area.lng },
-          map: map,
-          title: area.name,
-          icon: {
-            path: google.maps.SymbolPath.CIRCLE,
-            scale: 8,
-            fillColor: '#da7073',
-            fillOpacity: 0.9,
-            strokeColor: '#8c3839',
-            strokeWeight: 2
-          }
-        });
+
+      // Add Prince Edward County marker
+      new google.maps.Marker({
+        position: { lat: 44.0007, lng: -77.2505 },
+        map: map,
+        title: 'Prince Edward County - Main Office',
+        icon: {
+          path: google.maps.SymbolPath.CIRCLE,
+          scale: 10,
+          fillColor: '#da7073',
+          fillOpacity: 1,
+          strokeColor: '#8c3839',
+          strokeWeight: 3
+        }
+      });
+
+      // Create mini maps for each service area
+      serviceAreas.forEach((area, index) => {
+        const miniMapElement = document.getElementById(`mini-map-${index}`);
+        if (miniMapElement) {
+          const miniMap = new google.maps.Map(miniMapElement, {
+            zoom: area.zoom,
+            center: { lat: area.lat, lng: area.lng },
+            disableDefaultUI: true,
+            styles: [
+              { elementType: 'all', stylers: [{ saturation: -100 }] },
+              { elementType: 'geometry', stylers: [{ color: '#e0e0e0' }] },
+              { elementType: 'labels.icon', stylers: [{ visibility: 'off' }] },
+              { elementType: 'labels.text.fill', stylers: [{ color: '#666666' }] },
+              { elementType: 'labels.text.stroke', stylers: [{ color: '#ffffff' }] },
+              { featureType: 'water', elementType: 'geometry', stylers: [{ color: '#b0b0b0' }] }
+            ]
+          });
+          
+          new google.maps.Marker({
+            position: { lat: area.lat, lng: area.lng },
+            map: miniMap,
+            title: area.name,
+            icon: {
+              path: google.maps.SymbolPath.CIRCLE,
+              scale: 8,
+              fillColor: '#da7073',
+              fillOpacity: 0.9,
+              strokeColor: '#8c3839',
+              strokeWeight: 2
+            }
+          });
+        }
       });
     };
 
@@ -202,35 +236,86 @@ const Contact = () => {
                 Contact Andreina
               </h1>
               <p className="font-roboto-flex text-xl text-white/80 max-w-3xl mx-auto mb-4">
-                Mortgage Advice Across Eastern Ontario—From Prince Edward County to Ottawa
+                Mortgage Advice Across Eastern Ontario
               </p>
               <p className="font-roboto-flex text-lg text-white/70 max-w-4xl mx-auto">
-                Your local advocate for smart mortgage solutions, serving families and investors with personalized, community-focused expertise
+                Local roots. Smart strategies. Mortgage solutions that actually fit.
               </p>
             </motion.section>
 
-            {/* Map Section */}
+            {/* Main Ontario Map - No Card */}
             <motion.section 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
               className="mb-12"
             >
-              <AGlassCard className="hover:bg-white/5 transition-all duration-300">
-                <h2 className="font-anton text-3xl md:text-4xl text-white mb-6">Service Areas</h2>
-                <div id="map" className="w-full h-96 rounded-xl mb-6"></div>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                  {serviceAreas.map((area, index) => (
-                    <div key={index} className="flex items-start space-x-3">
-                      <MapPin className="w-5 h-5 text-[#ED8071] mt-1 flex-shrink-0" />
-                      <div>
-                        <p className="font-roboto-flex font-semibold text-white">{area.name}</p>
-                        <p className="font-roboto-flex text-sm text-white/60">{area.description}</p>
-                      </div>
-                    </div>
-                  ))}
+              <div id="map" className="w-full h-[500px] rounded-xl shadow-2xl mb-8"></div>
+              
+              {/* Service Areas Heading */}
+              <h2 className={`${getTypographyClasses('cardTitle')} text-3xl md:text-4xl mb-8 text-center`}>Service Areas</h2>
+              
+              {/* 4 Mini Maps Grid - Centered with consistent width */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12 max-w-5xl mx-auto">
+                {serviceAreas.map((area, index) => (
+                  <div key={index} className="bg-transparent border-none p-2">
+                    <div id={`mini-map-${index}`} className="w-full h-48 rounded-lg mb-4 border border-white/20"></div>
+                    <h3 className="font-roboto-flex text-white/90 text-xl mb-2 text-center">{area.name}</h3>
+                    <p className="font-roboto-flex text-white/80 text-lg text-center">{area.description}</p>
+                  </div>
+                ))}
+              </div>
+              
+              {/* Lending Areas Section - Centered */}
+              <div className="max-w-5xl mx-auto">
+                <div className="bg-transparent border-none p-6">
+                  <h3 className={`${getTypographyClasses('cardTitle')} text-3xl md:text-4xl mb-8 text-center`}>Lending Coverage</h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <h4 className="font-roboto-flex text-white/90 text-xl mb-4">Primary Service Areas</h4>
+                    <ul className="space-y-2">
+                      <li className="flex items-center space-x-2">
+                        <CheckCircle className="w-4 h-4 text-[#ED8071]" />
+                        <span className="font-roboto-flex text-white/80 text-lg">Prince Edward County & Quinte Region</span>
+                      </li>
+                      <li className="flex items-center space-x-2">
+                        <CheckCircle className="w-4 h-4 text-[#ED8071]" />
+                        <span className="font-roboto-flex text-white/80 text-lg">GTA & Durham (Toronto to Clarington)</span>
+                      </li>
+                      <li className="flex items-center space-x-2">
+                        <CheckCircle className="w-4 h-4 text-[#ED8071]" />
+                        <span className="font-roboto-flex text-white/80 text-lg">Greater Ottawa Area</span>
+                      </li>
+                      <li className="flex items-center space-x-2">
+                        <CheckCircle className="w-4 h-4 text-[#ED8071]" />
+                        <span className="font-roboto-flex text-white/80 text-lg">Northumberland County</span>
+                      </li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h4 className="font-roboto-flex text-white/90 text-xl mb-4">Extended Coverage</h4>
+                    <ul className="space-y-2">
+                      <li className="flex items-center space-x-2">
+                        <Home className="w-4 h-4 text-[#ED8071]" />
+                        <span className="font-roboto-flex text-white/80 text-lg">All of Eastern Ontario</span>
+                      </li>
+                      <li className="flex items-center space-x-2">
+                        <Home className="w-4 h-4 text-[#ED8071]" />
+                        <span className="font-roboto-flex text-white/80 text-lg">Cottage Country Properties</span>
+                      </li>
+                      <li className="flex items-center space-x-2">
+                        <Home className="w-4 h-4 text-[#ED8071]" />
+                        <span className="font-roboto-flex text-white/80 text-lg">Rural & Agricultural Lands</span>
+                      </li>
+                      <li className="flex items-center space-x-2">
+                        <Home className="w-4 h-4 text-[#ED8071]" />
+                        <span className="font-roboto-flex text-white/80 text-lg">Investment Properties Province-Wide</span>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
-              </AGlassCard>
+                </div>
+              </div>
             </motion.section>
 
             <div className="grid lg:grid-cols-2 gap-8 items-start">

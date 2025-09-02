@@ -1,5 +1,4 @@
 import React from 'react';
-import LiquidGlassWrapper from './LiquidGlassWrapper';
 
 interface LiquidGlassButtonProps {
   children: React.ReactNode;
@@ -26,7 +25,7 @@ const LiquidGlassButton: React.FC<LiquidGlassButtonProps> = ({
   type = 'button',
   disabled = false
 }) => {
-  const baseClasses = "group inline-flex items-center justify-center font-roboto-flex font-medium rounded-xl transition-all duration-500 transform hover:-translate-y-1";
+  const baseClasses = "group inline-flex items-center justify-center font-roboto-flex font-medium rounded-xl transition-all duration-500 transform hover:-translate-y-1 backdrop-blur-sm bg-white/5 border border-white/20 hover:bg-white/10";
   
   const sizeClasses = {
     sm: "px-4 py-3 text-sm h-12",
@@ -41,16 +40,9 @@ const LiquidGlassButton: React.FC<LiquidGlassButtonProps> = ({
     custom: "border-2 border-transparent"
   };
 
-  const liquidGlassSettings = {
-    primary: { mode: 'standard' as const, intensity: 0.4, scale: 0.5 },
-    secondary: { mode: 'polar' as const, intensity: 0.3, scale: 0.4 },
-    accent: { mode: 'prominent' as const, intensity: 0.5, scale: 0.6 },
-    custom: { mode: 'prominent' as const, intensity: 0.5, scale: 0.6 }
-  };
-
   const buttonContent = (
     <>
-      {icon && <span className="mr-2 group-hover:animate-float">{icon}</span>}
+      {icon && <span className="mr-2 group-hover:animate-pulse">{icon}</span>}
       {children}
     </>
   );
@@ -58,55 +50,37 @@ const LiquidGlassButton: React.FC<LiquidGlassButtonProps> = ({
   // If onClick is provided, render as button
   if (onClick) {
     return (
-      <LiquidGlassWrapper
-        mode={liquidGlassSettings[variant].mode}
-        intensity={liquidGlassSettings[variant].intensity}
-        scale={liquidGlassSettings[variant].scale}
+      <button
+        type={type}
+        onClick={onClick}
+        disabled={disabled}
+        className={`${baseClasses} ${sizeClasses[size]} ${variantClasses[variant]} ${className} ${disabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`}
       >
-        <button
-          type={type}
-          onClick={onClick}
-          disabled={disabled}
-          className={`${baseClasses} ${sizeClasses[size]} ${variantClasses[variant]} ${className} ${disabled ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'}`}
-        >
-          {buttonContent}
-        </button>
-      </LiquidGlassWrapper>
+        {buttonContent}
+      </button>
     );
   }
 
   if (external && href) {
     return (
-      <LiquidGlassWrapper
-        mode={liquidGlassSettings[variant].mode}
-        intensity={liquidGlassSettings[variant].intensity}
-        scale={liquidGlassSettings[variant].scale}
-      >
-        <a
-          href={href}
-          target="_blank"
-          rel="noopener noreferrer"
-          className={`${baseClasses} ${sizeClasses[size]} ${variantClasses[variant]} ${className}`}
-        >
-          {buttonContent}
-        </a>
-      </LiquidGlassWrapper>
-    );
-  }
-
-  return (
-    <LiquidGlassWrapper
-      mode={liquidGlassSettings[variant].mode}
-      intensity={liquidGlassSettings[variant].intensity}
-      scale={liquidGlassSettings[variant].scale}
-    >
       <a
-        href={href || '#'}
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
         className={`${baseClasses} ${sizeClasses[size]} ${variantClasses[variant]} ${className}`}
       >
         {buttonContent}
       </a>
-    </LiquidGlassWrapper>
+    );
+  }
+
+  return (
+    <a
+      href={href || '#'}
+      className={`${baseClasses} ${sizeClasses[size]} ${variantClasses[variant]} ${className}`}
+    >
+      {buttonContent}
+    </a>
   );
 };
 

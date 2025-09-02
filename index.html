@@ -45,13 +45,15 @@
     <!-- Resource Hints for Performance -->
     <link rel="dns-prefetch" href="https://ro.am">
     
-    <!-- UNIFIED FONT SYSTEM - Single Source -->
+    <!-- OPTIMIZED FONT SYSTEM - Non-render-blocking -->
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- Anton for headings/branding -->
-    <link href="https://fonts.googleapis.com/css2?family=Anton:wght@400&display=swap" rel="stylesheet">
-    <!-- Roboto Flex for body/UI - optimized weights only -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,400;8..144,500;8..144,600;8..144,700&display=swap" rel="stylesheet">
+    <!-- Preload critical fonts -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Anton:wght@400&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Anton:wght@400&display=swap" rel="stylesheet"></noscript>
+    <!-- Load body font asynchronously -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,400;8..144,500;8..144,600;8..144,700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,400;8..144,500;8..144,600;8..144,700&display=swap" rel="stylesheet"></noscript>
     
     <link rel="preload" as="image" href="/room-main.jpg?v=1" fetchpriority="high">
     <link rel="preload" as="image" href="/i-dont-sell-mortgages.png" fetchpriority="high">

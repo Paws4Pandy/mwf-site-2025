@@ -5,7 +5,6 @@ import MortgageCalculator from '@/components/calculator/MortgageCalculator';
 import { AdvancedMortgageCalculator } from '@/components/calculator/AdvancedMortgageCalculator';
 import LandTransferTaxCalculator from '@/components/calculator/LandTransferTaxCalculator';
 import GDSTDSCalculator from '@/components/calculator/GDSTDSCalculator';
-import LiquidGlassWrapper from '@/components/ui/LiquidGlassWrapper';
 import LiquidGlassButton from '@/components/ui/LiquidGlassButton';
 import { Calculator as CalculatorIcon, TrendingUp, Home, FileText, DollarSign } from 'lucide-react';
 
@@ -120,12 +119,7 @@ const Calculator = () => {
           {/* Calculator Content - Improved spacing and padding */}
           <div className="mt-32 mb-32 opacity-0 animate-fade-in-delay-4 px-4 md:px-8">
             <div className="max-w-6xl mx-auto">
-              <LiquidGlassWrapper
-                mode="standard"
-                intensity={0.3}
-                scale={0.5}
-                className="p-8 md:p-12"
-              >
+              <div className="p-8 md:p-12 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl">
                 {ActiveComponent ? (
                   <ActiveComponent />
                 ) : (
@@ -134,7 +128,7 @@ const Calculator = () => {
                     description={activeTabConfig.description}
                   />
                 )}
-              </LiquidGlassWrapper>
+              </div>
             </div>
           </div>
           

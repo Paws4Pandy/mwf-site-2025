@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Renewal & Switching Lenders Checklist - Mortgage with Ford</title>
+    <link href="https://fonts.googleapis.com/css2?family=Anton:wght@400&family=Roboto+Flex:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+        }
+        
+        body { 
+            font-family: 'Roboto Flex', sans-serif; 
+            background: white;
+            color: #333;
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+        
+        .container { 
+            max-width: 800px; 
+            margin: 0 auto; 
+            padding: 0;
+            background: white;
+            min-height: 100vh;
+        }
+        
+        .header {
+            background: #f8f9fa;
+            color: #333;
+            padding: 30px 40px;
+            text-align: center;
+            border-bottom: 2px solid #ddd;
+        }
+        
+        .brand-logo {
+            font-family: 'Anton', sans-serif;
+            font-size: 1.6em;
+            margin-bottom: 8px;
+            color: #333;
+            letter-spacing: 1px;
+        }
+        
+        .brand-tagline {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 20px;
+        }
+        
+        h1 { 
+            font-family: 'Anton', sans-serif;
+            font-size: 2.5em; 
+            margin-bottom: 12px;
+            color: #333;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .subtitle {
+            font-size: 1.1em;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .intro {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #666;
+        }
+        
+        .intro h2 {
+            font-family: 'Roboto Flex', sans-serif;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 12px;
+            font-size: 1.4em;
+        }
+        
+        .intro p {
+            color: #555;
+            font-size: 1em;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .section {
+            margin: 40px 0;
+            padding: 25px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #666;
+        }
+        
+        .section h2 {
+            font-family: 'Roboto Flex', sans-serif;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 1.4em;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .section-number {
+            background: #666;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1em;
+            font-weight: 600;
+        }
+        
+        .checklist {
+            list-style: none;
+            margin: 20px 0;
+        }
+        
+        .checklist li {
+            padding: 15px;
+            margin: 10px 0;
+            background: white;
+            border-radius: 6px;
+            border: 1px solid #ddd;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+        
+        .checkbox {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #666;
+            border-radius: 3px;
+            flex-shrink: 0;
+            margin-top: 3px;
+            position: relative;
+            cursor: pointer;
+        }
+        
+        .checkbox.checked {
+            background: #666;
+            border-color: #666;
+        }
+        
+        .checkbox.checked::after {
+            content: '✓';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        
+        .checklist-text {
+            flex: 1;
+            font-size: 0.95em;
+            color: #333;
+        }
+        
+        .tip {
+            background: #f0f0f0;
+            padding: 20px;
+            border-radius: 6px;
+            margin: 25px 0;
+            border-left: 4px solid #999;
+        }
+        
+        .tip-title {
+            font-family: 'Roboto Flex', sans-serif;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 1em;
+        }
+        
+        .tip p {
+            color: #555;
+            margin: 0;
+            font-size: 0.9em;
+        }
+        
+        .footer {
+            background: #f8f9fa;
+            color: #333;
+            padding: 40px;
+            text-align: center;
+            border-top: 2px solid #ddd;
+        }
+        
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .footer h3 {
+            font-family: 'Roboto Flex', sans-serif;
+            font-weight: 600;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+            color: #333;
+        }
+        
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 25px 0;
+        }
+        
+        .contact-item {
+            background: white;
+            padding: 15px;
+            border-radius: 6px;
+            border: 1px solid #ddd;
+        }
+        
+        .contact-item strong {
+            color: #333;
+            display: block;
+            margin-bottom: 6px;
+        }
+        
+        .contact-item a {
+            color: #666;
+            text-decoration: none;
+        }
+        
+        .contact-item a:hover {
+            color: #333;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: #666;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            margin: 10px 8px;
+            font-family: 'Roboto Flex', sans-serif;
+        }
+        
+        .cta-button:hover {
+            background: #555;
+        }
+        
+        .compliance {
+            margin-top: 25px;
+            font-size: 0.85em;
+            color: #666;
+            border-top: 1px solid #ddd;
+            padding-top: 15px;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                margin: 0;
+            }
+            
+            .header, .content, .footer {
+                padding: 20px 15px;
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
+            .section {
+                padding: 20px 15px;
+            }
+            
+            .section h2 {
+                font-size: 1.2em;
+            }
+            
+            .checklist li {
+                padding: 12px;
+            }
+            
+            .contact-info {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media print {
+            body { 
+                background: white !important; 
+                color: black !important;
+            }
+            .container { 
+                max-width: none;
+            }
+            .header, .footer { 
+                background: white !important;
+                color: black !important;
+                border-color: #ccc !important;
+            }
+            .section { 
+                break-inside: avoid; 
+                page-break-inside: avoid;
+                background: white !important;
+                border-color: #ccc !important;
+            }
+            .cta-button {
+                display: none;
+            }
+            .checkbox {
+                border-color: #999 !important;
+            }
+            .checkbox.checked {
+                background: #999 !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="brand-logo">MORTGAGE WITH FORD</div>
+            <div class="brand-tagline">Andreina Ford, Mortgage Agent Level 2</div>
+            <h1>Renewal & Switching Lenders</h1>
+            <div class="subtitle">Navigate mortgage renewals and find better rates with confidence and expert support.</div>
+        </div>
+
+        <div class="content">
+            <div class="intro">
+                <h2>Maximize Your Renewal Opportunity</h2>
+                <p>Your mortgage renewal is the perfect time to review your options, negotiate better terms, or switch to a better lender. This checklist ensures you get the best possible deal.</p>
+            </div>
+
+            <div class="section">
+                <h2><span class="section-number">1</span> Renewal Prep</h2>
+                <ul class="checklist">
+                    <li>
+                        <div class="checkbox" onclick="toggleCheckbox(this)"></div>
+                        <div class="checklist-text"><strong>Review renewal statement from lender</strong><br>Check principal balance, renewal rate, payment details, and term options.</div>
+                    </li>
+                    <li>
+                        <div class="checkbox" onclick="toggleCheckbox(this)"></div>
+                        <div class="checklist-text"><strong>Check current mortgage rates</strong><br>Compare your lender's renewal offer with current market rates.</div>
+                    </li>
+                    <li>
+                        <div class="checkbox" onclick="toggleCheckbox(this)"></div>
+                        <div class="checklist-text"><strong>Decide on preferred term and rate type</strong><br>Choose between fixed/variable rates and determine ideal term length.</div>
+                    </li>
+                    <li>
+                        <div class="checkbox" onclick="toggleCheckbox(this)"></div>
+                        <div class="checklist-text"><strong>Consider changes and improvements</strong><br>Lump-sum payment, debt consolidation, combining other loans.</div>
+                    </li>
+                    <li>
+                        <div class="checkbox" onclick="toggleCheckbox(this)"></div>
+                        <div class="checklist-text"><strong>Confirm your financial goals</strong><br>Lower payment, pay off faster, access equity, or maintain status quo.</div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2><span class="section-number">2</span> Documentation Needed</h2>
+                <ul class="checklist">
+                    <li>
+                        <div class="checkbox" onclick="toggleCheckbox(this)"></div>
+                        <div class="checklist-text"><strong>Government-issued photo ID</strong><br>Driver's license or passport for all borrowers.</div>
+                    </li>
+                    <li>
+                        <div class="checkbox" onclick="toggleCheckbox(this)"></div>
+                        <div class="checklist-text"><strong>Copy of mortgage renewal letter</strong><br>Official renewal offer from your current lender.</div>
+                    </li>
+                    <li>
+                        <div class="checkbox" onclick="toggleCheckbox(this)"></div>
+                        <div class="checklist-text"><strong>Recent pay stubs and employment letter</strong><br>Income documentation if switching lenders (not required for simple renewal).</div>
+                    </li>
+                    <li>
+                        <div class="checkbox" onclick="toggleCheckbox(this)"></div>
+                        <div class="checklist-text"><strong>Property tax bill</strong><br>Recent annual property tax statement.</div>
+                    </li>
+                    <li>
+                        <div class="checkbox" onclick="toggleCheckbox(this)"></div>
+                        <div class="checklist-text"><strong>Proof of property insurance</strong><br>Current home insurance policy and confirmation of coverage.</div>
+                    </li>
+                    <li>
+                        <div class="checkbox" onclick="toggleCheckbox(this)"></div>
+                        <div class="checklist-text"><strong>Payout statement from current lender</strong><br>Required if switching to determine exact payout amount.</div>
+                    </li>
+                    <li>
+                        <div class="checkbox" onclick="toggleCheckbox(this)"></div>
+                        <div class="checklist-text"><strong>Void cheque for payment setup</strong><br>Bank account information for new payment arrangements.</div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2><span class="section-number">3</span> Shop for Rates</h2>
+                <ul class="checklist">
+                    <li>
+                        <div class="checkbox" onclick="toggleCheckbox(this)"></div>
+                        <div class="checklist-text"><strong>Get quotes from multiple lenders</strong><br>Compare rates from at least 3-5 lenders or brokers for best options.</div>
+                    </li>
+                    <li>
+                        <div class="checkbox" onclick="toggleCheckbox(this)"></div>
+                        <div class="checklist-text"><strong>Compare total costs, not just rates</strong><br>Consider legal fees, appraisal costs, and other switching expenses.</div>
+                    </li>
+                    <li>
+                        <div class="checkbox" onclick="toggleCheckbox(this)"></div>
+                        <div class="checklist-text"><strong>Check for prepayment options</strong><br>Ensure new mortgage allows extra payments or lump-sum contributions.</div>
+                    </li>
+                    <li>
+                        <div class="checkbox" onclick="toggleCheckbox(this)"></div>
+                        <div class="checklist-text"><strong>Review mortgage features</strong><br>Payment frequency options, portability, assumability, and other features.</div>
+                    </li>
+                    <li>
+                        <div class="checkbox" onclick="toggleCheckbox(this)"></div>
+                        <div class="checklist-text"><strong>Negotiate with current lender</strong><br>Use other offers to negotiate better terms with your existing lender.</div>
+                    </li>
+                </ul>
+                <div class="tip">
+                    <div class="tip-title">Rate Shopping Strategy</div>
+                    <p>Don't focus only on the rate. Consider the total cost of switching, mortgage features, and lender service quality. Sometimes staying with your current lender at a slightly higher rate makes more financial sense.</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2><span class="section-number">4</span> Calculate Switching Costs</h2>
+                <ul class="checklist">
+                    <li>
+                        <div class="checkbox" onclick="toggleCheckbox(this)"></div>
+                        <div class="checklist-text"><strong>Legal fees for new mortgage</strong><br>Typically $800-$1,500 for legal representation and document preparation.</div>
+                    </li>
+                    <li>
+                        <div class="checkbox" onclick="toggleCheckbox(this)"></div>
+                        <div class="checklist-text"><strong>Appraisal costs</strong><br>Usually $300-$500 if new lender requires property valuation.</div>
+                    </li>
+                    <li>
+                        <div class="checkbox" onclick="toggleCheckbox(this)"></div>
+                        <div class="checklist-text"><strong>Discharge fees from current lender</strong><br>Administrative fees to close your existing mortgage (typically $250-$350).</div>
+                    </li>
+                    <li>
+                        <div class="checkbox" onclick="toggleCheckbox(this)"></div>
+                        <div class="checklist-text"><strong>Title insurance</strong><br>Protection for lender and borrower (usually $200-$400).</div>
+                    </li>
+                    <li>
+                        <div class="checkbox" onclick="toggleCheckbox(this)"></div>
+                        <div class="checklist-text"><strong>Calculate break-even point</strong><br>How long to recover switching costs through lower payments.</div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2><span class="section-number">5</span> Decision Making Process</h2>
+                <ul class="checklist">
+                    <li>
+                        <div class="checkbox" onclick="toggleCheckbox(this)"></div>
+                        <div class="checklist-text"><strong>Compare total 5-year cost</strong><br>Include all fees, payments, and potential rate changes over the term.</div>
+                    </li>
+                    <li>
+                        <div class="checkbox" onclick="toggleCheckbox(this)"></div>
+                        <div class="checklist-text"><strong>Consider your future plans</strong><br>Moving, renovating, or other major changes that might affect your mortgage needs.</div>
+                    </li>
+                    <li>
+                        <div class="checkbox" onclick="toggleCheckbox(this)"></div>
+                        <div class="checklist-text"><strong>Review lender reputation and service</strong><br>Consider customer service quality, online tools, and branch accessibility.</div>
+                    </li>
+                    <li>
+                        <div class="checkbox" onclick="toggleCheckbox(this)"></div>
+                        <div class="checklist-text"><strong>Check mortgage flexibility</strong><br>Payment change options, skip-a-payment programs, and other features.</div>
+                    </li>
+                    <li>
+                        <div class="checkbox" onclick="toggleCheckbox(this)"></div>
+                        <div class="checklist-text"><strong>Make your decision</strong><br>Choose to renew with current lender, switch, or negotiate better terms.</div>
+                    </li>
+                </ul>
+                <div class="tip">
+                    <div class="tip-title">Decision Timeline</div>
+                    <p>Start your renewal process 4-6 months before your current term expires. This gives you time to shop around, gather documents, and negotiate without being rushed into a decision.</p>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2><span class="section-number">6</span> Complete the Process</h2>
+                <ul class="checklist">
+                    <li>
+                        <div class="checkbox" onclick="toggleCheckbox(this)"></div>
+                        <div class="checklist-text"><strong>Submit formal application</strong><br>Complete application with chosen lender with all required documentation.</div>
+                    </li>
+                    <li>
+                        <div class="checkbox" onclick="toggleCheckbox(this)"></div>
+                        <div class="checklist-text"><strong>Arrange legal representation</strong><br>Book lawyer or notary to handle mortgage documents and closing.</div>
+                    </li>
+                    <li>
+                        <div class="checkbox" onclick="toggleCheckbox(this)"></div>
+                        <div class="checklist-text"><strong>Review and sign documents</strong><br>Carefully review mortgage commitment and all legal documents before signing.</div>
+                    </li>
+                    <li>
+                        <div class="checkbox" onclick="toggleCheckbox(this)"></div>
+                        <div class="checklist-text"><strong>Set up new payment arrangements</strong><br>Confirm payment dates, amounts, and automatic withdrawal setup.</div>
+                    </li>
+                    <li>
+                        <div class="checkbox" onclick="toggleCheckbox(this)"></div>
+                        <div class="checklist-text"><strong>Confirm mortgage details</strong><br>Verify rate, term, payment amount, and all special features are correct.</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="footer-content">
+                <h3>Expert Guidance Through Your Renewal</h3>
+                <p>Mortgage renewals can be complex, but you don't have to navigate them alone. Let me help you compare your options, negotiate the best terms, and ensure you're getting the most value from your mortgage.</p>
+                
+                <a href="https://callme.mortgagewithford.ca" class="cta-button" target="_blank">Book Your Free Consultation</a>
+                <a href="/contact" class="cta-button">Get In Touch</a>
+                
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <strong>Phone</strong>
+                        <a href="tel:6137437866">(613) 743-7866</a>
+                    </div>
+                    <div class="contact-item">
+                        <strong>Email</strong>
+                        <a href="mailto:hello@mortgagewithford.ca">hello@mortgagewithford.ca</a>
+                    </div>
+                </div>
+                
+                <div class="compliance">
+                    <p><strong>Andreina Ford, Mortgage Agent Level 2 #M24000357 | BRX MORTGAGE #13463</strong></p>
+                    <p>Serving all of Eastern Ontario with expert mortgage solutions.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const STORAGE_KEY = 'renewal_switching_checklist_state';
+
+        function saveChecklistState() {
+            const checkboxes = document.querySelectorAll('.checkbox');
+            const state = {};
+            checkboxes.forEach((checkbox, index) => {
+                state[index] = checkbox.classList.contains('checked');
+            });
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+        }
+
+        function loadChecklistState() {
+            const saved = localStorage.getItem(STORAGE_KEY);
+            if (saved) {
+                const state = JSON.parse(saved);
+                const checkboxes = document.querySelectorAll('.checkbox');
+                checkboxes.forEach((checkbox, index) => {
+                    if (state[index]) {
+                        checkbox.classList.add('checked');
+                    }
+                });
+            }
+        }
+
+        function toggleCheckbox(element) {
+            element.classList.toggle('checked');
+            saveChecklistState();
+        }
+
+        document.addEventListener('DOMContentLoaded', loadChecklistState);
+    </script>
+</body>
+</html>

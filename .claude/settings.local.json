@@ -64,7 +64,13 @@
       "Bash(start https://mortgage-with-ford-august-2025-job94k8fv.vercel.app)",
       "Bash(start http://localhost:8080/calculator)",
       "Bash(start https://docs.google.com/spreadsheets/d/1W6KSekLdCgiHByimOvLNfIevroELdXBiQr1V6Zm9ypY/edit)",
-      "Bash(start https://www.mortgagewithford.ca/contact)"
+      "Bash(start https://www.mortgagewithford.ca/contact)",
+      "Bash(start http://localhost:8080/specialty-lending)",
+      "Bash(start http://localhost:8081/guides)",
+      "Bash(copy:*)",
+      "Bash(start http://localhost:8080/guides)",
+      "Bash(start http://localhost:8080/guides/first-time-buyer-checklist.pdf)",
+      "Bash(start http://localhost:8080/guides/first-time-buyer-checklist.html)"
     ],
     "deny": [],
     "defaultMode": "acceptEdits",

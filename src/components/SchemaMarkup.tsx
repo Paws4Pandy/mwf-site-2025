@@ -21,8 +21,9 @@ export const SchemaMarkup: React.FC<SchemaMarkupProps> = ({ type = 'LocalBusines
     "email": "hello@mortgagewithford.ca",
     "address": {
       "@type": "PostalAddress",
-      "addressLocality": "Toronto",
+      "addressLocality": "Picton",
       "addressRegion": "ON",
+      "postalCode": "K0K 2T0",
       "addressCountry": "CA"
     },
     "sameAs": [
@@ -31,13 +32,6 @@ export const SchemaMarkup: React.FC<SchemaMarkupProps> = ({ type = 'LocalBusines
       "https://www.linkedin.com/in/andreinaford",
       "https://www.tiktok.com/@mortgagewithford"
     ],
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "5.0",
-      "reviewCount": "47",
-      "bestRating": "5",
-      "worstRating": "1"
-    }
   });
 
   const getLocalBusinessSchema = () => ({
@@ -50,15 +44,15 @@ export const SchemaMarkup: React.FC<SchemaMarkupProps> = ({ type = 'LocalBusines
     "priceRange": "Free Consultation",
     "address": {
       "@type": "PostalAddress",
-      "addressLocality": "Toronto",
+      "addressLocality": "Picton",
       "addressRegion": "ON",
-      "postalCode": "M5V",
+      "postalCode": "K0K 2T0",
       "addressCountry": "CA"
     },
     "geo": {
       "@type": "GeoCoordinates",
-      "latitude": 43.6532,
-      "longitude": -79.3832
+      "latitude": 44.0089,
+      "longitude": -77.1392
     },
     "openingHoursSpecification": [
       {
@@ -94,57 +88,6 @@ export const SchemaMarkup: React.FC<SchemaMarkupProps> = ({ type = 'LocalBusines
       {
         "@type": "State",
         "name": "Ontario"
-      }
-    ],
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "5.0",
-      "reviewCount": "47",
-      "bestRating": "5",
-      "worstRating": "1"
-    },
-    "review": [
-      {
-        "@type": "Review",
-        "reviewRating": {
-          "@type": "Rating",
-          "ratingValue": "5",
-          "bestRating": "5"
-        },
-        "author": {
-          "@type": "Person",
-          "name": "Sarah Mitchell"
-        },
-        "reviewBody": "Andreina is an absolute pro! Her expertise made the mortgage process smooth and stress-free.",
-        "datePublished": "2024-10-15"
-      },
-      {
-        "@type": "Review",
-        "reviewRating": {
-          "@type": "Rating",
-          "ratingValue": "5",
-          "bestRating": "5"
-        },
-        "author": {
-          "@type": "Person",
-          "name": "Michael Chen"
-        },
-        "reviewBody": "Andreina helped us navigate the complex mortgage landscape with ease. Highly recommended!",
-        "datePublished": "2024-11-02"
-      },
-      {
-        "@type": "Review",
-        "reviewRating": {
-          "@type": "Rating",
-          "ratingValue": "5",
-          "bestRating": "5"
-        },
-        "author": {
-          "@type": "Person",
-          "name": "Jennifer Lopez"
-        },
-        "reviewBody": "Professional, knowledgeable, and always available to answer questions. Best mortgage broker in Toronto!",
-        "datePublished": "2024-11-20"
       }
     ]
   });
@@ -204,81 +147,16 @@ export const SchemaMarkup: React.FC<SchemaMarkupProps> = ({ type = 'LocalBusines
       "telephone": "+1-613-743-7866",
       "address": {
         "@type": "PostalAddress",
-        "addressLocality": "Toronto",
+        "addressLocality": "Picton",
         "addressRegion": "ON",
+        "postalCode": "K0K 2T0",
         "addressCountry": "CA"
       }
     },
     "areaServed": {
       "@type": "State",
       "name": "Ontario"
-    },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "5.0",
-      "reviewCount": "47",
-      "bestRating": "5",
-      "worstRating": "1"
-    },
-    "review": [
-      {
-        "@type": "Review",
-        "itemReviewed": {
-          "@type": "Service",
-          "name": "Mortgage Brokerage Services"
-        },
-        "reviewRating": {
-          "@type": "Rating",
-          "ratingValue": "5",
-          "bestRating": "5",
-          "worstRating": "1"
-        },
-        "author": {
-          "@type": "Person",
-          "name": "Sarah Mitchell"
-        },
-        "reviewBody": "Andreina is an absolute pro! Her expertise made the mortgage process smooth and stress-free.",
-        "datePublished": "2024-10-15"
-      },
-      {
-        "@type": "Review",
-        "itemReviewed": {
-          "@type": "Service",
-          "name": "Mortgage Brokerage Services"
-        },
-        "reviewRating": {
-          "@type": "Rating",
-          "ratingValue": "5",
-          "bestRating": "5",
-          "worstRating": "1"
-        },
-        "author": {
-          "@type": "Person",
-          "name": "Michael Chen"
-        },
-        "reviewBody": "Andreina helped us navigate the complex mortgage landscape with ease. Highly recommended!",
-        "datePublished": "2024-11-02"
-      },
-      {
-        "@type": "Review",
-        "itemReviewed": {
-          "@type": "Service",
-          "name": "Mortgage Brokerage Services"
-        },
-        "reviewRating": {
-          "@type": "Rating",
-          "ratingValue": "5",
-          "bestRating": "5",
-          "worstRating": "1"
-        },
-        "author": {
-          "@type": "Person",
-          "name": "Jennifer Lopez"
-        },
-        "reviewBody": "Professional, knowledgeable, and always available to answer questions. Best mortgage broker in Toronto!",
-        "datePublished": "2024-11-20"
-      }
-    ]
+    }
   });
 
   let schema;
