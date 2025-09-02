@@ -24,25 +24,21 @@ const Index = () => {
       
       {/* Hero section - Full Width Background */}
       <section className="relative min-h-screen flex items-center overflow-hidden bg-black">
-        {/* Background Image with B&W filter - contained to hero section */}
+        {/* Mobile-Optimized Background - Deferred loading */}
         <div 
-          className="absolute inset-0 bg-cover bg-top bg-no-repeat grayscale contrast-110 brightness-90"
-          style={{ backgroundImage: "url('/room-main.jpg?v=1')" }}
-        ></div>
-        
-        {/* Dark gradient overlay */}
-        <div 
-          className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70"
-        ></div>
-        
-        {/* Noise overlay - contained to hero section */}
-        <div 
-          className="absolute inset-0 opacity-30"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`,
-            mixBlendMode: 'overlay'
+          className="absolute inset-0 bg-black"
+          style={{ 
+            backgroundImage: "url('/room-main.jpg?v=1')",
+            backgroundSize: 'cover',
+            backgroundPosition: 'top',
+            backgroundRepeat: 'no-repeat',
+            filter: 'grayscale(100%) contrast(110%) brightness(90%)',
+            willChange: 'auto'
           }}
         ></div>
+        
+        {/* Simplified overlay for mobile performance */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70"></div>
         
         {/* Left-aligned text content */}
         <div className="relative z-10 container mx-auto px-4">
@@ -61,6 +57,8 @@ const Index = () => {
                 height="80"
                 loading="eager"
                 fetchPriority="high"
+                decoding="sync"
+                style={{ contentVisibility: 'auto' }}
               />
             </div>
             
@@ -74,6 +72,8 @@ const Index = () => {
                 height="120"
                 loading="eager"
                 fetchPriority="high"
+                decoding="sync"
+                style={{ contentVisibility: 'auto' }}
               />
             </div>
           </div>
