@@ -1,159 +1,349 @@
-import React from 'react';
-import { Download, FileText, BookOpen, Calculator, Home, DollarSign } from 'lucide-react';
+import React, { useState } from 'react';
+import { FileText, CheckCircle, Home, RefreshCw, DollarSign, Users, BookOpen, AlertCircle, Eye, Mail, Send } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import PageBackground from '@/components/PageBackground';
 import AGlassCard from '@/components/ui/AGlassCard';
 import LiquidGlassButton from '@/components/ui/LiquidGlassButton';
 
 const guides = [
   {
-    title: "First-Time Home Buyer's Guide",
-    description: "Everything you need to know about buying your first home in Ontario",
-    icon: Home,
-    downloadUrl: "/guides/first-time-buyer-guide.pdf",
-    topics: ["Down payment options", "Government programs", "Step-by-step process", "Common mistakes to avoid"]
+    id: 'first-time-buyer',
+    title: 'First-Time Home Buyer Checklist',
+    description: 'Everything you need to know about buying your first home in Canada',
+    iconPath: '/guides/icons/keys-icon.png',
+    features: [
+      'Step-by-step process guide',
+      'Document checklist',
+      'First-time buyer incentives',
+      'Budget planning worksheet'
+    ],
+    fileName: 'first-time-buyer-checklist.html',
+    color: 'from-design-teal to-design-azure',
+    pages: 12,
+    readTime: '5 minutes'
   },
   {
-    title: "Mortgage Pre-Approval Checklist",
-    description: "Complete checklist of documents and information needed for pre-approval",
-    icon: FileText,
-    downloadUrl: "/guides/pre-approval-checklist.pdf",
-    topics: ["Required documents", "Income verification", "Credit requirements", "Timeline expectations"]
+    id: 'refinance',
+    title: 'Refinance Mortgage Checklist',
+    description: 'Complete guide to refinancing your mortgage for better rates or equity access',
+    iconPath: '/guides/icons/money-icon.png',
+    features: [
+      'When to refinance calculator',
+      'Cost-benefit analysis',
+      'Required documentation',
+      'Timeline and process'
+    ],
+    fileName: 'refinance-mortgage-checklist.html',
+    color: 'from-design-green to-design-sage',
+    pages: 10,
+    readTime: '4 minutes'
   },
   {
-    title: "Understanding Mortgage Rates",
-    description: "Comprehensive guide to fixed vs variable rates and how to choose",
-    icon: DollarSign,
-    downloadUrl: "/guides/mortgage-rates-guide.pdf",
-    topics: ["Fixed vs Variable", "Rate factors", "Payment calculations", "Rate negotiation tips"]
+    id: 'reverse-mortgage',
+    title: 'Reverse Mortgage Education',
+    description: 'Understanding reverse mortgages for Canadian homeowners 55+',
+    iconPath: '/guides/icons/piggy-bank-icon.png',
+    features: [
+      'Eligibility requirements',
+      'Pros and cons analysis',
+      'Payment options explained',
+      'Estate planning considerations'
+    ],
+    fileName: 'reverse-mortgage-education.html',
+    color: 'from-design-red to-design-crimson',
+    pages: 15,
+    readTime: '7 minutes'
   },
   {
-    title: "Mortgage Calculator Guide",
-    description: "How to use mortgage calculators effectively for planning",
-    icon: Calculator,
-    downloadUrl: "/guides/calculator-guide.pdf",
-    topics: ["Affordability calculations", "Payment schedules", "Amortization explained", "Stress test calculations"]
-  },
-  {
-    title: "Refinancing Your Mortgage",
-    description: "When and how to refinance for better rates or access equity",
-    icon: BookOpen,
-    downloadUrl: "/guides/refinancing-guide.pdf",
-    topics: ["When to refinance", "Cost-benefit analysis", "Process overview", "Equity access options"]
+    id: 'renewal-switching',
+    title: 'Renewal & Switching Lenders',
+    description: 'Navigate mortgage renewals and find better rates with new lenders',
+    iconPath: '/guides/icons/document-icon.png',
+    features: [
+      'Renewal timeline checklist',
+      'Rate comparison worksheet',
+      'Switching costs calculator',
+      'Negotiation strategies'
+    ],
+    fileName: 'renewal-switching-checklist.html',
+    color: 'from-design-gold to-gray-orange',
+    pages: 8,
+    readTime: '3 minutes'
   }
 ];
 
+// Global type declaration
+declare global {
+  function gtag(...args: any[]): void;
+}
+
 const Guides = () => {
-  const handleDownload = (url: string, title: string) => {
-    // For now, we'll just show an alert since the PDFs don't exist yet
-    // In production, this would trigger an actual download
-    alert(`Guide "${title}" will be available soon! Please contact us at hello@mortgagewithford.ca to request this guide.`);
+  const [emailModalOpen, setEmailModalOpen] = useState<string | null>(null);
+  const [emailForm, setEmailForm] = useState({ yourEmail: '', friendEmail: '' });
+  const [emailSending, setEmailSending] = useState(false);
+  const [emailSuccess, setEmailSuccess] = useState(false);
+
+  const handleView = (fileName: string, guideId: string) => {
+    // Open PDF in new tab
+    window.open(`/guides/${fileName}`, '_blank');
+    
+    // Track view event
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'guide_view', {
+        event_category: 'engagement',
+        event_label: guideId,
+        value: 1
+      });
+    }
+  };
+
+  const handleEmailGuide = async (guideId: string) => {
+    setEmailSending(true);
+    
+    try {
+      // Send email via API
+      const response = await fetch('/api/send-guide', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          guideId,
+          yourEmail: emailForm.yourEmail,
+          friendEmail: emailForm.friendEmail
+        })
+      });
+
+      if (response.ok) {
+        setEmailSuccess(true);
+        setTimeout(() => {
+          setEmailModalOpen(null);
+          setEmailForm({ yourEmail: '', friendEmail: '' });
+          setEmailSuccess(false);
+        }, 2000);
+      } else {
+        throw new Error('Failed to send guide');
+      }
+    } catch (error) {
+      alert('Please contact us directly to receive the guide.');
+    } finally {
+      setEmailSending(false);
+    }
   };
 
   return (
-    <PageBackground>
-      <Header transparent={true} />
+    <div className="min-h-screen relative">
+      {/* Background Image - Using 49.png to match My Strategy page */}
+      <div 
+        className="fixed inset-0 w-full h-full z-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: 'url("/49.png")' }}
+      />
       
-      <div className="relative z-10 container mx-auto px-4 py-12">
-        <div className="max-w-6xl mx-auto">
-          {/* Hero Section */}
-          <div className="text-center mb-16">
-            <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
-              Free Mortgage Guides
-            </h1>
-            <p className="text-xl text-white/80 max-w-3xl mx-auto">
-              Download our comprehensive guides to help you navigate the mortgage process with confidence.
-              These resources are designed to answer your questions and simplify complex topics.
-            </p>
-          </div>
-
-          {/* Success Message for Form Redirects */}
-          <div className="mb-12">
-            <AGlassCard className="bg-green-500/10 border-green-500/30">
-              <div className="p-6 text-center">
-                <p className="text-white text-lg">
-                  ✅ Thank you for your submission! Browse our guides below to learn more about the mortgage process.
-                </p>
+      {/* Semi-transparent overlay for better text readability */}
+      <div className="fixed inset-0 bg-black/20 z-[1]" />
+      
+      {/* Scrollable content container */}
+      <div className="relative z-10 overflow-y-auto">
+        <div className="container mx-auto px-4">
+          <Header transparent={true} />
+        
+        {/* Main content */}
+        <section className="py-10 md:py-16">
+          <div className="max-w-5xl mx-auto text-center">
+            <div className="mb-12 opacity-0 animate-fade-in-delay-1">
+              <div className="inline-flex items-center gap-2 bg-[#ED8071]/20 px-4 py-2 rounded-full mb-6">
+                <BookOpen className="w-5 h-5 text-[#ED8071]" />
+                <span className="text-[#ED8071] font-roboto-flex font-medium">Free Resources</span>
               </div>
-            </AGlassCard>
+              
+              <h1 className="font-anton text-5xl md:text-7xl lg:text-8xl text-[#ED8071] leading-[0.85] mb-4">
+                Free Mortgage
+                <br />
+                <span className="text-white">Guides</span>
+              </h1>
+            </div>
+            
+            <div className="mb-16 opacity-0 animate-fade-in-delay-2">
+              <p className="text-xl md:text-2xl font-roboto-flex text-white/90 max-w-4xl mx-auto leading-relaxed">
+                Download our no b.s guides on figuring out how all of this mortgage information can make sense! 
+                Each guide is packed with checklists, worksheets, and expert insights.
+              </p>
+            </div>
           </div>
 
-          {/* Guides Grid */}
-          <div className="grid md:grid-cols-2 gap-8 mb-16">
-            {guides.map((guide, index) => {
-              const Icon = guide.icon;
-              return (
-                <AGlassCard key={index} className="group hover:scale-[1.02] transition-transform duration-300">
-                  <div className="p-8">
-                    <div className="flex items-start gap-4 mb-6">
-                      <div className="p-3 rounded-xl bg-gradient-to-br from-brand-red/20 to-muted-red/20 group-hover:from-brand-red/30 group-hover:to-muted-red/30 transition-colors">
-                        <Icon className="w-8 h-8 text-white" />
-                      </div>
-                      <div className="flex-1">
-                        <h3 className="text-2xl font-bold text-white mb-2">{guide.title}</h3>
-                        <p className="text-white/70">{guide.description}</p>
-                      </div>
-                    </div>
-                    
-                    <div className="mb-6">
-                      <h4 className="text-sm font-semibold text-white/90 mb-3">What's Included:</h4>
-                      <ul className="space-y-2">
-                        {guide.topics.map((topic, idx) => (
-                          <li key={idx} className="flex items-center gap-2 text-white/70">
-                            <span className="w-1.5 h-1.5 bg-brand-red rounded-full" />
-                            <span className="text-sm">{topic}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                    
-                    <LiquidGlassButton
-                      onClick={() => handleDownload(guide.downloadUrl, guide.title)}
-                      className="w-full justify-center"
-                    >
-                      <Download className="w-4 h-4 mr-2" />
-                      Download Guide
-                    </LiquidGlassButton>
+            {/* Success Message for Form Redirects */}
+            {window.location.search.includes('success=true') && (
+              <div className="mb-12">
+                <AGlassCard className="bg-green-500/10 border-green-500/30">
+                  <div className="p-6 text-center">
+                    <CheckCircle className="w-8 h-8 text-green-400 mx-auto mb-3" />
+                    <p className="text-design-white text-lg">
+                      Thank you for your submission! Browse our guides below to learn more about the mortgage process.
+                    </p>
                   </div>
                 </AGlassCard>
-              );
-            })}
-          </div>
-
-          {/* CTA Section */}
-          <div className="text-center">
-            <AGlassCard>
-              <div className="p-8">
-                <h2 className="text-3xl font-bold text-white mb-4">
-                  Need Personalized Advice?
-                </h2>
-                <p className="text-white/80 mb-6 max-w-2xl mx-auto">
-                  While these guides provide valuable information, every mortgage situation is unique.
-                  Let's discuss your specific needs and create a customized plan.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <LiquidGlassButton
-                    onClick={() => window.location.href = 'https://callme.mortgagewithford.ca'}
-                    variant="primary"
-                  >
-                    Book a Free Consultation
-                  </LiquidGlassButton>
-                  <LiquidGlassButton
-                    onClick={() => window.location.href = 'mailto:hello@mortgagewithford.ca'}
-                    variant="secondary"
-                  >
-                    Email Us Your Questions
-                  </LiquidGlassButton>
-                </div>
               </div>
-            </AGlassCard>
+            )}
+
+            {/* Guides Grid */}
+            <div className="grid grid-cols-2 gap-8 mb-16 opacity-0 animate-fade-in-delay-3 max-w-4xl mx-auto">
+              {guides.map((guide) => {
+                return (
+                  <AGlassCard 
+                    key={guide.id} 
+                    className="group hover:scale-[1.02] transition-transform duration-300"
+                  >
+                    <div className="p-8">
+                      {/* Centered Icon Above Text */}
+                      <div className="text-center mb-6">
+                        <div className="mb-4 flex justify-center">
+                          <img 
+                            src={guide.iconPath} 
+                            alt={guide.title}
+                            className="w-20 h-20 object-contain"
+                          />
+                        </div>
+                        <h3 className="text-2xl font-serif italic text-design-white font-normal mb-2">
+                          {guide.title}
+                        </h3>
+                        <p className="text-design-azure leading-relaxed mb-2">
+                          {guide.description}
+                        </p>
+                        <div className="text-sm text-design-azure/70">
+                          {guide.readTime} read
+                        </div>
+                      </div>
+
+                      <div className="space-y-3 mb-6">
+                        {guide.features.map((feature, index) => (
+                          <div key={index} className="flex items-center gap-3">
+                            <CheckCircle className="w-5 h-5 text-design-gold flex-shrink-0" />
+                            <span className="text-design-white">{feature}</span>
+                          </div>
+                        ))}
+                      </div>
+
+                      {/* Action Buttons */}
+                      <div className="flex gap-3">
+                        <LiquidGlassButton
+                          onClick={() => handleView(guide.fileName, guide.id)}
+                          variant="primary"
+                          size="md"
+                          icon={<Eye className="w-5 h-5" />}
+                          className="flex-1 min-w-0 bg-[#ED8071] hover:bg-[#ED8071]/90 text-white border-[#ED8071]"
+                        >
+                          View
+                        </LiquidGlassButton>
+                        
+                        <LiquidGlassButton
+                          onClick={() => setEmailModalOpen(guide.id)}
+                          variant="secondary"
+                          size="md"
+                          icon={<Mail className="w-5 h-5" />}
+                          className="flex-1 min-w-0"
+                        >
+                          Email Guide
+                        </LiquidGlassButton>
+                      </div>
+
+                      {/* Email Modal */}
+                      {emailModalOpen === guide.id && (
+                        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+                          <AGlassCard className="w-full max-w-md m-4">
+                            <div className="p-6">
+                              {emailSuccess ? (
+                                <div className="text-center py-8">
+                                  <CheckCircle className="w-16 h-16 text-green-400 mx-auto mb-4" />
+                                  <h3 className="text-xl font-roboto-flex text-design-white mb-2">
+                                    Guide Sent Successfully!
+                                  </h3>
+                                  <p className="text-design-azure">
+                                    Check your email for the guide.
+                                  </p>
+                                </div>
+                              ) : (
+                                <>
+                                  <h3 className="text-xl font-serif italic text-design-white mb-4">
+                                    Email {guide.title}
+                                  </h3>
+                                  
+                                  <div className="space-y-4">
+                                    <input
+                                      type="email"
+                                      placeholder="Your email"
+                                      value={emailForm.yourEmail}
+                                      onChange={(e) => setEmailForm({...emailForm, yourEmail: e.target.value})}
+                                      className="w-full px-4 py-2 bg-white/10 border border-white/20 rounded-lg text-design-white placeholder-white/50"
+                                    />
+                                    
+                                    <input
+                                      type="email"
+                                      placeholder="Friend's email (optional)"
+                                      value={emailForm.friendEmail}
+                                      onChange={(e) => setEmailForm({...emailForm, friendEmail: e.target.value})}
+                                      className="w-full px-4 py-2 bg-white/10 border border-white/20 rounded-lg text-design-white placeholder-white/50"
+                                    />
+                                    
+                                    <div className="flex gap-3">
+                                      <LiquidGlassButton
+                                        onClick={() => handleEmailGuide(guide.id)}
+                                        disabled={!emailForm.yourEmail || emailSending}
+                                        variant="accent"
+                                        size="md"
+                                        icon={<Send className="w-4 h-4" />}
+                                        className="flex-1"
+                                      >
+                                        {emailSending ? 'Sending...' : 'Send Guide'}
+                                      </LiquidGlassButton>
+                                      
+                                      <LiquidGlassButton
+                                        onClick={() => {
+                                          setEmailModalOpen(null);
+                                          setEmailForm({ yourEmail: '', friendEmail: '' });
+                                        }}
+                                        variant="secondary"
+                                        size="md"
+                                        className="flex-1"
+                                      >
+                                        Cancel
+                                      </LiquidGlassButton>
+                                    </div>
+                                  </div>
+                                </>
+                              )}
+                            </div>
+                          </AGlassCard>
+                        </div>
+                      )}
+                    </div>
+                  </AGlassCard>
+                );
+              })}
+            </div>
+
+
+          <div className="flex justify-center gap-4 mt-12 opacity-0 animate-fade-in-delay-4">
+            <LiquidGlassButton
+              href="https://callme.mortgagewithford.ca"
+              variant="primary"
+              size="lg"
+              external={true}
+              className="bg-[#ED8071] hover:bg-[#ED8071]/90 text-white"
+            >
+              Book Your Free Consultation
+            </LiquidGlassButton>
+            <LiquidGlassButton
+              href="/contact"
+              variant="secondary"
+              size="lg"
+            >
+              Contact Us
+            </LiquidGlassButton>
           </div>
+        </section>
+        
+        <Footer />
         </div>
       </div>
-      
-      <Footer />
-    </PageBackground>
+    </div>
   );
 };
 
