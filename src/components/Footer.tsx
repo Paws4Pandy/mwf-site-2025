@@ -51,9 +51,11 @@ const Footer = () => {
                         title={`${social.name} - ${social.handle}`}
                       >
                         <img 
-                          src={`/src/components/icons/3d-icons/${iconMap[platform as keyof typeof iconMap]}`}
+                          src={`/${iconMap[platform as keyof typeof iconMap]}`}
                           alt={social.name}
                           className="w-6 h-6 object-contain"
+                          width="24"
+                          height="24"
                           loading="lazy"
                         />
                       </a>

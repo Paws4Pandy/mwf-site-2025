@@ -10,6 +10,9 @@
     },
     "api/send-guide.js": {
       "maxDuration": 10
+    },
+    "api/simple-newsletter.js": {
+      "maxDuration": 10
     }
   },
   "rewrites": [

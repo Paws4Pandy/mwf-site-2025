@@ -332,10 +332,9 @@ const Meet = () => {
             
                         
             <LiquidGlassButton
-              href="mailto:hello@mortgagewithford.ca"
+              href="/contact"
               variant="secondary"
               size="lg"
-              external={true}
               icon={<Coffee size={20} />}
             >
               Meet for Coffee

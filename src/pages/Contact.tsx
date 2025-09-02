@@ -10,6 +10,14 @@ import { CONTACT_CONFIG } from '@/assets/config/contact';
 import { getFormType, getDefaultFormData } from '@/assets/config/forms';
 import { getTypographyClasses } from '@/lib/design-system';
 
+// Google Maps TypeScript declarations
+declare global {
+  interface Window {
+    google: any;
+    initMap: () => void;
+  }
+}
+
 const Contact = () => {
   const [isFormSubmitting, setIsFormSubmitting] = useState(false);
   const [formStatus, setFormStatus] = useState<'idle' | 'success' | 'error'>('idle');
