@@ -120,10 +120,24 @@ const Guides = () => {
           setEmailSuccess(false);
         }, 2000);
       } else {
-        throw new Error('Failed to send guide');
+        // If API fails, show informative message
+        const errorData = await response.json().catch(() => ({}));
+        throw new Error(errorData.error || 'Failed to send guide');
       }
     } catch (error) {
-      alert('Please contact us directly to receive the guide.');
+      // In development mode, API routes might not work
+      if (window.location.hostname === 'localhost') {
+        alert(`Development mode: API routes only work in production.
+
+Guide request logged:
+- Guide: ${guides.find(g => g.id === guideId)?.title || 'Unknown'}
+- Email: ${emailForm.yourEmail}
+${emailForm.friendEmail ? `- Friend: ${emailForm.friendEmail}` : ''}
+
+In production, this will send the guide instantly to your email.`);
+      } else {
+        alert('Please contact us directly at andreina@mortgagewithford.ca to receive the guide.');
+      }
     } finally {
       setEmailSending(false);
     }
@@ -184,14 +198,14 @@ const Guides = () => {
             )}
 
             {/* Guides Grid */}
-            <div className="grid grid-cols-2 gap-8 mb-16 opacity-0 animate-fade-in-delay-3 max-w-4xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 mb-16 opacity-0 animate-fade-in-delay-3 max-w-4xl mx-auto">
               {guides.map((guide) => {
                 return (
                   <AGlassCard 
                     key={guide.id} 
                     className="group hover:scale-[1.02] transition-transform duration-300"
                   >
-                    <div className="p-8">
+                    <div className="p-4 sm:p-6 md:p-8">
                       {/* Centered Icon Above Text */}
                       <div className="text-center mb-6">
                         <div className="mb-4 flex justify-center">
@@ -202,13 +216,13 @@ const Guides = () => {
                             loading="lazy"
                           />
                         </div>
-                        <h3 className="text-2xl font-serif italic text-design-white font-normal mb-2">
+                        <h3 className="text-lg sm:text-xl md:text-2xl font-serif italic text-design-white font-normal mb-2">
                           {guide.title}
                         </h3>
-                        <p className="text-design-azure leading-relaxed mb-2">
+                        <p className="text-sm sm:text-base text-design-azure leading-relaxed mb-2">
                           {guide.description}
                         </p>
-                        <div className="text-sm text-design-azure/70">
+                        <div className="text-xs sm:text-sm text-design-azure/70">
                           {guide.readTime} read
                         </div>
                       </div>
@@ -217,13 +231,13 @@ const Guides = () => {
                         {guide.features.map((feature, index) => (
                           <div key={index} className="flex items-center gap-3">
                             <CheckCircle className="w-5 h-5 text-design-gold flex-shrink-0" />
-                            <span className="text-design-white">{feature}</span>
+                            <span className="text-design-white text-sm sm:text-base">{feature}</span>
                           </div>
                         ))}
                       </div>
 
                       {/* Action Buttons */}
-                      <div className="flex gap-3">
+                      <div className="flex flex-col sm:flex-row gap-3">
                         <LiquidGlassButton
                           onClick={() => handleView(guide.fileName, guide.id)}
                           variant="primary"
