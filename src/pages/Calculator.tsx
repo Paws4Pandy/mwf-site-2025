@@ -84,8 +84,8 @@ const Calculator = () => {
         {/* Main content */}
         <section className="py-10 md:py-16">
           <div className="max-w-5xl mx-auto text-center">
-            <div className="mb-20 opacity-0 animate-fade-in-delay-1">
-              <h1 className="font-anton text-5xl md:text-7xl lg:text-8xl text-[#ED8071] leading-[0.85] mb-4">
+            <div className="mb-12 sm:mb-16 md:mb-20 opacity-0 animate-fade-in-delay-1 px-2 sm:px-4">
+              <h1 className="font-anton text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-[#ED8071] leading-[0.85] mb-4">
                 Mortgage
                 <br />
                 <span className="text-white">Calculators</span>
@@ -95,8 +95,8 @@ const Calculator = () => {
           </div>
 
           {/* Tab Navigation - Using LiquidGlassButton */}
-          <div className="mb-16 opacity-0 animate-fade-in-delay-3">
-            <div className="flex flex-wrap justify-center gap-6 mb-8">
+          <div className="mb-12 sm:mb-16 opacity-0 animate-fade-in-delay-3 px-2 sm:px-4">
+            <div className="flex flex-wrap justify-center gap-3 sm:gap-4 md:gap-6 mb-6 sm:mb-8">
               {tabs.map((tab) => {
                 const IconComponent = tab.icon;
                 return (
@@ -105,10 +105,11 @@ const Calculator = () => {
                     onClick={() => setActiveTab(tab.id)}
                     variant={activeTab === tab.id ? "accent" : "primary"}
                     size="md"
-                    icon={<IconComponent className="w-5 h-5" />}
-                    className="min-w-[200px] max-w-[260px]"
+                    icon={<IconComponent className="w-4 h-4 sm:w-5 sm:h-5" />}
+                    className="min-w-[160px] sm:min-w-[180px] md:min-w-[200px] max-w-[200px] sm:max-w-[220px] md:max-w-[260px] text-sm sm:text-base"
                   >
-                    {tab.label}
+                    <span className="hidden sm:inline">{tab.label}</span>
+                    <span className="sm:hidden">{tab.label.split(' ')[0]}</span>
                   </LiquidGlassButton>
                 );
               })}
@@ -117,9 +118,9 @@ const Calculator = () => {
           </div>
 
           {/* Calculator Content - Improved spacing and padding */}
-          <div className="mt-32 mb-32 opacity-0 animate-fade-in-delay-4 px-4 md:px-8">
+          <div className="mt-16 sm:mt-24 md:mt-32 mb-16 sm:mb-24 md:mb-32 opacity-0 animate-fade-in-delay-4 px-2 sm:px-4 md:px-8">
             <div className="max-w-6xl mx-auto">
-              <div className="p-8 md:p-12 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl">
+              <div className="p-4 sm:p-6 md:p-8 lg:p-12 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl">
                 {ActiveComponent ? (
                   <ActiveComponent />
                 ) : (

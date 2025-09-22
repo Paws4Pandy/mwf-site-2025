@@ -67,28 +67,28 @@ const Meet = () => {
           {/* Right Side - Text Content */}
           <div className="text-left order-1 lg:order-2">
             <AGlassCard className="mb-6" >
-              <motion.h1 
+              <motion.h1
                 initial={{ y: 50, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
-                className="font-anton text-5xl md:text-7xl lg:text-8xl text-[#ED8071] leading-[0.85] mb-4"
+                className="font-anton text-3xl sm:text-4xl md:text-5xl lg:text-7xl xl:text-8xl text-[#ED8071] leading-[0.85] mb-4"
               >
                 CONTRARIAN by nature
               </motion.h1>
-              <motion.h2 
+              <motion.h2
                 initial={{ y: 50, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.6 }}
-                className="font-anton text-5xl md:text-7xl lg:text-8xl text-white leading-[0.85]"
+                className="font-anton text-3xl sm:text-4xl md:text-5xl lg:text-7xl xl:text-8xl text-white leading-[0.85]"
               >
                 strategist BY TRADE
               </motion.h2>
             </AGlassCard>
-            <motion.p 
+            <motion.p
               initial={{ y: 30, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.8 }}
-              className="font-serif italic text-xl md:text-2xl text-[#423E3A] mb-12 max-w-2xl"
+              className="font-serif italic text-lg sm:text-xl md:text-2xl text-[#423E3A] mb-8 sm:mb-12 max-w-2xl px-2 sm:px-0"
             >
               Turning loopholes into leverage and six-figure loans into smart plays
             </motion.p>
@@ -142,10 +142,10 @@ const Meet = () => {
             <div className="grid md:grid-cols-2 gap-12 items-right">
               {/* Story */}
               <div>
-                <h2 className="font-anton text-4xl md:text-5xl text-white mb-6">
+                <h2 className="font-anton text-3xl sm:text-4xl md:text-5xl text-white mb-6">
                   the MOMENT everything changed
                 </h2>
-                <div className="space-y-4 font-roboto-flex text-white/90 text-lg">
+                <div className="space-y-4 font-roboto-flex text-white/90 text-base sm:text-lg">
                   <p>
                     I'd love to tell you there was one cinematic, life-altering moment that changed everything, but truth is, it was a lifetime. Just five pivotal experiences, each one as unimaginable as the last, stacking like chapters in a plot twist I never see coming.
                   </p>
@@ -185,7 +185,7 @@ const Meet = () => {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="font-anton text-5xl md:text-6xl text-white text-center mb-16"
+            className="font-anton text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white text-center mb-12 sm:mb-16 px-2 sm:px-0"
           >
             how I'm DIFFERENT
           </motion.h2>
@@ -277,7 +277,7 @@ const Meet = () => {
             />
 
             <div>
-               <div className="space-y-3 font-roboto-flex text-[#423E3A] font-bold text-xl">
+               <div className="space-y-3 font-roboto-flex text-[#423E3A] font-bold text-lg sm:text-xl">
                 <ul className="space-y-3 list-none">
                   <li className="flex items-center gap-3">
                     <span className="w-3 h-3 rounded-full bg-[#ED8071]"></span>
@@ -314,12 +314,12 @@ const Meet = () => {
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="font-anton text-5xl md:text-6xl text-white mb-8"
+            className="font-anton text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white mb-6 sm:mb-8 px-2 sm:px-0"
           >
             Ready to guard YOUR future?
           </motion.h2>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center px-2 sm:px-0">
             <LiquidGlassButton
               href="https://callme.mortgagewithford.ca"
               variant="primary"

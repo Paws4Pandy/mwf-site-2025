@@ -99,10 +99,10 @@ const Guides = () => {
 
   const handleEmailGuide = async (guideId: string) => {
     setEmailSending(true);
-    
+
     try {
-      // Send email via API
-      const response = await fetch('/api/send-guide', {
+      // Send guide via the updated API
+      const response = await fetch('/api/send-guide-v2', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -292,7 +292,7 @@ const Guides = () => {
                                         icon={<Send className="w-4 h-4" />}
                                         className="flex-1"
                                       >
-                                        {emailSending ? 'Sending...' : 'Send Guide'}
+                                        {emailSending ? 'Sending...' : 'Email Guide'}
                                       </LiquidGlassButton>
                                       
                                       <LiquidGlassButton

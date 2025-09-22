@@ -16,10 +16,10 @@ const Footer = () => {
           <div className="max-w-7xl mx-auto px-8 sm:px-12 lg:px-16">
             
 
-            <div className="grid md:grid-cols-5 gap-8 mb-8">
-              
+            <div className="grid md:grid-cols-5 gap-6 sm:gap-8 mb-6 sm:mb-8">
+
               {/* Brand Section - Takes 2 columns */}
-              <div className="md:col-span-2 pr-4">
+              <div className="md:col-span-2 pr-0 md:pr-4">
                 <h3 className="text-lg text-[#ffa072] font-serif italic mb-3">
                   Andreina Ford
                 </h3>
@@ -27,10 +27,10 @@ const Footer = () => {
                 <p className={getTypographyClasses('caption', 'text-xs text-design-white/60 mb-4')}>
                   Mortgage Agent Level 2<br/>
                   License #M24000357<br/>
-                  BRX Mortgage #13463
+                  Tango ON #13691
                 </p>
                 
-                {/* Social Media Icons - Below BRX Mortgage */}
+                {/* Social Media Icons - Below Tango ON */}
                 <div className="flex gap-3 mb-4">
                   {socialOrder.map((platform) => {
                     const social = socialLinks[platform];
@@ -171,25 +171,25 @@ const Footer = () => {
             {/* Trust Badges & Regulatory */}
             <div className="border-t border-design-white/20 pt-24">
               <div className="flex flex-col items-center space-y-6">
-                <div className="flex items-center justify-center space-x-12 flex-wrap">
-                  {/* BRX Mortgage */}
+                <div className="flex items-center justify-center space-x-6 sm:space-x-8 md:space-x-12 flex-wrap gap-y-6">
+                  {/* Tango Financial */}
                   <a 
-                    href="https://www.brxmortgage.com" 
+                    href="https://tangofinancial.ca/" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="flex flex-col items-center text-center hover:opacity-80 transition-opacity"
                   >
                     <img 
-                      src="/BRX_brand_white.png" 
-                      alt="BRX Mortgage" 
+                      src="/Tango_Ontario_White.png" 
+                      alt="Tango Ontario" 
                       className="h-8 mb-2"
                       width="120"
                       height="32"
                       loading="lazy"
                     />
                     <div className={getTypographyClasses('caption', 'text-design-white/60')}>
-                      BRX Mortgage<br/>
-                      #13463
+                      Tango ON<br/>
+                      #13691
                     </div>
                   </a>
                   

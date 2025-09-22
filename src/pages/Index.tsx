@@ -40,25 +40,25 @@ const Index = () => {
           
           <div className="flex flex-col items-start justify-start h-screen max-w-2xl pt-8 md:pt-16 lg:pt-20">
             
-            {/* "I don't sell mortgages" image - slightly larger */}
+            {/* "I don't sell mortgages" image - responsive sizing */}
             <div className="mb-4">
-              <img 
-                src="/i-dont-sell-mortgages.png" 
-                alt="I don't sell mortgages" 
-                className="w-full max-w-xl h-auto"
+              <img
+                src="/i-dont-sell-mortgages.png"
+                alt="I don't sell mortgages"
+                className="w-full max-w-xs sm:max-w-md md:max-w-lg lg:max-w-xl h-auto"
                 width="576"
                 height="80"
                 loading="eager"
                 fetchpriority="high"
               />
             </div>
-            
-            {/* "I Guard" subheading - closer, 2x bigger, indented */}
-            <div className="mb-16 ml-8">
-              <img 
-                src="/i-guard.png" 
-                alt="I Guard" 
-                className="w-full max-w-2xl h-auto"
+
+            {/* "I Guard" subheading - responsive with mobile-optimized indentation */}
+            <div className="mb-16 ml-2 sm:ml-4 md:ml-8">
+              <img
+                src="/i-guard.png"
+                alt="I Guard"
+                className="w-full max-w-sm sm:max-w-lg md:max-w-xl lg:max-w-2xl h-auto"
                 width="768"
                 height="120"
                 loading="eager"

@@ -23,13 +23,13 @@ const Header: React.FC<HeaderProps> = ({ showDivider = true, transparent = false
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between">
             
-            {/* Left Side - BRX Logo and Agent Info */}
+            {/* Left Side - Tango Logo and Agent Info */}
             <div className="flex items-center space-x-4">
-              {/* BRX Logo */}
+              {/* Tango Logo */}
               <Link to="/">
                 <img 
-                  src="/BRX_brand_white.png" 
-                  alt="BRX Mortgage Logo" 
+                  src="/Tango_Ontario_White.png" 
+                  alt="Tango Ontario Logo" 
                   className="h-6 sm:h-8 md:h-10"
                   width="120"
                   height="40"
@@ -58,16 +58,16 @@ const Header: React.FC<HeaderProps> = ({ showDivider = true, transparent = false
       
       {/* Compact Dropdown Navigation Menu */}
       {isMobileMenuOpen && (
-        <div className="absolute top-16 right-4 z-40 w-64">
+        <div className="absolute top-16 right-2 sm:right-4 z-40 w-72 sm:w-64 max-w-[calc(100vw-1rem)]">
           <AGlassCard className="p-4">
             <nav>
               <div className="flex flex-col space-y-2">
                 {headerNavigation.map((item) => {
                   const isPlaybooks = item.name === 'FREE PLAYBOOKS';
-                  const linkClassName = `font-roboto-flex text-sm transition-colors duration-300 block py-2 px-3 rounded-lg hover:bg-white/10 ${
+                  const linkClassName = `font-roboto-flex text-sm transition-colors duration-300 block py-3 px-3 rounded-lg hover:bg-white/10 ${
                     isPlaybooks ? 'text-[#61d6c5]/60' : 'text-[#61d6c5] hover:text-white'
                   }`;
-                  
+
                   return (
                     <Link
                       key={item.href}
