@@ -198,7 +198,7 @@ In production, this will send the guide instantly to your email.`);
             )}
 
             {/* Guides Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 mb-16 opacity-0 animate-fade-in-delay-3 max-w-4xl mx-auto">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 md:gap-8 mb-16 opacity-0 animate-fade-in-delay-3 max-w-6xl mx-auto px-4 sm:px-0">
               {guides.map((guide) => {
                 return (
                   <AGlassCard 
@@ -209,10 +209,10 @@ In production, this will send the guide instantly to your email.`);
                       {/* Centered Icon Above Text */}
                       <div className="text-center mb-6">
                         <div className="mb-4 flex justify-center">
-                          <img 
-                            src={guide.iconPath} 
+                          <img
+                            src={guide.iconPath}
                             alt={guide.title}
-                            className="w-20 h-20 object-contain"
+                            className="w-16 h-16 sm:w-20 sm:h-20 object-contain"
                             loading="lazy"
                           />
                         </div>
@@ -227,11 +227,11 @@ In production, this will send the guide instantly to your email.`);
                         </div>
                       </div>
 
-                      <div className="space-y-3 mb-6">
+                      <div className="space-y-2 sm:space-y-3 mb-4 sm:mb-6">
                         {guide.features.map((feature, index) => (
-                          <div key={index} className="flex items-center gap-3">
-                            <CheckCircle className="w-5 h-5 text-design-gold flex-shrink-0" />
-                            <span className="text-design-white text-sm sm:text-base">{feature}</span>
+                          <div key={index} className="flex items-start gap-2 sm:gap-3">
+                            <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-design-gold flex-shrink-0 mt-0.5" />
+                            <span className="text-design-white text-xs sm:text-sm md:text-base leading-tight">{feature}</span>
                           </div>
                         ))}
                       </div>
@@ -241,19 +241,19 @@ In production, this will send the guide instantly to your email.`);
                         <LiquidGlassButton
                           onClick={() => handleView(guide.fileName, guide.id)}
                           variant="primary"
-                          size="md"
-                          icon={<Eye className="w-5 h-5" />}
-                          className="flex-1 min-w-0 bg-[#ED8071] hover:bg-[#ED8071]/90 text-white border-[#ED8071]"
+                          size="sm"
+                          icon={<Eye className="w-4 h-4" />}
+                          className="flex-1 min-w-0 bg-[#ED8071] hover:bg-[#ED8071]/90 text-white border-[#ED8071] text-sm"
                         >
                           View
                         </LiquidGlassButton>
-                        
+
                         <LiquidGlassButton
                           onClick={() => setEmailModalOpen(guide.id)}
                           variant="secondary"
-                          size="md"
-                          icon={<Mail className="w-5 h-5" />}
-                          className="flex-1 min-w-0"
+                          size="sm"
+                          icon={<Mail className="w-4 h-4" />}
+                          className="flex-1 min-w-0 text-sm"
                         >
                           Email Guide
                         </LiquidGlassButton>
