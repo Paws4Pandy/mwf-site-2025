@@ -15,7 +15,7 @@ const Privacy = () => {
           <div className="bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 p-8">
             <h1 className={`${getH1Classes('text-white mb-8')}`}>Privacy Policy</h1>
             <p className={`${getBodyClasses('text-white/80 mb-4')}`}>
-              <strong>For:</strong> Andreina Ford – Mortgage Agent Level 2, BRX Mortgage #13463
+              <strong>For:</strong> Andreina Ford – Mortgage Agent Level 2, Tango ON #13691
             </p>
             
             <div className="space-y-6">

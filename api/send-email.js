@@ -144,7 +144,7 @@ const createUserConfirmation = (formData) => {
           <p style="margin: 0; color: #666; font-size: 14px;">
             <strong>Andreina Ford</strong><br>
             Mortgage Agent Level 2<br>
-            BRX Mortgage #13463<br>
+            Tango ON #13691<br>
             📧 andreina@mortgagewithford.ca<br>
             🌐 <a href="https://www.mortgagewithford.ca" style="color: #667eea;">www.mortgagewithford.ca</a>
           </p>

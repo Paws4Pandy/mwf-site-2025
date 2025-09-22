@@ -23,7 +23,7 @@ export const CONTACT_CONFIG = {
     name: 'Andreina Ford',
     title: 'Mortgage Agent Level 2',
     license: 'M24000357',
-    brokerage: 'BRX Mortgage',
-    brokerageNumber: '#13463'
+    brokerage: 'Tango ON',
+    brokerageNumber: '#13691'
   }
 } as const;

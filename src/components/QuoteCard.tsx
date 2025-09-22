@@ -16,7 +16,7 @@ const QuoteCard: React.FC = () => {
             </div>
             <div className="md:w-1/2 flex flex-col items-center text-center mt-4 md:mt-0">
               <p className="font-semibold text-2xl text-hunter-green">Andreina Ford</p>
-              <p className="text-base text-hunter-green/70 mb-4">Mortgage Agent Level 2<br />Powered by BRX Mortgage #13463</p>
+              <p className="text-base text-hunter-green/70 mb-4">Mortgage Agent Level 2<br />Powered by Tango ON #13691</p>
               <p className="text-hunter-green/80 italic">Navigating the mortgage process doesn't have to be complicated, Check out our resources & tools to help you make it make sense.</p>
             </div>
           </div>

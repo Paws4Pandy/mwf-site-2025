@@ -53,7 +53,7 @@ export default function Disclaimer() {
               <p className="text-blue-800">
                 <strong>Andreina Ford</strong><br/>
                 Licensed Mortgage Agent Level 2<br/>
-                BRX Mortgage #13463<br/>
+                Tango ON #13691<br/>
                 Licensed in Ontario, Canada
               </p>
             </div>

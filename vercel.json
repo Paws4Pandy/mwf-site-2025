@@ -8,10 +8,10 @@
     "api/send-email.js": {
       "maxDuration": 10
     },
-    "api/send-guide.js": {
+    "api/send-guide-v2.js": {
       "maxDuration": 10
     },
-    "api/simple-newsletter.js": {
+    "api/simple-newsletter-v2.js": {
       "maxDuration": 10
     }
   },

@@ -394,7 +394,7 @@ const PlaybookDetail = () => {
         {/* Playbook Footer - Agent Information */}
         <div className="bg-design-charcoal rounded-xl p-6 mt-16 text-center">
           <p className="font-roboto-flex text-design-cream text-sm">
-            Andreina Ford • Mortgage Agent Level 2 • BRX Mortgage
+            Andreina Ford • Mortgage Agent Level 2 • Tango ON #13691
           </p>
         </div>
         

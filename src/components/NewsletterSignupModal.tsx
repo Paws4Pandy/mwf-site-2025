@@ -32,7 +32,7 @@ const NewsletterSignupModal: React.FC<NewsletterSignupModalProps> = ({ isOpen, o
         });
       }
 
-      const response = await fetch('/api/simple-newsletter', {
+      const response = await fetch('/api/simple-newsletter-v2', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

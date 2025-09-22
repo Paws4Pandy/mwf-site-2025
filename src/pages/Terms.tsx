@@ -15,7 +15,7 @@ const Terms = () => {
           <div className="bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 p-8">
             <h1 className={`${getH1Classes('text-white mb-8')}`}>Terms of Service</h1>
             <p className={`${getBodyClasses('text-white/80 mb-4')}`}>
-              <strong>For:</strong> Andreina Ford – Mortgage Agent Level 2, BRX Mortgage #13463
+              <strong>For:</strong> Andreina Ford – Mortgage Agent Level 2, Tango ON #13691
             </p>
             
             <div className="space-y-6">
@@ -36,14 +36,14 @@ const Terms = () => {
               <section>
                 <h2 className="text-xl font-semibold text-white mb-3">Intellectual Property</h2>
                 <p className={`${getBodyClasses('text-white/90')}`}>
-                  All content on this website, including text, graphics, logos, and images, is the property of Andreina Ford and BRX Mortgage and is protected by copyright laws.
+                  All content on this website, including text, graphics, logos, and images, is the property of Andreina Ford and Tango ON and is protected by copyright laws.
                 </p>
               </section>
 
               <section>
                 <h2 className="text-xl font-semibold text-white mb-3">Limitation of Liability</h2>
                 <p className={`${getBodyClasses('text-white/90')}`}>
-                  Andreina Ford and BRX Mortgage shall not be liable for any direct, indirect, incidental, special, or consequential damages resulting from the use or inability to use this website.
+                  Andreina Ford and Tango ON shall not be liable for any direct, indirect, incidental, special, or consequential damages resulting from the use or inability to use this website.
                 </p>
               </section>
 
