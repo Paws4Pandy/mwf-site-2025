@@ -37,110 +37,6 @@ interface Lender {
 
 const lenders: Lender[] = [
   {
-    name: "First National",
-    productTypes: ["Conventional", "Insured", "Rental", "Alt-doc"],
-    areasServed: ["Ontario", "National"],
-    specialties: ["Self-employed", "Insured", "Rental"],
-    popularProducts: ["Fixed Rate", "Variable Rate"],
-    category: ["self-employed", "insured", "investment"]
-  },
-  {
-    name: "MCAP",
-    productTypes: ["Residential", "Commercial", "Construction", "Insured"],
-    areasServed: ["Ontario"],
-    specialties: ["Multi-family", "Insured"],
-    popularProducts: ["Insured", "Refinance"],
-    category: ["insured", "construction", "investment"]
-  },
-  {
-    name: "Home Trust",
-    productTypes: ["Alt-A", "Private", "Equity", "Bad Credit"],
-    areasServed: ["Ontario"],
-    specialties: ["Newcomer", "Proposal", "Bankruptcy"],
-    popularProducts: ["Equity", "Alt-A"],
-    category: ["bad-credit", "newcomer", "private"]
-  },
-  {
-    name: "Equitable Bank",
-    productTypes: ["Prime", "Reverse", "Alt-A", "HELOC"],
-    areasServed: ["Ontario", "National"],
-    specialties: ["Reverse", "Self-employed"],
-    popularProducts: ["Reverse Mortgage", "HELOC"],
-    category: ["self-employed", "reverse", "heloc"]
-  },
-  {
-    name: "CMLS",
-    productTypes: ["Conventional", "Alternative", "Private Solutions"],
-    areasServed: ["Ontario", "National"],
-    specialties: ["Construction", "Commercial", "Private"],
-    popularProducts: ["Alternative", "Commercial", "Private"],
-    category: ["construction", "private", "commercial"]
-  },
-  {
-    name: "Desjardins",
-    productTypes: ["Conventional", "Insured", "Refinance", "New Canadians"],
-    areasServed: ["Ontario", "Quebec"],
-    specialties: ["Newcomer", "Family", "Insured"],
-    popularProducts: ["Insured", "Purchase"],
-    category: ["newcomer", "insured"]
-  },
-  {
-    name: "TD Bank",
-    productTypes: ["Full Suite Conventional", "Insured", "Professional"],
-    areasServed: ["Ontario", "National"],
-    specialties: ["Conventional", "Insured", "Professional"],
-    popularProducts: ["Fixed", "Variable", "HELOC"],
-    category: ["professional", "conventional"]
-  },
-  {
-    name: "BMO",
-    productTypes: ["Full Suite Conventional", "Insured", "Professional"],
-    areasServed: ["Ontario", "National"],
-    specialties: ["Conventional", "Insured", "Professional"],
-    popularProducts: ["Fixed", "Variable", "HELOC"],
-    category: ["professional", "conventional"]
-  },
-  {
-    name: "Scotiabank",
-    productTypes: ["Full Suite Conventional", "Insured", "Professional"],
-    areasServed: ["Ontario", "National"],
-    specialties: ["Conventional", "Insured", "Professional"],
-    popularProducts: ["Fixed", "Variable", "HELOC"],
-    category: ["professional", "conventional"]
-  },
-  {
-    name: "Bloom",
-    productTypes: ["Reverse", "Equity", "Specialty"],
-    areasServed: ["Ontario"],
-    specialties: ["Seniors", "Equity Release"],
-    popularProducts: ["Reverse Mortgage", "Equity"],
-    category: ["reverse", "seniors"]
-  },
-  {
-    name: "IC Savings",
-    productTypes: ["Conventional", "Private", "Community", "Commercial"],
-    areasServed: ["Ontario"],
-    specialties: ["Community", "Private", "Alternative"],
-    popularProducts: ["Private", "Community"],
-    category: ["private", "community"]
-  },
-  {
-    name: "RFA",
-    productTypes: ["Conventional", "Insured", "Rental"],
-    areasServed: ["Ontario"],
-    specialties: ["Broker-exclusive", "Insured"],
-    popularProducts: ["Purchase", "Insured"],
-    category: ["insured", "investment"]
-  },
-  {
-    name: "Radius",
-    productTypes: ["Conventional", "Insured", "Rental"],
-    areasServed: ["Ontario"],
-    specialties: ["Broker-exclusive", "Insured"],
-    popularProducts: ["Purchase", "Insured"],
-    category: ["insured", "investment"]
-  },
-  {
     name: "Alternative/Private Lenders",
     productTypes: ["Alternative", "Private", "Equity"],
     areasServed: ["Ontario"],
@@ -195,7 +91,7 @@ const faqs = [
   },
   {
     question: "Which lenders serve new Canadians or professionals?",
-    answer: "Major banks like TD, BMO, and Desjardins have newcomer programs. Professional mortgages with preferred rates are available through most major banks for doctors, lawyers, and other professionals."
+    answer: "Many major banks and financial institutions have newcomer programs. Professional mortgages with preferred rates are available through various lenders for doctors, lawyers, and other professionals."
   },
   {
     question: "What is the difference between private and conventional lending?",
@@ -464,7 +360,7 @@ export default function SpecialtyLending() {
                     <ul className="space-y-2 text-light-azure">
                       <li>• Alt-doc programs with bank statement verification</li>
                       <li>• Stated income options for established businesses</li>
-                      <li>• Flexible qualification from Home Trust, Equitable, MCAP</li>
+                      <li>• Flexible qualification from alternative lenders</li>
                       <li>• Up to 90% financing available</li>
                     </ul>
                     <Button className="mt-4 bg-brand-red hover:bg-muted-red" onClick={() => navigate('/contact')}>
@@ -487,7 +383,7 @@ export default function SpecialtyLending() {
                       <li>• Private mortgage options starting at 7.99%</li>
                       <li>• Post-bankruptcy financing (1 year after discharge)</li>
                       <li>• Consumer proposal friendly lenders</li>
-                      <li>• Quick approvals from Home Trust, IC Savings, Private Lenders</li>
+                      <li>• Quick approvals from private and alternative lenders</li>
                     </ul>
                     <Button className="mt-4 bg-brand-red hover:bg-muted-red" onClick={() => navigate('/contact')}>
                       Explore Bad Credit Options
@@ -508,7 +404,7 @@ export default function SpecialtyLending() {
                     <ul className="space-y-2 text-light-azure">
                       <li>• 5% down payment options for newcomers</li>
                       <li>• No Canadian credit history required</li>
-                      <li>• Programs from Desjardins, TD, BMO</li>
+                      <li>• Programs from major financial institutions</li>
                       <li>• International income accepted</li>
                     </ul>
                     <Button className="mt-4 bg-brand-red hover:bg-muted-red" onClick={() => navigate('/contact')}>
@@ -530,7 +426,7 @@ export default function SpecialtyLending() {
                     <ul className="space-y-2 text-light-azure">
                       <li>• Access up to 55% of your home's value</li>
                       <li>• No monthly payments required</li>
-                      <li>• Available from Bloom, Equitable Bank</li>
+                      <li>• Available from specialized reverse mortgage lenders</li>
                       <li>• Stay in your home, maintain ownership</li>
                     </ul>
                     <Button className="mt-4 bg-brand-red hover:bg-muted-red" onClick={() => navigate('/contact')}>

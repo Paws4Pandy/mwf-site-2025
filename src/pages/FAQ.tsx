@@ -69,6 +69,16 @@ const faqs: FAQItem[] = [
     category: 'Renewals & Refinancing',
     question: 'When should I start shopping for renewal rates?',
     answer: 'Start 4-6 months before your renewal date. This gives you time to compare options and potentially switch lenders if you find better terms. Most lenders allow you to lock in a rate 120 days before renewal.'
+  },
+  {
+    category: 'Rates & Bank of Canada',
+    question: 'How does the Bank of Canada interest rate affect my mortgage?',
+    answer: 'The Bank of Canada\'s policy interest rate (overnight lending rate) directly impacts variable-rate mortgages, as these rates typically move with Bank of Canada rate changes. Fixed mortgage rates are influenced by bond yields, which are affected by Bank of Canada policy and economic expectations. When the Bank of Canada adjusts rates, it affects borrowing costs across Canada, including Ontario mortgages.'
+  },
+  {
+    category: 'Rates & Bank of Canada',
+    question: 'Where can I find the latest Bank of Canada interest rate information?',
+    answer: 'You can find the latest Bank of Canada interest rate information on the Bank of Canada website (bankofcanada.ca), which publishes rate announcements, policy decisions, and economic analysis. The Bank typically announces rate changes on scheduled dates throughout the year, and these announcements are important for understanding current mortgage rate trends.'
   }
 ];
 

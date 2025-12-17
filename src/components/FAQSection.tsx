@@ -37,7 +37,7 @@ const mortgageFAQs: FAQ[] = [
   },
   {
     question: "How much mortgage can I afford?",
-    answer: "Generally, lenders use the 'stress test' rate (currently 5.25% or your rate + 2%, whichever is higher) to qualify you. Your total housing costs shouldn't exceed 32% of gross income (GDS), and total debt payments shouldn't exceed 44% (TDS). I'll calculate your exact affordability during our consultation.",
+    answer: "Generally, lenders use the 'stress test' rate (the greater of the Bank of Canada's qualifying rate or your rate + 2%) to qualify you. Your total housing costs shouldn't exceed 32% of gross income (GDS), and total debt payments shouldn't exceed 44% (TDS). I'll calculate your exact affordability during our consultation.",
     category: "Affordability"
   },
   {
@@ -52,7 +52,12 @@ const mortgageFAQs: FAQ[] = [
   },
   {
     question: "What are the current mortgage rates in Ontario?",
-    answer: "Rates change daily and vary by lender, term, and your qualification. As of today, 5-year fixed rates range from 4.79% to 5.49%, and variable rates from Prime - 0.85% to Prime + 0.5%. Contact me for today's best rates based on YOUR profile.",
+    answer: "Rates change daily and vary by lender, term, and your qualification. Mortgage rates are influenced by the Bank of Canada's policy rate, bond yields, and market conditions. Contact me for today's best rates based on YOUR profile and current market conditions.",
+    category: "Rates"
+  },
+  {
+    question: "How does the Bank of Canada interest rate affect my mortgage?",
+    answer: "The Bank of Canada's policy interest rate (overnight lending rate) directly impacts variable-rate mortgages, as these rates typically move with Bank of Canada rate changes. Fixed mortgage rates are influenced by bond yields, which are affected by Bank of Canada policy and economic expectations. When the Bank of Canada adjusts rates, it affects borrowing costs across Canada, including Ontario mortgages.",
     category: "Rates"
   },
   {

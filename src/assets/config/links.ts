@@ -11,9 +11,6 @@ export const externalLinks = {
   // Applications and processes  
   startPreApproval: "https://andreina-ford.mtg-app.com/signup?brokerName=andreina.ford&brokerId=7208e0a3-3590-47b7-a99d-4704d9c75268",
   
-  // Downloadable guides (redirect after form submission)
-  downloadableGuides: "/guides",
-  
   // Help and support
   officeHoursInfo: "/faq#office-hours"
 } as const;

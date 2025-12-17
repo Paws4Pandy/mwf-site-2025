@@ -45,12 +45,6 @@ const allLinks: Record<string, RelatedLink> = {
     description: 'Meet your mortgage expert',
     icon: <Users className="w-5 h-5" />
   },
-  playbooks: {
-    to: '/playbooks',
-    label: 'Mortgage Playbooks',
-    description: 'Step-by-step guides',
-    icon: <FileText className="w-5 h-5" />
-  },
   contact: {
     to: '/contact',
     label: 'Contact',
@@ -62,11 +56,10 @@ const allLinks: Record<string, RelatedLink> = {
 const pageRecommendations: Record<string, string[]> = {
   '/': ['calculator', 'rates', 'gettingStarted', 'meet'],
   '/calculator': ['rates', 'gettingStarted', 'resources', 'contact'],
-  '/rates': ['calculator', 'gettingStarted', 'playbooks', 'contact'],
+  '/rates': ['calculator', 'gettingStarted', 'resources', 'contact'],
   '/getting-started': ['calculator', 'rates', 'resources', 'meet'],
-  '/resources': ['calculator', 'playbooks', 'gettingStarted', 'contact'],
+  '/resources': ['calculator', 'gettingStarted', 'contact'],
   '/meet': ['gettingStarted', 'calculator', 'rates', 'contact'],
-  '/playbooks': ['calculator', 'resources', 'rates', 'contact'],
   '/contact': ['calculator', 'rates', 'meet', 'resources']
 };
 

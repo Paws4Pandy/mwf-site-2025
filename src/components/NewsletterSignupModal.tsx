@@ -77,15 +77,15 @@ const NewsletterSignupModal: React.FC<NewsletterSignupModalProps> = ({ isOpen, o
   const handlePlaybooksRedirect = () => {
     // Track playbook redirect
     if (typeof gtag !== 'undefined') {
-      gtag('event', 'playbook_redirect', {
+      gtag('event', 'newsletter_success', {
         event_category: 'engagement',
-        event_label: 'newsletter_success',
+        event_label: 'newsletter_signup',
         user_email: formData.email
       });
     }
     
     onClose();
-    window.location.href = '/playbooks';
+    // Stay on current page after successful signup
   };
 
   return (

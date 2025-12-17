@@ -14,14 +14,11 @@ const Rates = lazy(() => import("./pages/Rates"));
 const Privacy = lazy(() => import("./pages/Privacy"));
 const Terms = lazy(() => import("./pages/Terms"));
 const Disclaimer = lazy(() => import("./pages/Disclaimer"));
-const Playbooks = lazy(() => import("./pages/Playbooks"));
-const PlaybookDetail = lazy(() => import("./pages/PlaybookDetail"));
 const Meet = lazy(() => import("./pages/Meet"));
 const MyStrategy = lazy(() => import("./pages/MyStrategy"));
 const ComingSoon = lazy(() => import("./components/ComingSoon"));
 const AnalyticsDashboard = lazy(() => import("./components/AnalyticsDashboard"));
 const CallbackAdmin = lazy(() => import("./pages/CallbackAdmin"));
-const Guides = lazy(() => import("./pages/Guides"));
 const TestGlass = lazy(() => import("./pages/TestGlass"));
 const TestEmailForms = lazy(() => import("./pages/TestEmailForms"));
 const NotFound = lazy(() => import("./pages/NotFound"));
@@ -51,15 +48,12 @@ const App = () => (
               <Route path="/privacy" element={<Privacy />} />
               <Route path="/terms" element={<Terms />} />
               <Route path="/disclaimer" element={<Disclaimer />} />
-              <Route path="/playbooks" element={<ComingSoon />} />
-              <Route path="/playbooks/:playbookId" element={<ComingSoon />} />
               <Route path="/meet" element={<Meet />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/specialty-lending" element={<SpecialtyLending />} />
               <Route path="/my-strategy" element={<MyStrategy />} />
               <Route path="/analytics" element={<AnalyticsDashboard />} />
               <Route path="/callback-admin" element={<CallbackAdmin />} />
-              <Route path="/guides" element={<Guides />} />
               <Route path="/test-glass" element={<TestGlass />} />
               <Route path="/test-email-forms" element={<TestEmailForms />} />
               <Route path="*" element={<NotFound />} />

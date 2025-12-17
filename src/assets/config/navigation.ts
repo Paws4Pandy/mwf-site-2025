@@ -36,18 +36,6 @@ export const mainNavigation: NavItem[] = [
     description: 'Free mortgage calculators - affordability, payment, amortization tools to help plan your home purchase and financing strategy'
   },
   {
-    name: 'FREE PLAYBOOKS',
-    href: '/playbooks',
-    icon: 'book-open',
-    description: 'Free mortgage guides and playbooks - first-time buyer tips, refinancing strategies, and expert advice for Ontario homebuyers'
-  },
-  {
-    name: 'GUIDES',
-    href: '/guides',
-    icon: 'download',
-    description: 'Free downloadable mortgage guides - comprehensive checklists and resources for first-time buyers, refinancing, and mortgage renewals'
-  },
-  {
     name: 'CONTACT',
     href: '/contact',
     icon: 'mail',
@@ -64,8 +52,7 @@ export const headerNavigation: NavItem[] = [
 export const footerNavigation = {
   tools: [
     { name: 'Affordability Calculator', href: '/calculator' },
-    { name: 'Current Rates', href: '/rates' },
-    { name: 'Free Guides', href: '/guides' }
+    { name: 'Current Rates', href: '/rates' }
   ],
   services: [
     { name: 'Meet Andreina', href: '/meet' },
@@ -98,10 +85,5 @@ export const heroActions: NavItem[] = [
     href: 'https://andreina-ford.mtg-app.com/signup?brokerName=andreina.ford&brokerId=7208e0a3-3590-47b7-a99d-4704d9c75268', 
     icon: 'dollar',
     external: true
-  },
-  { 
-    name: 'Playbooks', 
-    href: '/playbooks', 
-    icon: 'document'
   }
 ];

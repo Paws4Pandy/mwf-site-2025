@@ -241,7 +241,7 @@ export const formConfigs = {
   submission: {
     endpoint: "hello@mortgagewithford.ca",
     method: "POST" as const,
-    redirectAfterSubmission: "/guides"
+    redirectAfterSubmission: "/contact"
   },
   forms: FORM_TYPES
 } as const;
