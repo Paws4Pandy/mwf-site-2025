@@ -14,8 +14,8 @@ export const SchemaMarkup: React.FC<SchemaMarkupProps> = ({ type = 'LocalBusines
     "name": "Mortgage with Ford",
     "legalName": "Andreina Ford Mortgage Services",
     "url": "https://mortgagewithford.ca",
-    "logo": "https://mortgagewithford.ca/mwf-logo.png",
-    "image": "https://mortgagewithford.ca/andreina-ford.jpg",
+    "logo": "https://mortgagewithford.ca/Tango_Ontario_White.png",
+    "image": "https://mortgagewithford.ca/andreina/andreina-mwf-social.jpg",
     "description": "Expert mortgage broker in Ontario helping families make sense of mortgages and secure the best rates",
     "telephone": "+1-613-743-7866",
     "email": "hello@mortgagewithford.ca",
@@ -28,9 +28,9 @@ export const SchemaMarkup: React.FC<SchemaMarkupProps> = ({ type = 'LocalBusines
     },
     "sameAs": [
       "https://www.facebook.com/mortgagewithford",
-      "https://www.instagram.com/mortgagewithford",
-      "https://www.linkedin.com/in/andreinaford",
-      "https://www.tiktok.com/@mortgagewithford"
+      "https://www.instagram.com/mortgage.with.ford/",
+      "https://www.linkedin.com/in/mortgagewithford/",
+      "https://www.youtube.com/@MortgagewithFord"
     ],
   });
 
@@ -38,7 +38,7 @@ export const SchemaMarkup: React.FC<SchemaMarkupProps> = ({ type = 'LocalBusines
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
     "name": "Andreina Ford - Mortgage Broker",
-    "image": "https://mortgagewithford.ca/andreina-ford.jpg",
+    "image": "https://mortgagewithford.ca/andreina/andreina-mwf-social.jpg",
     "url": "https://mortgagewithford.ca",
     "telephone": "+1-613-743-7866",
     "priceRange": "Free Consultation",
@@ -143,7 +143,7 @@ export const SchemaMarkup: React.FC<SchemaMarkupProps> = ({ type = 'LocalBusines
     "provider": {
       "@type": "ProfessionalService",
       "name": "Andreina Ford - Mortgage Broker",
-      "image": "https://mortgagewithford.ca/andreina-ford.jpg",
+      "image": "https://mortgagewithford.ca/andreina/andreina-mwf-social.jpg",
       "telephone": "+1-613-743-7866",
       "address": {
         "@type": "PostalAddress",

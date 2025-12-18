@@ -27,16 +27,10 @@ const allLinks: Record<string, RelatedLink> = {
     description: 'View today\'s best mortgage rates',
     icon: <TrendingUp className="w-5 h-5" />
   },
-  gettingStarted: {
-    to: '/getting-started',
-    label: 'Getting Started',
-    description: 'First steps to your mortgage',
-    icon: <Home className="w-5 h-5" />
-  },
-  resources: {
-    to: '/resources',
-    label: 'Resources',
-    description: 'Learn about mortgages',
+  faq: {
+    to: '/faq',
+    label: 'FAQ',
+    description: 'Common mortgage questions',
     icon: <BookOpen className="w-5 h-5" />
   },
   meet: {

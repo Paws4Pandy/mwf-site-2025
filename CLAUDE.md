@@ -107,7 +107,7 @@ All pages use the `PageBackground` wrapper component which provides:
 #### Header Component
 - Displays agent name and branding
 - "Book a Call" CTA button
-- BRX Mortgage logo
+- Tango Ontario logo
 - Optional divider separator
 
 #### Navigation Cards

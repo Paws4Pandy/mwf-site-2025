@@ -45,7 +45,7 @@ const NewsletterSignupModal: React.FC<NewsletterSignupModalProps> = ({ isOpen, o
 
       if (response.ok) {
         setSubmitStatus('success');
-        // Don't auto-close, let user navigate to playbooks
+        // Success - show confirmation message
       } else {
         const errorData = await response.text();
         console.error('Newsletter signup failed:', response.status, errorData);
@@ -74,8 +74,8 @@ const NewsletterSignupModal: React.FC<NewsletterSignupModalProps> = ({ isOpen, o
     });
   };
 
-  const handlePlaybooksRedirect = () => {
-    // Track playbook redirect
+  const handleSuccess = () => {
+    // Track newsletter signup
     if (typeof gtag !== 'undefined') {
       gtag('event', 'newsletter_success', {
         event_category: 'engagement',
@@ -83,9 +83,8 @@ const NewsletterSignupModal: React.FC<NewsletterSignupModalProps> = ({ isOpen, o
         user_email: formData.email
       });
     }
-    
+
     onClose();
-    // Stay on current page after successful signup
   };
 
   return (
@@ -228,32 +227,26 @@ const NewsletterSignupModal: React.FC<NewsletterSignupModalProps> = ({ isOpen, o
                   </motion.div>
                   <h2 className="font-anton text-2xl text-pure-black text-center mb-2">Welcome to the Inside!</h2>
                   <p className="text-gray-600 text-center mb-6">
-                    You're all set to receive the real mortgage news. But first, grab your free mortgage playbooks!
+                    You're all set to receive mortgage news, market updates, and exclusive giveaways. Check your inbox!
                   </p>
                   
                   <div className="bg-gradient-to-br from-[#ED8071]/10 to-[#ED8071]/5 rounded-lg p-4 mb-6">
                     <div className="flex items-center gap-3 mb-3">
                       <BookOpen className="w-6 h-6 text-[#ED8071]" />
-                      <h3 className="font-medium text-pure-black">Free Mortgage Playbooks</h3>
+                      <h3 className="font-medium text-pure-black">You're All Set!</h3>
                     </div>
                     <p className="text-sm text-gray-600 mb-4">
-                      Get instant access to insider strategies, checklists, and pro tips that will save you thousands on your next mortgage.
+                      Thank you for subscribing! Watch for mortgage tips, rate updates, and exclusive offers in your inbox.
                     </p>
                     <button
-                      onClick={handlePlaybooksRedirect}
+                      onClick={handleSuccess}
                       className="w-full bg-[#ED8071] hover:bg-[#ED8071]/90 text-white font-medium py-3 px-4 rounded-lg transition-colors flex items-center justify-center gap-2"
                     >
                       <BookOpen className="w-4 h-4" />
-                      Get My Free Playbooks Now
+                      Close
                     </button>
                   </div>
 
-                  <button
-                    onClick={onClose}
-                    className="w-full text-gray-500 hover:text-gray-700 font-medium py-2 transition-colors"
-                  >
-                    Maybe Later
-                  </button>
                 </div>
               )}
             </div>

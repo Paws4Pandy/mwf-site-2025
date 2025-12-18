@@ -13,7 +13,7 @@ interface EmailNotificationPopupProps {
 const EmailNotificationPopup: React.FC<EmailNotificationPopupProps> = ({ 
   isOpen, 
   onClose, 
-  title = "Get Notified About Playbooks"
+  title = "Stay Updated"
 }) => {
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');

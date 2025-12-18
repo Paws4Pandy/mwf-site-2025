@@ -1,4 +1,5 @@
 import React from 'react';
+import { externalLinks } from '@/assets/config/links';
 import {
   Accordion,
   AccordionContent,
@@ -167,7 +168,9 @@ export const FAQSection: React.FC<FAQSectionProps> = ({
               Still have questions? I'm here to help!
             </p>
             <a
-              href="https://calendly.com/mortgagewithford"
+              href={externalLinks.bookACall}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center justify-center px-6 py-3 bg-muted-red hover:bg-brand-red text-white font-semibold rounded-lg transition-colors"
             >
               Book a Free Consultation

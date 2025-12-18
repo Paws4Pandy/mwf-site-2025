@@ -24,6 +24,7 @@ const TestEmailForms = lazy(() => import("./pages/TestEmailForms"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 const Contact = lazy(() => import("./pages/Contact"));
 const SpecialtyLending = lazy(() => import("./pages/SpecialtyLending"));
+const FAQ = lazy(() => import("./pages/FAQ"));
 
 const queryClient = new QueryClient();
 
@@ -52,6 +53,7 @@ const App = () => (
               <Route path="/contact" element={<Contact />} />
               <Route path="/specialty-lending" element={<SpecialtyLending />} />
               <Route path="/my-strategy" element={<MyStrategy />} />
+              <Route path="/faq" element={<FAQ />} />
               <Route path="/analytics" element={<AnalyticsDashboard />} />
               <Route path="/callback-admin" element={<CallbackAdmin />} />
               <Route path="/test-glass" element={<TestGlass />} />
